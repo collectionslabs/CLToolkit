@@ -52,9 +52,6 @@
 		EA8989E9179922C000594A3E /* RACSignal+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89898B179922C000594A3E /* RACSignal+CLExtensions.h */; };
 		EA8989EA179922C000594A3E /* RACSignal+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898C179922C000594A3E /* RACSignal+CLExtensions.m */; };
 		EA8989EB179922C000594A3E /* RACSignal+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898C179922C000594A3E /* RACSignal+CLExtensions.m */; };
-		EA8989EC179922C000594A3E /* RACSignal+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89898D179922C000594A3E /* RACSignal+Extensions.h */; };
-		EA8989ED179922C000594A3E /* RACSignal+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898E179922C000594A3E /* RACSignal+Extensions.m */; };
-		EA8989EE179922C000594A3E /* RACSignal+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898E179922C000594A3E /* RACSignal+Extensions.m */; };
 		EA8989EF179922C000594A3E /* mogenerator.sh in Resources */ = {isa = PBXBuildFile; fileRef = EA898990179922C000594A3E /* mogenerator.sh */; };
 		EA8989F0179922C000594A3E /* RACManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898991179922C000594A3E /* RACManagedObject.h */; };
 		EA8989F1179922C000594A3E /* RACManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898992179922C000594A3E /* RACManagedObject.m */; };
@@ -185,8 +182,6 @@
 		EA89898A179922C000594A3E /* NSString+Validate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validate.m"; sourceTree = "<group>"; };
 		EA89898B179922C000594A3E /* RACSignal+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+CLExtensions.h"; sourceTree = "<group>"; };
 		EA89898C179922C000594A3E /* RACSignal+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+CLExtensions.m"; sourceTree = "<group>"; };
-		EA89898D179922C000594A3E /* RACSignal+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+Extensions.h"; sourceTree = "<group>"; };
-		EA89898E179922C000594A3E /* RACSignal+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+Extensions.m"; sourceTree = "<group>"; };
 		EA898990179922C000594A3E /* mogenerator.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mogenerator.sh; sourceTree = "<group>"; };
 		EA898991179922C000594A3E /* RACManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACManagedObject.h; sourceTree = "<group>"; };
 		EA898992179922C000594A3E /* RACManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACManagedObject.m; sourceTree = "<group>"; };
@@ -382,8 +377,6 @@
 				EA89898A179922C000594A3E /* NSString+Validate.m */,
 				EA89898B179922C000594A3E /* RACSignal+CLExtensions.h */,
 				EA89898C179922C000594A3E /* RACSignal+CLExtensions.m */,
-				EA89898D179922C000594A3E /* RACSignal+Extensions.h */,
-				EA89898E179922C000594A3E /* RACSignal+Extensions.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -513,7 +506,6 @@
 				EA8989E3179922C000594A3E /* NSString+Concise.h in Headers */,
 				EA8989E6179922C000594A3E /* NSString+Validate.h in Headers */,
 				EA8989E9179922C000594A3E /* RACSignal+CLExtensions.h in Headers */,
-				EA8989EC179922C000594A3E /* RACSignal+Extensions.h in Headers */,
 				EA8989F0179922C000594A3E /* RACManagedObject.h in Headers */,
 				EA8989F4179922C000594A3E /* CLFile.h in Headers */,
 				EA8989F7179922C000594A3E /* NSFileManager+CLExtensions.h in Headers */,
@@ -650,7 +642,6 @@
 				EA8989E4179922C000594A3E /* NSString+Concise.m in Sources */,
 				EA8989E7179922C000594A3E /* NSString+Validate.m in Sources */,
 				EA8989EA179922C000594A3E /* RACSignal+CLExtensions.m in Sources */,
-				EA8989ED179922C000594A3E /* RACSignal+Extensions.m in Sources */,
 				EA8989F1179922C000594A3E /* RACManagedObject.m in Sources */,
 				EA8989F5179922C000594A3E /* CLFile.m in Sources */,
 				EA8989F8179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */,
@@ -696,7 +687,6 @@
 				EA8989E5179922C000594A3E /* NSString+Concise.m in Sources */,
 				EA8989E8179922C000594A3E /* NSString+Validate.m in Sources */,
 				EA8989EB179922C000594A3E /* RACSignal+CLExtensions.m in Sources */,
-				EA8989EE179922C000594A3E /* RACSignal+Extensions.m in Sources */,
 				EA8989F2179922C000594A3E /* RACManagedObject.m in Sources */,
 				EA8989F6179922C000594A3E /* CLFile.m in Sources */,
 				EA8989F9179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */,

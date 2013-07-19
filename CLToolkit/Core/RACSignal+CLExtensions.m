@@ -46,6 +46,14 @@
 	}] setNameWithFormat:@"[%@] -distinctUntilChanged", self.name];
 }
 
+- (RACDisposable *)subscribeCompleted:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock {
+    return [self subscribeError:errorBlock completed:completedBlock];
+}
+
++ (RACSignal *)delay:(NSTimeInterval)seconds {
+    return [[[RACSignal interval:seconds] take:1] deliverOn:[RACScheduler mainThreadScheduler]];
+}
+
 @end
 
 @implementation RACSubject (CLExtensions)

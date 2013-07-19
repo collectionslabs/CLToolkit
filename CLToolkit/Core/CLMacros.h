@@ -35,7 +35,7 @@ void TransformToForegroundApplication(void);
 void TransformToAccessoryApplication(void);
 
 // Global Logging and Assertion Support
-#if 0
+#if DEBUG
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
     #define PLIST_WRITING_OPTIONS NSPropertyListMutableContainersAndLeaves
     #define MAX_LOGIMAGE_DIMENSION 64.0

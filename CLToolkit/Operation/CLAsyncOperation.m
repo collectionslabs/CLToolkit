@@ -7,7 +7,7 @@
 //  MIT License
 //
 
-#import "RACSignal+Extensions.h"
+#import "RACSignal+CLExtensions.h"
 #import "CLAsyncOperation.h"
 
 @interface CLAsyncOperation() {

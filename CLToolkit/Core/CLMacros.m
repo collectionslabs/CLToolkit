@@ -20,7 +20,7 @@ void PrintManagedObjects(NSSet *objects) {
 }
 
 void Log(NSString *format, ...) {
-#if  0
+#if DEBUG
 	va_list args;
 	va_start(args, format);
     LogMessageTo_va(NULL, nil, 0, format, args);
@@ -29,7 +29,7 @@ void Log(NSString *format, ...) {
 }
 
 void LogImage(NSImage *image) {
-#if  0
+#if DEBUG
     NSData *data = [image TIFFRepresentation];
     double ratio = MAX(image.size.width, image.size.height) / MAX_LOGIMAGE_DIMENSION;
     LogImageData(NULL, 0, (int)(image.size.width/ratio) , (int)(image.size.height/ratio), data);

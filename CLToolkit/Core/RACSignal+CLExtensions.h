@@ -11,8 +11,11 @@
 @interface RACSignal (CLExtensions)
 
 - (instancetype)mapWithError:(id(^)(id value))block;
-
 - (RACSignal *)catchLoop;
+
+- (RACDisposable *)subscribeCompleted:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock;
+
++ (RACSignal *)delay:(NSTimeInterval)seconds;
 
 @end
 
