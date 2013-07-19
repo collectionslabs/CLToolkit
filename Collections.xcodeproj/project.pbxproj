@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		EA04BFFE1799299200B22450 /* libPods-AppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE21057C5974A51BB37EBAA /* libPods-AppTests.a */; };
 		EA89894E1799227A00594A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8DB21716B8D2B600EAE385 /* Foundation.framework */; };
-		EA8989531799227A00594A3E /* libCLToolkit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EA8989521799227A00594A3E /* libCLToolkit.h */; };
-		EA8989551799227A00594A3E /* libCLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989541799227A00594A3E /* libCLToolkit.m */; };
 		EA8989601799228700594A3E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4CE4931596B5C400BAEC36 /* Cocoa.framework */; };
 		EA89896A1799228800594A3E /* CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989691799228800594A3E /* CLToolkit.m */; };
 		EA8989C3179922C000594A3E /* CLUpdateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898970179922C000594A3E /* CLUpdateHelper.m */; };
@@ -142,7 +140,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				EA8989531799227A00594A3E /* libCLToolkit.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,10 +152,7 @@
 		EA4CE4971596B5C400BAEC36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		EA4CE4981596B5C400BAEC36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EA4CE4B41596B5C500BAEC36 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		EA89894D1799227A00594A3E /* liblibCLToolkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibCLToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA8989511799227A00594A3E /* libCLToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libCLToolkit-Prefix.pch"; sourceTree = "<group>"; };
-		EA8989521799227A00594A3E /* libCLToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libCLToolkit.h; sourceTree = "<group>"; };
-		EA8989541799227A00594A3E /* libCLToolkit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libCLToolkit.m; sourceTree = "<group>"; };
+		EA89894D1799227A00594A3E /* libCLToolkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCLToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA89895F1799228700594A3E /* CLToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CLToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8989631799228800594A3E /* CLToolkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CLToolkit-Info.plist"; sourceTree = "<group>"; };
 		EA8989671799228800594A3E /* CLToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLToolkit-Prefix.pch"; sourceTree = "<group>"; };
@@ -296,11 +290,10 @@
 			isa = PBXGroup;
 			children = (
 				EA8989611799228700594A3E /* CLToolkit */,
-				EA89894F1799227A00594A3E /* libCLToolkit */,
 				77E5DACCD7634EA48F448B5F /* Frameworks */,
 				EFCE4ECCA8484F1A888A33E1 /* Pods-App.xcconfig */,
 				BF34DD5908A047338BB9876C /* Pods-AppTests.xcconfig */,
-				EA89894D1799227A00594A3E /* liblibCLToolkit.a */,
+				EA89894D1799227A00594A3E /* libCLToolkit.a */,
 				EA89895F1799228700594A3E /* CLToolkit.framework */,
 			);
 			sourceTree = "<group>";
@@ -313,24 +306,6 @@
 				EA4CE4981596B5C400BAEC36 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		EA89894F1799227A00594A3E /* libCLToolkit */ = {
-			isa = PBXGroup;
-			children = (
-				EA8989521799227A00594A3E /* libCLToolkit.h */,
-				EA8989541799227A00594A3E /* libCLToolkit.m */,
-				EA8989501799227A00594A3E /* Supporting Files */,
-			);
-			path = libCLToolkit;
-			sourceTree = "<group>";
-		};
-		EA8989501799227A00594A3E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EA8989511799227A00594A3E /* libCLToolkit-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		EA8989611799228700594A3E /* CLToolkit */ = {
@@ -583,7 +558,7 @@
 			);
 			name = libCLToolkit;
 			productName = libCLToolkit;
-			productReference = EA89894D1799227A00594A3E /* liblibCLToolkit.a */;
+			productReference = EA89894D1799227A00594A3E /* libCLToolkit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		EA89895E1799228700594A3E /* CLToolkit */ = {
@@ -661,7 +636,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA8989551799227A00594A3E /* libCLToolkit.m in Sources */,
 				EA8989C3179922C000594A3E /* CLUpdateHelper.m in Sources */,
 				EA8989C6179922C000594A3E /* CLUpdater.m in Sources */,
 				EA8989C9179922C000594A3E /* CLS3Client.m in Sources */,
@@ -785,7 +759,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = CollectionsDebug;
+				PRODUCT_NAME = CLToolkit;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
@@ -822,7 +796,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
-				PRODUCT_NAME = Collections;
+				PRODUCT_NAME = CLToolkit;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
@@ -861,7 +835,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = CollectionsDev;
+				PRODUCT_NAME = CLToolkit;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = NO;
@@ -883,7 +857,6 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -901,7 +874,6 @@
 				GCC_PREFIX_HEADER = "libCLToolkit/libCLToolkit-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
@@ -920,7 +892,6 @@
 				GCC_PREFIX_HEADER = "libCLToolkit/libCLToolkit-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
@@ -952,7 +923,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -979,7 +949,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Dev;
@@ -1006,7 +975,6 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
