@@ -7,35 +7,6 @@
 //
 
 #import "CLMacros.h"
-#import "NSString+Concise.h"
-#import <WebKit/WebKit.h>
-
-void PrintManagedObjects(NSSet *objects) {
-    for (id obj in objects) {
-        NSString *title = [obj respondsToSelector:@selector(title)] ? [obj title] : nil;
-        NSString *oid = [[[[obj objectID ] URIRepresentation] absoluteString] captureRegex:@"^.*?/p__cl_(.*)$" groupIndex:1];
-        
-        NSLog(@"\t%50s\t%15s\t%@", [oid UTF8String], [[[obj class] description] UTF8String], title);
-    }
-}
-
-void Log(NSString *format, ...) {
-#if DEBUG
-	va_list args;
-	va_start(args, format);
-    LogMessageTo_va(NULL, nil, 0, format, args);
-	va_end(args);
-#endif
-}
-
-void LogImage(NSImage *image) {
-#if DEBUG
-    NSData *data = [image TIFFRepresentation];
-    double ratio = MAX(image.size.width, image.size.height) / MAX_LOGIMAGE_DIMENSION;
-    LogImageData(NULL, 0, (int)(image.size.width/ratio) , (int)(image.size.height/ratio), data);
-#endif
-}
-
 
 NSURL *AppTempDir(void) {
     return [NSURL fileURLWithPath:NSTemporaryDirectory()];
@@ -81,6 +52,16 @@ NSInteger AppBuildNumber(void) {
     return [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"] integerValue];
 }
 
+NSError *ErrorFromException(NSException *exc) {
+    NSMutableDictionary * info = [NSMutableDictionary dictionary];
+    [info setValue:exc.name forKey:NSLocalizedDescriptionKey];
+    [info setValue:exc.reason forKey:NSLocalizedFailureReasonErrorKey];
+    [info setValue:exc.callStackReturnAddresses forKey:@"ExceptionCallStackReturnAddresses"];
+    [info setValue:exc.callStackSymbols forKey:@"ExceptionCallStackSymbols"];
+    [info setValue:exc.userInfo forKey:@"ExceptionUserInfo"];
+    return [[NSError alloc] initWithDomain:exc.name code:0 userInfo:info];
+}
+
 NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors) {
     if (!sortDescriptors.count)
         return nil;
@@ -95,35 +76,22 @@ NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors) {
     };
 }
 
-NSError *ErrorFromException(NSException *exc) {
-    NSMutableDictionary * info = [NSMutableDictionary dictionary];
-    [info setValue:exc.name forKey:NSLocalizedDescriptionKey];
-    [info setValue:exc.reason forKey:NSLocalizedFailureReasonErrorKey];
-    [info setValue:exc.callStackReturnAddresses forKey:@"ExceptionCallStackReturnAddresses"];
-    [info setValue:exc.callStackSymbols forKey:@"ExceptionCallStackSymbols"];
-    [info setValue:exc.userInfo forKey:@"ExceptionUserInfo"];
-    return [[NSError alloc] initWithDomain:exc.name code:0 userInfo:info];
+// Global Logging and assertion support
+
+
+void Log(NSString *format, ...) {
+#if DEBUG
+	va_list args;
+	va_start(args, format);
+    LogMessageTo_va(NULL, nil, 0, format, args);
+	va_end(args);
+#endif
 }
 
-WebScriptObject *ToWebScript(WebScriptObject *windowScriptObject, id json) {
-    WebScriptObject *parser = [windowScriptObject valueForKey:@"JSON"];
-    return [parser callWebScriptMethod:@"parse" withArguments:@[JSON_DUMPS(json)]];
+void LogImage(NSImage *image) {
+#if DEBUG
+    NSData *data = [image TIFFRepresentation];
+    double ratio = MAX(image.size.width, image.size.height) / MAX_LOGIMAGE_DIMENSION;
+    LogImageData(NULL, 0, (int)(image.size.width/ratio) , (int)(image.size.height/ratio), data);
+#endif
 }
-
-id FromWebScript(WebScriptObject *windowScriptObject, WebScriptObject *webScriptObject) {
-    WebScriptObject *parser = [windowScriptObject valueForKey:@"JSON"];
-    return JSON_LOADS([parser callWebScriptMethod:@"stringify" withArguments:@[webScriptObject]]);
-}
-
-
-void TransformToForegroundApplication() {
-    ProcessSerialNumber psn = { 0, kCurrentProcess };
-    TransformProcessType(&psn, kProcessTransformToForegroundApplication);
-    SetFrontProcess(&psn);
-}
-
-void TransformToAccessoryApplication() {
-    ProcessSerialNumber psn = { 0, kCurrentProcess };
-    TransformProcessType(&psn, kProcessTransformToUIElementApplication);
-}
-

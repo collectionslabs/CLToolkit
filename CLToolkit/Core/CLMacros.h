@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#ifndef Collections_CLMacros_h
-#define Collections_CLMacros_h
+#ifndef CLToolkit_CLMacros_h
+#define CLToolkit_CLMacros_h
 
 // Globally accessible functions
 
@@ -19,27 +19,20 @@ NSString *SystemVersion(void);
 NSString *AppVersion(void);
 NSInteger AppBuildNumber(void);
 
-void Log(NSString *format, ...);
-void LogImage(NSImage *image);
-void PrintManagedObjects(NSSet *objects);
-
 NSError *ErrorFromException(NSException *exception);
 
 NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors);
 
-@class WebScriptObject;
-WebScriptObject *ToWebScript(WebScriptObject *windowScriptObject, id json);
-id FromWebScript(WebScriptObject *windowScriptObject, WebScriptObject *webScriptObject);
-
-void TransformToForegroundApplication(void);
-void TransformToAccessoryApplication(void);
-
 // Global Logging and Assertion Support
+
+void Log(NSString *format, ...);
+void LogImage(NSImage *image);
+
 #if DEBUG
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
     #define PLIST_WRITING_OPTIONS NSPropertyListMutableContainersAndLeaves
     #define MAX_LOGIMAGE_DIMENSION 64.0
-
+    // TODO: make tag optional and definable via static str
     #define LogCritical(tag, ...)    LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 0, __VA_ARGS__)
     #define LogError(tag, ...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 1, __VA_ARGS__)
     #define LogWarning(tag, ...)     LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 2, __VA_ARGS__)
@@ -48,7 +41,6 @@ void TransformToAccessoryApplication(void);
     #define LogTrace(tag, ...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 5, __VA_ARGS__)
 
     #define AssertMainThread()       NSAssert([NSThread isMainThread], @"%s must be called from the main thread", __FUNCTION__)
-    #define DOIF(cond, statement)    if (cond) { statement; }
 #else
     #define JSON_WRITING_OPTIONS 0
     #define PLIST_WRITING_OPTIONS 0
@@ -65,48 +57,48 @@ void TransformToAccessoryApplication(void);
     #define LoggerSetViewerHost(...) 
 
     #define AssertMainThread()
-    #define DOIF(cond, statement)
 #endif
 
-#define APP_IDENTIFIER [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]
+// Global Constants & Singletons
+
+#define UIApp                      [UIApplication sharedApplication]
+#define CONTEXT                    [NSManagedObjectContext defaultContext]
+#define NC                         [NSNotificationCenter defaultCenter]
+#define FM                         [NSFileManager defaultManager]
+#define UD                         [NSUserDefaults standardUserDefaults]
+#define APP_IDENTIFIER             [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]
+
+#define STANDARD_SIBLING_SPACING   8
+#define STANDARD_SUPERVIEW_SPACING 20
 
 // Global Shortcuts
-#define NOT_NIL(obj)                    (obj ?: [NSNull null])
-#define NOT_NSNULL(obj)                 ([[NSNull null] isEqual:obj] ? nil : obj)
-#define LS(key)                         NSLocalizedString(key, nil)
-#define $indexset(loc, len)             [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(loc, len)]
-#define $pred(...)                      [NSPredicate predicateWithFormat:__VA_ARGS__]
-#define $url(str)                       [NSURL URLWithString:str]
-#define $fileurl(path)                  [NSURL fileURLWithString:path]
-#define $urlreq(url)                    [NSURLRequest requestWithURL:url]
-#define $sort(a,b)                      [NSSortDescriptor sortDescriptorWithKey:(a) ascending:(b)]
-#define $ssort(a,b,c)                   [NSSortDescriptor sortDescriptorWithKey:(a) ascending:(b) selector:(c)]
-#define $error(desc)                    [NSError errorWithDomain:@"App" code:-1 userInfo:@{NSLocalizedDescriptionKey: desc ?: @"Unknown Error"}]
+#define $safeNil(obj)                    (obj ?: [NSNull null])
+#define $safeNull(obj)                   ([[NSNull null] isEqual:obj] ? nil : obj)
+#define $ls(key)                         NSLocalizedString(key, nil)
+#define $indexset(loc, len)              [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(loc, len)]
+#define $pred(...)                       [NSPredicate predicateWithFormat:__VA_ARGS__]
+#define $url(str)                        [NSURL URLWithString:str]
+#define $fileurl(path)                   [NSURL fileURLWithString:path]
+#define $urlreq(url)                     [NSURLRequest requestWithURL:url]
+#define $sort(a,b)                       [NSSortDescriptor sortDescriptorWithKey:(a) ascending:(b)]
+#define $ssort(a,b,c)                    [NSSortDescriptor sortDescriptorWithKey:(a) ascending:(b) selector:(c)]
 #define $vars(...)                       NSDictionaryOfVariableBindings(__VA_ARGS__)
+#define $error(desc)                     [NSError errorWithDomain:@"App" code:-1 userInfo: \
+                                             @{NSLocalizedDescriptionKey: desc ?: @"Unknown Error"}]
 #define $constraints(format, opts, vars) [NSLayoutConstraint constraintsWithVisualFormat:format \
                                              options:opts metrics:nil views:vars]
 
-#define CONTEXT      [NSManagedObjectContext defaultContext]
-#define NC           [NSNotificationCenter defaultCenter]
-#define FM           [NSFileManager defaultManager]
-#define UD           [NSUserDefaults standardUserDefaults]
+#define $jsonDumpsData(obj)              (obj ? [NSJSONSerialization dataWithJSONObject:obj options:JSON_WRITING_OPTIONS error:NULL] : nil)
+#define $jsonLoadsData(data)             (data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL] : nil)
+#define $jsonDumps(obj)                  (obj ? [[NSString alloc] initWithData:$jsonDumpsData(obj) encoding:NSUTF8StringEncoding] : nil)
+#define $jsonLoads(str)                  (str ? $jsonLoadsData([str dataUsingEncoding:NSUTF8StringEncoding]) : nil)
 
-#define JSON_DUMPS_DATA(obj)  (obj ? [NSJSONSerialization dataWithJSONObject:obj options:JSON_WRITING_OPTIONS error:NULL] : nil)
-#define JSON_LOADS_DATA(data) (data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL] : nil)
-#define JSON_DUMPS(obj)  (obj ? [[NSString alloc] initWithData:JSON_DUMPS_DATA(obj) encoding:NSUTF8StringEncoding] : nil)
-#define JSON_LOADS(str)  (str ? JSON_LOADS_DATA([str dataUsingEncoding:NSUTF8StringEncoding]) : nil)
+#define $plistDumpsData(obj)             (obj ? [NSPropertyListSerialization dataWithPropertyList:obj format:NSPropertyListXMLFormat_v1_0 options:PLIST_WRITING_OPTIONS error:NULL] : nil)
+#define $plistLoadsData(data)            (data ? [NSPropertyListSerialization propertyListWithData:data options:0 format:NULL error:NULL] : nil)
+#define $plistDumps(obj)                 (obj ? [[NSString alloc] initWithData:$plistDumpsData(obj) encoding:NSUTF8StringEncoding] : nil)
+#define $plistLoads(str)                 (str ? $plistLoadsData([str dataUsingEncoding:NSUTF8StringEncoding]) : nil)
 
-#define PLIST_DUMPS_DATA(obj) (obj ? [NSPropertyListSerialization dataWithPropertyList:obj format:NSPropertyListXMLFormat_v1_0 options:PLIST_WRITING_OPTIONS error:NULL] : nil)
-#define PLIST_LOADS_DATA(data) (data ? [NSPropertyListSerialization propertyListWithData:data options:0 format:NULL error:NULL] : nil)
-#define PLIST_DUMPS(obj) (obj ? [[NSString alloc] initWithData:PLIST_DUMPS_DATA(obj) encoding:NSUTF8StringEncoding] : nil)
-#define PLIST_LOADS(str) (str ? PLIST_LOADS_DATA([str dataUsingEncoding:NSUTF8StringEncoding]) : nil)
-
-#define ARCHIVE(obj)    [NSKeyedArchiver archivedDataWithRootObject:obj]
-#define UNARCHIVE(data) [NSKeyedUnarchiver unarchiveObjectWithData:data]
-
-#define INDICES_IN_RANGE(loc, len) [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(loc, len)]
-
-#define STANDARD_SIBLING_SPACING 8
-#define STANDARD_SUPERVIEW_SPACING 20
+#define $archive(obj)                    [NSKeyedArchiver archivedDataWithRootObject:obj]
+#define $unarchive(data)                 [NSKeyedUnarchiver unarchiveObjectWithData:data]
 
 #endif

@@ -24,7 +24,7 @@
         case NSDateAttributeType:
             return [value ISO8601];
         case NSTransformableAttributeType:
-            return JSON_LOADS_DATA([self.valueTransformer transformedValue:value]);
+            return $jsonLoadsData([self.valueTransformer transformedValue:value]);
         case NSBinaryDataAttributeType:
             return [value base64String];
         default:
@@ -37,7 +37,7 @@
         case NSDateAttributeType:
             return [NSDate dateFromISO8601:value];
         case NSTransformableAttributeType:
-            return [self.valueTransformer reverseTransformedValue:JSON_DUMPS_DATA(value)];
+            return [self.valueTransformer reverseTransformedValue:$jsonDumpsData(value)];
         case NSBinaryDataAttributeType:
             return [NSData dataWithBase64String:value];
         default:

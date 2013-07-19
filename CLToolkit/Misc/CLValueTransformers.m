@@ -27,14 +27,14 @@
 - (id)transformedValue:(id)value {
     if ([value isKindOfClass:[NSString class]])
         return [value dataUsingEncoding:NSUTF8StringEncoding];
-    return JSON_DUMPS_DATA(value);
+    return $jsonDumpsData(value);
 }
 
 - (id)reverseTransformedValue:(id)value {
     if ([value isKindOfClass:[NSData class]])
-        return JSON_LOADS_DATA(value);
+        return $jsonLoadsData(value);
     else if ([value isKindOfClass:[NSString class]])
-        return JSON_LOADS(value);
+        return $jsonLoads(value);
     return nil;
     // BUG in Apple code?: http://stackoverflow.com/questions/9912707/nsjsonserialization-not-creating-mutable-containers
 }
@@ -129,7 +129,7 @@
 + (Class)transformedValueClass { return [NSString class]; }
 + (BOOL)allowsReverseTransformation { return NO; }
 - (id)transformedValue:(id)value {
-    if (!NOT_NSNULL(value))
+    if (!$safeNull(value))
         return nil;
     
     long b = [value longValue];
@@ -152,14 +152,14 @@
 + (Class)transformedValueClass { return [NSString class]; }
 - (BOOL)allowReverseTransformation { return NO; }
 - (id)transformedValue:(NSDictionary *)attrInfo {
-    id value = NOT_NSNULL(attrInfo[@"value"]);
+    id value = $safeNull(attrInfo[@"value"]);
     
     if ([attrInfo[@"type"] isEqualToString:@"date"]) {
         value = [[[CLDisplayDateValueTransformer alloc] init] transformedValue:value];
     } else if ([attrInfo[@"type"] isEqualToString:@"location"]) {
         // TODO Get rid of these stupid hacks
         NSString *loc = [[[CLDisplayLocationValueTransformer alloc] init] transformedValue:value];
-        if (loc && NOT_NSNULL(value[@"lat"]) && NOT_NSNULL(value[@"long"])) {
+        if (loc && $safeNull(value[@"lat"]) && $safeNull(value[@"long"])) {
             NSString *url = $str(@"https://maps.google.com/?q=%@,%@", value[@"lat"], value[@"long"]);
             value = $str(@"<a href=\"%@\">%@</a>", url, loc);
         } else {
@@ -180,8 +180,8 @@
 
 + (Class)transformedValueClass { return [NSString class]; }
 + (BOOL)allowsReverseTransformation { return YES; }
-- (id)transformedValue:(id)value { return NOT_NSNULL(value); }
-- (id)reverseTransformedValue:(id)value { return NOT_NSNULL(value); }
+- (id)transformedValue:(id)value { return $safeNull(value); }
+- (id)reverseTransformedValue:(id)value { return $safeNull(value); }
 
 @end
 
@@ -193,7 +193,7 @@ static CLDateToRelativeStringValueTransformer *transformer;
 + (Class)transformedValueClass { return [NSString class]; }
 + (BOOL)allowsReverseTransformation { return NO; }
 - (id)transformedValue:(id)value {
-    if (!NOT_NSNULL(value))
+    if (!$safeNull(value))
         return nil;
     NSDate *date = [value isKindOfClass:[NSDate class]] ? value : [formatter dateFromString:value];
     return [transformer transformedValue:date];
@@ -211,12 +211,12 @@ static CLDateToRelativeStringValueTransformer *transformer;
 + (Class)transformedValueClass { return [NSString class]; }
 + (BOOL)allowsReverseTransformation { return NO; }
 - (id)transformedValue:(id)value {
-    if (!NOT_NSNULL(value) || ![value isKindOfClass:[NSDictionary class]])
+    if (!$safeNull(value) || ![value isKindOfClass:[NSDictionary class]])
         return nil;
     if ([value isKindOfClass:[NSString class]])
         return value;
-    NSString *loc = NOT_NSNULL(value[@"name"]);
-    if (!loc && NOT_NSNULL(value[@"lat"]) && NOT_NSNULL(value[@"long"]))
+    NSString *loc = $safeNull(value[@"name"]);
+    if (!loc && $safeNull(value[@"lat"]) && $safeNull(value[@"long"]))
         loc = @"Unnamed Location";
 //        loc = $str(@"Lat: %.3f Long: %.3f", [value[@"lat"] doubleValue], [value[@"long"] doubleValue]);
     return loc;

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		EA04BFFE1799299200B22450 /* libPods-AppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE21057C5974A51BB37EBAA /* libPods-AppTests.a */; };
+		EA04C002179931B600B22450 /* Web.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C000179931B600B22450 /* Web.h */; };
+		EA04C003179931B600B22450 /* Web.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C001179931B600B22450 /* Web.m */; };
+		EA04C0061799323400B22450 /* Misc.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C0041799323400B22450 /* Misc.h */; };
+		EA04C0071799323400B22450 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C0051799323400B22450 /* Misc.m */; };
 		EA89894E1799227A00594A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8DB21716B8D2B600EAE385 /* Foundation.framework */; };
 		EA8989601799228700594A3E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4CE4931596B5C400BAEC36 /* Cocoa.framework */; };
 		EA89896A1799228800594A3E /* CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989691799228800594A3E /* CLToolkit.m */; };
@@ -144,6 +148,10 @@
 
 /* Begin PBXFileReference section */
 		BF34DD5908A047338BB9876C /* Pods-AppTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.xcconfig"; path = "Pods/Pods-AppTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		EA04C000179931B600B22450 /* Web.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Web.h; sourceTree = "<group>"; };
+		EA04C001179931B600B22450 /* Web.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Web.m; sourceTree = "<group>"; };
+		EA04C0041799323400B22450 /* Misc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Misc.h; sourceTree = "<group>"; };
+		EA04C0051799323400B22450 /* Misc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Misc.m; sourceTree = "<group>"; };
 		EA4CE4931596B5C400BAEC36 /* Cocoa.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EA4CE4961596B5C400BAEC36 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		EA4CE4971596B5C400BAEC36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -281,6 +289,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EA04BFFF1799315800B22450 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				EA04C000179931B600B22450 /* Web.h */,
+				EA04C001179931B600B22450 /* Web.m */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
 		EA4CE4841596B5C400BAEC36 = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +334,7 @@
 				EA8989B6179922C000594A3E /* Operation */,
 				EA8989BB179922C000594A3E /* Testing */,
 				EA8989BE179922C000594A3E /* UI */,
+				EA04BFFF1799315800B22450 /* Web */,
 				EA8989681799228800594A3E /* CLToolkit.h */,
 				EA8989691799228800594A3E /* CLToolkit.m */,
 				EA8989621799228800594A3E /* Supporting Files */,
@@ -432,6 +450,8 @@
 				EA8989AA179922C000594A3E /* NSImage+IconRef.m */,
 				EA8989AB179922C000594A3E /* NSImage+QuickLook.h */,
 				EA8989AC179922C000594A3E /* NSImage+QuickLook.m */,
+				EA04C0041799323400B22450 /* Misc.h */,
+				EA04C0051799323400B22450 /* Misc.m */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -530,6 +550,8 @@
 				EA898A34179923F200594A3E /* NSEntityDescription+CLExtensions.h in Headers */,
 				EA898A3A1799263D00594A3E /* CLHTTPRequestOperation.h in Headers */,
 				EA898A3F1799269800594A3E /* NSView+ClExtensions.h in Headers */,
+				EA04C002179931B600B22450 /* Web.h in Headers */,
+				EA04C0061799323400B22450 /* Misc.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +733,8 @@
 				EA898A36179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */,
 				EA898A3C1799263D00594A3E /* CLHTTPRequestOperation.m in Sources */,
 				EA898A401799269800594A3E /* NSView+ClExtensions.m in Sources */,
+				EA04C003179931B600B22450 /* Web.m in Sources */,
+				EA04C0071799323400B22450 /* Misc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

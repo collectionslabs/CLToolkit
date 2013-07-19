@@ -113,11 +113,11 @@ static NSSet const *ReservedKeys = nil;
         // CoreData -> Firebase
         [disposables addObject:[[self rac_changeSignalForKeyPath:rel.name options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew] subscribeNext:^(NSDictionary *change) {
             NSAssert(self.isFault == NO, @"Should never get here if object is faulted");
-            for (FObject *removed in NOT_NSNULL(change[NSKeyValueChangeOldKey])) {
+            for (FObject *removed in $safeNull(change[NSKeyValueChangeOldKey])) {
                 LogDebug(@"fobject", @"Ref Removing %@ %@[toMany] obj %@", self.fPath, rel.name, removed.fPath);
                 ref[rel.name][FEscapeName(removed.fPath)] = nil;
             }
-            for (FObject *inserted in NOT_NSNULL(change[NSKeyValueChangeNewKey])) {
+            for (FObject *inserted in $safeNull(change[NSKeyValueChangeNewKey])) {
                 LogDebug(@"fobject", @"Ref Adding %@ %@[toMany] obj %@", self.fPath, rel.name, inserted.fPath);
                 ref[rel.name][FEscapeName(inserted.fPath)] = @YES;
             }
@@ -160,10 +160,10 @@ static NSSet const *ReservedKeys = nil;
          (NSDictionary *change) {
              NSAssert(self.isFault == NO, @"Should never get here if object is faulted");
              // TODO: Handle persistence of object order in the relationship
-             for (FObject *removed in NOT_NSNULL(change[NSKeyValueChangeOldKey])) {
+             for (FObject *removed in $safeNull(change[NSKeyValueChangeOldKey])) {
                  ref[rel.name][FEscapeName(removed.fPath)] = nil;
              }
-             for (FObject *inserted in NOT_NSNULL(change[NSKeyValueChangeNewKey])) {
+             for (FObject *inserted in $safeNull(change[NSKeyValueChangeNewKey])) {
                  ref[rel.name][FEscapeName(inserted.fPath)] = @YES;
              }
          }]];

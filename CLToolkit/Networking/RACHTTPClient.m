@@ -25,7 +25,7 @@ static void LogHTTPRequest(int tag, NSURLRequest *request) {
     NSString *method = [request HTTPMethod];
     NSString *path = [request.URL.absoluteString replace:CORE_BASE_URL with:@""];
     path = [path sliceTill:[path rangeOfString:@"?"].location];
-    id params = [request associatedValueForKey:&kCLHTTPParams] ?: JSON_LOADS_DATA([request HTTPBody]);
+    id params = [request associatedValueForKey:&kCLHTTPParams] ?: $jsonLoadsData([request HTTPBody]);
     NSString *desc = [params description] ?: @"";
     if ([[method uppercaseString] isEqualToString:@"GET"])
         desc = [[desc replace:@"\n" with:@" "] replace:@"  " with:@""];
