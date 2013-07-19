@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
-#import "RACManagedObject.h"
+#import "Firebase.h"
 
 @class FNode;
 @interface FObject : RACManagedObject

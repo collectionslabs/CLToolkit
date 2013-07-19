@@ -27,11 +27,15 @@
 		EA04C02E17993DF600B22450 /* ReactiveCocoa+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C02017993DF500B22450 /* ReactiveCocoa+Core.h */; };
 		EA04C02F17993DF600B22450 /* ReactiveCocoa+Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C02117993DF600B22450 /* ReactiveCocoa+Core.m */; };
 		EA04C0321799402700B22450 /* CoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C0301799402700B22450 /* CoreData.h */; };
-		EA04C0331799402700B22450 /* CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C0311799402700B22450 /* CoreData.m */; };
 		EA04C038179941B300B22450 /* NSAttributeDescription+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C034179941B200B22450 /* NSAttributeDescription+CLToolkit.m */; };
 		EA04C03A179941B300B22450 /* NSEntityDescription+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C036179941B200B22450 /* NSEntityDescription+CLToolkit.h */; };
 		EA04C03B179941B300B22450 /* NSEntityDescription+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C037179941B300B22450 /* NSEntityDescription+CLToolkit.m */; };
 		EA04C03D1799420C00B22450 /* NSAttributeDescription+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C03C1799420B00B22450 /* NSAttributeDescription+CLToolkit.h */; };
+		EA04C0401799429000B22450 /* Firebase.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C03E1799429000B22450 /* Firebase.h */; };
+		EA04C04D17994AA200B22450 /* FObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C04B17994AA100B22450 /* FObject.h */; };
+		EA04C04E17994AA200B22450 /* FObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C04C17994AA200B22450 /* FObject.m */; };
+		EA04C05117994C3900B22450 /* Firebase+Reactive.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C04F17994C3800B22450 /* Firebase+Reactive.h */; };
+		EA04C05217994C3900B22450 /* Firebase+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C05017994C3800B22450 /* Firebase+Reactive.m */; };
 		EA89894E1799227A00594A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8DB21716B8D2B600EAE385 /* Foundation.framework */; };
 		EA8989601799228700594A3E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4CE4931596B5C400BAEC36 /* Cocoa.framework */; };
 		EA89896A1799228800594A3E /* CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989691799228800594A3E /* CLToolkit.m */; };
@@ -62,15 +66,9 @@
 		EA8989FA179922C000594A3E /* NSWorkspace+Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89899B179922C000594A3E /* NSWorkspace+Convenience.h */; };
 		EA8989FB179922C000594A3E /* NSWorkspace+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */; };
 		EA8989FC179922C000594A3E /* NSWorkspace+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */; };
-		EA8989FD179922C000594A3E /* Firebase+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89899E179922C000594A3E /* Firebase+CLExtensions.h */; };
-		EA8989FE179922C000594A3E /* Firebase+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899F179922C000594A3E /* Firebase+CLExtensions.m */; };
-		EA8989FF179922C000594A3E /* Firebase+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899F179922C000594A3E /* Firebase+CLExtensions.m */; };
 		EA898A00179922C000594A3E /* FNode.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A0179922C000594A3E /* FNode.h */; };
 		EA898A01179922C000594A3E /* FNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A1179922C000594A3E /* FNode.m */; };
 		EA898A02179922C000594A3E /* FNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A1179922C000594A3E /* FNode.m */; };
-		EA898A03179922C000594A3E /* FObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A2179922C000594A3E /* FObject.h */; };
-		EA898A04179922C000594A3E /* FObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A3179922C000594A3E /* FObject.m */; };
-		EA898A05179922C000594A3E /* FObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A3179922C000594A3E /* FObject.m */; };
 		EA898A06179922C000594A3E /* CLSharedFileList.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A5179922C000594A3E /* CLSharedFileList.h */; };
 		EA898A07179922C000594A3E /* CLSharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A6179922C000594A3E /* CLSharedFileList.m */; };
 		EA898A08179922C000594A3E /* CLSharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A6179922C000594A3E /* CLSharedFileList.m */; };
@@ -154,11 +152,15 @@
 		EA04C02017993DF500B22450 /* ReactiveCocoa+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReactiveCocoa+Core.h"; sourceTree = "<group>"; };
 		EA04C02117993DF600B22450 /* ReactiveCocoa+Core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ReactiveCocoa+Core.m"; sourceTree = "<group>"; };
 		EA04C0301799402700B22450 /* CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreData.h; sourceTree = "<group>"; };
-		EA04C0311799402700B22450 /* CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreData.m; sourceTree = "<group>"; };
 		EA04C034179941B200B22450 /* NSAttributeDescription+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributeDescription+CLToolkit.m"; sourceTree = "<group>"; };
 		EA04C036179941B200B22450 /* NSEntityDescription+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+CLToolkit.h"; sourceTree = "<group>"; };
 		EA04C037179941B300B22450 /* NSEntityDescription+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+CLToolkit.m"; sourceTree = "<group>"; };
 		EA04C03C1799420B00B22450 /* NSAttributeDescription+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+CLToolkit.h"; sourceTree = "<group>"; };
+		EA04C03E1799429000B22450 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		EA04C04B17994AA100B22450 /* FObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FObject.h; sourceTree = "<group>"; };
+		EA04C04C17994AA200B22450 /* FObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FObject.m; sourceTree = "<group>"; };
+		EA04C04F17994C3800B22450 /* Firebase+Reactive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firebase+Reactive.h"; sourceTree = "<group>"; };
+		EA04C05017994C3800B22450 /* Firebase+Reactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Firebase+Reactive.m"; sourceTree = "<group>"; };
 		EA4CE4931596B5C400BAEC36 /* Cocoa.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EA4CE4961596B5C400BAEC36 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		EA4CE4971596B5C400BAEC36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -188,12 +190,8 @@
 		EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CLExtensions.m"; sourceTree = "<group>"; };
 		EA89899B179922C000594A3E /* NSWorkspace+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+Convenience.h"; sourceTree = "<group>"; };
 		EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+Convenience.m"; sourceTree = "<group>"; };
-		EA89899E179922C000594A3E /* Firebase+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firebase+CLExtensions.h"; sourceTree = "<group>"; };
-		EA89899F179922C000594A3E /* Firebase+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Firebase+CLExtensions.m"; sourceTree = "<group>"; };
 		EA8989A0179922C000594A3E /* FNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNode.h; sourceTree = "<group>"; };
 		EA8989A1179922C000594A3E /* FNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNode.m; sourceTree = "<group>"; };
-		EA8989A2179922C000594A3E /* FObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FObject.h; sourceTree = "<group>"; };
-		EA8989A3179922C000594A3E /* FObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FObject.m; sourceTree = "<group>"; };
 		EA8989A5179922C000594A3E /* CLSharedFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSharedFileList.h; sourceTree = "<group>"; };
 		EA8989A6179922C000594A3E /* CLSharedFileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSharedFileList.m; sourceTree = "<group>"; };
 		EA8989A7179922C000594A3E /* CLValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLValueTransformers.h; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 			isa = PBXGroup;
 			children = (
 				EA04C0301799402700B22450 /* CoreData.h */,
-				EA04C0311799402700B22450 /* CoreData.m */,
 				EA04C03C1799420B00B22450 /* NSAttributeDescription+CLToolkit.h */,
 				EA04C034179941B200B22450 /* NSAttributeDescription+CLToolkit.m */,
 				EA04C036179941B200B22450 /* NSEntityDescription+CLToolkit.h */,
@@ -412,12 +409,13 @@
 		EA89899D179922C000594A3E /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				EA89899E179922C000594A3E /* Firebase+CLExtensions.h */,
-				EA89899F179922C000594A3E /* Firebase+CLExtensions.m */,
+				EA04C03E1799429000B22450 /* Firebase.h */,
+				EA04C04F17994C3800B22450 /* Firebase+Reactive.h */,
+				EA04C05017994C3800B22450 /* Firebase+Reactive.m */,
 				EA8989A0179922C000594A3E /* FNode.h */,
 				EA8989A1179922C000594A3E /* FNode.m */,
-				EA8989A2179922C000594A3E /* FObject.h */,
-				EA8989A3179922C000594A3E /* FObject.m */,
+				EA04C04B17994AA100B22450 /* FObject.h */,
+				EA04C04C17994AA200B22450 /* FObject.m */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -504,9 +502,7 @@
 				EA8989F4179922C000594A3E /* CLFile.h in Headers */,
 				EA8989F7179922C000594A3E /* NSFileManager+CLExtensions.h in Headers */,
 				EA8989FA179922C000594A3E /* NSWorkspace+Convenience.h in Headers */,
-				EA8989FD179922C000594A3E /* Firebase+CLExtensions.h in Headers */,
 				EA898A00179922C000594A3E /* FNode.h in Headers */,
-				EA898A03179922C000594A3E /* FObject.h in Headers */,
 				EA898A06179922C000594A3E /* CLSharedFileList.h in Headers */,
 				EA898A09179922C000594A3E /* CLValueTransformers.h in Headers */,
 				EA898A0C179922C000594A3E /* NSImage+IconRef.h in Headers */,
@@ -534,6 +530,9 @@
 				EA04C0321799402700B22450 /* CoreData.h in Headers */,
 				EA04C03A179941B300B22450 /* NSEntityDescription+CLToolkit.h in Headers */,
 				EA04C03D1799420C00B22450 /* NSAttributeDescription+CLToolkit.h in Headers */,
+				EA04C0401799429000B22450 /* Firebase.h in Headers */,
+				EA04C04D17994AA200B22450 /* FObject.h in Headers */,
+				EA04C05117994C3900B22450 /* Firebase+Reactive.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,9 +640,7 @@
 				EA8989F5179922C000594A3E /* CLFile.m in Sources */,
 				EA8989F8179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */,
 				EA8989FB179922C000594A3E /* NSWorkspace+Convenience.m in Sources */,
-				EA8989FE179922C000594A3E /* Firebase+CLExtensions.m in Sources */,
 				EA898A01179922C000594A3E /* FNode.m in Sources */,
-				EA898A04179922C000594A3E /* FObject.m in Sources */,
 				EA898A07179922C000594A3E /* CLSharedFileList.m in Sources */,
 				EA898A0A179922C000594A3E /* CLValueTransformers.m in Sources */,
 				EA898A0D179922C000594A3E /* NSImage+IconRef.m in Sources */,
@@ -675,9 +672,7 @@
 				EA8989F6179922C000594A3E /* CLFile.m in Sources */,
 				EA8989F9179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */,
 				EA8989FC179922C000594A3E /* NSWorkspace+Convenience.m in Sources */,
-				EA8989FF179922C000594A3E /* Firebase+CLExtensions.m in Sources */,
 				EA898A02179922C000594A3E /* FNode.m in Sources */,
-				EA898A05179922C000594A3E /* FObject.m in Sources */,
 				EA898A08179922C000594A3E /* CLSharedFileList.m in Sources */,
 				EA898A0B179922C000594A3E /* CLValueTransformers.m in Sources */,
 				EA898A0E179922C000594A3E /* NSImage+IconRef.m in Sources */,
@@ -702,9 +697,10 @@
 				EA04C02B17993DF600B22450 /* NSObject+Core.m in Sources */,
 				EA04C02D17993DF600B22450 /* NSString+Core.m in Sources */,
 				EA04C02F17993DF600B22450 /* ReactiveCocoa+Core.m in Sources */,
-				EA04C0331799402700B22450 /* CoreData.m in Sources */,
 				EA04C038179941B300B22450 /* NSAttributeDescription+CLToolkit.m in Sources */,
 				EA04C03B179941B300B22450 /* NSEntityDescription+CLToolkit.m in Sources */,
+				EA04C04E17994AA200B22450 /* FObject.m in Sources */,
+				EA04C05217994C3900B22450 /* Firebase+Reactive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

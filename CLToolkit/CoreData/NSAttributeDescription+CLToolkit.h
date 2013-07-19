@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#import "CoreData.h"
+
 @interface NSAttributeDescription (CLToolkit)
 
 - (NSValueTransformer *)valueTransformer;

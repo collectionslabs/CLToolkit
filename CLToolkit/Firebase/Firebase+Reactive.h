@@ -1,18 +1,18 @@
 //
-//  Firebase+CLExtensions.h
+//  Firebase+Reactive.h
 //  Collections
 //
 //  Created by Tony Xiao on 3/23/13.
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <Firebase/Firebase.h>
+#import "Firebase.h"
 
 NSString *FEventName(FEventType eventType);
 NSString *FEscapeName(NSString *name);
 NSString *FUnescapeName(NSString *escapedName);
 
-@interface FQuery (CLExtensions)
+@interface FQuery (CLToolkit)
 
 // Sends FDataSnapshot
 - (RACSignal *)onValue;
@@ -25,7 +25,7 @@ NSString *FUnescapeName(NSString *escapedName);
 
 @end
 
-@interface Firebase (CLExtensions)
+@interface Firebase (CLToolkit)
 
 @property (nonatomic, readonly) NSString *pathString;
 

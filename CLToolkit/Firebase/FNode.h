@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <Firebase/Firebase.h>
-#import "Firebase+CLExtensions.h"
+#import "Firebase.h"
 
 @interface FNode : Firebase
 

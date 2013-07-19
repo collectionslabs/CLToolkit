@@ -1,12 +1,12 @@
 //
-//  Firebase+CLExtensions.m
+//  Firebase+Reactive.m
 //  Collections
 //
 //  Created by Tony Xiao on 3/23/13.
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "Firebase+CLExtensions.h"
+#import "Firebase+Reactive.h"
 
 static NSError *Error(NSString *desc) {
     return [NSError errorWithDomain:@"com.firebase" code:1 userInfo:@{NSLocalizedDescriptionKey: desc ?: @"Unknown Error"}];
@@ -31,7 +31,7 @@ NSString *FEventName(FEventType eventType) {
             name = @"FEventTypeValue";
             break;
     }
-    return $str(@"%@[%d", name, eventType);
+    return $str(@"%@[%d]", name, eventType);
 }
 
 NSString *FEscapeName(NSString *name) {
@@ -83,9 +83,7 @@ NSString *FUnescapeName(NSString *escapedName) {
 
 @implementation Firebase (CLExtensions)
 
-// WARNING: Relies on unpublished Firebase Private API
-- (NSString *)pathString { return [[(id)self path] description]; }
-//- (NSString *)pathString { return [self.description substringFromIndex:self.root.description.length - 1]; }
+- (NSString *)pathString { return [self.description substringFromIndex:self.root.description.length - 1]; }
 
 - (instancetype)objectForKeyedSubscript:(NSString *)subscript {
     return [self childByAppendingPath:subscript];

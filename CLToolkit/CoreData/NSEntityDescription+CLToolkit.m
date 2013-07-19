@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSAttributeDescription+CLToolkit.h"
 #import "NSEntityDescription+CLToolkit.h"
 
 @implementation NSEntityDescription (CLToolkit)

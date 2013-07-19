@@ -6,17 +6,14 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#define MR_SHORTHAND
-#import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <Base64/MF_Base64Additions.h>
-#import "NSEntityDescription+CLToolkit.h"
-#import "NSAttributeDescription+CLToolkit.h"
-#import "FNode.h"
 #import "FObject.h"
 
+#ifndef FB
 #define FB [[FNode alloc] initWithUrl:@"https://dbname.firebaseio.com"]
+#endif
 
-static NSSet const *ReservedKeys = nil;
+#define RESERVED_KEYS $set(@"fPath")
 
 @implementation FObject {
     RACDisposable *_disposable;
@@ -41,7 +38,7 @@ static NSSet const *ReservedKeys = nil;
     
     // Attributes
     for (NSAttributeDescription *attr in self.entity.attributesByName.allValues) {
-        if (attr.isTransient || [ReservedKeys containsObject:attr.name])
+        if (attr.isTransient || [RESERVED_KEYS containsObject:attr.name])
             continue;
         
         // Firebase -> CoreData
@@ -196,7 +193,7 @@ static NSSet const *ReservedKeys = nil;
     NSMutableDictionary *properties = [NSMutableDictionary dictionary];
     
     for (NSAttributeDescription *attr in self.entity.attributesByName.allValues)
-        if (!attr.isTransient && ![ReservedKeys containsObject:attr.name])
+        if (!attr.isTransient && ![RESERVED_KEYS containsObject:attr.name])
             [properties setValue:[attr transformedValue:[self valueForKey:attr.name]] forKey:attr.name];
     
     for (NSRelationshipDescription *rel in self.entity.toOneRelationshipsByName.allValues)
@@ -280,10 +277,6 @@ static NSSet const *ReservedKeys = nil;
             return entity;
     }
     return nil;
-}
-
-+ (void)load {
-    ReservedKeys = $set(@"fPath");
 }
 
 @end
