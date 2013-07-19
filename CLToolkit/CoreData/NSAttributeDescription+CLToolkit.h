@@ -1,14 +1,12 @@
 //
-//  NSAttributeDescription+CLExtensions.h
+//  NSAttributeDescription+CLToolkit.h
 //  Collections
 //
 //  Created by Tony Xiao on 4/10/13.
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
-
-@interface NSAttributeDescription (CLExtensions)
+@interface NSAttributeDescription (CLToolkit)
 
 - (NSValueTransformer *)valueTransformer;
 
@@ -20,7 +18,7 @@
 
 @end
 
-@interface NSRelationshipDescription (CLExtensions)
+@interface NSRelationshipDescription (CLToolkit)
 
 @property (nonatomic, assign) BOOL isInverse;
 

@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface NSObject (Core)
 
 - (id)associatedValueForKey:(const char *)key default:(id)defaultValue;

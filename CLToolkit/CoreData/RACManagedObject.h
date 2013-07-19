@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
-
 @interface RACManagedObject : NSManagedObject
 
 - (RACSignal *)onWillAccessValue;

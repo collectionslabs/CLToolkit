@@ -1,5 +1,5 @@
 //
-//  NSAttributeDescription+CLExtensions.m
+//  NSAttributeDescription+CLToolkit.m
 //  Collections
 //
 //  Created by Tony Xiao on 4/10/13.
@@ -7,9 +7,9 @@
 //
 
 #import <Base64/MF_Base64Additions.h>
-#import "NSAttributeDescription+CLExtensions.h"
+#import "NSAttributeDescription+CLToolkit.h"
 
-@implementation NSAttributeDescription (CLExtensions)
+@implementation NSAttributeDescription (CLToolkit)
 
 - (NSValueTransformer *)valueTransformer {
     NSAssert(self.attributeType == NSTransformableAttributeType, @"Value transformer only valid for transformable attr");
@@ -46,7 +46,7 @@
 
 @end
 
-@implementation NSRelationshipDescription (CLExtensions)
+@implementation NSRelationshipDescription (CLToolkit)
 
 - (BOOL)isInverse { return [self.userInfo[@"isInverse"] boolValue]; }
 - (void)setIsInverse:(BOOL)isInverse { [self.userInfo setValue:@(isInverse) forKey:@"isInverse"]; }

@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface NSString (Core)
 
 - (BOOL)contains:(NSString *)substr;

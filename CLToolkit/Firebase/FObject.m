@@ -9,8 +9,8 @@
 #define MR_SHORTHAND
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <Base64/MF_Base64Additions.h>
-#import "NSEntityDescription+CLExtensions.h"
-#import "NSAttributeDescription+CLExtensions.h"
+#import "NSEntityDescription+CLToolkit.h"
+#import "NSAttributeDescription+CLToolkit.h"
 #import "FNode.h"
 #import "FObject.h"
 

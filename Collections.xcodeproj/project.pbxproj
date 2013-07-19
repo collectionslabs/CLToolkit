@@ -26,6 +26,12 @@
 		EA04C02D17993DF600B22450 /* NSString+Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C01F17993DF500B22450 /* NSString+Core.m */; };
 		EA04C02E17993DF600B22450 /* ReactiveCocoa+Core.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C02017993DF500B22450 /* ReactiveCocoa+Core.h */; };
 		EA04C02F17993DF600B22450 /* ReactiveCocoa+Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C02117993DF600B22450 /* ReactiveCocoa+Core.m */; };
+		EA04C0321799402700B22450 /* CoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C0301799402700B22450 /* CoreData.h */; };
+		EA04C0331799402700B22450 /* CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C0311799402700B22450 /* CoreData.m */; };
+		EA04C038179941B300B22450 /* NSAttributeDescription+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C034179941B200B22450 /* NSAttributeDescription+CLToolkit.m */; };
+		EA04C03A179941B300B22450 /* NSEntityDescription+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C036179941B200B22450 /* NSEntityDescription+CLToolkit.h */; };
+		EA04C03B179941B300B22450 /* NSEntityDescription+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA04C037179941B300B22450 /* NSEntityDescription+CLToolkit.m */; };
+		EA04C03D1799420C00B22450 /* NSAttributeDescription+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA04C03C1799420B00B22450 /* NSAttributeDescription+CLToolkit.h */; };
 		EA89894E1799227A00594A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8DB21716B8D2B600EAE385 /* Foundation.framework */; };
 		EA8989601799228700594A3E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4CE4931596B5C400BAEC36 /* Cocoa.framework */; };
 		EA89896A1799228800594A3E /* CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989691799228800594A3E /* CLToolkit.m */; };
@@ -104,12 +110,6 @@
 		EA898A2A179922C000594A3E /* NSAlert+SynchronousSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989C1179922C000594A3E /* NSAlert+SynchronousSheet.h */; };
 		EA898A2B179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */; };
 		EA898A2C179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */; };
-		EA898A31179923F200594A3E /* NSAttributeDescription+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A2D179923F200594A3E /* NSAttributeDescription+CLExtensions.h */; };
-		EA898A32179923F200594A3E /* NSAttributeDescription+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A2E179923F200594A3E /* NSAttributeDescription+CLExtensions.m */; };
-		EA898A33179923F200594A3E /* NSAttributeDescription+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A2E179923F200594A3E /* NSAttributeDescription+CLExtensions.m */; };
-		EA898A34179923F200594A3E /* NSEntityDescription+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A2F179923F200594A3E /* NSEntityDescription+CLExtensions.h */; };
-		EA898A35179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A30179923F200594A3E /* NSEntityDescription+CLExtensions.m */; };
-		EA898A36179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A30179923F200594A3E /* NSEntityDescription+CLExtensions.m */; };
 		EA898A37179924C900594A3E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4CE4B41596B5C500BAEC36 /* SenTestingKit.framework */; };
 		EA898A3A1799263D00594A3E /* CLHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A381799263D00594A3E /* CLHTTPRequestOperation.h */; };
 		EA898A3B1799263D00594A3E /* CLHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A391799263D00594A3E /* CLHTTPRequestOperation.m */; };
@@ -153,6 +153,12 @@
 		EA04C01F17993DF500B22450 /* NSString+Core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Core.m"; sourceTree = "<group>"; };
 		EA04C02017993DF500B22450 /* ReactiveCocoa+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ReactiveCocoa+Core.h"; sourceTree = "<group>"; };
 		EA04C02117993DF600B22450 /* ReactiveCocoa+Core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ReactiveCocoa+Core.m"; sourceTree = "<group>"; };
+		EA04C0301799402700B22450 /* CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreData.h; sourceTree = "<group>"; };
+		EA04C0311799402700B22450 /* CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreData.m; sourceTree = "<group>"; };
+		EA04C034179941B200B22450 /* NSAttributeDescription+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributeDescription+CLToolkit.m"; sourceTree = "<group>"; };
+		EA04C036179941B200B22450 /* NSEntityDescription+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+CLToolkit.h"; sourceTree = "<group>"; };
+		EA04C037179941B300B22450 /* NSEntityDescription+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+CLToolkit.m"; sourceTree = "<group>"; };
+		EA04C03C1799420B00B22450 /* NSAttributeDescription+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+CLToolkit.h"; sourceTree = "<group>"; };
 		EA4CE4931596B5C400BAEC36 /* Cocoa.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		EA4CE4961596B5C400BAEC36 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		EA4CE4971596B5C400BAEC36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -214,10 +220,6 @@
 		EA8989C0179922C000594A3E /* CLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLViewController.m; sourceTree = "<group>"; };
 		EA8989C1179922C000594A3E /* NSAlert+SynchronousSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+SynchronousSheet.h"; sourceTree = "<group>"; };
 		EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+SynchronousSheet.m"; sourceTree = "<group>"; };
-		EA898A2D179923F200594A3E /* NSAttributeDescription+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+CLExtensions.h"; sourceTree = "<group>"; };
-		EA898A2E179923F200594A3E /* NSAttributeDescription+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributeDescription+CLExtensions.m"; sourceTree = "<group>"; };
-		EA898A2F179923F200594A3E /* NSEntityDescription+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+CLExtensions.h"; sourceTree = "<group>"; };
-		EA898A30179923F200594A3E /* NSEntityDescription+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+CLExtensions.m"; sourceTree = "<group>"; };
 		EA898A381799263D00594A3E /* CLHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLHTTPRequestOperation.h; sourceTree = "<group>"; };
 		EA898A391799263D00594A3E /* CLHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLHTTPRequestOperation.m; sourceTree = "<group>"; };
 		EA898A3D1799269800594A3E /* NSView+ClExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+ClExtensions.h"; sourceTree = "<group>"; };
@@ -360,18 +362,18 @@
 			children = (
 				EA898979179922C000594A3E /* Core.h */,
 				EA89897A179922C000594A3E /* Core.m */,
-				EA04C01417993DF200B22450 /* NSArray+Core.h */,
-				EA04C01517993DF200B22450 /* NSArray+Core.m */,
-				EA04C01617993DF200B22450 /* NSColor+Core.h */,
-				EA04C01717993DF300B22450 /* NSColor+Core.m */,
-				EA04C01817993DF300B22450 /* NSDate+Core.h */,
-				EA04C01917993DF300B22450 /* NSDate+Core.m */,
-				EA04C01A17993DF300B22450 /* NSDictionary+Core.h */,
-				EA04C01B17993DF300B22450 /* NSDictionary+Core.m */,
 				EA04C01C17993DF400B22450 /* NSObject+Core.h */,
 				EA04C01D17993DF400B22450 /* NSObject+Core.m */,
 				EA04C01E17993DF400B22450 /* NSString+Core.h */,
 				EA04C01F17993DF500B22450 /* NSString+Core.m */,
+				EA04C01417993DF200B22450 /* NSArray+Core.h */,
+				EA04C01517993DF200B22450 /* NSArray+Core.m */,
+				EA04C01A17993DF300B22450 /* NSDictionary+Core.h */,
+				EA04C01B17993DF300B22450 /* NSDictionary+Core.m */,
+				EA04C01817993DF300B22450 /* NSDate+Core.h */,
+				EA04C01917993DF300B22450 /* NSDate+Core.m */,
+				EA04C01617993DF200B22450 /* NSColor+Core.h */,
+				EA04C01717993DF300B22450 /* NSColor+Core.m */,
 				EA04C02017993DF500B22450 /* ReactiveCocoa+Core.h */,
 				EA04C02117993DF600B22450 /* ReactiveCocoa+Core.m */,
 			);
@@ -381,13 +383,15 @@
 		EA89898F179922C000594A3E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				EA898990179922C000594A3E /* mogenerator_sample.sh */,
-				EA898A2D179923F200594A3E /* NSAttributeDescription+CLExtensions.h */,
-				EA898A2E179923F200594A3E /* NSAttributeDescription+CLExtensions.m */,
-				EA898A2F179923F200594A3E /* NSEntityDescription+CLExtensions.h */,
-				EA898A30179923F200594A3E /* NSEntityDescription+CLExtensions.m */,
+				EA04C0301799402700B22450 /* CoreData.h */,
+				EA04C0311799402700B22450 /* CoreData.m */,
+				EA04C03C1799420B00B22450 /* NSAttributeDescription+CLToolkit.h */,
+				EA04C034179941B200B22450 /* NSAttributeDescription+CLToolkit.m */,
+				EA04C036179941B200B22450 /* NSEntityDescription+CLToolkit.h */,
+				EA04C037179941B300B22450 /* NSEntityDescription+CLToolkit.m */,
 				EA898991179922C000594A3E /* RACManagedObject.h */,
 				EA898992179922C000594A3E /* RACManagedObject.m */,
+				EA898990179922C000594A3E /* mogenerator_sample.sh */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -516,8 +520,6 @@
 				EA898A24179922C000594A3E /* RACSignal+Kiwi.h in Headers */,
 				EA898A27179922C000594A3E /* CLViewController.h in Headers */,
 				EA898A2A179922C000594A3E /* NSAlert+SynchronousSheet.h in Headers */,
-				EA898A31179923F200594A3E /* NSAttributeDescription+CLExtensions.h in Headers */,
-				EA898A34179923F200594A3E /* NSEntityDescription+CLExtensions.h in Headers */,
 				EA898A3A1799263D00594A3E /* CLHTTPRequestOperation.h in Headers */,
 				EA898A3F1799269800594A3E /* NSView+ClExtensions.h in Headers */,
 				EA04C002179931B600B22450 /* Web.h in Headers */,
@@ -529,6 +531,9 @@
 				EA04C02A17993DF600B22450 /* NSObject+Core.h in Headers */,
 				EA04C02C17993DF600B22450 /* NSString+Core.h in Headers */,
 				EA04C02E17993DF600B22450 /* ReactiveCocoa+Core.h in Headers */,
+				EA04C0321799402700B22450 /* CoreData.h in Headers */,
+				EA04C03A179941B300B22450 /* NSEntityDescription+CLToolkit.h in Headers */,
+				EA04C03D1799420C00B22450 /* NSAttributeDescription+CLToolkit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,8 +657,6 @@
 				EA898A25179922C000594A3E /* RACSignal+Kiwi.m in Sources */,
 				EA898A28179922C000594A3E /* CLViewController.m in Sources */,
 				EA898A2B179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */,
-				EA898A32179923F200594A3E /* NSAttributeDescription+CLExtensions.m in Sources */,
-				EA898A35179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */,
 				EA898A3B1799263D00594A3E /* CLHTTPRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -688,8 +691,6 @@
 				EA898A26179922C000594A3E /* RACSignal+Kiwi.m in Sources */,
 				EA898A29179922C000594A3E /* CLViewController.m in Sources */,
 				EA898A2C179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */,
-				EA898A33179923F200594A3E /* NSAttributeDescription+CLExtensions.m in Sources */,
-				EA898A36179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */,
 				EA898A3C1799263D00594A3E /* CLHTTPRequestOperation.m in Sources */,
 				EA898A401799269800594A3E /* NSView+ClExtensions.m in Sources */,
 				EA04C003179931B600B22450 /* Web.m in Sources */,
@@ -701,6 +702,9 @@
 				EA04C02B17993DF600B22450 /* NSObject+Core.m in Sources */,
 				EA04C02D17993DF600B22450 /* NSString+Core.m in Sources */,
 				EA04C02F17993DF600B22450 /* ReactiveCocoa+Core.m in Sources */,
+				EA04C0331799402700B22450 /* CoreData.m in Sources */,
+				EA04C038179941B300B22450 /* NSAttributeDescription+CLToolkit.m in Sources */,
+				EA04C03B179941B300B22450 /* NSEntityDescription+CLToolkit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
