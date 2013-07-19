@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EA898678179919AF00594A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA898677179919AF00594A3E /* Foundation.framework */; };
 		EA89867D179919AF00594A3E /* CLToolkit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EA89867C179919AF00594A3E /* CLToolkit.h */; };
-		EA89867F179919AF00594A3E /* CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89867E179919AF00594A3E /* CLToolkit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +29,6 @@
 		EA898677179919AF00594A3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EA89867B179919AF00594A3E /* CLToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLToolkit-Prefix.pch"; sourceTree = "<group>"; };
 		EA89867C179919AF00594A3E /* CLToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLToolkit.h; sourceTree = "<group>"; };
-		EA89867E179919AF00594A3E /* CLToolkit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLToolkit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				EA89867C179919AF00594A3E /* CLToolkit.h */,
-				EA89867E179919AF00594A3E /* CLToolkit.m */,
 				EA89867A179919AF00594A3E /* Supporting Files */,
 			);
 			path = CLToolkit;
@@ -139,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA89867F179919AF00594A3E /* CLToolkit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

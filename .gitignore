@@ -1,0 +1,25 @@
+# Mac OS X
+*.DS_Store
+Thumbs.db
+
+# CocoaPods
+
+/Podfile.lock
+/Pods/*
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+*.swp
+*~.nib
+project.xcworkspace/
+xcuserdata/
+
+build/
+
+*.pbxuser
+*.perspective
+*.perspectivev3
