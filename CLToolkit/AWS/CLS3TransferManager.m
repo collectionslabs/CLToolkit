@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSObject+CLExtensions.h"
 #import "CLS3Client.h"
 #import "CLS3TransferManager.h"
 

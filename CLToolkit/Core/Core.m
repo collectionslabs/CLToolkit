@@ -78,7 +78,6 @@ NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors) {
 
 // Global Logging and assertion support
 
-
 void Log(NSString *format, ...) {
 #if DEBUG
 	va_list args;

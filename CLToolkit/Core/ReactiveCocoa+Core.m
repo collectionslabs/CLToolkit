@@ -1,5 +1,5 @@
 //
-//  RACSignal+CLExtensions.m
+//  RACSignal+Core.m
 //  Collections
 //
 //  Created by Tony Xiao on 2/8/13.
@@ -8,9 +8,9 @@
 
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/RACKVOTrampoline.h>
-#import "RACSignal+CLExtensions.h"
+#import "ReactiveCocoa+Core.h"
 
-@implementation RACSignal (CLExtensions)
+@implementation RACSignal (Core)
 
 - (instancetype)mapWithError:(id(^)(id value))block {
 	NSParameterAssert(block != NULL);
@@ -56,7 +56,7 @@
 
 @end
 
-@implementation RACSubject (CLExtensions)
+@implementation RACSubject (Core)
 
 + (instancetype)subjectWithName:(NSString *)name {
     RACSubject *subject = [self subject];

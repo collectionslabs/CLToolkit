@@ -1,5 +1,5 @@
 //
-//  NSDate+Formatting.h
+//  NSDate+Core.h
 //  Collections
 //
 //  Created by Tony Xiao on 2/16/13.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (Formatting)
+@interface NSDate (Core)
 
 - (NSString *)ISO8601;
 - (NSString *)RFC2822;

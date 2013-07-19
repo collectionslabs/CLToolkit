@@ -1,5 +1,5 @@
 //
-//  NSObject+CLExtensions.m
+//  NSObject+Core.m
 //  Collections
 //
 //  Created by Tony Xiao on 3/7/13.
@@ -7,9 +7,9 @@
 //
 
 #import <objc/runtime.h>
-#import "NSObject+CLExtensions.h"
+#import "NSObject+Core.h"
 
-@implementation NSObject (CLExtensions)
+@implementation NSObject (Core)
 
 - (id)associatedValueForKey:(const char *)key default:(id)defaultValue {
     id value = [self associatedValueForKey:key];

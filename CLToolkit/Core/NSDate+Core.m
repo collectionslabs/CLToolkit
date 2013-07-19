@@ -1,5 +1,5 @@
 //
-//  NSDate+Formatting.m
+//  NSDate+Core.m
 //  Collections
 //
 //  Created by Tony Xiao on 2/16/13.
@@ -7,7 +7,7 @@
 //
 
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
-#import "NSDate+Formatting.h"
+#import "NSDate+Core.h"
 
 static ISO8601DateFormatter *ISO8601Formatter() {
     static dispatch_once_t __iso8601OnceToken;
@@ -29,7 +29,7 @@ static NSDateFormatter *RFC2822Formatter() {
     return __rfc2822Formatter;
 }
 
-@implementation NSDate (Formatting)
+@implementation NSDate (Core)
 
 - (NSString *)ISO8601 { return [self description]; }
 - (NSString *)RFC2822 { return [RFC2822Formatter() stringFromDate:self]; }
@@ -42,6 +42,5 @@ static NSDateFormatter *RFC2822Formatter() {
 + (NSDate*)dateFromRFC2822:(NSString *)dateString {
     return dateString.length ? [RFC2822Formatter() dateFromString:dateString] : nil;
 }
-
 
 @end

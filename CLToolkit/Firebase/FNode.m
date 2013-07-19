@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "RACSignal+CLExtensions.h"
 #import "RACSignalQueue.h"
 #import "FNode.h"
 

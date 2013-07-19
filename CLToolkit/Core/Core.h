@@ -6,14 +6,32 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
+/*
+ Dependencies: 
+    - Cocoa / UIKit (Maybe we can reduce it to Foundation)
+    - ReactiveCocoa
+    - ConciseKit
+    - BlocksKit
+    - NSLogger
+    - ISO8601Formatter
+ */
+
+#ifndef CLToolkit_Core_h
+#define CLToolkit_Core_h
+
 #import <Cocoa/Cocoa.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ConciseKit/ConciseKit.h>
 #import <BlocksKit/BlocksKit.h>
 #import <NSLogger/LoggerClient.h>
 
-#ifndef CLToolkit_Core_h
-#define CLToolkit_Core_h
+#import "NSObject+Core.h"
+#import "NSString+Core.h"
+#import "NSArray+Core.h"
+#import "NSDictionary+Core.h"
+#import "NSDate+Core.h"
+#import "NSColor+Core.h"
+#import "ReactiveCocoa+Core.h"
 
 // Globally accessible functions
 

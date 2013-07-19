@@ -1,5 +1,5 @@
 //
-//  RACSignal+CLExtensions.h
+//  RACSignal+Core.h
 //  Collections
 //
 //  Created by Tony Xiao on 2/8/13.
@@ -8,7 +8,7 @@
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface RACSignal (CLExtensions)
+@interface RACSignal (Core)
 
 - (instancetype)mapWithError:(id(^)(id value))block;
 - (RACSignal *)catchLoop;
@@ -19,7 +19,7 @@
 
 @end
 
-@interface RACSubject (CLExtensions)
+@interface RACSubject (Core)
 
 + (instancetype)subjectWithName:(NSString *)name;
 + (instancetype)subjectWithSelector:(SEL)selector;

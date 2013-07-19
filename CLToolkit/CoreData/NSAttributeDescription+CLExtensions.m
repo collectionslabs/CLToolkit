@@ -7,7 +7,6 @@
 //
 
 #import <Base64/MF_Base64Additions.h>
-#import "NSDate+Formatting.h"
 #import "NSAttributeDescription+CLExtensions.h"
 
 @implementation NSAttributeDescription (CLExtensions)

@@ -1,5 +1,5 @@
 //
-//  NSObject+CLExtensions.h
+//  NSObject+Core.h
 //  Collections
 //
 //  Created by Tony Xiao on 3/7/13.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (CLExtensions)
+@interface NSObject (Core)
 
 - (id)associatedValueForKey:(const char *)key default:(id)defaultValue;
 

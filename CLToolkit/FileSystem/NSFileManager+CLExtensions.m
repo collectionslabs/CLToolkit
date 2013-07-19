@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSString+Concise.h"
 #import "NSFileManager+CLExtensions.h"
 
 @implementation NSFileManager (CLExtensions)

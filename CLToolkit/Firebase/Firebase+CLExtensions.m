@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSString+Concise.h"
-#import "RACSignal+CLExtensions.h"
 #import "Firebase+CLExtensions.h"
 
 static NSError *Error(NSString *desc) {

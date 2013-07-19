@@ -1,17 +1,17 @@
 //
-//  NSColor+CLExtensions.m
+//  NSColor+Core.m
 //  Collections
 //
 //  Created by Tony Xiao on 3/10/13.
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSColor+CLExtensions.h"
+#import "NSColor+Core.h"
 
-@implementation NSColor (CLExtensions)
+@implementation NSColor (Core)
 
-+ (NSColor*)colorWithHexColorString:(NSString*)inColorString {
-    NSColor* result = nil;
++ (NSColor *)colorWithHexColorString:(NSString *)inColorString {
+    NSColor *result = nil;
     unsigned colorCode = 0;
     unsigned char redByte, greenByte, blueByte;
     

@@ -1,14 +1,15 @@
 //
-//  NSString+Concise.m
+//  NSString+Core.m
 //  Collections
 //
 //  Created by Tony Xiao on 6/30/12.
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
-#import <CommonCrypto/CommonDigest.h>
-#import "NSString+Concise.h"
 
-@implementation NSString (Concise)
+#import <CommonCrypto/CommonDigest.h>
+#import "NSString+Core.h"
+
+@implementation NSString (Core)
 
 - (BOOL)contains:(NSString *)substr {
     return [self rangeOfString:substr options:0].location != NSNotFound;
@@ -163,6 +164,14 @@
 	free(buffer);
 	return cameled;
 }
+
+- (BOOL)validateEmail {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:self];
+}
+
 
 #pragma mark Class Methods
 

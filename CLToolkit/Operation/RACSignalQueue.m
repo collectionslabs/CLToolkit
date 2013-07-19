@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSMutableArray+CLExtensions.h"
-#import "RACSignal+CLExtensions.h"
 #import "RACSignalQueue.h"
 
 @implementation RACSignalQueue {

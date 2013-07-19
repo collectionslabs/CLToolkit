@@ -1,14 +1,14 @@
 //
-//  NSDictionary+Concise.m
+//  NSDictionary+Core.m
 //  Collections
 //
 //  Created by Tony Xiao on 7/5/12.
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSDictionary+Concise.h"
+#import "NSDictionary+Core.h"
 
-@implementation NSDictionary (Concise)
+@implementation NSDictionary (Core)
 
 - (id)dictionaryByMergingFrom:(NSDictionary *)other {
     NSMutableDictionary *newDict = [self mutableCopy];

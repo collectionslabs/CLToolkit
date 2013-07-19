@@ -7,7 +7,6 @@
 //
 
 #import <AWSRuntime/AmazonStaticCredentialsProvider.h>
-#import "NSString+Concise.h"
 #import "CLS3Client.h"
 
 @implementation CLS3Client

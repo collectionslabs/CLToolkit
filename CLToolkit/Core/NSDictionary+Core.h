@@ -1,5 +1,5 @@
 //
-//  NSDictionary+Concise.h
+//  NSDictionary+Core.h
 //  Collections
 //
 //  Created by Tony Xiao on 7/5/12.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDictionary (Concise)
+@interface NSDictionary (Core)
 
 - (id)dictionaryByMergingFrom:(NSDictionary *)other;
 + (instancetype)dictionaryWithArrayOfPairs:(NSArray *)pairs;
@@ -16,7 +16,7 @@
 
 @end
 
-@interface NSMutableDictionary (Concise)
+@interface NSMutableDictionary (Core)
 
 - (id)popObjectForKey:(id)key;
 

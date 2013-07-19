@@ -7,10 +7,6 @@
 //
 
 #import "NSAttributeDescription+CLExtensions.h"
-#import "Firebase+CLExtensions.h"
-#import "NSDictionary+Concise.h"
-#import "NSString+Concise.h"
-#import "NSDate+Formatting.h"
 #import "NSEntityDescription+CLExtensions.h"
 
 @implementation NSEntityDescription (CLMapping)

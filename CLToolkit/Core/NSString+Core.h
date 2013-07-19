@@ -1,5 +1,5 @@
 //
-//  NSString+Concise.h
+//  NSString+Core.h
 //  Collections
 //
 //  Created by Tony Xiao on 6/30/12.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Concise)
+@interface NSString (Core)
 
 - (BOOL)contains:(NSString *)substr;
 - (NSString *)replace:(NSString *)str with:(NSString *)newStr;
@@ -30,6 +30,8 @@
 
 - (NSString *)toCamel;
 - (NSString *)toUnderscore;
+
+- (BOOL)validateEmail;
 
 + (NSString *)stringWithUUID;
 
