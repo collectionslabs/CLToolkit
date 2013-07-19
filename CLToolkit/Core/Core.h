@@ -1,13 +1,19 @@
 //
-//  CLMacros.h
+//  Core.h
 //  Collections
 //
 //  Created by Tony Xiao on 6/25/12.
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#ifndef CLToolkit_CLMacros_h
-#define CLToolkit_CLMacros_h
+#import <Cocoa/Cocoa.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <ConciseKit/ConciseKit.h>
+#import <BlocksKit/BlocksKit.h>
+#import <NSLogger/LoggerClient.h>
+
+#ifndef CLToolkit_Core_h
+#define CLToolkit_Core_h
 
 // Globally accessible functions
 

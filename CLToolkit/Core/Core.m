@@ -1,12 +1,12 @@
 //
-//  CLMacros.m
+//  Core.m
 //  Collections
 //
-//  Created by Tony Xiao on 7/1/12.
+//  Created by Tony Xiao on 7/18/13.
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import "CLMacros.h"
+#import "Core.h"
 
 NSURL *AppTempDir(void) {
     return [NSURL fileURLWithPath:NSTemporaryDirectory()];

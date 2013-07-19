@@ -26,9 +26,9 @@
 		EA8989CB179922C000594A3E /* CLS3TransferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898976179922C000594A3E /* CLS3TransferManager.h */; };
 		EA8989CC179922C000594A3E /* CLS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898977179922C000594A3E /* CLS3TransferManager.m */; };
 		EA8989CD179922C000594A3E /* CLS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898977179922C000594A3E /* CLS3TransferManager.m */; };
-		EA8989CE179922C000594A3E /* CLMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898979179922C000594A3E /* CLMacros.h */; };
-		EA8989CF179922C000594A3E /* CLMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897A179922C000594A3E /* CLMacros.m */; };
-		EA8989D0179922C000594A3E /* CLMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897A179922C000594A3E /* CLMacros.m */; };
+		EA8989CE179922C000594A3E /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898979179922C000594A3E /* Core.h */; };
+		EA8989CF179922C000594A3E /* Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897A179922C000594A3E /* Core.m */; };
+		EA8989D0179922C000594A3E /* Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897A179922C000594A3E /* Core.m */; };
 		EA8989D1179922C000594A3E /* NSArray+Slice.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89897B179922C000594A3E /* NSArray+Slice.h */; };
 		EA8989D2179922C000594A3E /* NSArray+Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897C179922C000594A3E /* NSArray+Slice.m */; };
 		EA8989D3179922C000594A3E /* NSArray+Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897C179922C000594A3E /* NSArray+Slice.m */; };
@@ -170,8 +170,8 @@
 		EA898975179922C000594A3E /* CLS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLS3Client.m; sourceTree = "<group>"; };
 		EA898976179922C000594A3E /* CLS3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLS3TransferManager.h; sourceTree = "<group>"; };
 		EA898977179922C000594A3E /* CLS3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLS3TransferManager.m; sourceTree = "<group>"; };
-		EA898979179922C000594A3E /* CLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMacros.h; sourceTree = "<group>"; };
-		EA89897A179922C000594A3E /* CLMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMacros.m; sourceTree = "<group>"; };
+		EA898979179922C000594A3E /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
+		EA89897A179922C000594A3E /* Core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Core.m; sourceTree = "<group>"; };
 		EA89897B179922C000594A3E /* NSArray+Slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Slice.h"; sourceTree = "<group>"; };
 		EA89897C179922C000594A3E /* NSArray+Slice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Slice.m"; sourceTree = "<group>"; };
 		EA89897D179922C000594A3E /* NSColor+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CLExtensions.h"; sourceTree = "<group>"; };
@@ -375,8 +375,8 @@
 		EA898978179922C000594A3E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				EA898979179922C000594A3E /* CLMacros.h */,
-				EA89897A179922C000594A3E /* CLMacros.m */,
+				EA898979179922C000594A3E /* Core.h */,
+				EA89897A179922C000594A3E /* Core.m */,
 				EA89897B179922C000594A3E /* NSArray+Slice.h */,
 				EA89897C179922C000594A3E /* NSArray+Slice.m */,
 				EA89897D179922C000594A3E /* NSColor+CLExtensions.h */,
@@ -516,7 +516,7 @@
 				EA8989C5179922C000594A3E /* CLUpdater.h in Headers */,
 				EA8989C8179922C000594A3E /* CLS3Client.h in Headers */,
 				EA8989CB179922C000594A3E /* CLS3TransferManager.h in Headers */,
-				EA8989CE179922C000594A3E /* CLMacros.h in Headers */,
+				EA8989CE179922C000594A3E /* Core.h in Headers */,
 				EA8989D1179922C000594A3E /* NSArray+Slice.h in Headers */,
 				EA8989D4179922C000594A3E /* NSColor+CLExtensions.h in Headers */,
 				EA8989D7179922C000594A3E /* NSDate+Formatting.h in Headers */,
@@ -654,7 +654,7 @@
 				EA8989C6179922C000594A3E /* CLUpdater.m in Sources */,
 				EA8989C9179922C000594A3E /* CLS3Client.m in Sources */,
 				EA8989CC179922C000594A3E /* CLS3TransferManager.m in Sources */,
-				EA8989CF179922C000594A3E /* CLMacros.m in Sources */,
+				EA8989CF179922C000594A3E /* Core.m in Sources */,
 				EA8989D2179922C000594A3E /* NSArray+Slice.m in Sources */,
 				EA8989D5179922C000594A3E /* NSColor+CLExtensions.m in Sources */,
 				EA8989D8179922C000594A3E /* NSDate+Formatting.m in Sources */,
@@ -699,7 +699,7 @@
 				EA8989C7179922C000594A3E /* CLUpdater.m in Sources */,
 				EA8989CA179922C000594A3E /* CLS3Client.m in Sources */,
 				EA8989CD179922C000594A3E /* CLS3TransferManager.m in Sources */,
-				EA8989D0179922C000594A3E /* CLMacros.m in Sources */,
+				EA8989D0179922C000594A3E /* Core.m in Sources */,
 				EA8989D3179922C000594A3E /* NSArray+Slice.m in Sources */,
 				EA8989D6179922C000594A3E /* NSColor+CLExtensions.m in Sources */,
 				EA8989D9179922C000594A3E /* NSDate+Formatting.m in Sources */,
