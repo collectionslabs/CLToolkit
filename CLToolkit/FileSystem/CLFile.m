@@ -43,7 +43,7 @@
 - (NSDate *)dateCreated { return self.attributes[NSFileCreationDate]; }
 - (NSDate *)dateModified { return self.attributes[NSFileModificationDate]; }
 - (NSUInteger)size { return [self.attributes[NSFileSize] unsignedIntegerValue]; }
-- (CLImage *)image { return [CLImage imageWithPreviewsOfFile:self.url]; }
+- (NSImage *)image { return nil; }
 - (NSString *)kind {
     NSString *uti;
     [self.url getResourceValue:&uti forKey:NSURLTypeIdentifierKey error:NULL];

@@ -8,10 +8,10 @@
 #import <WebKit/WebKit.h>
 #import <ReactiveCocoa/NSTask+RACSupport.h>
 #import "NSFileManager+CLExtensions.h"
-#import "NSView+ClExtensions.h"
-#import "CLHTTPClient.h"
 #import "CLDownloadOperation.h"
 #import "CLUpdater.h"
+#import "NSView+ClExtensions.h"
+#import "RACHTTPClient.h"
 
 #define kCLUpdatePath @"CLUpdatePath"
 #define CLUpdateCheckInterval 60 * 60 * 1 // Every hour
@@ -132,13 +132,13 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
     if (!update[@"download_url"] || error)
         return [RACSignal error:error];
 
-    NSURLRequest *req = [[CLHTTPClient sharedClient] requestWithMethod:@"GET" path:update[@"download_url"] parameters:nil];
+    NSURLRequest *req = [[RACHTTPClient sharedClient] requestWithMethod:@"GET" path:update[@"download_url"] parameters:nil];
     CLDownloadOperation *op = [[CLDownloadOperation alloc] initWithRequest:req
                                                               targetFolder:UpdatesFolder(YES)];
     [op setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         LogDebug(@"updater", @"Update download is %f%% complete", 100.0 * totalBytesRead / totalBytesExpectedToRead);
     }];
-    return [[[CLHTTPClient sharedClient] enqueueOperation:op] sequenceNext:^RACSignal *{
+    return [[[RACHTTPClient sharedClient] enqueueOperation:op] sequenceNext:^RACSignal *{
         LogDebug(@"updater", @"Successfully downloaded update to %@", op.finalURL);
         return [self _unarchiveUpdateAtURL:op.finalURL];
     }];
@@ -152,7 +152,7 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
             @"os_version": SystemVersion(),
             @"platform":   @"mac",
         };
-        _checkingSignal = [[[[CLHTTPClient sharedClient] getPath:@"/meta/updates" parameters:params] map:^(NSHTTPURLResponse *response) {
+        _checkingSignal = [[[[RACHTTPClient sharedClient] getPath:@"/meta/updates" parameters:params] map:^(NSHTTPURLResponse *response) {
             return response.json[@"update"];
         }] replayLazily];
     }

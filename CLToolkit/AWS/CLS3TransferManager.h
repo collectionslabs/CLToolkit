@@ -8,6 +8,7 @@
 
 #import <AWSRuntime/S3/S3TransferManager.h>
 
+@class CLFile;
 @interface AmazonServiceRequest (Reactive)
 
 - (RACSignal *)signal;

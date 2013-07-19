@@ -13,12 +13,9 @@
 @implementation CLS3Client
 
 - (RACSignal *)credentialsForKey:(NSString *)key {
-    return [[API getFileCredentials:[key sliceFrom:@"orig/".length]] map:^id(NSDictionary *json) {
-        NSDictionary *creds = json[@"credentials"];
-        return [[AmazonCredentials alloc] initWithAccessKey:creds[@"access_key"]
-                                              withSecretKey:creds[@"secret_key"]
-                                          withSecurityToken:creds[@"session_token"]];
-    }];
+    return [RACSignal return:[[AmazonCredentials alloc] initWithAccessKey:@"access_key"
+                                                            withSecretKey:@"secret_key"
+                                                        withSecurityToken:@"session_token"]];
 }
 
 - (S3Response *)invoke:(S3Request *)request {

@@ -35,7 +35,7 @@ void TransformToForegroundApplication(void);
 void TransformToAccessoryApplication(void);
 
 // Global Logging and Assertion Support
-#if defined(DEBUG) || defined(DEV)
+#if 0
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
     #define PLIST_WRITING_OPTIONS NSPropertyListMutableContainersAndLeaves
     #define MAX_LOGIMAGE_DIMENSION 64.0
@@ -86,6 +86,10 @@ void TransformToAccessoryApplication(void);
 #define $constraints(format, opts, vars) [NSLayoutConstraint constraintsWithVisualFormat:format \
                                              options:opts metrics:nil views:vars]
 
+#define CONTEXT      [NSManagedObjectContext defaultContext]
+#define NC           [NSNotificationCenter defaultCenter]
+#define FM           [NSFileManager defaultManager]
+#define UD           [NSUserDefaults standardUserDefaults]
 
 #define JSON_DUMPS_DATA(obj)  (obj ? [NSJSONSerialization dataWithJSONObject:obj options:JSON_WRITING_OPTIONS error:NULL] : nil)
 #define JSON_LOADS_DATA(data) (data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL] : nil)

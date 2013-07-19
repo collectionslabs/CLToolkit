@@ -1,0 +1,1050 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA04BFFE1799299200B22450 /* libPods-AppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE21057C5974A51BB37EBAA /* libPods-AppTests.a */; };
+		EA89894E1799227A00594A3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8DB21716B8D2B600EAE385 /* Foundation.framework */; };
+		EA8989531799227A00594A3E /* libCLToolkit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EA8989521799227A00594A3E /* libCLToolkit.h */; };
+		EA8989551799227A00594A3E /* libCLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989541799227A00594A3E /* libCLToolkit.m */; };
+		EA8989601799228700594A3E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4CE4931596B5C400BAEC36 /* Cocoa.framework */; };
+		EA89896A1799228800594A3E /* CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989691799228800594A3E /* CLToolkit.m */; };
+		EA8989C3179922C000594A3E /* CLUpdateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898970179922C000594A3E /* CLUpdateHelper.m */; };
+		EA8989C4179922C000594A3E /* CLUpdateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898970179922C000594A3E /* CLUpdateHelper.m */; };
+		EA8989C5179922C000594A3E /* CLUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898971179922C000594A3E /* CLUpdater.h */; };
+		EA8989C6179922C000594A3E /* CLUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898972179922C000594A3E /* CLUpdater.m */; };
+		EA8989C7179922C000594A3E /* CLUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898972179922C000594A3E /* CLUpdater.m */; };
+		EA8989C8179922C000594A3E /* CLS3Client.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898974179922C000594A3E /* CLS3Client.h */; };
+		EA8989C9179922C000594A3E /* CLS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898975179922C000594A3E /* CLS3Client.m */; };
+		EA8989CA179922C000594A3E /* CLS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898975179922C000594A3E /* CLS3Client.m */; };
+		EA8989CB179922C000594A3E /* CLS3TransferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898976179922C000594A3E /* CLS3TransferManager.h */; };
+		EA8989CC179922C000594A3E /* CLS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898977179922C000594A3E /* CLS3TransferManager.m */; };
+		EA8989CD179922C000594A3E /* CLS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898977179922C000594A3E /* CLS3TransferManager.m */; };
+		EA8989CE179922C000594A3E /* CLMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898979179922C000594A3E /* CLMacros.h */; };
+		EA8989CF179922C000594A3E /* CLMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897A179922C000594A3E /* CLMacros.m */; };
+		EA8989D0179922C000594A3E /* CLMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897A179922C000594A3E /* CLMacros.m */; };
+		EA8989D1179922C000594A3E /* NSArray+Slice.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89897B179922C000594A3E /* NSArray+Slice.h */; };
+		EA8989D2179922C000594A3E /* NSArray+Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897C179922C000594A3E /* NSArray+Slice.m */; };
+		EA8989D3179922C000594A3E /* NSArray+Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897C179922C000594A3E /* NSArray+Slice.m */; };
+		EA8989D4179922C000594A3E /* NSColor+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89897D179922C000594A3E /* NSColor+CLExtensions.h */; };
+		EA8989D5179922C000594A3E /* NSColor+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897E179922C000594A3E /* NSColor+CLExtensions.m */; };
+		EA8989D6179922C000594A3E /* NSColor+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89897E179922C000594A3E /* NSColor+CLExtensions.m */; };
+		EA8989D7179922C000594A3E /* NSDate+Formatting.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89897F179922C000594A3E /* NSDate+Formatting.h */; };
+		EA8989D8179922C000594A3E /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898980179922C000594A3E /* NSDate+Formatting.m */; };
+		EA8989D9179922C000594A3E /* NSDate+Formatting.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898980179922C000594A3E /* NSDate+Formatting.m */; };
+		EA8989DA179922C000594A3E /* NSDictionary+Concise.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898981179922C000594A3E /* NSDictionary+Concise.h */; };
+		EA8989DB179922C000594A3E /* NSDictionary+Concise.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898982179922C000594A3E /* NSDictionary+Concise.m */; };
+		EA8989DC179922C000594A3E /* NSDictionary+Concise.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898982179922C000594A3E /* NSDictionary+Concise.m */; };
+		EA8989DD179922C000594A3E /* NSMutableArray+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898983179922C000594A3E /* NSMutableArray+CLExtensions.h */; };
+		EA8989DE179922C000594A3E /* NSMutableArray+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898984179922C000594A3E /* NSMutableArray+CLExtensions.m */; };
+		EA8989DF179922C000594A3E /* NSMutableArray+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898984179922C000594A3E /* NSMutableArray+CLExtensions.m */; };
+		EA8989E0179922C000594A3E /* NSObject+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898985179922C000594A3E /* NSObject+CLExtensions.h */; };
+		EA8989E1179922C000594A3E /* NSObject+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898986179922C000594A3E /* NSObject+CLExtensions.m */; };
+		EA8989E2179922C000594A3E /* NSObject+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898986179922C000594A3E /* NSObject+CLExtensions.m */; };
+		EA8989E3179922C000594A3E /* NSString+Concise.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898987179922C000594A3E /* NSString+Concise.h */; };
+		EA8989E4179922C000594A3E /* NSString+Concise.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898988179922C000594A3E /* NSString+Concise.m */; };
+		EA8989E5179922C000594A3E /* NSString+Concise.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898988179922C000594A3E /* NSString+Concise.m */; };
+		EA8989E6179922C000594A3E /* NSString+Validate.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898989179922C000594A3E /* NSString+Validate.h */; };
+		EA8989E7179922C000594A3E /* NSString+Validate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898A179922C000594A3E /* NSString+Validate.m */; };
+		EA8989E8179922C000594A3E /* NSString+Validate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898A179922C000594A3E /* NSString+Validate.m */; };
+		EA8989E9179922C000594A3E /* RACSignal+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89898B179922C000594A3E /* RACSignal+CLExtensions.h */; };
+		EA8989EA179922C000594A3E /* RACSignal+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898C179922C000594A3E /* RACSignal+CLExtensions.m */; };
+		EA8989EB179922C000594A3E /* RACSignal+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898C179922C000594A3E /* RACSignal+CLExtensions.m */; };
+		EA8989EC179922C000594A3E /* RACSignal+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89898D179922C000594A3E /* RACSignal+Extensions.h */; };
+		EA8989ED179922C000594A3E /* RACSignal+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898E179922C000594A3E /* RACSignal+Extensions.m */; };
+		EA8989EE179922C000594A3E /* RACSignal+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89898E179922C000594A3E /* RACSignal+Extensions.m */; };
+		EA8989EF179922C000594A3E /* mogenerator.sh in Resources */ = {isa = PBXBuildFile; fileRef = EA898990179922C000594A3E /* mogenerator.sh */; };
+		EA8989F0179922C000594A3E /* RACManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898991179922C000594A3E /* RACManagedObject.h */; };
+		EA8989F1179922C000594A3E /* RACManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898992179922C000594A3E /* RACManagedObject.m */; };
+		EA8989F2179922C000594A3E /* RACManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898992179922C000594A3E /* RACManagedObject.m */; };
+		EA8989F4179922C000594A3E /* CLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898997179922C000594A3E /* CLFile.h */; };
+		EA8989F5179922C000594A3E /* CLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898998179922C000594A3E /* CLFile.m */; };
+		EA8989F6179922C000594A3E /* CLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898998179922C000594A3E /* CLFile.m */; };
+		EA8989F7179922C000594A3E /* NSFileManager+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898999179922C000594A3E /* NSFileManager+CLExtensions.h */; };
+		EA8989F8179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */; };
+		EA8989F9179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */; };
+		EA8989FA179922C000594A3E /* NSWorkspace+Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89899B179922C000594A3E /* NSWorkspace+Convenience.h */; };
+		EA8989FB179922C000594A3E /* NSWorkspace+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */; };
+		EA8989FC179922C000594A3E /* NSWorkspace+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */; };
+		EA8989FD179922C000594A3E /* Firebase+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89899E179922C000594A3E /* Firebase+CLExtensions.h */; };
+		EA8989FE179922C000594A3E /* Firebase+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899F179922C000594A3E /* Firebase+CLExtensions.m */; };
+		EA8989FF179922C000594A3E /* Firebase+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899F179922C000594A3E /* Firebase+CLExtensions.m */; };
+		EA898A00179922C000594A3E /* FNode.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A0179922C000594A3E /* FNode.h */; };
+		EA898A01179922C000594A3E /* FNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A1179922C000594A3E /* FNode.m */; };
+		EA898A02179922C000594A3E /* FNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A1179922C000594A3E /* FNode.m */; };
+		EA898A03179922C000594A3E /* FObject.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A2179922C000594A3E /* FObject.h */; };
+		EA898A04179922C000594A3E /* FObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A3179922C000594A3E /* FObject.m */; };
+		EA898A05179922C000594A3E /* FObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A3179922C000594A3E /* FObject.m */; };
+		EA898A06179922C000594A3E /* CLSharedFileList.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A5179922C000594A3E /* CLSharedFileList.h */; };
+		EA898A07179922C000594A3E /* CLSharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A6179922C000594A3E /* CLSharedFileList.m */; };
+		EA898A08179922C000594A3E /* CLSharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A6179922C000594A3E /* CLSharedFileList.m */; };
+		EA898A09179922C000594A3E /* CLValueTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A7179922C000594A3E /* CLValueTransformers.h */; };
+		EA898A0A179922C000594A3E /* CLValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A8179922C000594A3E /* CLValueTransformers.m */; };
+		EA898A0B179922C000594A3E /* CLValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A8179922C000594A3E /* CLValueTransformers.m */; };
+		EA898A0C179922C000594A3E /* NSImage+IconRef.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A9179922C000594A3E /* NSImage+IconRef.h */; };
+		EA898A0D179922C000594A3E /* NSImage+IconRef.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989AA179922C000594A3E /* NSImage+IconRef.m */; };
+		EA898A0E179922C000594A3E /* NSImage+IconRef.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989AA179922C000594A3E /* NSImage+IconRef.m */; };
+		EA898A0F179922C000594A3E /* NSImage+QuickLook.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989AB179922C000594A3E /* NSImage+QuickLook.h */; };
+		EA898A10179922C000594A3E /* NSImage+QuickLook.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989AC179922C000594A3E /* NSImage+QuickLook.m */; };
+		EA898A11179922C000594A3E /* NSImage+QuickLook.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989AC179922C000594A3E /* NSImage+QuickLook.m */; };
+		EA898A12179922C000594A3E /* CLDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989AE179922C000594A3E /* CLDownloadOperation.h */; };
+		EA898A13179922C000594A3E /* CLDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989AF179922C000594A3E /* CLDownloadOperation.m */; };
+		EA898A14179922C000594A3E /* CLDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989AF179922C000594A3E /* CLDownloadOperation.m */; };
+		EA898A15179922C000594A3E /* NSURLRequest+Concise.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989B0179922C000594A3E /* NSURLRequest+Concise.h */; };
+		EA898A16179922C000594A3E /* NSURLRequest+Concise.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989B1179922C000594A3E /* NSURLRequest+Concise.m */; };
+		EA898A17179922C000594A3E /* NSURLRequest+Concise.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989B1179922C000594A3E /* NSURLRequest+Concise.m */; };
+		EA898A18179922C000594A3E /* RACHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989B2179922C000594A3E /* RACHTTPClient.h */; };
+		EA898A19179922C000594A3E /* RACHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989B3179922C000594A3E /* RACHTTPClient.m */; };
+		EA898A1A179922C000594A3E /* RACHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989B3179922C000594A3E /* RACHTTPClient.m */; };
+		EA898A1B179922C000594A3E /* RACHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989B4179922C000594A3E /* RACHTTPRequestOperation.h */; };
+		EA898A1C179922C000594A3E /* RACHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989B5179922C000594A3E /* RACHTTPRequestOperation.m */; };
+		EA898A1D179922C000594A3E /* RACHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989B5179922C000594A3E /* RACHTTPRequestOperation.m */; };
+		EA898A1E179922C000594A3E /* CLAsyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989B7179922C000594A3E /* CLAsyncOperation.h */; };
+		EA898A1F179922C000594A3E /* CLAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989B8179922C000594A3E /* CLAsyncOperation.m */; };
+		EA898A20179922C000594A3E /* CLAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989B8179922C000594A3E /* CLAsyncOperation.m */; };
+		EA898A21179922C000594A3E /* RACSignalQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989B9179922C000594A3E /* RACSignalQueue.h */; };
+		EA898A22179922C000594A3E /* RACSignalQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989BA179922C000594A3E /* RACSignalQueue.m */; };
+		EA898A23179922C000594A3E /* RACSignalQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989BA179922C000594A3E /* RACSignalQueue.m */; };
+		EA898A24179922C000594A3E /* RACSignal+Kiwi.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989BC179922C000594A3E /* RACSignal+Kiwi.h */; };
+		EA898A25179922C000594A3E /* RACSignal+Kiwi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989BD179922C000594A3E /* RACSignal+Kiwi.m */; };
+		EA898A26179922C000594A3E /* RACSignal+Kiwi.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989BD179922C000594A3E /* RACSignal+Kiwi.m */; };
+		EA898A27179922C000594A3E /* CLViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989BF179922C000594A3E /* CLViewController.h */; };
+		EA898A28179922C000594A3E /* CLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989C0179922C000594A3E /* CLViewController.m */; };
+		EA898A29179922C000594A3E /* CLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989C0179922C000594A3E /* CLViewController.m */; };
+		EA898A2A179922C000594A3E /* NSAlert+SynchronousSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989C1179922C000594A3E /* NSAlert+SynchronousSheet.h */; };
+		EA898A2B179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */; };
+		EA898A2C179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */; };
+		EA898A31179923F200594A3E /* NSAttributeDescription+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A2D179923F200594A3E /* NSAttributeDescription+CLExtensions.h */; };
+		EA898A32179923F200594A3E /* NSAttributeDescription+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A2E179923F200594A3E /* NSAttributeDescription+CLExtensions.m */; };
+		EA898A33179923F200594A3E /* NSAttributeDescription+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A2E179923F200594A3E /* NSAttributeDescription+CLExtensions.m */; };
+		EA898A34179923F200594A3E /* NSEntityDescription+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A2F179923F200594A3E /* NSEntityDescription+CLExtensions.h */; };
+		EA898A35179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A30179923F200594A3E /* NSEntityDescription+CLExtensions.m */; };
+		EA898A36179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A30179923F200594A3E /* NSEntityDescription+CLExtensions.m */; };
+		EA898A37179924C900594A3E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4CE4B41596B5C500BAEC36 /* SenTestingKit.framework */; };
+		EA898A3A1799263D00594A3E /* CLHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A381799263D00594A3E /* CLHTTPRequestOperation.h */; };
+		EA898A3B1799263D00594A3E /* CLHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A391799263D00594A3E /* CLHTTPRequestOperation.m */; };
+		EA898A3C1799263D00594A3E /* CLHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A391799263D00594A3E /* CLHTTPRequestOperation.m */; };
+		EA898A3F1799269800594A3E /* NSView+ClExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A3D1799269800594A3E /* NSView+ClExtensions.h */; };
+		EA898A401799269800594A3E /* NSView+ClExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A3E1799269800594A3E /* NSView+ClExtensions.m */; };
+		EA898A42179927F600594A3E /* libPods-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA898A41179927F600594A3E /* libPods-App.a */; };
+		EA898A431799283600594A3E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFB385115A1682F001C3031 /* WebKit.framework */; };
+		EA898A461799285C00594A3E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD272DC15A0CF510056BE94 /* Quartz.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EA89894B1799227A00594A3E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				EA8989531799227A00594A3E /* libCLToolkit.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BF34DD5908A047338BB9876C /* Pods-AppTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.xcconfig"; path = "Pods/Pods-AppTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		EA4CE4931596B5C400BAEC36 /* Cocoa.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		EA4CE4961596B5C400BAEC36 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		EA4CE4971596B5C400BAEC36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EA4CE4981596B5C400BAEC36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EA4CE4B41596B5C500BAEC36 /* SenTestingKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		EA89894D1799227A00594A3E /* liblibCLToolkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibCLToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA8989511799227A00594A3E /* libCLToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libCLToolkit-Prefix.pch"; sourceTree = "<group>"; };
+		EA8989521799227A00594A3E /* libCLToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libCLToolkit.h; sourceTree = "<group>"; };
+		EA8989541799227A00594A3E /* libCLToolkit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = libCLToolkit.m; sourceTree = "<group>"; };
+		EA89895F1799228700594A3E /* CLToolkit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CLToolkit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA8989631799228800594A3E /* CLToolkit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CLToolkit-Info.plist"; sourceTree = "<group>"; };
+		EA8989671799228800594A3E /* CLToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CLToolkit-Prefix.pch"; sourceTree = "<group>"; };
+		EA8989681799228800594A3E /* CLToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CLToolkit.h; sourceTree = "<group>"; };
+		EA8989691799228800594A3E /* CLToolkit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLToolkit.m; sourceTree = "<group>"; };
+		EA898970179922C000594A3E /* CLUpdateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLUpdateHelper.m; sourceTree = "<group>"; };
+		EA898971179922C000594A3E /* CLUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLUpdater.h; sourceTree = "<group>"; };
+		EA898972179922C000594A3E /* CLUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLUpdater.m; sourceTree = "<group>"; };
+		EA898974179922C000594A3E /* CLS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLS3Client.h; sourceTree = "<group>"; };
+		EA898975179922C000594A3E /* CLS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLS3Client.m; sourceTree = "<group>"; };
+		EA898976179922C000594A3E /* CLS3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLS3TransferManager.h; sourceTree = "<group>"; };
+		EA898977179922C000594A3E /* CLS3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLS3TransferManager.m; sourceTree = "<group>"; };
+		EA898979179922C000594A3E /* CLMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMacros.h; sourceTree = "<group>"; };
+		EA89897A179922C000594A3E /* CLMacros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMacros.m; sourceTree = "<group>"; };
+		EA89897B179922C000594A3E /* NSArray+Slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Slice.h"; sourceTree = "<group>"; };
+		EA89897C179922C000594A3E /* NSArray+Slice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Slice.m"; sourceTree = "<group>"; };
+		EA89897D179922C000594A3E /* NSColor+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CLExtensions.h"; sourceTree = "<group>"; };
+		EA89897E179922C000594A3E /* NSColor+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+CLExtensions.m"; sourceTree = "<group>"; };
+		EA89897F179922C000594A3E /* NSDate+Formatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatting.h"; sourceTree = "<group>"; };
+		EA898980179922C000594A3E /* NSDate+Formatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatting.m"; sourceTree = "<group>"; };
+		EA898981179922C000594A3E /* NSDictionary+Concise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Concise.h"; sourceTree = "<group>"; };
+		EA898982179922C000594A3E /* NSDictionary+Concise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Concise.m"; sourceTree = "<group>"; };
+		EA898983179922C000594A3E /* NSMutableArray+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+CLExtensions.h"; sourceTree = "<group>"; };
+		EA898984179922C000594A3E /* NSMutableArray+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+CLExtensions.m"; sourceTree = "<group>"; };
+		EA898985179922C000594A3E /* NSObject+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CLExtensions.h"; sourceTree = "<group>"; };
+		EA898986179922C000594A3E /* NSObject+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CLExtensions.m"; sourceTree = "<group>"; };
+		EA898987179922C000594A3E /* NSString+Concise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Concise.h"; sourceTree = "<group>"; };
+		EA898988179922C000594A3E /* NSString+Concise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Concise.m"; sourceTree = "<group>"; };
+		EA898989179922C000594A3E /* NSString+Validate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validate.h"; sourceTree = "<group>"; };
+		EA89898A179922C000594A3E /* NSString+Validate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validate.m"; sourceTree = "<group>"; };
+		EA89898B179922C000594A3E /* RACSignal+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+CLExtensions.h"; sourceTree = "<group>"; };
+		EA89898C179922C000594A3E /* RACSignal+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+CLExtensions.m"; sourceTree = "<group>"; };
+		EA89898D179922C000594A3E /* RACSignal+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+Extensions.h"; sourceTree = "<group>"; };
+		EA89898E179922C000594A3E /* RACSignal+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+Extensions.m"; sourceTree = "<group>"; };
+		EA898990179922C000594A3E /* mogenerator.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mogenerator.sh; sourceTree = "<group>"; };
+		EA898991179922C000594A3E /* RACManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACManagedObject.h; sourceTree = "<group>"; };
+		EA898992179922C000594A3E /* RACManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACManagedObject.m; sourceTree = "<group>"; };
+		EA898997179922C000594A3E /* CLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFile.h; sourceTree = "<group>"; };
+		EA898998179922C000594A3E /* CLFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFile.m; sourceTree = "<group>"; };
+		EA898999179922C000594A3E /* NSFileManager+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CLExtensions.h"; sourceTree = "<group>"; };
+		EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CLExtensions.m"; sourceTree = "<group>"; };
+		EA89899B179922C000594A3E /* NSWorkspace+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+Convenience.h"; sourceTree = "<group>"; };
+		EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+Convenience.m"; sourceTree = "<group>"; };
+		EA89899E179922C000594A3E /* Firebase+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firebase+CLExtensions.h"; sourceTree = "<group>"; };
+		EA89899F179922C000594A3E /* Firebase+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Firebase+CLExtensions.m"; sourceTree = "<group>"; };
+		EA8989A0179922C000594A3E /* FNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNode.h; sourceTree = "<group>"; };
+		EA8989A1179922C000594A3E /* FNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNode.m; sourceTree = "<group>"; };
+		EA8989A2179922C000594A3E /* FObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FObject.h; sourceTree = "<group>"; };
+		EA8989A3179922C000594A3E /* FObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FObject.m; sourceTree = "<group>"; };
+		EA8989A5179922C000594A3E /* CLSharedFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSharedFileList.h; sourceTree = "<group>"; };
+		EA8989A6179922C000594A3E /* CLSharedFileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLSharedFileList.m; sourceTree = "<group>"; };
+		EA8989A7179922C000594A3E /* CLValueTransformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLValueTransformers.h; sourceTree = "<group>"; };
+		EA8989A8179922C000594A3E /* CLValueTransformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLValueTransformers.m; sourceTree = "<group>"; };
+		EA8989A9179922C000594A3E /* NSImage+IconRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+IconRef.h"; sourceTree = "<group>"; };
+		EA8989AA179922C000594A3E /* NSImage+IconRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+IconRef.m"; sourceTree = "<group>"; };
+		EA8989AB179922C000594A3E /* NSImage+QuickLook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+QuickLook.h"; sourceTree = "<group>"; };
+		EA8989AC179922C000594A3E /* NSImage+QuickLook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+QuickLook.m"; sourceTree = "<group>"; };
+		EA8989AE179922C000594A3E /* CLDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLDownloadOperation.h; sourceTree = "<group>"; };
+		EA8989AF179922C000594A3E /* CLDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLDownloadOperation.m; sourceTree = "<group>"; };
+		EA8989B0179922C000594A3E /* NSURLRequest+Concise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+Concise.h"; sourceTree = "<group>"; };
+		EA8989B1179922C000594A3E /* NSURLRequest+Concise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+Concise.m"; sourceTree = "<group>"; };
+		EA8989B2179922C000594A3E /* RACHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACHTTPClient.h; sourceTree = "<group>"; };
+		EA8989B3179922C000594A3E /* RACHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACHTTPClient.m; sourceTree = "<group>"; };
+		EA8989B4179922C000594A3E /* RACHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACHTTPRequestOperation.h; sourceTree = "<group>"; };
+		EA8989B5179922C000594A3E /* RACHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACHTTPRequestOperation.m; sourceTree = "<group>"; };
+		EA8989B7179922C000594A3E /* CLAsyncOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAsyncOperation.h; sourceTree = "<group>"; };
+		EA8989B8179922C000594A3E /* CLAsyncOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLAsyncOperation.m; sourceTree = "<group>"; };
+		EA8989B9179922C000594A3E /* RACSignalQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACSignalQueue.h; sourceTree = "<group>"; };
+		EA8989BA179922C000594A3E /* RACSignalQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACSignalQueue.m; sourceTree = "<group>"; };
+		EA8989BC179922C000594A3E /* RACSignal+Kiwi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+Kiwi.h"; sourceTree = "<group>"; };
+		EA8989BD179922C000594A3E /* RACSignal+Kiwi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACSignal+Kiwi.m"; sourceTree = "<group>"; };
+		EA8989BF179922C000594A3E /* CLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLViewController.h; sourceTree = "<group>"; };
+		EA8989C0179922C000594A3E /* CLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLViewController.m; sourceTree = "<group>"; };
+		EA8989C1179922C000594A3E /* NSAlert+SynchronousSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+SynchronousSheet.h"; sourceTree = "<group>"; };
+		EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+SynchronousSheet.m"; sourceTree = "<group>"; };
+		EA898A2D179923F200594A3E /* NSAttributeDescription+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+CLExtensions.h"; sourceTree = "<group>"; };
+		EA898A2E179923F200594A3E /* NSAttributeDescription+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributeDescription+CLExtensions.m"; sourceTree = "<group>"; };
+		EA898A2F179923F200594A3E /* NSEntityDescription+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSEntityDescription+CLExtensions.h"; sourceTree = "<group>"; };
+		EA898A30179923F200594A3E /* NSEntityDescription+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSEntityDescription+CLExtensions.m"; sourceTree = "<group>"; };
+		EA898A381799263D00594A3E /* CLHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLHTTPRequestOperation.h; sourceTree = "<group>"; };
+		EA898A391799263D00594A3E /* CLHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLHTTPRequestOperation.m; sourceTree = "<group>"; };
+		EA898A3D1799269800594A3E /* NSView+ClExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+ClExtensions.h"; sourceTree = "<group>"; };
+		EA898A3E1799269800594A3E /* NSView+ClExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+ClExtensions.m"; sourceTree = "<group>"; };
+		EA898A41179927F600594A3E /* libPods-App.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-App.a"; path = "../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug/libPods-App.a"; sourceTree = "<group>"; };
+		EA8DB21716B8D2B600EAE385 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EABD6EE916DD949D0019134F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		EAD272DC15A0CF510056BE94 /* Quartz.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		EAFB385115A1682F001C3031 /* WebKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		EFCE4ECCA8484F1A888A33E1 /* Pods-App.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.xcconfig"; path = "Pods/Pods-App.xcconfig"; sourceTree = SOURCE_ROOT; };
+		FDE21057C5974A51BB37EBAA /* libPods-AppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA89894A1799227A00594A3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA89894E1799227A00594A3E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA89895B1799228700594A3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA898A42179927F600594A3E /* libPods-App.a in Frameworks */,
+				EA04BFFE1799299200B22450 /* libPods-AppTests.a in Frameworks */,
+				EA898A37179924C900594A3E /* SenTestingKit.framework in Frameworks */,
+				EA8989601799228700594A3E /* Cocoa.framework in Frameworks */,
+				EA898A431799283600594A3E /* WebKit.framework in Frameworks */,
+				EA898A461799285C00594A3E /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		77E5DACCD7634EA48F448B5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA898A41179927F600594A3E /* libPods-App.a */,
+				FDE21057C5974A51BB37EBAA /* libPods-AppTests.a */,
+				EABD6EE916DD949D0019134F /* AddressBook.framework */,
+				EAFB385115A1682F001C3031 /* WebKit.framework */,
+				EA4CE4931596B5C400BAEC36 /* Cocoa.framework */,
+				EAD272DC15A0CF510056BE94 /* Quartz.framework */,
+				EA4CE4B41596B5C500BAEC36 /* SenTestingKit.framework */,
+				EA8DB21716B8D2B600EAE385 /* Foundation.framework */,
+				EA4CE4951596B5C400BAEC36 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA4CE4841596B5C400BAEC36 = {
+			isa = PBXGroup;
+			children = (
+				EA8989611799228700594A3E /* CLToolkit */,
+				EA89894F1799227A00594A3E /* libCLToolkit */,
+				77E5DACCD7634EA48F448B5F /* Frameworks */,
+				EFCE4ECCA8484F1A888A33E1 /* Pods-App.xcconfig */,
+				BF34DD5908A047338BB9876C /* Pods-AppTests.xcconfig */,
+				EA89894D1799227A00594A3E /* liblibCLToolkit.a */,
+				EA89895F1799228700594A3E /* CLToolkit.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		EA4CE4951596B5C400BAEC36 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA4CE4961596B5C400BAEC36 /* AppKit.framework */,
+				EA4CE4971596B5C400BAEC36 /* CoreData.framework */,
+				EA4CE4981596B5C400BAEC36 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		EA89894F1799227A00594A3E /* libCLToolkit */ = {
+			isa = PBXGroup;
+			children = (
+				EA8989521799227A00594A3E /* libCLToolkit.h */,
+				EA8989541799227A00594A3E /* libCLToolkit.m */,
+				EA8989501799227A00594A3E /* Supporting Files */,
+			);
+			path = libCLToolkit;
+			sourceTree = "<group>";
+		};
+		EA8989501799227A00594A3E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA8989511799227A00594A3E /* libCLToolkit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA8989611799228700594A3E /* CLToolkit */ = {
+			isa = PBXGroup;
+			children = (
+				EA89896F179922C000594A3E /* AutoUpdate */,
+				EA898973179922C000594A3E /* AWS */,
+				EA898978179922C000594A3E /* Core */,
+				EA89898F179922C000594A3E /* CoreData */,
+				EA898996179922C000594A3E /* FileSystem */,
+				EA89899D179922C000594A3E /* Firebase */,
+				EA8989A4179922C000594A3E /* Misc */,
+				EA8989AD179922C000594A3E /* Networking */,
+				EA8989B6179922C000594A3E /* Operation */,
+				EA8989BB179922C000594A3E /* Testing */,
+				EA8989BE179922C000594A3E /* UI */,
+				EA8989681799228800594A3E /* CLToolkit.h */,
+				EA8989691799228800594A3E /* CLToolkit.m */,
+				EA8989621799228800594A3E /* Supporting Files */,
+			);
+			path = CLToolkit;
+			sourceTree = "<group>";
+		};
+		EA8989621799228800594A3E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA8989631799228800594A3E /* CLToolkit-Info.plist */,
+				EA8989671799228800594A3E /* CLToolkit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA89896F179922C000594A3E /* AutoUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				EA898970179922C000594A3E /* CLUpdateHelper.m */,
+				EA898971179922C000594A3E /* CLUpdater.h */,
+				EA898972179922C000594A3E /* CLUpdater.m */,
+			);
+			path = AutoUpdate;
+			sourceTree = "<group>";
+		};
+		EA898973179922C000594A3E /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+				EA898974179922C000594A3E /* CLS3Client.h */,
+				EA898975179922C000594A3E /* CLS3Client.m */,
+				EA898976179922C000594A3E /* CLS3TransferManager.h */,
+				EA898977179922C000594A3E /* CLS3TransferManager.m */,
+			);
+			path = AWS;
+			sourceTree = "<group>";
+		};
+		EA898978179922C000594A3E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EA898979179922C000594A3E /* CLMacros.h */,
+				EA89897A179922C000594A3E /* CLMacros.m */,
+				EA89897B179922C000594A3E /* NSArray+Slice.h */,
+				EA89897C179922C000594A3E /* NSArray+Slice.m */,
+				EA89897D179922C000594A3E /* NSColor+CLExtensions.h */,
+				EA89897E179922C000594A3E /* NSColor+CLExtensions.m */,
+				EA89897F179922C000594A3E /* NSDate+Formatting.h */,
+				EA898980179922C000594A3E /* NSDate+Formatting.m */,
+				EA898981179922C000594A3E /* NSDictionary+Concise.h */,
+				EA898982179922C000594A3E /* NSDictionary+Concise.m */,
+				EA898983179922C000594A3E /* NSMutableArray+CLExtensions.h */,
+				EA898984179922C000594A3E /* NSMutableArray+CLExtensions.m */,
+				EA898985179922C000594A3E /* NSObject+CLExtensions.h */,
+				EA898986179922C000594A3E /* NSObject+CLExtensions.m */,
+				EA898987179922C000594A3E /* NSString+Concise.h */,
+				EA898988179922C000594A3E /* NSString+Concise.m */,
+				EA898989179922C000594A3E /* NSString+Validate.h */,
+				EA89898A179922C000594A3E /* NSString+Validate.m */,
+				EA89898B179922C000594A3E /* RACSignal+CLExtensions.h */,
+				EA89898C179922C000594A3E /* RACSignal+CLExtensions.m */,
+				EA89898D179922C000594A3E /* RACSignal+Extensions.h */,
+				EA89898E179922C000594A3E /* RACSignal+Extensions.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EA89898F179922C000594A3E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				EA898990179922C000594A3E /* mogenerator.sh */,
+				EA898A2D179923F200594A3E /* NSAttributeDescription+CLExtensions.h */,
+				EA898A2E179923F200594A3E /* NSAttributeDescription+CLExtensions.m */,
+				EA898A2F179923F200594A3E /* NSEntityDescription+CLExtensions.h */,
+				EA898A30179923F200594A3E /* NSEntityDescription+CLExtensions.m */,
+				EA898991179922C000594A3E /* RACManagedObject.h */,
+				EA898992179922C000594A3E /* RACManagedObject.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EA898996179922C000594A3E /* FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				EA898997179922C000594A3E /* CLFile.h */,
+				EA898998179922C000594A3E /* CLFile.m */,
+				EA898999179922C000594A3E /* NSFileManager+CLExtensions.h */,
+				EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */,
+				EA89899B179922C000594A3E /* NSWorkspace+Convenience.h */,
+				EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */,
+			);
+			path = FileSystem;
+			sourceTree = "<group>";
+		};
+		EA89899D179922C000594A3E /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				EA89899E179922C000594A3E /* Firebase+CLExtensions.h */,
+				EA89899F179922C000594A3E /* Firebase+CLExtensions.m */,
+				EA8989A0179922C000594A3E /* FNode.h */,
+				EA8989A1179922C000594A3E /* FNode.m */,
+				EA8989A2179922C000594A3E /* FObject.h */,
+				EA8989A3179922C000594A3E /* FObject.m */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		EA8989A4179922C000594A3E /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				EA8989A5179922C000594A3E /* CLSharedFileList.h */,
+				EA8989A6179922C000594A3E /* CLSharedFileList.m */,
+				EA8989A7179922C000594A3E /* CLValueTransformers.h */,
+				EA8989A8179922C000594A3E /* CLValueTransformers.m */,
+				EA8989A9179922C000594A3E /* NSImage+IconRef.h */,
+				EA8989AA179922C000594A3E /* NSImage+IconRef.m */,
+				EA8989AB179922C000594A3E /* NSImage+QuickLook.h */,
+				EA8989AC179922C000594A3E /* NSImage+QuickLook.m */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		EA8989AD179922C000594A3E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EA8989AE179922C000594A3E /* CLDownloadOperation.h */,
+				EA8989AF179922C000594A3E /* CLDownloadOperation.m */,
+				EA898A381799263D00594A3E /* CLHTTPRequestOperation.h */,
+				EA898A391799263D00594A3E /* CLHTTPRequestOperation.m */,
+				EA8989B0179922C000594A3E /* NSURLRequest+Concise.h */,
+				EA8989B1179922C000594A3E /* NSURLRequest+Concise.m */,
+				EA8989B2179922C000594A3E /* RACHTTPClient.h */,
+				EA8989B3179922C000594A3E /* RACHTTPClient.m */,
+				EA8989B4179922C000594A3E /* RACHTTPRequestOperation.h */,
+				EA8989B5179922C000594A3E /* RACHTTPRequestOperation.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		EA8989B6179922C000594A3E /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				EA8989B7179922C000594A3E /* CLAsyncOperation.h */,
+				EA8989B8179922C000594A3E /* CLAsyncOperation.m */,
+				EA8989B9179922C000594A3E /* RACSignalQueue.h */,
+				EA8989BA179922C000594A3E /* RACSignalQueue.m */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		EA8989BB179922C000594A3E /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				EA8989BC179922C000594A3E /* RACSignal+Kiwi.h */,
+				EA8989BD179922C000594A3E /* RACSignal+Kiwi.m */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
+		EA8989BE179922C000594A3E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EA898A3D1799269800594A3E /* NSView+ClExtensions.h */,
+				EA898A3E1799269800594A3E /* NSView+ClExtensions.m */,
+				EA8989BF179922C000594A3E /* CLViewController.h */,
+				EA8989C0179922C000594A3E /* CLViewController.m */,
+				EA8989C1179922C000594A3E /* NSAlert+SynchronousSheet.h */,
+				EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EA89895C1799228700594A3E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA8989C5179922C000594A3E /* CLUpdater.h in Headers */,
+				EA8989C8179922C000594A3E /* CLS3Client.h in Headers */,
+				EA8989CB179922C000594A3E /* CLS3TransferManager.h in Headers */,
+				EA8989CE179922C000594A3E /* CLMacros.h in Headers */,
+				EA8989D1179922C000594A3E /* NSArray+Slice.h in Headers */,
+				EA8989D4179922C000594A3E /* NSColor+CLExtensions.h in Headers */,
+				EA8989D7179922C000594A3E /* NSDate+Formatting.h in Headers */,
+				EA8989DA179922C000594A3E /* NSDictionary+Concise.h in Headers */,
+				EA8989DD179922C000594A3E /* NSMutableArray+CLExtensions.h in Headers */,
+				EA8989E0179922C000594A3E /* NSObject+CLExtensions.h in Headers */,
+				EA8989E3179922C000594A3E /* NSString+Concise.h in Headers */,
+				EA8989E6179922C000594A3E /* NSString+Validate.h in Headers */,
+				EA8989E9179922C000594A3E /* RACSignal+CLExtensions.h in Headers */,
+				EA8989EC179922C000594A3E /* RACSignal+Extensions.h in Headers */,
+				EA8989F0179922C000594A3E /* RACManagedObject.h in Headers */,
+				EA8989F4179922C000594A3E /* CLFile.h in Headers */,
+				EA8989F7179922C000594A3E /* NSFileManager+CLExtensions.h in Headers */,
+				EA8989FA179922C000594A3E /* NSWorkspace+Convenience.h in Headers */,
+				EA8989FD179922C000594A3E /* Firebase+CLExtensions.h in Headers */,
+				EA898A00179922C000594A3E /* FNode.h in Headers */,
+				EA898A03179922C000594A3E /* FObject.h in Headers */,
+				EA898A06179922C000594A3E /* CLSharedFileList.h in Headers */,
+				EA898A09179922C000594A3E /* CLValueTransformers.h in Headers */,
+				EA898A0C179922C000594A3E /* NSImage+IconRef.h in Headers */,
+				EA898A0F179922C000594A3E /* NSImage+QuickLook.h in Headers */,
+				EA898A12179922C000594A3E /* CLDownloadOperation.h in Headers */,
+				EA898A15179922C000594A3E /* NSURLRequest+Concise.h in Headers */,
+				EA898A18179922C000594A3E /* RACHTTPClient.h in Headers */,
+				EA898A1B179922C000594A3E /* RACHTTPRequestOperation.h in Headers */,
+				EA898A1E179922C000594A3E /* CLAsyncOperation.h in Headers */,
+				EA898A21179922C000594A3E /* RACSignalQueue.h in Headers */,
+				EA898A24179922C000594A3E /* RACSignal+Kiwi.h in Headers */,
+				EA898A27179922C000594A3E /* CLViewController.h in Headers */,
+				EA898A2A179922C000594A3E /* NSAlert+SynchronousSheet.h in Headers */,
+				EA898A31179923F200594A3E /* NSAttributeDescription+CLExtensions.h in Headers */,
+				EA898A34179923F200594A3E /* NSEntityDescription+CLExtensions.h in Headers */,
+				EA898A3A1799263D00594A3E /* CLHTTPRequestOperation.h in Headers */,
+				EA898A3F1799269800594A3E /* NSView+ClExtensions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EA89894C1799227A00594A3E /* libCLToolkit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA8989561799227A00594A3E /* Build configuration list for PBXNativeTarget "libCLToolkit" */;
+			buildPhases = (
+				EA8989491799227A00594A3E /* Sources */,
+				EA89894A1799227A00594A3E /* Frameworks */,
+				EA89894B1799227A00594A3E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libCLToolkit;
+			productName = libCLToolkit;
+			productReference = EA89894D1799227A00594A3E /* liblibCLToolkit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EA89895E1799228700594A3E /* CLToolkit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA89896B1799228800594A3E /* Build configuration list for PBXNativeTarget "CLToolkit" */;
+			buildPhases = (
+				EA89895A1799228700594A3E /* Sources */,
+				EA89895B1799228700594A3E /* Frameworks */,
+				EA89895C1799228700594A3E /* Headers */,
+				EA89895D1799228700594A3E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CLToolkit;
+			productName = CLToolkit;
+			productReference = EA89895F1799228700594A3E /* CLToolkit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA4CE4861596B5C400BAEC36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Collections Labs, Inc.";
+			};
+			buildConfigurationList = EA4CE4891596B5C400BAEC36 /* Build configuration list for PBXProject "Collections" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				fr,
+				Danish,
+				Dutch,
+				English,
+				French,
+				German,
+				Italian,
+				Japanese,
+				Norwegian,
+				Portuguese,
+				"pt-BR",
+				Russian,
+				Spanish,
+				"zh-Hans",
+			);
+			mainGroup = EA4CE4841596B5C400BAEC36;
+			productRefGroup = EA4CE4841596B5C400BAEC36;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA89894C1799227A00594A3E /* libCLToolkit */,
+				EA89895E1799228700594A3E /* CLToolkit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EA89895D1799228700594A3E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA8989EF179922C000594A3E /* mogenerator.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA8989491799227A00594A3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA8989551799227A00594A3E /* libCLToolkit.m in Sources */,
+				EA8989C3179922C000594A3E /* CLUpdateHelper.m in Sources */,
+				EA8989C6179922C000594A3E /* CLUpdater.m in Sources */,
+				EA8989C9179922C000594A3E /* CLS3Client.m in Sources */,
+				EA8989CC179922C000594A3E /* CLS3TransferManager.m in Sources */,
+				EA8989CF179922C000594A3E /* CLMacros.m in Sources */,
+				EA8989D2179922C000594A3E /* NSArray+Slice.m in Sources */,
+				EA8989D5179922C000594A3E /* NSColor+CLExtensions.m in Sources */,
+				EA8989D8179922C000594A3E /* NSDate+Formatting.m in Sources */,
+				EA8989DB179922C000594A3E /* NSDictionary+Concise.m in Sources */,
+				EA8989DE179922C000594A3E /* NSMutableArray+CLExtensions.m in Sources */,
+				EA8989E1179922C000594A3E /* NSObject+CLExtensions.m in Sources */,
+				EA8989E4179922C000594A3E /* NSString+Concise.m in Sources */,
+				EA8989E7179922C000594A3E /* NSString+Validate.m in Sources */,
+				EA8989EA179922C000594A3E /* RACSignal+CLExtensions.m in Sources */,
+				EA8989ED179922C000594A3E /* RACSignal+Extensions.m in Sources */,
+				EA8989F1179922C000594A3E /* RACManagedObject.m in Sources */,
+				EA8989F5179922C000594A3E /* CLFile.m in Sources */,
+				EA8989F8179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */,
+				EA8989FB179922C000594A3E /* NSWorkspace+Convenience.m in Sources */,
+				EA8989FE179922C000594A3E /* Firebase+CLExtensions.m in Sources */,
+				EA898A01179922C000594A3E /* FNode.m in Sources */,
+				EA898A04179922C000594A3E /* FObject.m in Sources */,
+				EA898A07179922C000594A3E /* CLSharedFileList.m in Sources */,
+				EA898A0A179922C000594A3E /* CLValueTransformers.m in Sources */,
+				EA898A0D179922C000594A3E /* NSImage+IconRef.m in Sources */,
+				EA898A10179922C000594A3E /* NSImage+QuickLook.m in Sources */,
+				EA898A13179922C000594A3E /* CLDownloadOperation.m in Sources */,
+				EA898A16179922C000594A3E /* NSURLRequest+Concise.m in Sources */,
+				EA898A19179922C000594A3E /* RACHTTPClient.m in Sources */,
+				EA898A1C179922C000594A3E /* RACHTTPRequestOperation.m in Sources */,
+				EA898A1F179922C000594A3E /* CLAsyncOperation.m in Sources */,
+				EA898A22179922C000594A3E /* RACSignalQueue.m in Sources */,
+				EA898A25179922C000594A3E /* RACSignal+Kiwi.m in Sources */,
+				EA898A28179922C000594A3E /* CLViewController.m in Sources */,
+				EA898A2B179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */,
+				EA898A32179923F200594A3E /* NSAttributeDescription+CLExtensions.m in Sources */,
+				EA898A35179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */,
+				EA898A3B1799263D00594A3E /* CLHTTPRequestOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA89895A1799228700594A3E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA89896A1799228800594A3E /* CLToolkit.m in Sources */,
+				EA8989C4179922C000594A3E /* CLUpdateHelper.m in Sources */,
+				EA8989C7179922C000594A3E /* CLUpdater.m in Sources */,
+				EA8989CA179922C000594A3E /* CLS3Client.m in Sources */,
+				EA8989CD179922C000594A3E /* CLS3TransferManager.m in Sources */,
+				EA8989D0179922C000594A3E /* CLMacros.m in Sources */,
+				EA8989D3179922C000594A3E /* NSArray+Slice.m in Sources */,
+				EA8989D6179922C000594A3E /* NSColor+CLExtensions.m in Sources */,
+				EA8989D9179922C000594A3E /* NSDate+Formatting.m in Sources */,
+				EA8989DC179922C000594A3E /* NSDictionary+Concise.m in Sources */,
+				EA8989DF179922C000594A3E /* NSMutableArray+CLExtensions.m in Sources */,
+				EA8989E2179922C000594A3E /* NSObject+CLExtensions.m in Sources */,
+				EA8989E5179922C000594A3E /* NSString+Concise.m in Sources */,
+				EA8989E8179922C000594A3E /* NSString+Validate.m in Sources */,
+				EA8989EB179922C000594A3E /* RACSignal+CLExtensions.m in Sources */,
+				EA8989EE179922C000594A3E /* RACSignal+Extensions.m in Sources */,
+				EA8989F2179922C000594A3E /* RACManagedObject.m in Sources */,
+				EA8989F6179922C000594A3E /* CLFile.m in Sources */,
+				EA8989F9179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */,
+				EA8989FC179922C000594A3E /* NSWorkspace+Convenience.m in Sources */,
+				EA8989FF179922C000594A3E /* Firebase+CLExtensions.m in Sources */,
+				EA898A02179922C000594A3E /* FNode.m in Sources */,
+				EA898A05179922C000594A3E /* FObject.m in Sources */,
+				EA898A08179922C000594A3E /* CLSharedFileList.m in Sources */,
+				EA898A0B179922C000594A3E /* CLValueTransformers.m in Sources */,
+				EA898A0E179922C000594A3E /* NSImage+IconRef.m in Sources */,
+				EA898A11179922C000594A3E /* NSImage+QuickLook.m in Sources */,
+				EA898A14179922C000594A3E /* CLDownloadOperation.m in Sources */,
+				EA898A17179922C000594A3E /* NSURLRequest+Concise.m in Sources */,
+				EA898A1A179922C000594A3E /* RACHTTPClient.m in Sources */,
+				EA898A1D179922C000594A3E /* RACHTTPRequestOperation.m in Sources */,
+				EA898A20179922C000594A3E /* CLAsyncOperation.m in Sources */,
+				EA898A23179922C000594A3E /* RACSignalQueue.m in Sources */,
+				EA898A26179922C000594A3E /* RACSignal+Kiwi.m in Sources */,
+				EA898A29179922C000594A3E /* CLViewController.m in Sources */,
+				EA898A2C179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */,
+				EA898A33179923F200594A3E /* NSAttributeDescription+CLExtensions.m in Sources */,
+				EA898A36179923F200594A3E /* NSEntityDescription+CLExtensions.m in Sources */,
+				EA898A3C1799263D00594A3E /* CLHTTPRequestOperation.m in Sources */,
+				EA898A401799269800594A3E /* NSView+ClExtensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EA4CE4C21596B5C500BAEC36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFCE4ECCA8484F1A888A33E1 /* Pods-App.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"CONFIGURATION_$(CONFIGURATION)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = CollectionsDebug;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+			};
+			name = Debug;
+		};
+		EA4CE4C31596B5C500BAEC36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFCE4ECCA8484F1A888A33E1 /* Pods-App.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"RELEASE=1",
+					NS_BLOCK_ASSERTIONS,
+					"$(inherited)",
+					"CONFIGURATION_$(CONFIGURATION)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				PRODUCT_NAME = Collections;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+			};
+			name = Release;
+		};
+		EA63BCED1651F10D0061DE18 /* Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFCE4ECCA8484F1A888A33E1 /* Pods-App.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEV=1",
+					"$(inherited)",
+					"CONFIGURATION_$(CONFIGURATION)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = CollectionsDev;
+				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+			};
+			name = Dev;
+		};
+		EA8989571799227A00594A3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				DSTROOT = /tmp/libCLToolkit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libCLToolkit/libCLToolkit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EA8989581799227A00594A3E /* Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/libCLToolkit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libCLToolkit/libCLToolkit-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Dev;
+		};
+		EA8989591799227A00594A3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/libCLToolkit.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libCLToolkit/libCLToolkit-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA89896C1799228800594A3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CLToolkit/CLToolkit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CLToolkit/CLToolkit-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		EA89896D1799228800594A3E /* Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CLToolkit/CLToolkit-Prefix.pch";
+				INFOPLIST_FILE = "CLToolkit/CLToolkit-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Dev;
+		};
+		EA89896E1799228800594A3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CLToolkit/CLToolkit-Prefix.pch";
+				INFOPLIST_FILE = "CLToolkit/CLToolkit-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA4CE4891596B5C400BAEC36 /* Build configuration list for PBXProject "Collections" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4CE4C21596B5C500BAEC36 /* Debug */,
+				EA63BCED1651F10D0061DE18 /* Dev */,
+				EA4CE4C31596B5C500BAEC36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA8989561799227A00594A3E /* Build configuration list for PBXNativeTarget "libCLToolkit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA8989571799227A00594A3E /* Debug */,
+				EA8989581799227A00594A3E /* Dev */,
+				EA8989591799227A00594A3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA89896B1799228800594A3E /* Build configuration list for PBXNativeTarget "CLToolkit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA89896C1799228800594A3E /* Debug */,
+				EA89896D1799228800594A3E /* Dev */,
+				EA89896E1799228800594A3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA4CE4861596B5C400BAEC36 /* Project object */;
+}

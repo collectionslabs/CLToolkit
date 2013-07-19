@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CLImage.h"
 
 @interface CLFile : NSObject;
 
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) NSString *filename;
-@property (nonatomic, readonly) CLImage *image;
+@property (nonatomic, readonly) NSImage *image;
 @property (nonatomic, readonly) BOOL exists;
 @property (nonatomic, readonly) BOOL isDirectory;
 @property (nonatomic, readonly) NSDate *dateCreated;

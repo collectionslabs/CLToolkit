@@ -7,14 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "CLWindowState.h"
 
 @interface CLViewController : NSViewController
 
-@property (nonatomic, weak) CLWindowState *state;
-
 - (void)awakeOnceFromNib;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil windowState:(CLWindowState *)state;
 
 @end

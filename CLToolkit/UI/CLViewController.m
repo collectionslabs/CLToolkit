@@ -40,12 +40,4 @@
     return self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil windowState:(CLWindowState *)state {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nil]) {
-        self.state = state;
-        [self _injectResponderChain];
-    }
-    return self;
-}
-
 @end

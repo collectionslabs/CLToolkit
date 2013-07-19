@@ -3,5 +3,10 @@
 //
 
 #ifdef __OBJC__
-    #import <Foundation/Foundation.h>
+    #import <Cocoa/Cocoa.h>
+    #import <ReactiveCocoa/ReactiveCocoa.h>
+    #import <ConciseKit/ConciseKit.h>
+    #import <BlocksKit/BlocksKit.h>
+    #import <NSLogger/LoggerClient.h>
+    #import "CLMacros.h"
 #endif

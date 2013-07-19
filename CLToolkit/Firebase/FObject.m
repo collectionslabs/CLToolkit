@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#define MR_SHORTHAND
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <Base64/MF_Base64Additions.h>
 #import "RACSignal+CLExtensions.h"
 #import "NSEntityDescription+CLExtensions.h"
@@ -14,6 +16,8 @@
 #import "NSDictionary+Concise.h"
 #import "FNode.h"
 #import "FObject.h"
+
+#define FB [[FNode alloc] initWithUrl:@"https://dbname.firebaseio.com"]
 
 static NSSet const *ReservedKeys = nil;
 

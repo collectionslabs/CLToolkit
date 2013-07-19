@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "NSObject+CLExtensions.h"
 
 @implementation NSObject (CLExtensions)
