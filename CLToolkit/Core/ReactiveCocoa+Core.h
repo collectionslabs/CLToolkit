@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
-
 @interface RACSignal (Core)
 
 - (instancetype)mapWithError:(id(^)(id value))block;

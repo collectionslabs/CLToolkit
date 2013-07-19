@@ -14,15 +14,18 @@
     - BlocksKit
     - NSLogger
     - ISO8601Formatter
+    - objc
+    - CommonCrypto
  */
 
 #ifndef CLToolkit_Core_h
 #define CLToolkit_Core_h
 
 #import <Cocoa/Cocoa.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import <ConciseKit/ConciseKit.h>
 #import <BlocksKit/BlocksKit.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <libextobjc/EXTScope.h>
 #import <NSLogger/LoggerClient.h>
 
 #import "NSObject+Core.h"

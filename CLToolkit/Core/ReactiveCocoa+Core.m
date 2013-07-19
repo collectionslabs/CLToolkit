@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/RACKVOTrampoline.h>
 #import "ReactiveCocoa+Core.h"
 
