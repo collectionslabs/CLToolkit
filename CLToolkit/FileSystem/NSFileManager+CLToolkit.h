@@ -1,5 +1,5 @@
 //
-//  NSFileManager+CLExtensions.h
+//  NSFileManager+CLToolkit.h
 //  Collections
 //
 //  Created by Tony Xiao on 8/9/12.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSFileManager (CLExtensions)
+@interface NSFileManager (CLToolkit)
 
 - (BOOL)moveItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL;
 - (BOOL)copyItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL;

@@ -1,14 +1,14 @@
 //
-//  NSView+ClExtensions.m
+//  NSView+CLToolkit.m
 //  Collections
 //
 //  Created by Tony Xiao on 2/17/13.
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSView+ClExtensions.h"
+#import "NSView+CLToolkit.h"
 
-@implementation NSView (ClExtensions)
+@implementation NSView (CLToolkit)
 
 - (void)constrainFillSuperview {
     [self constrainFillSuperviewHorizontally];

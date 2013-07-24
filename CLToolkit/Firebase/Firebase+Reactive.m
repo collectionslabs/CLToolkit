@@ -42,7 +42,7 @@ NSString *FUnescapeName(NSString *escapedName) {
     return [escapedName replace:@"\\" with:@"/"];
 }
 
-@implementation FQuery (CLExtensions)
+@implementation FQuery (CLToolkit)
 
 - (RACSignal *)onValue {
     return [self onEvent:FEventTypeValue];
@@ -81,7 +81,7 @@ NSString *FUnescapeName(NSString *escapedName) {
 
 @end
 
-@implementation Firebase (CLExtensions)
+@implementation Firebase (CLToolkit)
 
 - (NSString *)pathString { return [self.description substringFromIndex:self.root.description.length - 1]; }
 

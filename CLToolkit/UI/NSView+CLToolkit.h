@@ -1,5 +1,5 @@
 //
-//  NSView+ClExtensions.h
+//  NSView+CLToolkit.h
 //  Collections
 //
 //  Created by Tony Xiao on 2/17/13.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NSView (ClExtensions)
+@interface NSView (CLToolkit)
 
 - (void)constrainFillSuperview;
 - (void)constrainFillSuperviewHorizontally;

@@ -1,12 +1,12 @@
 //
-//  NSWorkspace+Convenience.m
+//  NSWorkspace+CLToolkit.m
 //  Collections
 //
 //  Created by Indragie Karunaratne on 2012-08-13.
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSWorkspace+Convenience.h"
+#import "NSWorkspace+CLToolkit.h"
 
 @implementation NSWorkspace (Convenience)
 

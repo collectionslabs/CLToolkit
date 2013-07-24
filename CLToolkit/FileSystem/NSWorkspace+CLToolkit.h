@@ -1,5 +1,5 @@
 //
-//  NSWorkspace+Convenience.h
+//  NSWorkspace+CLToolkit.h
 //  Collections
 //
 //  Created by Indragie Karunaratne on 2012-08-13.
@@ -10,7 +10,7 @@
 
 @interface NSWorkspace (Convenience)
 
-- (BOOL)moveFileToTrash:(NSString*)filePath;
+- (BOOL)moveFileToTrash:(NSString *)filePath;
 
 - (NSImage *)iconForMimeType:(NSString *)mimeType;
 - (NSImage *)iconForFileExtension:(NSString *)ext;

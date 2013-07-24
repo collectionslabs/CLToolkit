@@ -7,7 +7,7 @@
 //
 
 #import "RACDownloadOperation.h"
-#import "NSFileManager+CLExtensions.h"
+#import "NSFileManager+CLToolkit.h"
 
 @implementation RACDownloadOperation {
     __block NSError *_fileError;

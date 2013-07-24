@@ -7,10 +7,10 @@
 //
 #import <WebKit/WebKit.h>
 #import <ReactiveCocoa/NSTask+RACSupport.h>
-#import "NSFileManager+CLExtensions.h"
+#import "NSFileManager+CLToolkit.h"
 #import "RACDownloadOperation.h"
 #import "CLUpdater.h"
-#import "NSView+ClExtensions.h"
+#import "NSView+CLToolkit.h"
 #import "RACHTTPClient.h"
 
 #define kCLUpdatePath @"CLUpdatePath"

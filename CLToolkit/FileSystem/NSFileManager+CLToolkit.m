@@ -1,14 +1,14 @@
 //
-//  NSFileManager+CLExtensions.m
+//  NSFileManager+CLToolkit.m
 //  Collections
 //
 //  Created by Tony Xiao on 8/9/12.
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSFileManager+CLExtensions.h"
+#import "NSFileManager+CLToolkit.h"
 
-@implementation NSFileManager (CLExtensions)
+@implementation NSFileManager (CLToolkit)
 
 - (BOOL)moveItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL {
     NSError *error = nil;

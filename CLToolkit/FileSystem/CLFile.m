@@ -8,7 +8,7 @@
 
 #import <ReactiveCocoa/NSEnumerator+RACSequenceAdditions.h>
 #import <AWSRuntime/AmazonMD5Util.h>
-#import "NSFileManager+CLExtensions.h"
+#import "NSFileManager+CLToolkit.h"
 #import "CLFile.h"
 
 @interface CLFile() {

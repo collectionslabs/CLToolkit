@@ -59,12 +59,12 @@
 		EA8989F4179922C000594A3E /* CLFile.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898997179922C000594A3E /* CLFile.h */; };
 		EA8989F5179922C000594A3E /* CLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898998179922C000594A3E /* CLFile.m */; };
 		EA8989F6179922C000594A3E /* CLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898998179922C000594A3E /* CLFile.m */; };
-		EA8989F7179922C000594A3E /* NSFileManager+CLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898999179922C000594A3E /* NSFileManager+CLExtensions.h */; };
-		EA8989F8179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */; };
-		EA8989F9179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */; };
-		EA8989FA179922C000594A3E /* NSWorkspace+Convenience.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89899B179922C000594A3E /* NSWorkspace+Convenience.h */; };
-		EA8989FB179922C000594A3E /* NSWorkspace+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */; };
-		EA8989FC179922C000594A3E /* NSWorkspace+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */; };
+		EA8989F7179922C000594A3E /* NSFileManager+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898999179922C000594A3E /* NSFileManager+CLToolkit.h */; };
+		EA8989F8179922C000594A3E /* NSFileManager+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899A179922C000594A3E /* NSFileManager+CLToolkit.m */; };
+		EA8989F9179922C000594A3E /* NSFileManager+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899A179922C000594A3E /* NSFileManager+CLToolkit.m */; };
+		EA8989FA179922C000594A3E /* NSWorkspace+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA89899B179922C000594A3E /* NSWorkspace+CLToolkit.h */; };
+		EA8989FB179922C000594A3E /* NSWorkspace+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899C179922C000594A3E /* NSWorkspace+CLToolkit.m */; };
+		EA8989FC179922C000594A3E /* NSWorkspace+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA89899C179922C000594A3E /* NSWorkspace+CLToolkit.m */; };
 		EA898A00179922C000594A3E /* FNode.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8989A0179922C000594A3E /* FNode.h */; };
 		EA898A01179922C000594A3E /* FNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A1179922C000594A3E /* FNode.m */; };
 		EA898A02179922C000594A3E /* FNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989A1179922C000594A3E /* FNode.m */; };
@@ -108,8 +108,8 @@
 		EA898A2B179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */; };
 		EA898A2C179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */; };
 		EA898A37179924C900594A3E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4CE4B41596B5C500BAEC36 /* SenTestingKit.framework */; };
-		EA898A3F1799269800594A3E /* NSView+ClExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A3D1799269800594A3E /* NSView+ClExtensions.h */; };
-		EA898A401799269800594A3E /* NSView+ClExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A3E1799269800594A3E /* NSView+ClExtensions.m */; };
+		EA898A3F1799269800594A3E /* NSView+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EA898A3D1799269800594A3E /* NSView+CLToolkit.h */; };
+		EA898A401799269800594A3E /* NSView+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EA898A3E1799269800594A3E /* NSView+CLToolkit.m */; };
 		EA898A42179927F600594A3E /* libPods-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA898A41179927F600594A3E /* libPods-App.a */; };
 		EA898A431799283600594A3E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFB385115A1682F001C3031 /* WebKit.framework */; };
 		EA898A461799285C00594A3E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD272DC15A0CF510056BE94 /* Quartz.framework */; };
@@ -181,10 +181,10 @@
 		EA898992179922C000594A3E /* RACManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACManagedObject.m; sourceTree = "<group>"; };
 		EA898997179922C000594A3E /* CLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLFile.h; sourceTree = "<group>"; };
 		EA898998179922C000594A3E /* CLFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLFile.m; sourceTree = "<group>"; };
-		EA898999179922C000594A3E /* NSFileManager+CLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CLExtensions.h"; sourceTree = "<group>"; };
-		EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CLExtensions.m"; sourceTree = "<group>"; };
-		EA89899B179922C000594A3E /* NSWorkspace+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+Convenience.h"; sourceTree = "<group>"; };
-		EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+Convenience.m"; sourceTree = "<group>"; };
+		EA898999179922C000594A3E /* NSFileManager+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+CLToolkit.h"; sourceTree = "<group>"; };
+		EA89899A179922C000594A3E /* NSFileManager+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+CLToolkit.m"; sourceTree = "<group>"; };
+		EA89899B179922C000594A3E /* NSWorkspace+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+CLToolkit.h"; sourceTree = "<group>"; };
+		EA89899C179922C000594A3E /* NSWorkspace+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+CLToolkit.m"; sourceTree = "<group>"; };
 		EA8989A0179922C000594A3E /* FNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FNode.h; sourceTree = "<group>"; };
 		EA8989A1179922C000594A3E /* FNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FNode.m; sourceTree = "<group>"; };
 		EA8989A5179922C000594A3E /* CLSharedFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLSharedFileList.h; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 		EA8989C0179922C000594A3E /* CLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLViewController.m; sourceTree = "<group>"; };
 		EA8989C1179922C000594A3E /* NSAlert+SynchronousSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+SynchronousSheet.h"; sourceTree = "<group>"; };
 		EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+SynchronousSheet.m"; sourceTree = "<group>"; };
-		EA898A3D1799269800594A3E /* NSView+ClExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+ClExtensions.h"; sourceTree = "<group>"; };
-		EA898A3E1799269800594A3E /* NSView+ClExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+ClExtensions.m"; sourceTree = "<group>"; };
+		EA898A3D1799269800594A3E /* NSView+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+CLToolkit.h"; sourceTree = "<group>"; };
+		EA898A3E1799269800594A3E /* NSView+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+CLToolkit.m"; sourceTree = "<group>"; };
 		EA898A41179927F600594A3E /* libPods-App.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-App.a"; path = "../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug/libPods-App.a"; sourceTree = "<group>"; };
 		EA8DB21716B8D2B600EAE385 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EABD6EE916DD949D0019134F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -389,10 +389,10 @@
 			children = (
 				EA898997179922C000594A3E /* CLFile.h */,
 				EA898998179922C000594A3E /* CLFile.m */,
-				EA898999179922C000594A3E /* NSFileManager+CLExtensions.h */,
-				EA89899A179922C000594A3E /* NSFileManager+CLExtensions.m */,
-				EA89899B179922C000594A3E /* NSWorkspace+Convenience.h */,
-				EA89899C179922C000594A3E /* NSWorkspace+Convenience.m */,
+				EA898999179922C000594A3E /* NSFileManager+CLToolkit.h */,
+				EA89899A179922C000594A3E /* NSFileManager+CLToolkit.m */,
+				EA89899B179922C000594A3E /* NSWorkspace+CLToolkit.h */,
+				EA89899C179922C000594A3E /* NSWorkspace+CLToolkit.m */,
 			);
 			path = FileSystem;
 			sourceTree = "<group>";
@@ -467,8 +467,8 @@
 		EA8989BE179922C000594A3E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				EA898A3D1799269800594A3E /* NSView+ClExtensions.h */,
-				EA898A3E1799269800594A3E /* NSView+ClExtensions.m */,
+				EA898A3D1799269800594A3E /* NSView+CLToolkit.h */,
+				EA898A3E1799269800594A3E /* NSView+CLToolkit.m */,
 				EA8989BF179922C000594A3E /* CLViewController.h */,
 				EA8989C0179922C000594A3E /* CLViewController.m */,
 				EA8989C1179922C000594A3E /* NSAlert+SynchronousSheet.h */,
@@ -490,8 +490,8 @@
 				EA8989CE179922C000594A3E /* Core.h in Headers */,
 				EA8989F0179922C000594A3E /* RACManagedObject.h in Headers */,
 				EA8989F4179922C000594A3E /* CLFile.h in Headers */,
-				EA8989F7179922C000594A3E /* NSFileManager+CLExtensions.h in Headers */,
-				EA8989FA179922C000594A3E /* NSWorkspace+Convenience.h in Headers */,
+				EA8989F7179922C000594A3E /* NSFileManager+CLToolkit.h in Headers */,
+				EA8989FA179922C000594A3E /* NSWorkspace+CLToolkit.h in Headers */,
 				EA898A00179922C000594A3E /* FNode.h in Headers */,
 				EA898A06179922C000594A3E /* CLSharedFileList.h in Headers */,
 				EA898A09179922C000594A3E /* CLValueTransformers.h in Headers */,
@@ -506,7 +506,7 @@
 				EA898A24179922C000594A3E /* RACSignal+Kiwi.h in Headers */,
 				EA898A27179922C000594A3E /* CLViewController.h in Headers */,
 				EA898A2A179922C000594A3E /* NSAlert+SynchronousSheet.h in Headers */,
-				EA898A3F1799269800594A3E /* NSView+ClExtensions.h in Headers */,
+				EA898A3F1799269800594A3E /* NSView+CLToolkit.h in Headers */,
 				EA04C002179931B600B22450 /* Web.h in Headers */,
 				EA04C0061799323400B22450 /* Misc.h in Headers */,
 				EA04C02217993DF600B22450 /* NSArray+Core.h in Headers */,
@@ -627,8 +627,8 @@
 				EA8989CF179922C000594A3E /* Core.m in Sources */,
 				EA8989F1179922C000594A3E /* RACManagedObject.m in Sources */,
 				EA8989F5179922C000594A3E /* CLFile.m in Sources */,
-				EA8989F8179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */,
-				EA8989FB179922C000594A3E /* NSWorkspace+Convenience.m in Sources */,
+				EA8989F8179922C000594A3E /* NSFileManager+CLToolkit.m in Sources */,
+				EA8989FB179922C000594A3E /* NSWorkspace+CLToolkit.m in Sources */,
 				EA898A01179922C000594A3E /* FNode.m in Sources */,
 				EA898A07179922C000594A3E /* CLSharedFileList.m in Sources */,
 				EA898A0A179922C000594A3E /* CLValueTransformers.m in Sources */,
@@ -657,8 +657,8 @@
 				EA8989D0179922C000594A3E /* Core.m in Sources */,
 				EA8989F2179922C000594A3E /* RACManagedObject.m in Sources */,
 				EA8989F6179922C000594A3E /* CLFile.m in Sources */,
-				EA8989F9179922C000594A3E /* NSFileManager+CLExtensions.m in Sources */,
-				EA8989FC179922C000594A3E /* NSWorkspace+Convenience.m in Sources */,
+				EA8989F9179922C000594A3E /* NSFileManager+CLToolkit.m in Sources */,
+				EA8989FC179922C000594A3E /* NSWorkspace+CLToolkit.m in Sources */,
 				EA898A02179922C000594A3E /* FNode.m in Sources */,
 				EA898A08179922C000594A3E /* CLSharedFileList.m in Sources */,
 				EA898A0B179922C000594A3E /* CLValueTransformers.m in Sources */,
@@ -673,7 +673,7 @@
 				EA898A26179922C000594A3E /* RACSignal+Kiwi.m in Sources */,
 				EA898A29179922C000594A3E /* CLViewController.m in Sources */,
 				EA898A2C179922C000594A3E /* NSAlert+SynchronousSheet.m in Sources */,
-				EA898A401799269800594A3E /* NSView+ClExtensions.m in Sources */,
+				EA898A401799269800594A3E /* NSView+CLToolkit.m in Sources */,
 				EA04C003179931B600B22450 /* Web.m in Sources */,
 				EA04C0071799323400B22450 /* Misc.m in Sources */,
 				EA04C02317993DF600B22450 /* NSArray+Core.m in Sources */,
