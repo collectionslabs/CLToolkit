@@ -67,29 +67,10 @@
 
 #pragma mark Class Methods
 
-+ (instancetype)asyncOperationWithBlock:(void (^)(CLAsyncOperation *))block {
++ (instancetype)operationWithBlock:(void (^)(CLAsyncOperation *))block {
     CLAsyncOperation *operation = [[self alloc] init];
     operation.mainBlock = block;
     return operation;
-}
-
-@end
-
-@implementation CLSignalOperation
-
-- (RACSignal *)mainSignal {
-    return [RACSignal empty];
-}
-
-- (void)main {
-    RACSignal *signal = [self mainSignal];
-    NSAssert(signal, @"mainSignal MUST NOT return nil");
-    [signal subscribeCompleted:^{
-        [self finish];
-    } error:^(NSError *error) {
-        self.error = error;
-        [self finish];
-    }];
 }
 
 @end

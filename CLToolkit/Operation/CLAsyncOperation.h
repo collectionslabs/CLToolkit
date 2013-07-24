@@ -8,6 +8,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Operation.h"
 
 // See http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/NSOperationQueue_class/Reference/Reference.html
 // isExecuting | isFinished | isCancelled | State
@@ -28,16 +29,7 @@
 // Call finish when done
 - (void)finish;
 
-+ (instancetype)asyncOperationWithBlock:(void(^)(CLAsyncOperation *operation))block;
++ (instancetype)operationWithBlock:(void(^)(CLAsyncOperation *operation))block;
 
 @end
 
-// To use this class, override mainSignal. Operation will be finished when signal sends complete or error
-// If signal sends an error, operation.error will be set.
-@interface CLSignalOperation : CLAsyncOperation
-
-@property (nonatomic, strong) NSError *error;
-
-- (RACSignal *)mainSignal;
-
-@end

@@ -7,7 +7,6 @@
 //
 
 #import <ReactiveCocoa/NSEnumerator+RACSequenceAdditions.h>
-#import <AWSRuntime/AmazonMD5Util.h>
 #import "CLFile.h"
 
 @interface CLFile() {
@@ -50,7 +49,8 @@
 }
 
 - (NSString *)md5 {
-    return self.exists ? [AmazonMD5Util base64md5FromStream:[NSInputStream inputStreamWithURL:self.url]] : nil;
+    return nil;
+//    return self.exists ? [AmazonMD5Util base64md5FromStream:[NSInputStream inputStreamWithURL:self.url]] : nil;
 }
 
 - (id<NSFastEnumeration>)children {

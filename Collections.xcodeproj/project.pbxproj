@@ -113,6 +113,8 @@
 		EA898A42179927F600594A3E /* libPods-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA898A41179927F600594A3E /* libPods-App.a */; };
 		EA898A431799283600594A3E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFB385115A1682F001C3031 /* WebKit.framework */; };
 		EA898A461799285C00594A3E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD272DC15A0CF510056BE94 /* Quartz.framework */; };
+		EAADD06117A0394B009A8FA4 /* RACSignalOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD05F17A0394B009A8FA4 /* RACSignalOperation.h */; };
+		EAADD06217A0394B009A8FA4 /* RACSignalOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD06017A0394B009A8FA4 /* RACSignalOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -218,6 +220,9 @@
 		EA898A41179927F600594A3E /* libPods-App.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-App.a"; path = "../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug/libPods-App.a"; sourceTree = "<group>"; };
 		EA8DB21716B8D2B600EAE385 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EAADD05E179FD73E009A8FA4 /* FileSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
+		EAADD05F17A0394B009A8FA4 /* RACSignalOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACSignalOperation.h; sourceTree = "<group>"; };
+		EAADD06017A0394B009A8FA4 /* RACSignalOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACSignalOperation.m; sourceTree = "<group>"; };
+		EAADD06417A03A19009A8FA4 /* Operation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
 		EABD6EE916DD949D0019134F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		EAD272DC15A0CF510056BE94 /* Quartz.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		EAFB385115A1682F001C3031 /* WebKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -451,8 +456,11 @@
 			children = (
 				EA8989B7179922C000594A3E /* CLAsyncOperation.h */,
 				EA8989B8179922C000594A3E /* CLAsyncOperation.m */,
+				EAADD05F17A0394B009A8FA4 /* RACSignalOperation.h */,
+				EAADD06017A0394B009A8FA4 /* RACSignalOperation.m */,
 				EA8989B9179922C000594A3E /* RACSignalQueue.h */,
 				EA8989BA179922C000594A3E /* RACSignalQueue.m */,
+				EAADD06417A03A19009A8FA4 /* Operation.h */,
 			);
 			path = Operation;
 			sourceTree = "<group>";
@@ -524,6 +532,7 @@
 				EA04C0401799429000B22450 /* Firebase.h in Headers */,
 				EA04C04D17994AA200B22450 /* FObject.h in Headers */,
 				EA04C05117994C3900B22450 /* Firebase+Reactive.h in Headers */,
+				EAADD06117A0394B009A8FA4 /* RACSignalOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +698,7 @@
 				EA04C03B179941B300B22450 /* NSEntityDescription+CLToolkit.m in Sources */,
 				EA04C04E17994AA200B22450 /* FObject.m in Sources */,
 				EA04C05217994C3900B22450 /* Firebase+Reactive.m in Sources */,
+				EAADD06217A0394B009A8FA4 /* RACSignalOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

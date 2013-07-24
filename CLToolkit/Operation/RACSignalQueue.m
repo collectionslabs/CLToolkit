@@ -61,9 +61,9 @@
     RACSignalQueue *newQueue = [[RACSignalQueue alloc] init];
     [newQueue enqueue:^RACSignal *{
         return [RACSignal merge:@[
-                [self enqueue:^RACSignal *{ return [RACSignal empty]; }],
-                [otherQueue enqueue:^RACSignal *{ return [RACSignal empty]; }]
-                ]];
+            [self enqueue:^RACSignal *{ return [RACSignal empty]; }],
+            [otherQueue enqueue:^RACSignal *{ return [RACSignal empty]; }]
+        ]];
     }];
     return newQueue;
 }
