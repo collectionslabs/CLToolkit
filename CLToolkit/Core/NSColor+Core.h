@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#import "Core.h"
+
 #import <Cocoa/Cocoa.h>
 
 @interface NSColor (Core)

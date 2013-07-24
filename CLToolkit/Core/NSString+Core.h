@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
+#import "Core.h"
+
 @interface NSString (Core)
 
 - (BOOL)contains:(NSString *)substr;

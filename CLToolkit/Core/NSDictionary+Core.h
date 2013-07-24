@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
+#import "Core.h"
+
 @interface NSDictionary (Core)
 
 - (id)dictionaryByMergingFrom:(NSDictionary *)other;

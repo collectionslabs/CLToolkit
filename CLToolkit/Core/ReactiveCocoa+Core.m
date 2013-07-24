@@ -97,11 +97,8 @@
         @unsafeify(self);
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             @strongify(self);
-            RACKVOTrampoline *kvoTrampoline = [[RACKVOTrampoline alloc] initWithTarget:self observer:nil keyPath:keyPath options:options block:^(id target, id observer, NSDictionary *change) {
+            return [[RACKVOTrampoline alloc] initWithTarget:self observer:nil keyPath:keyPath options:options block:^(id target, id observer, NSDictionary *change) {
                 [subscriber sendNext:change];
-            }];
-            return [RACDisposable disposableWithBlock:^{
-                [kvoTrampoline stopObserving];
             }];
         }];
     }];

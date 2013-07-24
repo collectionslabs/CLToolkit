@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#import "Core.h"
+
 @interface NSObject (Core)
 
 - (id)associatedValueForKey:(const char *)key setDefault:(id)defaultValue;
