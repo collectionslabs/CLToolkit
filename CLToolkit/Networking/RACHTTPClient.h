@@ -1,13 +1,11 @@
 //
-//  CLHTTPClient.h
+//  RACHTTPClient.h
 //
 //  Created by Tony Xiao on 07/09/13.
 //  Copyright (c) 2013 Tony Xiao. All rights reserved.
 //
 
-
-#import <AFNetworking/AFHTTPClient.h>
-#import "RACHTTPRequestOperation.h"
+#import "Networking.h"
 
 @interface RACHTTPClient : AFHTTPClient
 

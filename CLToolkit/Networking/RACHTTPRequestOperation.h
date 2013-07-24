@@ -5,14 +5,11 @@
 //  Copyright (c) 2013 Tony Xiao. All rights reserved.
 //
 
-#import <AFNetworking/AFHTTPRequestOperation.h>
+#import "Networking.h"
 
 @interface RACHTTPRequestOperation : AFHTTPRequestOperation
 
-- (id)responseObject;
-- (void)setSimpleCompletionBlock:(void (^)(id responseObject, NSError *error))block;
-- (void)setCompletionBlockWithSuccess:(void (^)(RACHTTPRequestOperation *op,id responseObject))success
-                              failure:(void (^)(RACHTTPRequestOperation *op, NSError *))failure;
+@property (nonatomic, readonly) RACSignal *onFinish;
 
 @end
 

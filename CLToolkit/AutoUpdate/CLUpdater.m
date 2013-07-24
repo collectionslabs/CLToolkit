@@ -8,7 +8,7 @@
 #import <WebKit/WebKit.h>
 #import <ReactiveCocoa/NSTask+RACSupport.h>
 #import "NSFileManager+CLExtensions.h"
-#import "CLDownloadOperation.h"
+#import "RACDownloadOperation.h"
 #import "CLUpdater.h"
 #import "NSView+ClExtensions.h"
 #import "RACHTTPClient.h"
@@ -133,7 +133,7 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
         return [RACSignal error:error];
 
     NSURLRequest *req = [[RACHTTPClient sharedClient] requestWithMethod:@"GET" path:update[@"download_url"] parameters:nil];
-    CLDownloadOperation *op = [[CLDownloadOperation alloc] initWithRequest:req
+    RACDownloadOperation *op = [[RACDownloadOperation alloc] initWithRequest:req
                                                               targetFolder:UpdatesFolder(YES)];
     [op setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
         LogDebug(@"updater", @"Update download is %f%% complete", 100.0 * totalBytesRead / totalBytesExpectedToRead);

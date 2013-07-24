@@ -19,6 +19,7 @@
 
 @interface RACSubject (Core)
 
+- (void)sendNextAndComplete:(id)value;
 + (instancetype)subjectWithName:(NSString *)name;
 + (instancetype)subjectWithSelector:(SEL)selector;
 + (instancetype)subjectWithClassSelector:(SEL)selector;

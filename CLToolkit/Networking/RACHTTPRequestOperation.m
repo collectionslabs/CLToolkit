@@ -7,40 +7,32 @@
 
 #import "RACHTTPRequestOperation.h"
 
-@implementation RACHTTPRequestOperation
+@implementation RACHTTPRequestOperation {
+    RACSubject *_onFinish;
+}
 
 - (id)responseObject {
     return self.response;
 }
 
-- (void)setSimpleCompletionBlock:(void (^)(id, NSError *))block {
-    [self setCompletionBlockWithSuccess:^(RACHTTPRequestOperation *op, id responseObject) {
-        block(responseObject, nil);
-    } failure:^(RACHTTPRequestOperation *op, NSError *error) {
-        block(nil, error);
-    }];
+- (RACSignal *)onFinish {
+    return _onFinish ?: (_onFinish = [RACReplaySubject subject]);
 }
 
-- (void)setCompletionBlockWithSuccess:(void (^)(RACHTTPRequestOperation *, id))success
-                              failure:(void (^)(RACHTTPRequestOperation *, NSError *))failure {
-    __block RACHTTPRequestOperation *this = self;
-    self.completionBlock  = ^{
-        if ([this isCancelled])
-            return;
-        if (this.error) {
-            if (failure) {
-                dispatch_async(this.failureCallbackQueue ?: dispatch_get_main_queue(), ^{
-                    failure(this, this.error);
-                });
-            }
-        } else {
-            if (success) {
-                dispatch_async(this.successCallbackQueue ?: dispatch_get_main_queue(), ^{
-                    success(this, this.responseObject);
-                });
-            }
-        }
-    };
+- (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *, id))success
+                              failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
+    @weakify(self);
+    [super setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        @strongify(self);
+        [self->_onFinish sendNextAndComplete:responseObject];
+        if (success)
+            success(operation, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        @strongify(self);
+        [self->_onFinish sendError:error];
+        if (failure)
+            failure(operation, error);
+    }];
 }
 
 - (id)initWithRequest:(NSURLRequest *)urlRequest {

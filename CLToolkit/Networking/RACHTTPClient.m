@@ -5,10 +5,9 @@
 //  Copyright (c) 2013 Tony Xiao. All rights reserved.
 //
 
-#import <ConciseKit/ConciseKit.h>
-#import "NSURLRequest+Concise.h"
-//#import "NSString+Concise.h"
 #import "RACHTTPClient.h"
+
+#if DEBUG
 
 static const char kCLHTTPParams;
 
@@ -17,13 +16,9 @@ static int CurrentTag(void) {
     return currentTag++;
 }
 
-
-// DEBUG seems to break this
-#if 0
-
 static void LogHTTPRequest(int tag, NSURLRequest *request) {
     NSString *method = [request HTTPMethod];
-    NSString *path = [request.URL.absoluteString replace:CORE_BASE_URL with:@""];
+    NSString *path = request.URL.path;
     path = [path sliceTill:[path rangeOfString:@"?"].location];
     id params = [request associatedValueForKey:&kCLHTTPParams] ?: $jsonLoadsData([request HTTPBody]);
     NSString *desc = [params description] ?: @"";
@@ -34,7 +29,7 @@ static void LogHTTPRequest(int tag, NSURLRequest *request) {
 }
 static void LogHTTPResponse(int tag, NSHTTPURLResponse *response) {
     NSDictionary *headers = response.allHeaderFields;
-    NSString *path = [response.URL.absoluteString replace:CORE_BASE_URL with:@""];
+    NSString *path = response.URL.path;
     id body = [response json];
     NSString *tagStr = [$str(@"<-  R%d     ", tag) sliceTill:8];
     LogDebug(@"http", @"%@ %ld %@\n Body: %@\n Headers: %@", tagStr, response.statusCode, path, body, headers);
@@ -51,6 +46,7 @@ static void LogHTTPError(int tag, NSError *error) {
 static void LogHTTPRequest(int tag, NSURLRequest *request) {}
 static void LogHTTPResponse(int tag, NSHTTPURLResponse *response) {}
 static void LogHTTPError(int tag, NSError *error) {}
+static int CurrentTag(void) { return 0; }
 
 #endif
 
@@ -88,8 +84,10 @@ static void LogHTTPError(int tag, NSError *error) {}
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
     NSMutableURLRequest *req = [super requestWithMethod:method path:path parameters:parameters];
     [req setHTTPShouldHandleCookies:self.useCookie];
+#if DEBUG
     if (parameters.count)
         [req associateValue:parameters withKey:&kCLHTTPParams];
+#endif
     if (!self.useCookie)
         [req removeHTTPHeaderForKey:@"Cookie"];
     return req;

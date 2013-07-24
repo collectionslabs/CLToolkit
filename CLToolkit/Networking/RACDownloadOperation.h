@@ -1,14 +1,14 @@
 //
-//  CLDownloadRequestOperation.h
+//  RACDownloadOperation.h
 //  Collections
 //
 //  Created by Tony Xiao on 10/29/12.
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import "CLHTTPRequestOperation.h"
+#import "Networking.h"
 
-@interface CLDownloadOperation : CLHTTPRequestOperation
+@interface RACDownloadOperation : RACHTTPRequestOperation
 
 @property (nonatomic, strong) NSURL *tempURL;
 @property (nonatomic, strong) NSURL *targetFolder;

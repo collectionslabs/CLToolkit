@@ -57,6 +57,11 @@
 
 @implementation RACSubject (Core)
 
+- (void)sendNextAndComplete:(id)value {
+    [self sendNext:value];
+    [self sendCompleted];
+}
+
 + (instancetype)subjectWithName:(NSString *)name {
     RACSubject *subject = [self subject];
     subject.name = name;

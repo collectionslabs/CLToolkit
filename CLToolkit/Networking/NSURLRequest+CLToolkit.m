@@ -1,14 +1,14 @@
 //
-//  NSURLRequest+Concise.m
+//  NSURLRequest+CLToolkit.m
 //
 //  Created by Tony Xiao on 07/09/13.
 //  Copyright (c) 2013 Tony Xiao. All rights reserved.
 //
 
-#import "NSURLRequest+Concise.h"
+#import "NSURLRequest+CLToolkit.h"
 
 
-@implementation NSURLRequest (Concise)
+@implementation NSURLRequest (CLToolkit)
 
 - (NSMutableURLRequest *)requestByOverridingHeaders:(NSDictionary *)headers {
     NSMutableURLRequest * newRequest = [self mutableCopy];
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation NSMutableURLRequest (Concise)
+@implementation NSMutableURLRequest (CLToolkit)
 
 - (void)removeHTTPHeaderForKey:(NSString *)key {
     NSMutableDictionary *headers = [[self allHTTPHeaderFields] mutableCopy];
