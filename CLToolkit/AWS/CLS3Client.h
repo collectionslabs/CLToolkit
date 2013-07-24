@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#import "AWS.h"
 #import <AWSRuntime/S3/AmazonS3Client.h>
 
 @interface CLS3Client : AmazonS3Client

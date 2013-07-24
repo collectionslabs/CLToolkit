@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "UI.h"
 
 @interface NSView (CLToolkit)
 

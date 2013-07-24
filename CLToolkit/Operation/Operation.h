@@ -9,6 +9,8 @@
 #ifndef Collections_Operation_h
 #define Collections_Operation_h
 
+#import "Core.h"
+
 #import "CLAsyncOperation.h"
 //#import "RACSignalOperation.h"
 #import "RACSignalQueue.h"

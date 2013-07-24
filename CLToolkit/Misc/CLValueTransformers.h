@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Misc.h"
 
 @interface CLWebViewProgressTransformer : NSValueTransformer
 @end

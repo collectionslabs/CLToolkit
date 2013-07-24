@@ -9,6 +9,8 @@
 #ifndef Collections_AWS_h
 #define Collections_AWS_h
 
+#import "Core.h"
+
 #import "CLS3Client.h"
 #import "CLS3TransferManager.h"
 

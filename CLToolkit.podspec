@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.0.1'
+  s.version      =  '0.0.2'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }
-  s.source       =  { :git => 'https://github.com/collections/CLToolkit.git', :tag => '0.0.1' }
+  s.source       =  { :git => 'https://github.com/collections/CLToolkit.git', :tag => "#{s.version}" }
   s.license      =  'MIT'
   
   # Platform setup

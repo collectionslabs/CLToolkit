@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "Misc.h"
 
 @interface CLSharedFileList : NSObject
 

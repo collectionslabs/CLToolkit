@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "UI.h"
 
 @interface CLViewController : NSViewController
 

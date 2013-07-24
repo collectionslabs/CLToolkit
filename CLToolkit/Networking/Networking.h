@@ -9,6 +9,8 @@
 #ifndef CLToolkit_Networking_h
 #define CLToolkit_Networking_h
 
+#import "Core.h"
+
 #import <AFNetworking/AFNetworking.h>
 #import "RACHTTPClient.h"
 #import "RACHTTPRequestOperation.h"

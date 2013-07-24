@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'CLToolkit' target in the 'CLToolkit' project
-//
-
-#ifdef __OBJC__
-    #import "Core.h"
-#endif

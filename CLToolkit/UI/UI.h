@@ -9,6 +9,8 @@
 #ifndef Collections_UI_h
 #define Collections_UI_h
 
+#import "Core.h"
+
 #import "NSView+CLToolkit.h"
 #import "CLViewController.h"
 #import "NSAlert+SynchronousSheet.h"

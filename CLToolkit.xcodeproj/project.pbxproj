@@ -23,7 +23,6 @@
 		EAADD10417A05603009A8FA4 /* CLS3TransferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09D17A05603009A8FA4 /* CLS3TransferManager.h */; };
 		EAADD10517A05603009A8FA4 /* CLS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD09E17A05603009A8FA4 /* CLS3TransferManager.m */; };
 		EAADD10617A05603009A8FA4 /* CLS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD09E17A05603009A8FA4 /* CLS3TransferManager.m */; };
-		EAADD10717A05603009A8FA4 /* CLToolkit-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0A017A05603009A8FA4 /* CLToolkit-Prefix.pch */; };
 		EAADD10B17A05603009A8FA4 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0A417A05603009A8FA4 /* Core.h */; };
 		EAADD10C17A05603009A8FA4 /* Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0A517A05603009A8FA4 /* Core.m */; };
 		EAADD10D17A05603009A8FA4 /* Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0A517A05603009A8FA4 /* Core.m */; };
@@ -168,7 +167,6 @@
 		EAADD09C17A05603009A8FA4 /* CLS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLS3Client.m; sourceTree = "<group>"; };
 		EAADD09D17A05603009A8FA4 /* CLS3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLS3TransferManager.h; sourceTree = "<group>"; };
 		EAADD09E17A05603009A8FA4 /* CLS3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLS3TransferManager.m; sourceTree = "<group>"; };
-		EAADD0A017A05603009A8FA4 /* CLToolkit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLToolkit-Prefix.pch"; sourceTree = "<group>"; };
 		EAADD0A417A05603009A8FA4 /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		EAADD0A517A05603009A8FA4 /* Core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Core.m; sourceTree = "<group>"; };
 		EAADD0A617A05603009A8FA4 /* NSArray+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Core.h"; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 				EAADD0EA17A05603009A8FA4 /* Testing */,
 				EAADD0EE17A05603009A8FA4 /* UI */,
 				EAADD0F617A05603009A8FA4 /* Web */,
-				EAADD0A017A05603009A8FA4 /* CLToolkit-Prefix.pch */,
 			);
 			path = CLToolkit;
 			sourceTree = "<group>";
@@ -511,7 +508,6 @@
 				EAADD10017A05603009A8FA4 /* AWS.h in Headers */,
 				EAADD10117A05603009A8FA4 /* CLS3Client.h in Headers */,
 				EAADD10417A05603009A8FA4 /* CLS3TransferManager.h in Headers */,
-				EAADD10717A05603009A8FA4 /* CLToolkit-Prefix.pch in Headers */,
 				EAADD10B17A05603009A8FA4 /* Core.h in Headers */,
 				EAADD10E17A05603009A8FA4 /* NSArray+Core.h in Headers */,
 				EAADD11117A05603009A8FA4 /* NSColor+Core.h in Headers */,
@@ -741,7 +737,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -764,7 +759,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -779,9 +773,8 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CLToolkit/CLToolkit-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = (
 					"-framework",
 					CFNetwork,
@@ -816,9 +809,8 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CLToolkit/CLToolkit-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = (
 					"-framework",
 					CFNetwork,
@@ -847,9 +839,9 @@
 			buildSettings = {
 				DSTROOT = /tmp/CLToolkit_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CLToolkit-ios/CLToolkit-ios-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -859,9 +851,9 @@
 			buildSettings = {
 				DSTROOT = /tmp/CLToolkit_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CLToolkit-ios/CLToolkit-ios-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
