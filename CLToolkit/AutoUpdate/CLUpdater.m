@@ -8,10 +8,10 @@
 #import <WebKit/WebKit.h>
 #import <ReactiveCocoa/NSTask+RACSupport.h>
 #import "NSFileManager+CLToolkit.h"
-#import "RACDownloadOperation.h"
-#import "CLUpdater.h"
 #import "NSView+CLToolkit.h"
+#import "RACDownloadOperation.h"
 #import "RACHTTPClient.h"
+#import "CLUpdater.h"
 
 #define kCLUpdatePath @"CLUpdatePath"
 #define CLUpdateCheckInterval 60 * 60 * 1 // Every hour

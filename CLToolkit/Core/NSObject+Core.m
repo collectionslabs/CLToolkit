@@ -11,7 +11,7 @@
 
 @implementation NSObject (Core)
 
-- (id)associatedValueForKey:(const char *)key default:(id)defaultValue {
+- (id)associatedValueForKey:(const char *)key setDefault:(id)defaultValue {
     id value = [self associatedValueForKey:key];
     if (!value) {
         value = defaultValue;

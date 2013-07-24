@@ -29,22 +29,3 @@
 @interface CLFileSizeValueTransformer : NSValueTransformer
 @end
 
-@interface CLDisplayAttrValueTransformer : NSValueTransformer
-@end
-
-@interface CLDisplayTextValueTransformer : NSValueTransformer
-@end
-
-@interface CLDisplayDateValueTransformer : NSValueTransformer
-@end
-
-@interface CLDisplayLocationValueTransformer : NSValueTransformer
-@end
-
-@interface CLDisplayImageValueTransformer : NSValueTransformer
-@end
-
-@interface CLDisplayNumberValueTransformer : NSValueTransformer
-@end
-
-// to_one / to_many

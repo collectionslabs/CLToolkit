@@ -115,6 +115,7 @@
 		EA898A461799285C00594A3E /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD272DC15A0CF510056BE94 /* Quartz.framework */; };
 		EAADD06117A0394B009A8FA4 /* RACSignalOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD05F17A0394B009A8FA4 /* RACSignalOperation.h */; };
 		EAADD06217A0394B009A8FA4 /* RACSignalOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD06017A0394B009A8FA4 /* RACSignalOperation.m */; };
+		EAADD06917A03EC1009A8FA4 /* CLUpdateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD06817A03EC1009A8FA4 /* CLUpdateHelper.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -223,6 +224,11 @@
 		EAADD05F17A0394B009A8FA4 /* RACSignalOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACSignalOperation.h; sourceTree = "<group>"; };
 		EAADD06017A0394B009A8FA4 /* RACSignalOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACSignalOperation.m; sourceTree = "<group>"; };
 		EAADD06417A03A19009A8FA4 /* Operation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
+		EAADD06517A03B70009A8FA4 /* UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UI.h; sourceTree = "<group>"; };
+		EAADD06617A03BD7009A8FA4 /* Testing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Testing.h; sourceTree = "<group>"; };
+		EAADD06717A03E94009A8FA4 /* AutoUpdate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoUpdate.h; sourceTree = "<group>"; };
+		EAADD06817A03EC1009A8FA4 /* CLUpdateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLUpdateHelper.h; sourceTree = "<group>"; };
+		EAADD06A17A03EF7009A8FA4 /* AWS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWS.h; sourceTree = "<group>"; };
 		EABD6EE916DD949D0019134F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		EAD272DC15A0CF510056BE94 /* Quartz.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		EAFB385115A1682F001C3031 /* WebKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -334,9 +340,11 @@
 		EA89896F179922C000594A3E /* AutoUpdate */ = {
 			isa = PBXGroup;
 			children = (
+				EAADD06817A03EC1009A8FA4 /* CLUpdateHelper.h */,
 				EA898970179922C000594A3E /* CLUpdateHelper.m */,
 				EA898971179922C000594A3E /* CLUpdater.h */,
 				EA898972179922C000594A3E /* CLUpdater.m */,
+				EAADD06717A03E94009A8FA4 /* AutoUpdate.h */,
 			);
 			path = AutoUpdate;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 				EA898975179922C000594A3E /* CLS3Client.m */,
 				EA898976179922C000594A3E /* CLS3TransferManager.h */,
 				EA898977179922C000594A3E /* CLS3TransferManager.m */,
+				EAADD06A17A03EF7009A8FA4 /* AWS.h */,
 			);
 			path = AWS;
 			sourceTree = "<group>";
@@ -421,10 +430,10 @@
 		EA8989A4179922C000594A3E /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				EA8989A5179922C000594A3E /* CLSharedFileList.h */,
-				EA8989A6179922C000594A3E /* CLSharedFileList.m */,
 				EA8989A7179922C000594A3E /* CLValueTransformers.h */,
 				EA8989A8179922C000594A3E /* CLValueTransformers.m */,
+				EA8989A5179922C000594A3E /* CLSharedFileList.h */,
+				EA8989A6179922C000594A3E /* CLSharedFileList.m */,
 				EA8989A9179922C000594A3E /* NSImage+IconRef.h */,
 				EA8989AA179922C000594A3E /* NSImage+IconRef.m */,
 				EA8989AB179922C000594A3E /* NSImage+QuickLook.h */,
@@ -470,6 +479,7 @@
 			children = (
 				EA8989BC179922C000594A3E /* RACSignal+Kiwi.h */,
 				EA8989BD179922C000594A3E /* RACSignal+Kiwi.m */,
+				EAADD06617A03BD7009A8FA4 /* Testing.h */,
 			);
 			path = Testing;
 			sourceTree = "<group>";
@@ -477,12 +487,13 @@
 		EA8989BE179922C000594A3E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				EA898A3D1799269800594A3E /* NSView+CLToolkit.h */,
-				EA898A3E1799269800594A3E /* NSView+CLToolkit.m */,
 				EA8989BF179922C000594A3E /* CLViewController.h */,
 				EA8989C0179922C000594A3E /* CLViewController.m */,
+				EA898A3D1799269800594A3E /* NSView+CLToolkit.h */,
+				EA898A3E1799269800594A3E /* NSView+CLToolkit.m */,
 				EA8989C1179922C000594A3E /* NSAlert+SynchronousSheet.h */,
 				EA8989C2179922C000594A3E /* NSAlert+SynchronousSheet.m */,
+				EAADD06517A03B70009A8FA4 /* UI.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -533,6 +544,7 @@
 				EA04C04D17994AA200B22450 /* FObject.h in Headers */,
 				EA04C05117994C3900B22450 /* Firebase+Reactive.h in Headers */,
 				EAADD06117A0394B009A8FA4 /* RACSignalOperation.h in Headers */,
+				EAADD06917A03EC1009A8FA4 /* CLUpdateHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,15 +16,15 @@ static const char kDownloadSignal;
 @implementation AmazonServiceRequest (Reactive)
 
 - (RACSignal *)signal {
-    return [self associatedValueForKey:&kSignal default:[RACReplaySubject subject]];
+    return [self associatedValueForKey:&kSignal setDefault:[RACReplaySubject subject]];
 }
 
 - (RACSignal *)uploadSignal {
-    return [self associatedValueForKey:&kUploadSignal default:[RACReplaySubject subject]];
+    return [self associatedValueForKey:&kUploadSignal setDefault:[RACReplaySubject subject]];
 }
 
 - (RACSignal *)downloadSignal {
-    return [self associatedValueForKey:&kDownloadSignal default:[RACReplaySubject subject]];
+    return [self associatedValueForKey:&kDownloadSignal setDefault:[RACReplaySubject subject]];
 }
 
 @end

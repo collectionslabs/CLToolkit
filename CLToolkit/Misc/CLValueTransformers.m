@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import "CLValueTransformers.h"
 
 @implementation CLWebViewProgressTransformer
@@ -59,7 +58,7 @@
 
 + (Class)transformedValueClass { return [NSNumber class]; }
 + (BOOL)allowsReverseTransformation { return NO; }
-- (id)transformedValue:(id)value { return $uinteger([value count]); }
+- (id)transformedValue:(id)value { return @([value count]); }
 
 @end
 
@@ -67,7 +66,7 @@
 
 + (Class)transformedValueClass { return [NSNumber class]; }
 + (BOOL)allowsReverseTransformation { return NO; }
-- (id)transformedValue:(id)value { return [NSNumber numberWithBool:![value boolValue]]; }
+- (id)transformedValue:(id)value { return @(![value boolValue]); }
 
 @end
 
@@ -143,103 +142,6 @@
     if (kb >= 1)
         return $str(@"%.1f KB", kb);
     return $str(@"%ld bytes", b);
-}
-
-@end
-
-@implementation CLDisplayAttrValueTransformer
-
-+ (Class)transformedValueClass { return [NSString class]; }
-- (BOOL)allowReverseTransformation { return NO; }
-- (id)transformedValue:(NSDictionary *)attrInfo {
-    id value = $safeNull(attrInfo[@"value"]);
-    
-    if ([attrInfo[@"type"] isEqualToString:@"date"]) {
-        value = [[[CLDisplayDateValueTransformer alloc] init] transformedValue:value];
-    } else if ([attrInfo[@"type"] isEqualToString:@"location"]) {
-        // TODO Get rid of these stupid hacks
-        NSString *loc = [[[CLDisplayLocationValueTransformer alloc] init] transformedValue:value];
-        if (loc && $safeNull(value[@"lat"]) && $safeNull(value[@"long"])) {
-            NSString *url = $str(@"https://maps.google.com/?q=%@,%@", value[@"lat"], value[@"long"]);
-            value = $str(@"<a href=\"%@\">%@</a>", url, loc);
-        } else {
-            value = loc;
-        }
-    } else if ([attrInfo[@"keypath"] isEqualToString:@"size"] && [attrInfo[@"type"] isEqualToString:@"number"]) {
-        value = [[[CLFileSizeValueTransformer alloc] init] transformedValue:value];
-    } else {
-        value = [value description];
-    }
-
-    return value;
-}
-
-@end
-
-@implementation CLDisplayTextValueTransformer
-
-+ (Class)transformedValueClass { return [NSString class]; }
-+ (BOOL)allowsReverseTransformation { return YES; }
-- (id)transformedValue:(id)value { return $safeNull(value); }
-- (id)reverseTransformedValue:(id)value { return $safeNull(value); }
-
-@end
-
-@implementation CLDisplayDateValueTransformer
-
-static ISO8601DateFormatter *formatter;
-static CLDateToRelativeStringValueTransformer *transformer;
-
-+ (Class)transformedValueClass { return [NSString class]; }
-+ (BOOL)allowsReverseTransformation { return NO; }
-- (id)transformedValue:(id)value {
-    if (!$safeNull(value))
-        return nil;
-    NSDate *date = [value isKindOfClass:[NSDate class]] ? value : [formatter dateFromString:value];
-    return [transformer transformedValue:date];
-}
-
-+ (void)initialize {
-    formatter = [[ISO8601DateFormatter alloc] init];
-    transformer = [[CLDateToRelativeStringValueTransformer alloc] init];
-}
-
-@end
-
-@implementation CLDisplayLocationValueTransformer
-
-+ (Class)transformedValueClass { return [NSString class]; }
-+ (BOOL)allowsReverseTransformation { return NO; }
-- (id)transformedValue:(id)value {
-    if (!$safeNull(value) || ![value isKindOfClass:[NSDictionary class]])
-        return nil;
-    if ([value isKindOfClass:[NSString class]])
-        return value;
-    NSString *loc = $safeNull(value[@"name"]);
-    if (!loc && $safeNull(value[@"lat"]) && $safeNull(value[@"long"]))
-        loc = @"Unnamed Location";
-//        loc = $str(@"Lat: %.3f Long: %.3f", [value[@"lat"] doubleValue], [value[@"long"] doubleValue]);
-    return loc;
-}
-
-@end
-
-@implementation CLDisplayImageValueTransformer
-
-+ (Class)transformedValueClass { return [NSImage class]; }
-+ (BOOL)allowsReverseTransformation { return NO; }
-- (id)transformedValue:(id)value {
-    return nil;
-}
-
-@end
-
-@implementation CLDisplayNumberValueTransformer
-
-+ (Class)transformedValueClass { return [NSString class]; }
-+ (BOOL)allowsReverseTransformation { return NO; }
-- (id)transformedValue:(id)value {
-    return nil;
 }
 
 @end
