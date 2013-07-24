@@ -217,6 +217,7 @@
 		EA898A3E1799269800594A3E /* NSView+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+CLToolkit.m"; sourceTree = "<group>"; };
 		EA898A41179927F600594A3E /* libPods-App.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-App.a"; path = "../../../Library/Developer/Xcode/DerivedData/Collections-eqxbbokrgoqnyrasufikriauhbjp/Build/Products/Debug/libPods-App.a"; sourceTree = "<group>"; };
 		EA8DB21716B8D2B600EAE385 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EAADD05E179FD73E009A8FA4 /* FileSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
 		EABD6EE916DD949D0019134F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		EAD272DC15A0CF510056BE94 /* Quartz.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		EAFB385115A1682F001C3031 /* WebKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -393,6 +394,7 @@
 				EA89899A179922C000594A3E /* NSFileManager+CLToolkit.m */,
 				EA89899B179922C000594A3E /* NSWorkspace+CLToolkit.h */,
 				EA89899C179922C000594A3E /* NSWorkspace+CLToolkit.m */,
+				EAADD05E179FD73E009A8FA4 /* FileSystem.h */,
 			);
 			path = FileSystem;
 			sourceTree = "<group>";

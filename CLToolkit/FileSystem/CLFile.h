@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Collections. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "FileSystem.h"
 
 @interface CLFile : NSObject;
 
