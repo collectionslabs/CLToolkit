@@ -133,6 +133,8 @@
 		EAADD17617A05603009A8FA4 /* Web.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F817A05603009A8FA4 /* Web.m */; };
 		EAADD17717A05603009A8FA4 /* Web.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F817A05603009A8FA4 /* Web.m */; };
 		EAADD17817A05686009A8FA4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F44A1AFDB0344D99FA4113C /* libPods.a */; };
+		EAB2B15317A2EC190047CE69 /* ios-prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EAB2B15117A2EC190047CE69 /* ios-prefix.pch */; };
+		EAB2B15417A2EC190047CE69 /* mac-prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EAB2B15217A2EC190047CE69 /* mac-prefix.pch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -243,6 +245,8 @@
 		EAADD0F517A05603009A8FA4 /* UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UI.h; sourceTree = "<group>"; };
 		EAADD0F717A05603009A8FA4 /* Web.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Web.h; sourceTree = "<group>"; };
 		EAADD0F817A05603009A8FA4 /* Web.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Web.m; sourceTree = "<group>"; };
+		EAB2B15117A2EC190047CE69 /* ios-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ios-prefix.pch"; sourceTree = "<group>"; };
+		EAB2B15217A2EC190047CE69 /* mac-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mac-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +313,8 @@
 		EAADD09217A05603009A8FA4 /* CLToolkit */ = {
 			isa = PBXGroup;
 			children = (
+				EAB2B15117A2EC190047CE69 /* ios-prefix.pch */,
+				EAB2B15217A2EC190047CE69 /* mac-prefix.pch */,
 				EAADD09317A05603009A8FA4 /* AutoUpdate */,
 				EAADD09917A05603009A8FA4 /* AWS */,
 				EAADD0A317A05603009A8FA4 /* Core */,
@@ -549,6 +555,8 @@
 				EAADD17117A05603009A8FA4 /* NSView+CLToolkit.h in Headers */,
 				EAADD17417A05603009A8FA4 /* UI.h in Headers */,
 				EAADD17517A05603009A8FA4 /* Web.h in Headers */,
+				EAB2B15317A2EC190047CE69 /* ios-prefix.pch in Headers */,
+				EAB2B15417A2EC190047CE69 /* mac-prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +781,7 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CLToolkit/mac-prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = (
@@ -809,6 +818,7 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CLToolkit/mac-prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = (
@@ -839,6 +849,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/CLToolkit_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CLToolkit/ios-prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -851,6 +862,7 @@
 			buildSettings = {
 				DSTROOT = /tmp/CLToolkit_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CLToolkit/ios-prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
