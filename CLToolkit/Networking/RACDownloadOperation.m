@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
+#ifdef Collections_FileSystem_h
 #import "RACDownloadOperation.h"
 #import "NSFileManager+CLToolkit.h"
 
@@ -60,3 +61,4 @@
 }
 
 @end
+#endif

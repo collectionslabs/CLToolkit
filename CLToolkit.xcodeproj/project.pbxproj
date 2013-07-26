@@ -390,9 +390,9 @@
 		EAADD0BD17A05603009A8FA4 /* FileSystem */ = {
 			isa = PBXGroup;
 			children = (
+				EAADD0C017A05603009A8FA4 /* FileSystem.h */,
 				EAADD0BE17A05603009A8FA4 /* CLFile.h */,
 				EAADD0BF17A05603009A8FA4 /* CLFile.m */,
-				EAADD0C017A05603009A8FA4 /* FileSystem.h */,
 				EAADD0C117A05603009A8FA4 /* NSFileManager+CLToolkit.h */,
 				EAADD0C217A05603009A8FA4 /* NSFileManager+CLToolkit.m */,
 				EAADD0C317A05603009A8FA4 /* NSWorkspace+CLToolkit.h */,

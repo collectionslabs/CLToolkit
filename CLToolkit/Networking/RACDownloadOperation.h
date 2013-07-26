@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
+#ifdef Collections_FileSystem_h
 #import "Networking.h"
 
 @interface RACDownloadOperation : RACHTTPRequestOperation
@@ -17,3 +18,4 @@
 - (id)initWithRequest:(NSURLRequest *)urlRequest targetFolder:(NSURL *)targetFolder;
 
 @end
+#endif

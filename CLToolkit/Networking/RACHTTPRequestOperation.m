@@ -24,9 +24,9 @@
     @weakify(self);
     [super setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         @strongify(self);
-        [self->_onFinish sendNextAndComplete:responseObject];
+        [self->_onFinish sendNextAndComplete:self.response];
         if (success)
-            success(operation, responseObject);
+            success(operation, self.response);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         @strongify(self);
         [self->_onFinish sendError:error];
