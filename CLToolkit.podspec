@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.0.2'
+  s.version      =  '0.0.3'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }
@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.license      =  'MIT'
   
   # Platform setup
-  s.platform     = :osx, "10.8"
   s.osx.deployment_target = '10.8'
+  s.ios.deployment_target = '6.0'
   s.requires_arc = true
 
   
@@ -20,12 +20,14 @@ Pod::Spec.new do |s|
   
   s.subspec 'Core' do |ss|
     ss.source_files =  'CLToolkit/Core/'
-    ss.framework = 'Cocoa'
+    ss.osx.framework = 'Cocoa'
+    ss.ios.framework = 'UIKit'
     
     ss.dependency 'ConciseKit'
     ss.dependency 'BlocksKit'
     ss.dependency 'ReactiveCocoa'
     ss.dependency 'NSLogger'
+    ss.dependency 'ISO8601DateFormatter'
 
   end
   
