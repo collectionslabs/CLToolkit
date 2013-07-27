@@ -1,8 +1,10 @@
 # Default target gets auto created by Cocoapods
 # target :default, :exclusive => true do
 
+platform :ios, '6.0'
 inhibit_all_warnings!
 link_with []
+
 # Pods from official Cocoapods/Specs repo
 
 target :ios do

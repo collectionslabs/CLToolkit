@@ -8,7 +8,9 @@
 
 #import "Core.h"
 
+#if TARGET_OSX
 #import <WebKit/WebKit.h>
 
 WebScriptObject *ToWebScript(WebScriptObject *windowScriptObject, id json);
 id FromWebScript(WebScriptObject *windowScriptObject, WebScriptObject *webScriptObject);
+#endif

@@ -41,12 +41,14 @@
 - (NSDate *)dateCreated { return self.attributes[NSFileCreationDate]; }
 - (NSDate *)dateModified { return self.attributes[NSFileModificationDate]; }
 - (NSUInteger)size { return [self.attributes[NSFileSize] unsignedIntegerValue]; }
-- (NSImage *)image { return nil; }
+- (IMAGE_CLASS *)image { return nil; }
+#if TARGET_OSX
 - (NSString *)kind {
     NSString *uti;
     [self.url getResourceValue:&uti forKey:NSURLTypeIdentifierKey error:NULL];
     return [[NSWorkspace sharedWorkspace] localizedDescriptionForType:uti];
 }
+#endif
 
 - (NSString *)md5 {
     return nil;

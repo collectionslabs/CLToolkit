@@ -8,6 +8,8 @@
 
 #import "FileSystem.h"
 
+#if TARGET_OSX
+
 @interface NSWorkspace (Convenience)
 
 - (BOOL)moveFileToTrash:(NSString *)filePath;
@@ -16,3 +18,5 @@
 - (NSImage *)iconForFileExtension:(NSString *)ext;
 
 @end
+
+#endif

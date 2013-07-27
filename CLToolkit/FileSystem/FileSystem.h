@@ -13,6 +13,8 @@
 
 #import "CLFile.h"
 #import "NSFileManager+CLToolkit.h"
+#if TARGET_OSX
 #import "NSWorkspace+CLToolkit.h"
+#endif
 
 #endif

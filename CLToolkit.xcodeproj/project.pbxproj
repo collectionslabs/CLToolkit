@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1E3E153B3E5C4B0E9F76E96C /* libPods-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A7CAA373B64F5E8A1C69B9 /* libPods-ios.a */; };
 		C89375CA787442C3B00B82A8 /* libPods-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F6ED95562D42D0A20464E4 /* libPods-osx.a */; };
-		EAADD07417A055A0009A8FA4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAADD07317A055A0009A8FA4 /* Cocoa.framework */; };
 		EAADD08717A055AD009A8FA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA898677179919AF00594A3E /* Foundation.framework */; };
 		EAADD0F917A05603009A8FA4 /* AutoUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09417A05603009A8FA4 /* AutoUpdate.h */; };
 		EAADD0FA17A05603009A8FA4 /* CLUpdateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09517A05603009A8FA4 /* CLUpdateHelper.h */; };
@@ -66,7 +65,6 @@
 		EAADD13317A05603009A8FA4 /* NSFileManager+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0C217A05603009A8FA4 /* NSFileManager+CLToolkit.m */; };
 		EAADD13417A05603009A8FA4 /* NSWorkspace+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0C317A05603009A8FA4 /* NSWorkspace+CLToolkit.h */; };
 		EAADD13517A05603009A8FA4 /* NSWorkspace+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0C417A05603009A8FA4 /* NSWorkspace+CLToolkit.m */; };
-		EAADD13617A05603009A8FA4 /* NSWorkspace+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0C417A05603009A8FA4 /* NSWorkspace+CLToolkit.m */; };
 		EAADD13717A05603009A8FA4 /* Firebase+Reactive.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0C617A05603009A8FA4 /* Firebase+Reactive.h */; };
 		EAADD13817A05603009A8FA4 /* Firebase+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0C717A05603009A8FA4 /* Firebase+Reactive.m */; };
 		EAADD13917A05603009A8FA4 /* Firebase+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0C717A05603009A8FA4 /* Firebase+Reactive.m */; };
@@ -79,7 +77,6 @@
 		EAADD14017A05603009A8FA4 /* FObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0CC17A05603009A8FA4 /* FObject.m */; };
 		EAADD14117A05603009A8FA4 /* CLSharedFileList.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0CE17A05603009A8FA4 /* CLSharedFileList.h */; };
 		EAADD14217A05603009A8FA4 /* CLSharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0CF17A05603009A8FA4 /* CLSharedFileList.m */; };
-		EAADD14317A05603009A8FA4 /* CLSharedFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0CF17A05603009A8FA4 /* CLSharedFileList.m */; };
 		EAADD14417A05603009A8FA4 /* CLValueTransformers.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0D017A05603009A8FA4 /* CLValueTransformers.h */; };
 		EAADD14517A05603009A8FA4 /* CLValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0D117A05603009A8FA4 /* CLValueTransformers.m */; };
 		EAADD14617A05603009A8FA4 /* CLValueTransformers.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0D117A05603009A8FA4 /* CLValueTransformers.m */; };
@@ -88,10 +85,8 @@
 		EAADD14917A05603009A8FA4 /* Misc.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0D317A05603009A8FA4 /* Misc.m */; };
 		EAADD14A17A05603009A8FA4 /* NSImage+IconRef.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0D417A05603009A8FA4 /* NSImage+IconRef.h */; };
 		EAADD14B17A05603009A8FA4 /* NSImage+IconRef.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0D517A05603009A8FA4 /* NSImage+IconRef.m */; };
-		EAADD14C17A05603009A8FA4 /* NSImage+IconRef.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0D517A05603009A8FA4 /* NSImage+IconRef.m */; };
 		EAADD14D17A05603009A8FA4 /* NSImage+QuickLook.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0D617A05603009A8FA4 /* NSImage+QuickLook.h */; };
 		EAADD14E17A05603009A8FA4 /* NSImage+QuickLook.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0D717A05603009A8FA4 /* NSImage+QuickLook.m */; };
-		EAADD14F17A05603009A8FA4 /* NSImage+QuickLook.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0D717A05603009A8FA4 /* NSImage+QuickLook.m */; };
 		EAADD15017A05603009A8FA4 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0D917A05603009A8FA4 /* Networking.h */; };
 		EAADD15117A05603009A8FA4 /* NSURLRequest+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0DA17A05603009A8FA4 /* NSURLRequest+CLToolkit.h */; };
 		EAADD15217A05603009A8FA4 /* NSURLRequest+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0DB17A05603009A8FA4 /* NSURLRequest+CLToolkit.m */; };
@@ -121,13 +116,10 @@
 		EAADD16A17A05603009A8FA4 /* Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0ED17A05603009A8FA4 /* Testing.h */; };
 		EAADD16B17A05603009A8FA4 /* CLViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0EF17A05603009A8FA4 /* CLViewController.h */; };
 		EAADD16C17A05603009A8FA4 /* CLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F017A05603009A8FA4 /* CLViewController.m */; };
-		EAADD16D17A05603009A8FA4 /* CLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F017A05603009A8FA4 /* CLViewController.m */; };
 		EAADD16E17A05603009A8FA4 /* NSAlert+SynchronousSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0F117A05603009A8FA4 /* NSAlert+SynchronousSheet.h */; };
 		EAADD16F17A05603009A8FA4 /* NSAlert+SynchronousSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F217A05603009A8FA4 /* NSAlert+SynchronousSheet.m */; };
-		EAADD17017A05603009A8FA4 /* NSAlert+SynchronousSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F217A05603009A8FA4 /* NSAlert+SynchronousSheet.m */; };
 		EAADD17117A05603009A8FA4 /* NSView+CLToolkit.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0F317A05603009A8FA4 /* NSView+CLToolkit.h */; };
 		EAADD17217A05603009A8FA4 /* NSView+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F417A05603009A8FA4 /* NSView+CLToolkit.m */; };
-		EAADD17317A05603009A8FA4 /* NSView+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F417A05603009A8FA4 /* NSView+CLToolkit.m */; };
 		EAADD17417A05603009A8FA4 /* UI.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0F517A05603009A8FA4 /* UI.h */; };
 		EAADD17517A05603009A8FA4 /* Web.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0F717A05603009A8FA4 /* Web.h */; };
 		EAADD17617A05603009A8FA4 /* Web.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F817A05603009A8FA4 /* Web.m */; };
@@ -257,7 +249,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAADD07417A055A0009A8FA4 /* Cocoa.framework in Frameworks */,
 				C89375CA787442C3B00B82A8 /* libPods-osx.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,11 +290,11 @@
 			isa = PBXGroup;
 			children = (
 				EA898677179919AF00594A3E /* Foundation.framework */,
-				9F44A1AFDB0344D99FA4113C /* libPods.a */,
 				EAADD07317A055A0009A8FA4 /* Cocoa.framework */,
 				EAADD07517A055A0009A8FA4 /* Other Frameworks */,
 				50A7CAA373B64F5E8A1C69B9 /* libPods-ios.a */,
 				E4F6ED95562D42D0A20464E4 /* libPods-osx.a */,
+				9F44A1AFDB0344D99FA4113C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -664,7 +655,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-osx-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C42D391DEE14487C9A638646 /* Check Pods Manifest.lock */ = {
@@ -764,15 +755,11 @@
 				EAADD12C17A05603009A8FA4 /* RACManagedObject.m in Sources */,
 				EAADD12F17A05603009A8FA4 /* CLFile.m in Sources */,
 				EAADD13317A05603009A8FA4 /* NSFileManager+CLToolkit.m in Sources */,
-				EAADD13617A05603009A8FA4 /* NSWorkspace+CLToolkit.m in Sources */,
 				EAADD13917A05603009A8FA4 /* Firebase+Reactive.m in Sources */,
 				EAADD13D17A05603009A8FA4 /* FNode.m in Sources */,
 				EAADD14017A05603009A8FA4 /* FObject.m in Sources */,
-				EAADD14317A05603009A8FA4 /* CLSharedFileList.m in Sources */,
 				EAADD14617A05603009A8FA4 /* CLValueTransformers.m in Sources */,
 				EAADD14917A05603009A8FA4 /* Misc.m in Sources */,
-				EAADD14C17A05603009A8FA4 /* NSImage+IconRef.m in Sources */,
-				EAADD14F17A05603009A8FA4 /* NSImage+QuickLook.m in Sources */,
 				EAADD15317A05603009A8FA4 /* NSURLRequest+CLToolkit.m in Sources */,
 				EAADD15617A05603009A8FA4 /* RACDownloadOperation.m in Sources */,
 				EAADD15917A05603009A8FA4 /* RACHTTPClient.m in Sources */,
@@ -781,9 +768,6 @@
 				EAADD16317A05603009A8FA4 /* RACSignalOperation.m in Sources */,
 				EAADD16617A05603009A8FA4 /* RACSignalQueue.m in Sources */,
 				EAADD16917A05603009A8FA4 /* RACSignal+Kiwi.m in Sources */,
-				EAADD16D17A05603009A8FA4 /* CLViewController.m in Sources */,
-				EAADD17017A05603009A8FA4 /* NSAlert+SynchronousSheet.m in Sources */,
-				EAADD17317A05603009A8FA4 /* NSView+CLToolkit.m in Sources */,
 				EAADD17717A05603009A8FA4 /* Web.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -793,7 +777,6 @@
 /* Begin XCBuildConfiguration section */
 		EA898680179919AF00594A3E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30A78CE25E5B4BC4B9A53928 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -823,7 +806,6 @@
 		};
 		EA898681179919AF00594A3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30A78CE25E5B4BC4B9A53928 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -859,6 +841,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = (
+					"-ObjC",
 					"-framework",
 					CFNetwork,
 					"-framework",
@@ -897,6 +880,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = (
+					"-ObjC",
 					"-framework",
 					CFNetwork,
 					"-framework",
@@ -926,7 +910,29 @@
 				DSTROOT = /tmp/CLToolkit_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CLToolkit/ios-prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreData,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					Firebase,
+					"-framework",
+					Foundation,
+					"-framework",
+					MessageUI,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					SystemConfiguration,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -940,7 +946,29 @@
 				DSTROOT = /tmp/CLToolkit_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CLToolkit/ios-prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreData,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					Firebase,
+					"-framework",
+					Foundation,
+					"-framework",
+					MessageUI,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					Security,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					SystemConfiguration,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

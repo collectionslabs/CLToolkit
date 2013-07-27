@@ -8,6 +8,8 @@
 
 #import "NSWorkspace+CLToolkit.h"
 
+#if TARGET_OSX
+
 @implementation NSWorkspace (Convenience)
 
 - (BOOL)moveFileToTrash:(NSString*)filePath {
@@ -33,3 +35,5 @@
 }
 
 @end
+
+#endif

@@ -8,6 +8,8 @@
 
 #import "Web.h"
 
+#if TARGET_OSX
+
 WebScriptObject *ToWebScript(WebScriptObject *windowScriptObject, id json) {
     WebScriptObject *parser = [windowScriptObject valueForKey:@"JSON"];
     return [parser callWebScriptMethod:@"parse" withArguments:@[$jsonDumps(json)]];
@@ -17,3 +19,4 @@ id FromWebScript(WebScriptObject *windowScriptObject, WebScriptObject *webScript
     WebScriptObject *parser = [windowScriptObject valueForKey:@"JSON"];
     return $jsonLoads([parser callWebScriptMethod:@"stringify" withArguments:@[webScriptObject]]);
 }
+#endif

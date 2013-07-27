@@ -1,5 +1,5 @@
 //
-//  NSColor+Core.h
+//  Color+Core.h
 //  Collections
 //
 //  Created by Tony Xiao on 3/10/13.
@@ -8,10 +8,8 @@
 
 #import "Core.h"
 
-#import <Cocoa/Cocoa.h>
+@interface COLOR_CLASS (Core)
 
-@interface NSColor (Core)
-
-+ (NSColor *)colorWithHexColorString:(NSString *)inColorString;
++ (COLOR_CLASS *)colorWithHexColorString:(NSString *)inColorString;
 
 @end

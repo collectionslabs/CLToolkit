@@ -13,7 +13,7 @@
 
 #import "CLValueTransformers.h"
 
-#if !TARGET_OS_IPHONE
+#if TARGET_OSX
 #import "CLSharedFileList.h"
 #import "NSImage+IconRef.h"
 #import "NSImage+QuickLook.h"

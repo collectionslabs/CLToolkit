@@ -12,13 +12,15 @@
 
 @property (nonatomic, readonly) NSURL *url;
 @property (nonatomic, readonly) NSString *filename;
-@property (nonatomic, readonly) NSImage *image;
+@property (nonatomic, readonly) IMAGE_CLASS *image;
 @property (nonatomic, readonly) BOOL exists;
 @property (nonatomic, readonly) BOOL isDirectory;
 @property (nonatomic, readonly) NSDate *dateCreated;
 @property (nonatomic, readonly) NSDate *dateModified;
 @property (nonatomic, readonly) NSUInteger size;
+#if TARGET_OSX
 @property (nonatomic, readonly) NSString *kind;
+#endif
 @property (nonatomic, readonly) NSString *md5;
 @property (nonatomic, readonly) id<NSFastEnumeration> children;
 

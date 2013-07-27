@@ -32,7 +32,7 @@ static void LogHTTPResponse(int tag, NSHTTPURLResponse *response) {
     NSString *path = response.URL.path;
     id body = [response json];
     NSString *tagStr = [$str(@"<-  R%d     ", tag) sliceTill:8];
-    LogDebug(@"http", @"%@ %ld %@\n Body: %@\n Headers: %@", tagStr, response.statusCode, path, body, headers);
+    LogDebug(@"http", @"%@ %ld %@\n Body: %@\n Headers: %@", tagStr, (long)response.statusCode, path, body, headers);
     LoggerFlush(NULL, NO);
 }
 static void LogHTTPError(int tag, NSError *error) {

@@ -23,8 +23,14 @@
 
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#define COLOR_CLASS UIColor
+#define IMAGE_CLASS UIImage
+#define TARGET_IOS 1
 #elif TARGET_OS_MAC
 #import <Cocoa/Cocoa.h>
+#define COLOR_CLASS NSColor
+#define IMAGE_CLASS NSImage
+#define TARGET_OSX 1
 #endif
 #import <ConciseKit/ConciseKit.h>
 #import <BlocksKit/BlocksKit.h>
@@ -46,7 +52,9 @@ NSURL *AppTempDir(void);
 NSURL *AppCacheDir(void);
 NSURL *AppDataDir(void);
 
+#if !TARGET_OS_IPHONE
 NSString *SystemVersion(void);
+#endif
 NSString *AppVersion(void);
 NSInteger AppBuildNumber(void);
 
@@ -57,7 +65,7 @@ NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors);
 // Global Logging and Assertion Support
 
 void Log(NSString *format, ...);
-void LogImage(NSImage *image);
+void LogImage(IMAGE_CLASS *image);
 
 #if DEBUG
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted

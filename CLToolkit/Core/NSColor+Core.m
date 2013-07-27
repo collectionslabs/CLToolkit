@@ -1,5 +1,5 @@
 //
-//  NSColor+Core.m
+//  Color+Core.m
 //  Collections
 //
 //  Created by Tony Xiao on 3/10/13.
@@ -8,10 +8,10 @@
 
 #import "NSColor+Core.h"
 
-@implementation NSColor (Core)
+@implementation COLOR_CLASS (Core)
 
-+ (NSColor *)colorWithHexColorString:(NSString *)inColorString {
-    NSColor *result = nil;
++ (COLOR_CLASS *)colorWithHexColorString:(NSString *)inColorString {
+    COLOR_CLASS *result = nil;
     unsigned colorCode = 0;
     unsigned char redByte, greenByte, blueByte;
     
@@ -23,10 +23,11 @@
     greenByte = (unsigned char)(colorCode >> 8);
     blueByte = (unsigned char)(colorCode); // masks off high bits
     
-    result = [NSColor colorWithCalibratedRed:(CGFloat)redByte / 0xff
-                                       green:(CGFloat)greenByte / 0xff
-                                        blue:(CGFloat)blueByte / 0xff
-                                       alpha:1.0];
+    
+//    result = [COLOR_CLASS colorWithCalibratedRed:(CGFloat)redByte / 0xff
+//                                           green:(CGFloat)greenByte / 0xff
+//                                            blue:(CGFloat)blueByte / 0xff
+//                                           alpha:1.0];
     return result;
 }
 

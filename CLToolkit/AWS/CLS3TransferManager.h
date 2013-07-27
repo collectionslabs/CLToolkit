@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#import "AWS.h"
 #import <AWSRuntime/S3/S3TransferManager.h>
 
 @class CLFile;
@@ -27,7 +28,7 @@
 
 @protocol CLOperation <NSObject>
 
-- (NSImage *)image;
+- (COLOR_CLASS *)image;
 - (NSString *)status; // Human readable status
 - (CGFloat)percentComplete; // 0 - 100. Should be observable
 

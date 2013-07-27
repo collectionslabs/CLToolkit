@@ -28,7 +28,7 @@ NSURL *AppDataDir(void) {
     return appDataDir;
 }
 
-
+#if !TARGET_OS_IPHONE
 NSString *SystemVersion(void) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -43,6 +43,7 @@ NSString *SystemVersion(void) {
 #pragma clang diagnostic pop
     return [NSString stringWithFormat:@"%d.%d.%d", major, minor, bugfix];
 }
+#endif
 
 NSString *AppVersion(void) {
     return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
@@ -87,10 +88,16 @@ void Log(NSString *format, ...) {
 #endif
 }
 
-void LogImage(NSImage *image) {
+void LogImage(IMAGE_CLASS *image) {
 #if DEBUG
+    
+#if TARGET_OS_IPHONE
+    NSData *data = UIImagePNGRepresentation(image);
+#elif TARGET_OS_MAC
     NSData *data = [image TIFFRepresentation];
+#endif
     double ratio = MAX(image.size.width, image.size.height) / MAX_LOGIMAGE_DIMENSION;
     LogImageData(NULL, 0, (int)(image.size.width/ratio) , (int)(image.size.height/ratio), data);
+
 #endif
 }

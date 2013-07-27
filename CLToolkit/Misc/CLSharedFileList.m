@@ -6,8 +6,9 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import "NSImage+IconRef.h"
 #import "CLSharedFileList.h"
+
+#if TARGET_OSX
 
 typedef void (^SharedFileListCallbackBlock)(LSSharedFileListRef inList);
 
@@ -143,3 +144,5 @@ static void SharedFileListRemoveObservingBlock(LSSharedFileListRef inList, Share
 }
 
 @end
+
+#endif

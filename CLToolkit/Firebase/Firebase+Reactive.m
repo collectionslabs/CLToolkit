@@ -8,6 +8,12 @@
 
 #import "Firebase+Reactive.h"
 
+#if TARGET_IOS
+#define CALLBACK_ARGS NSError *error, Firebase *ref
+#elif TARGET_OSX
+#define CALLBACK_ARGS NSError *error
+#endif
+
 static NSError *Error(NSString *desc) {
     return [NSError errorWithDomain:@"com.firebase" code:1 userInfo:@{NSLocalizedDescriptionKey: desc ?: @"Unknown Error"}];
 }
@@ -99,7 +105,7 @@ NSString *FUnescapeName(NSString *escapedName) {
 
 - (RACSignal *)setValue:(id)value withPriority:(id)priority {
     RACReplaySubject *subject = [RACReplaySubject subjectWithSelector:_cmd];
-    [self setValue:value andPriority:priority withCompletionBlock:^(NSError *error) {
+    [self setValue:value andPriority:priority withCompletionBlock:^(CALLBACK_ARGS) {
         error ? [subject sendError:error] : [subject sendCompleted];
     }];
     return subject;
@@ -111,7 +117,7 @@ NSString *FUnescapeName(NSString *escapedName) {
 
 - (RACSignal *)updateChildren:(NSDictionary *)children {
     RACReplaySubject *subject = [RACReplaySubject subjectWithSelector:_cmd];
-    [self updateChildValues:children withCompletionBlock:^(NSError *error) {
+    [self updateChildValues:children withCompletionBlock:^(CALLBACK_ARGS) {
         error ? [subject sendError:error] : [subject sendCompleted];
     }];
     return subject;
@@ -138,7 +144,7 @@ NSString *FUnescapeName(NSString *escapedName) {
 
 - (RACSignal *)onDisconnectSetValue:(id)value withPriority:(id)priority {
     RACReplaySubject *subject = [RACReplaySubject subjectWithSelector:_cmd];
-    [self onDisconnectSetValue:value andPriority:priority withCompletionBlock:^(NSError *error) {
+    [self onDisconnectSetValue:value andPriority:priority withCompletionBlock:^(CALLBACK_ARGS) {
         error ? [subject sendError:error] : [subject sendCompleted];
     }];
     return subject;
@@ -146,7 +152,7 @@ NSString *FUnescapeName(NSString *escapedName) {
 
 - (RACSignal *)cancelDisconnectHooks {
     RACReplaySubject *subject = [RACReplaySubject subjectWithSelector:_cmd];
-    [self cancelDisconnectOperationsWithCompletionBlock:^(NSError *error) {
+    [self cancelDisconnectOperationsWithCompletionBlock:^(CALLBACK_ARGS) {
         error ? [subject sendError:error] : [subject sendCompleted];
     }];
     return subject;

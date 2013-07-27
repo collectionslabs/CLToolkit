@@ -8,6 +8,8 @@
 
 #import "Misc.h"
 
+#if TARGET_OSX
+
 @interface CLSharedFileList : NSObject
 
 @property (nonatomic, assign) LSSharedFileListRef lsList;
@@ -32,3 +34,5 @@
 + (void)setLaunchAtStartup:(BOOL)launch;
 
 @end
+
+#endif
