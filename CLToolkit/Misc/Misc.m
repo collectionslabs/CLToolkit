@@ -8,6 +8,7 @@
 
 #import "Misc.h"
 
+#if !TARGET_OS_IPHONE
 void TransformToForegroundApplication() {
     ProcessSerialNumber psn = { 0, kCurrentProcess };
     TransformProcessType(&psn, kProcessTransformToForegroundApplication);
@@ -18,3 +19,4 @@ void TransformToAccessoryApplication() {
     ProcessSerialNumber psn = { 0, kCurrentProcess };
     TransformProcessType(&psn, kProcessTransformToUIElementApplication);
 }
+#endif

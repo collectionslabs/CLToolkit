@@ -7,7 +7,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface NSImage (QuickLook)
 
 + (NSImage *)imageWithPreviewOfFileAtURL:(NSURL *)url ofSize:(NSSize)size asIcon:(BOOL)icon;

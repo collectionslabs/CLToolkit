@@ -12,11 +12,14 @@
 #import "Core.h"
 
 #import "CLValueTransformers.h"
+
+#if !TARGET_OS_IPHONE
 #import "CLSharedFileList.h"
 #import "NSImage+IconRef.h"
 #import "NSImage+QuickLook.h"
 
 void TransformToForegroundApplication(void);
 void TransformToAccessoryApplication(void);
+#endif
 
 #endif

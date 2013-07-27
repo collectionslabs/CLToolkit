@@ -21,7 +21,11 @@
 #ifndef CLToolkit_Core_h
 #define CLToolkit_Core_h
 
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#elif TARGET_OS_MAC
 #import <Cocoa/Cocoa.h>
+#endif
 #import <ConciseKit/ConciseKit.h>
 #import <BlocksKit/BlocksKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
