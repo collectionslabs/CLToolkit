@@ -100,7 +100,9 @@ void LogImage(IMAGE_CLASS *image);
 
 // Global Constants & Singletons
 
+#if TARGET_OS_IPHONE
 #define UIApp                      [UIApplication sharedApplication]
+#endif
 #define CONTEXT                    [NSManagedObjectContext defaultContext]
 #define NC                         [NSNotificationCenter defaultCenter]
 #define FM                         [NSFileManager defaultManager]

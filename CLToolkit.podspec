@@ -36,12 +36,23 @@ Pod::Spec.new do |s|
     
     ss.dependency       'CLToolkit/Core'
     ss.dependency       'AFNetworking'
+    ss.dependency       'Base64'
   end
   
   s.subspec 'Operation' do |ss|
     ss.source_files   = 'CLToolkit/Operation'
     
     ss.dependency       'CLToolkit/Core'
+  end
+  
+  s.subspec 'CoreData' do |ss|
+    ss.source_files   = 'CLToolkit/CoreData'
+    ss.framework      = 'CoreData'
+    
+    ss.dependency       'CLToolkit/Core'
+    ss.dependency       'CLToolkit/Operation'
+    ss.dependency       'MagicalRecord'
+    ss.dependency       'Base64'
   end
   
 end

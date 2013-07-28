@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1E3E153B3E5C4B0E9F76E96C /* libPods-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A7CAA373B64F5E8A1C69B9 /* libPods-ios.a */; };
 		C89375CA787442C3B00B82A8 /* libPods-osx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F6ED95562D42D0A20464E4 /* libPods-osx.a */; };
+		EA576A0217A506AF0043D6E6 /* MagicalRecord+Reactive.h in Headers */ = {isa = PBXBuildFile; fileRef = EA5769FE17A506AF0043D6E6 /* MagicalRecord+Reactive.h */; };
+		EA576A0317A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */; };
+		EA576A0417A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */; };
+		EA576A0517A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA576A0017A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h */; };
+		EA576A0617A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */; };
+		EA576A0717A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */; };
 		EAADD08717A055AD009A8FA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA898677179919AF00594A3E /* Foundation.framework */; };
 		EAADD0F917A05603009A8FA4 /* AutoUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09417A05603009A8FA4 /* AutoUpdate.h */; };
 		EAADD0FA17A05603009A8FA4 /* CLUpdateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09517A05603009A8FA4 /* CLUpdateHelper.h */; };
@@ -146,6 +152,10 @@
 		9F44A1AFDB0344D99FA4113C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B624E07AABD447028FF9AEC9 /* Pods-ios.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.xcconfig"; path = "Pods/Pods-ios.xcconfig"; sourceTree = SOURCE_ROOT; };
 		E4F6ED95562D42D0A20464E4 /* libPods-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA5769FE17A506AF0043D6E6 /* MagicalRecord+Reactive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Reactive.h"; sourceTree = "<group>"; };
+		EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Reactive.m"; sourceTree = "<group>"; };
+		EA576A0017A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MRExtensions.h"; sourceTree = "<group>"; };
+		EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MRExtensions.m"; sourceTree = "<group>"; };
 		EA898677179919AF00594A3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EAADD07217A055A0009A8FA4 /* libCLToolkit-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCLToolkit-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAADD07317A055A0009A8FA4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -381,13 +391,17 @@
 			isa = PBXGroup;
 			children = (
 				EAADD0B517A05603009A8FA4 /* CoreData.h */,
-				EAADD0B617A05603009A8FA4 /* mogenerator_sample.sh */,
+				EA5769FE17A506AF0043D6E6 /* MagicalRecord+Reactive.h */,
+				EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */,
+				EA576A0017A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h */,
+				EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */,
 				EAADD0B717A05603009A8FA4 /* NSAttributeDescription+CLToolkit.h */,
 				EAADD0B817A05603009A8FA4 /* NSAttributeDescription+CLToolkit.m */,
 				EAADD0B917A05603009A8FA4 /* NSEntityDescription+CLToolkit.h */,
 				EAADD0BA17A05603009A8FA4 /* NSEntityDescription+CLToolkit.m */,
 				EAADD0BB17A05603009A8FA4 /* RACManagedObject.h */,
 				EAADD0BC17A05603009A8FA4 /* RACManagedObject.m */,
+				EAADD0B617A05603009A8FA4 /* mogenerator_sample.sh */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -456,9 +470,9 @@
 		EAADD0E217A05603009A8FA4 /* Operation */ = {
 			isa = PBXGroup;
 			children = (
+				EAADD0E517A05603009A8FA4 /* Operation.h */,
 				EAADD0E317A05603009A8FA4 /* CLAsyncOperation.h */,
 				EAADD0E417A05603009A8FA4 /* CLAsyncOperation.m */,
-				EAADD0E517A05603009A8FA4 /* Operation.h */,
 				EAADD0E617A05603009A8FA4 /* RACSignalOperation.h */,
 				EAADD0E717A05603009A8FA4 /* RACSignalOperation.m */,
 				EAADD0E817A05603009A8FA4 /* RACSignalQueue.h */,
@@ -556,6 +570,8 @@
 				EAADD17517A05603009A8FA4 /* Web.h in Headers */,
 				EAB2B15317A2EC190047CE69 /* ios-prefix.pch in Headers */,
 				EAB2B15417A2EC190047CE69 /* mac-prefix.pch in Headers */,
+				EA576A0217A506AF0043D6E6 /* MagicalRecord+Reactive.h in Headers */,
+				EA576A0517A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +749,8 @@
 				EAADD16F17A05603009A8FA4 /* NSAlert+SynchronousSheet.m in Sources */,
 				EAADD17217A05603009A8FA4 /* NSView+CLToolkit.m in Sources */,
 				EAADD17617A05603009A8FA4 /* Web.m in Sources */,
+				EA576A0317A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
+				EA576A0617A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,6 +787,8 @@
 				EAADD16617A05603009A8FA4 /* RACSignalQueue.m in Sources */,
 				EAADD16917A05603009A8FA4 /* RACSignal+Kiwi.m in Sources */,
 				EAADD17717A05603009A8FA4 /* Web.m in Sources */,
+				EA576A0417A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
+				EA576A0717A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

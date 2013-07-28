@@ -14,6 +14,8 @@
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import "Core.h"
 
+#import "MagicalRecord+Reactive.h"
+#import "NSManagedObjectContext+MRExtensions.h"
 #import "NSAttributeDescription+CLToolkit.h"
 #import "NSEntityDescription+CLToolkit.h"
 #import "RACManagedObject.h"
