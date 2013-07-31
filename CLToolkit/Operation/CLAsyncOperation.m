@@ -21,10 +21,6 @@
 @implementation CLAsyncOperation
 
 - (void)start {
-    if (![NSThread isMainThread]) {
-        [self performSelectorOnMainThread:@selector(start) withObject:nil waitUntilDone:YES];
-        return;
-    }
     [self setIsExecuting:YES];
     [self setIsFinished:NO];
     if (self.mainBlock) {

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Tony Xiao. All rights reserved.
 //
 
+#import "RACSignalOperation.h"
 #import "MagicalRecord+Reactive.h"
-#import "CLAsyncOperation.h"
 
 typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 
@@ -37,10 +37,10 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
     }];
 }
 
-#ifdef Collections_Operation_h
 + (RACSignal *)rac_saveWithBlock:(void (^)(NSManagedObjectContext *))block onQueue:(NSOperationQueue *)queue {
     RACSubject *subject = [RACReplaySubject subject];
     @weakify(self);
+    
     [queue addOperation:[CLAsyncOperation operationWithBlock:^(CLAsyncOperation *operation) {
         @strongify(self);
         [self saveWithBlock:block completion:^(BOOL success, NSError *error) {
@@ -50,7 +50,6 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
     }]];
     return subject;
 }
-#endif
 
 + (RACSignal *)rac_saveUsingCurrentThreadContextWithBlock:(void (^)(NSManagedObjectContext *localContext))block {
     return [RACSubject mr_subject:^(MRCompletionHandler completionBlock) {

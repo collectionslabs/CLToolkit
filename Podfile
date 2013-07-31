@@ -20,6 +20,7 @@ target :ios do
   pod 'ISO8601DateFormatter'
   pod 'Firebase'
   pod 'Kiwi'
+  pod 'Masonry'
 
   pod 'AWSRuntime/S3', '1.5.0.head' # From Collections/Podspecs
   
@@ -37,6 +38,7 @@ target :osx do
   pod 'ReactiveCocoa'
   pod 'ISO8601DateFormatter'
   pod 'Kiwi'
+  pod 'Masonry'
 
   pod 'AWSRuntime/S3', '1.5.0.head' # From Collections/Podspecs
   pod 'FirebaseMac', '1.0.1' # From Collections/Podspecs

@@ -13,21 +13,18 @@
 
 - (instancetype)mapWithError:(id(^)(id value))block {
 	NSParameterAssert(block != NULL);
-    
-	return [[self class] createSignal:^(id<RACSubscriber> subscriber) {
-		return [self subscribeNext:^(id x) {
-            id ret = block(x);
-            if ([ret isKindOfClass:[NSError class]]) {
-                [subscriber sendError:ret];
-            } else {
-                [subscriber sendNext:ret];
-            }
-		} error:^(NSError *error) {
-			[subscriber sendError:error];
-		} completed:^{
-			[subscriber sendCompleted];
-		}];
-	}];
+    return [self flattenMap:^RACStream *(id value) {
+        id ret = block(value);
+        if ([ret isKindOfClass:[NSError class]]) {
+            return [RACSignal error:ret];
+        } else {
+            return [RACSignal return:ret];
+        }
+    }];
+}
+
+- (RACSignal *)deliverOnMain {
+    return [self deliverOn:[RACScheduler mainThreadScheduler]];
 }
 
 - (RACSignal *)catchLoop {
@@ -43,6 +40,10 @@
 			return [RACSignal return:x];
 		};
 	}] setNameWithFormat:@"[%@] -distinctUntilChanged", self.name];
+}
+
+- (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completed:(void (^)(void))completedBlock error:(void (^)(NSError *))errorBlock {
+    return [self subscribeNext:nextBlock error:errorBlock completed:completedBlock];
 }
 
 - (RACDisposable *)subscribeCompleted:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock {

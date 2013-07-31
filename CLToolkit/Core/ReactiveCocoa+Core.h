@@ -11,8 +11,9 @@
 @interface RACSignal (Core)
 
 - (instancetype)mapWithError:(id(^)(id value))block;
+- (RACSignal *)deliverOnMain;
 - (RACSignal *)catchLoop;
-
+- (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completed:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock;
 - (RACDisposable *)subscribeCompleted:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock;
 
 + (RACSignal *)delay:(NSTimeInterval)seconds;
