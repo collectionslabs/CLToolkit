@@ -25,6 +25,7 @@
 //	   distribution.
 //
 
+#if TARGETING_OSX
 #import "NSImage+IconRef.h"
 
 
@@ -239,3 +240,4 @@
 #pragma clang diagnostic pop
 
 @end
+#endif

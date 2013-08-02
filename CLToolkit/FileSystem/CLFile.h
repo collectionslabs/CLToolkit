@@ -18,7 +18,7 @@
 @property (nonatomic, readonly) NSDate *dateCreated;
 @property (nonatomic, readonly) NSDate *dateModified;
 @property (nonatomic, readonly) NSUInteger size;
-#if TARGET_OSX
+#if TARGETING_OSX
 @property (nonatomic, readonly) NSString *kind;
 #endif
 @property (nonatomic, readonly) NSString *md5;

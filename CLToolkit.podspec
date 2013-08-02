@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   ### Subspecs
   
   s.subspec 'Core' do |ss|
-    ss.source_files =  'CLToolkit/Core/'
+    ss.source_files =  'CLToolkit/Core/**/*'
     ss.osx.framework = 'Cocoa'
     ss.ios.framework = 'UIKit'
     
@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Networking' do |ss|
-    ss.source_files   = 'CLToolkit/Networking'
+    ss.source_files   = 'CLToolkit/Networking/**/*'
     
     ss.dependency       'CLToolkit/Core'
     ss.dependency       'AFNetworking'
@@ -40,13 +40,13 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Operation' do |ss|
-    ss.source_files   = 'CLToolkit/Operation'
+    ss.source_files   = 'CLToolkit/Operation/**/*'
     
     ss.dependency       'CLToolkit/Core'
   end
   
   s.subspec 'CoreData' do |ss|
-    ss.source_files   = 'CLToolkit/CoreData'
+    ss.source_files   = 'CLToolkit/CoreData/**/*'
     ss.framework      = 'CoreData'
     
     ss.dependency       'CLToolkit/Core'
@@ -55,4 +55,11 @@ Pod::Spec.new do |s|
     ss.dependency       'Base64'
   end
   
+  s.subspec 'Misc' do |ss|
+    ss.source_files   = 'CLToolkit/Misc/**/*'
+
+    ss.osx.frameworks = 'Quartz'
+    ss.dependency       'CLToolkit/Core'
+    ss.dependency       'NSHash'
+  end
 end

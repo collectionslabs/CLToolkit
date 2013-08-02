@@ -8,7 +8,7 @@
 
 #import "Misc.h"
 
-#if TARGET_OSX
+#if TARGETING_OSX
 
 @interface CLSharedFileList : NSObject
 

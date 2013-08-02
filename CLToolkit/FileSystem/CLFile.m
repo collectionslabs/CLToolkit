@@ -42,7 +42,7 @@
 - (NSDate *)dateModified { return self.attributes[NSFileModificationDate]; }
 - (NSUInteger)size { return [self.attributes[NSFileSize] unsignedIntegerValue]; }
 - (IMAGE_CLASS *)image { return nil; }
-#if TARGET_OSX
+#if TARGETING_OSX
 - (NSString *)kind {
     NSString *uti;
     [self.url getResourceValue:&uti forKey:NSURLTypeIdentifierKey error:NULL];

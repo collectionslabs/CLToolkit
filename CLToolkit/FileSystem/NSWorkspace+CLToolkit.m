@@ -8,7 +8,7 @@
 
 #import "NSWorkspace+CLToolkit.h"
 
-#if TARGET_OSX
+#if TARGETING_OSX
 
 @implementation NSWorkspace (Convenience)
 

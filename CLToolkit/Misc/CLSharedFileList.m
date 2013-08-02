@@ -8,7 +8,7 @@
 
 #import "CLSharedFileList.h"
 
-#if TARGET_OSX
+#if TARGETING_OSX
 
 typedef void (^SharedFileListCallbackBlock)(LSSharedFileListRef inList);
 

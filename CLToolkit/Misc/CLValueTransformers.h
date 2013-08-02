@@ -8,22 +8,13 @@
 
 #import "Misc.h"
 
-@interface CLWebViewProgressTransformer : NSValueTransformer
-@end
-
 @interface CLJSONValueTransformer : NSValueTransformer
 @end
 
 @interface CLURLValueTransformer : NSValueTransformer
 @end
 
-@interface CLOppositeBoolValueTransformer : NSValueTransformer
-@end
-
 @interface CLDateToRelativeStringValueTransformer : NSValueTransformer
-@end
-
-@interface CLArrayCountValueTransformer : NSValueTransformer
 @end
 
 @interface CLFileSizeValueTransformer : NSValueTransformer

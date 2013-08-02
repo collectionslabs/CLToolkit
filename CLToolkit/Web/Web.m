@@ -8,7 +8,7 @@
 
 #import "Web.h"
 
-#if TARGET_OSX
+#if TARGETING_OSX
 
 WebScriptObject *ToWebScript(WebScriptObject *windowScriptObject, id json) {
     WebScriptObject *parser = [windowScriptObject valueForKey:@"JSON"];

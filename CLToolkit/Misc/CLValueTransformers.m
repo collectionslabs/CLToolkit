@@ -8,19 +8,6 @@
 
 #import "CLValueTransformers.h"
 
-@implementation CLWebViewProgressTransformer
-
-- (id)transformedValue:(id)value {
-    double val = [value doubleValue] * 100;
-    return @(val < 84.5 ? val : 0);
-}
-
-+ (Class)transformedValueClass { return [NSNumber class]; }
-
-+ (BOOL)allowsReverseTransformation { return NO; }
-
-@end
-
 @implementation CLJSONValueTransformer
 
 - (id)transformedValue:(id)value {
@@ -51,22 +38,6 @@
 
 + (Class)transformedValueClass { return [NSString class]; }
 + (BOOL)allowsReverseTransformation { return YES; }
-
-@end
-
-@implementation CLArrayCountValueTransformer
-
-+ (Class)transformedValueClass { return [NSNumber class]; }
-+ (BOOL)allowsReverseTransformation { return NO; }
-- (id)transformedValue:(id)value { return @([value count]); }
-
-@end
-
-@implementation CLOppositeBoolValueTransformer
-
-+ (Class)transformedValueClass { return [NSNumber class]; }
-+ (BOOL)allowsReverseTransformation { return NO; }
-- (id)transformedValue:(id)value { return @(![value boolValue]); }
 
 @end
 

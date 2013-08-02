@@ -17,7 +17,7 @@
 // -----------------------------------------------------------------------------
 //  Headers:
 // -----------------------------------------------------------------------------
-
+#if TARGETING_OSX
 #import <Cocoa/Cocoa.h>
 
 
@@ -33,3 +33,4 @@
 -(Handle)   get8BitMaskAtPixelSize: (int)requiredPixelSize;
 
 @end
+#endif

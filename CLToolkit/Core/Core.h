@@ -25,12 +25,12 @@
 #import <UIKit/UIKit.h>
 #define COLOR_CLASS UIColor
 #define IMAGE_CLASS UIImage
-#define TARGET_IOS 1
+#define TARGETING_IOS 1
 #elif TARGET_OS_MAC
 #import <Cocoa/Cocoa.h>
 #define COLOR_CLASS NSColor
 #define IMAGE_CLASS NSImage
-#define TARGET_OSX 1
+#define TARGETING_OSX 1
 #endif
 #import <ConciseKit/ConciseKit.h>
 #import <BlocksKit/BlocksKit.h>

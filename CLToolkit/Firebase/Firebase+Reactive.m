@@ -8,9 +8,9 @@
 
 #import "Firebase+Reactive.h"
 
-#if TARGET_IOS
+#if TARGETING_IOS
 #define CALLBACK_ARGS NSError *error, Firebase *ref
-#elif TARGET_OSX
+#elif TARGETING_OSX
 #define CALLBACK_ARGS NSError *error
 #endif
 

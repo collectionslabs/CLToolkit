@@ -8,7 +8,7 @@
 
 #import "FileSystem.h"
 
-#if TARGET_OSX
+#if TARGETING_OSX
 
 @interface NSWorkspace (Convenience)
 

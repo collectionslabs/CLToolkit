@@ -13,7 +13,7 @@
 
 #import "CLValueTransformers.h"
 
-#if TARGET_OSX
+#if TARGETING_OSX
 #import "CLSharedFileList.h"
 #import "NSImage+IconRef.h"
 #import "NSImage+QuickLook.h"
@@ -21,5 +21,8 @@
 void TransformToForegroundApplication(void);
 void TransformToAccessoryApplication(void);
 #endif
+
+NSString *GetMacAddress(void);
+NSString *UniqueDeviceID(void);
 
 #endif

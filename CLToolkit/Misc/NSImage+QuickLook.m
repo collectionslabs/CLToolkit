@@ -4,7 +4,7 @@
 //
 //  Created by Matt Gemmell on 29/10/2007.
 //
-
+#if TARGETING_OSX
 #import "NSImage+QuickLook.h"
 #import <QuickLook/QuickLook.h> // Remember to import the QuickLook framework into your project!
 
@@ -46,3 +46,4 @@
 
 
 @end
+#endif
