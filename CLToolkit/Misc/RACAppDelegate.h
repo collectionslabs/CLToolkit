@@ -31,6 +31,6 @@
 @property (nonatomic, readonly) RACSignal *onRemoteNotification;
 
 - (RACSignal *)registerForRemoteNotificationTypes:(NOTIFICATION_OPTIONS_TYPE)types;
-
+- (RACSignal *)registerForAllRemoteNotifications;
 
 @end

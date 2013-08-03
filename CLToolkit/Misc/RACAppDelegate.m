@@ -14,6 +14,10 @@
     RACSubject *_remoteNotificationRegistration;
 }
 
+#if TARGETING_IOS
+@synthesize window = _window; // Explicit synthesis needed as property declared in protocol
+#endif
+
 - (RACSignal *)onLocalNotification {
     return _onLocalNotification ?: (_onLocalNotification = [RACReplaySubject replaySubjectWithCapacity:1]);
 }
@@ -28,6 +32,15 @@
     return _remoteNotificationRegistration;
 }
 
+- (RACSignal *)registerForAllRemoteNotifications {
+#if TARGETING_IOS
+    UIRemoteNotificationType types = UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound|UIRemoteNotificationTypeNewsstandContentAvailability;
+#elif TARGETING_MAC
+    NSRemoteNotificationType types = NSRemoteNotificationTypeAlert|NSRemoteNotificationTypeBadge|NSRemoteNotificationTypeSound|NSRemoteNotificationTypeNewsstandContentAvailability;
+#endif
+    return [self registerForRemoteNotificationTypes:types];
+}
+
 #pragma mark UI/NS AppDelegate Protocol Implementation
 
 - (void)application:(APPLICATION_CLASS *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -36,6 +49,7 @@
 
 - (void)application:(APPLICATION_CLASS *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     [_remoteNotificationRegistration sendError:error];
+    LogError(@"Failed to register for remote notification %@", error);
 }
 
 - (void)application:(APPLICATION_CLASS *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
