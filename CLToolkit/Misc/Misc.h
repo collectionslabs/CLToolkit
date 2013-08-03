@@ -12,6 +12,7 @@
 #import "Core.h"
 
 #import "CLValueTransformers.h"
+#import "RACAppDelegate.h"
 
 #if TARGETING_OSX
 #import "CLSharedFileList.h"

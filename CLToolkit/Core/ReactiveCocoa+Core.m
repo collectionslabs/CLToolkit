@@ -51,7 +51,7 @@
 }
 
 + (RACSignal *)delay:(NSTimeInterval)seconds {
-    return [[[RACSignal interval:seconds] take:1] deliverOn:[RACScheduler mainThreadScheduler]];
+    return [[[RACSignal interval:seconds] take:1] deliverOn:[RACScheduler currentScheduler]];
 }
 
 @end

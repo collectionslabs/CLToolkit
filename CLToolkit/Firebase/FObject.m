@@ -31,7 +31,7 @@
     if (_disposable)
         return;
     
-    LogDebug(@"fobject", @"Binding firebase %@", self.fPath);
+    LogDebug(@"Binding firebase %@", self.fPath);
     
     Firebase *ref = self.ref;
     NSMutableArray *disposables = [NSMutableArray array];
@@ -65,7 +65,7 @@
         // Firebase -> CoreData
         [disposables addObject:[[ref[rel.name] rac_signalWithInitialValueForKeyPath:@"currentValue"] subscribeNext:^(id value) {
             if (!self->_disposable) return; // Firebase remove observer bug
-            LogDebug(@"fobject", @"Setting %@ %@[toOne] = %@", self.fPath, rel.name, value);
+            LogDebug(@"Setting %@ %@[toOne] = %@", self.fPath, rel.name, value);
             if (value != nil)
                 value = [[self class] findByFPath:value inContext:self.managedObjectContext createIfMissing:YES];
             [self setValue:value forKey:rel.name];
@@ -74,7 +74,7 @@
         // CoreData -> Firebase
         [disposables addObject:[[self rac_signalForKeyPath:rel.name] subscribeNext:^(id x) {
             NSAssert(self.isFault == NO, @"Should never get here if object is faulted");
-            LogDebug(@"fobject", @"Ref Setting %@ %@[toOne] = %@", self.fPath, rel.name, [[self valueForKey:rel.name] valueForKey:@"fPath"]);
+            LogDebug(@"Ref Setting %@ %@[toOne] = %@", self.fPath, rel.name, [[self valueForKey:rel.name] valueForKey:@"fPath"]);
             ref[rel.name] = [[self valueForKey:rel.name] fPath];
         }]];
     }
@@ -93,12 +93,12 @@
                     obj = obj ?: [[self class] findByFPath:FUnescapeName([tuple.first name])
                                                  inContext:self.managedObjectContext
                                            createIfMissing:YES];
-                    LogDebug(@"fobject", @"Adding %@ %@[toMany] obj %@", self.fPath, rel.name, obj.fPath);
+                    LogDebug(@"Adding %@ %@[toMany] obj %@", self.fPath, rel.name, obj.fPath);
                     [relationship addObject:obj];
                     break;
                 case FEventTypeChildRemoved:
                     if (obj) {
-                        LogDebug(@"fobject", @"Removing %@ %@[toMany] obj %@", self.fPath, rel.name, obj.fPath);
+                        LogDebug(@"Removing %@ %@[toMany] obj %@", self.fPath, rel.name, obj.fPath);
                         [relationship removeObject:obj];
                     }
             }
@@ -108,11 +108,11 @@
         [disposables addObject:[[self rac_changeSignalForKeyPath:rel.name options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew] subscribeNext:^(NSDictionary *change) {
             NSAssert(self.isFault == NO, @"Should never get here if object is faulted");
             for (FObject *removed in $safeNull(change[NSKeyValueChangeOldKey])) {
-                LogDebug(@"fobject", @"Ref Removing %@ %@[toMany] obj %@", self.fPath, rel.name, removed.fPath);
+                LogDebug(@"Ref Removing %@ %@[toMany] obj %@", self.fPath, rel.name, removed.fPath);
                 ref[rel.name][FEscapeName(removed.fPath)] = nil;
             }
             for (FObject *inserted in $safeNull(change[NSKeyValueChangeNewKey])) {
-                LogDebug(@"fobject", @"Ref Adding %@ %@[toMany] obj %@", self.fPath, rel.name, inserted.fPath);
+                LogDebug(@"Ref Adding %@ %@[toMany] obj %@", self.fPath, rel.name, inserted.fPath);
                 ref[rel.name][FEscapeName(inserted.fPath)] = @YES;
             }
         }]];
@@ -178,7 +178,7 @@
 }
 
 - (void)unbindFirebase {
-    LogDebug(@"fobject", @"Unbinding firebase %@", self.ref.pathString);
+    LogDebug(@"Unbinding firebase %@", self.ref.pathString);
     [_disposable dispose];
     _disposable = nil;
 }

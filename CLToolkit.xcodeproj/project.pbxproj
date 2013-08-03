@@ -15,6 +15,9 @@
 		EA576A0517A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA576A0017A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h */; };
 		EA576A0617A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */; };
 		EA576A0717A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */; };
+		EA7D321D17ACE982007CADDC /* RACAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EA7D321B17ACE982007CADDC /* RACAppDelegate.h */; };
+		EA7D321E17ACE982007CADDC /* RACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D321C17ACE982007CADDC /* RACAppDelegate.m */; };
+		EA7D321F17ACE982007CADDC /* RACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D321C17ACE982007CADDC /* RACAppDelegate.m */; };
 		EAADD08717A055AD009A8FA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA898677179919AF00594A3E /* Foundation.framework */; };
 		EAADD0F917A05603009A8FA4 /* AutoUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09417A05603009A8FA4 /* AutoUpdate.h */; };
 		EAADD0FA17A05603009A8FA4 /* CLUpdateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09517A05603009A8FA4 /* CLUpdateHelper.h */; };
@@ -156,6 +159,8 @@
 		EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Reactive.m"; sourceTree = "<group>"; };
 		EA576A0017A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MRExtensions.h"; sourceTree = "<group>"; };
 		EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MRExtensions.m"; sourceTree = "<group>"; };
+		EA7D321B17ACE982007CADDC /* RACAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACAppDelegate.h; sourceTree = "<group>"; };
+		EA7D321C17ACE982007CADDC /* RACAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACAppDelegate.m; sourceTree = "<group>"; };
 		EA898677179919AF00594A3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EAADD07217A055A0009A8FA4 /* libCLToolkit-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCLToolkit-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAADD07317A055A0009A8FA4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
@@ -437,6 +442,8 @@
 		EAADD0CD17A05603009A8FA4 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				EA7D321B17ACE982007CADDC /* RACAppDelegate.h */,
+				EA7D321C17ACE982007CADDC /* RACAppDelegate.m */,
 				EAADD0CE17A05603009A8FA4 /* CLSharedFileList.h */,
 				EAADD0CF17A05603009A8FA4 /* CLSharedFileList.m */,
 				EAADD0D017A05603009A8FA4 /* CLValueTransformers.h */,
@@ -572,6 +579,7 @@
 				EAB2B15417A2EC190047CE69 /* mac-prefix.pch in Headers */,
 				EA576A0217A506AF0043D6E6 /* MagicalRecord+Reactive.h in Headers */,
 				EA576A0517A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h in Headers */,
+				EA7D321D17ACE982007CADDC /* RACAppDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -751,6 +759,7 @@
 				EAADD17617A05603009A8FA4 /* Web.m in Sources */,
 				EA576A0317A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
 				EA576A0617A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */,
+				EA7D321E17ACE982007CADDC /* RACAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +798,7 @@
 				EAADD17717A05603009A8FA4 /* Web.m in Sources */,
 				EA576A0417A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
 				EA576A0717A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */,
+				EA7D321F17ACE982007CADDC /* RACAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
