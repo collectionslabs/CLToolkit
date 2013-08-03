@@ -67,29 +67,32 @@ NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors);
 void Log(NSString *format, ...);
 void LogImage(IMAGE_CLASS *image);
 
+#define DEBUG 1
+
 #if DEBUG
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
     #define PLIST_WRITING_OPTIONS NSPropertyListMutableContainersAndLeaves
     #define MAX_LOGIMAGE_DIMENSION 64.0
+    #define _BARE_FILE_NAME [[[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lastPathComponent] stringByDeletingPathExtension]
     // TODO: make tag optional and definable via static str
-    #define LogCritical(tag, ...)    LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 0, __VA_ARGS__)
-    #define LogError(tag, ...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 1, __VA_ARGS__)
-    #define LogWarning(tag, ...)     LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 2, __VA_ARGS__)
-    #define LogInfo(tag, ...)        LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 3, __VA_ARGS__)
-    #define LogDebug(tag, ...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 4, __VA_ARGS__)
-    #define LogTrace(tag, ...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, tag, 5, __VA_ARGS__)
+    #define LogCritical(...)    LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 0, __VA_ARGS__)
+    #define LogError(...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 1, __VA_ARGS__)
+    #define LogWarning(...)     LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 2, __VA_ARGS__)
+    #define LogInfo(...)        LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 3, __VA_ARGS__)
+    #define LogDebug(...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 4, __VA_ARGS__)
+    #define LogTrace(...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 5, __VA_ARGS__)
 
     #define AssertMainThread()       NSAssert([NSThread isMainThread], @"%s must be called from the main thread", __FUNCTION__)
 #else
     #define JSON_WRITING_OPTIONS 0
     #define PLIST_WRITING_OPTIONS 0
 
-    #define LogCritical(tag, ...)
-    #define LogError(tag, ...)
-    #define LogWarning(tag, ...)
-    #define LogInfo(tag, ...)
-    #define LogDebug(tag, ...)
-    #define LogTrace(tag, ...)
+    #define LogCritical(...)
+    #define LogError(...)
+    #define LogWarning(...)
+    #define LogInfo(...)
+    #define LogDebug(...)
+    #define LogTrace(...)
 
     #define LogMarker(...)
     #define LoggerFlush(...)
@@ -107,7 +110,7 @@ void LogImage(IMAGE_CLASS *image);
 #define NC                         [NSNotificationCenter defaultCenter]
 #define FM                         [NSFileManager defaultManager]
 #define UD                         [NSUserDefaults standardUserDefaults]
-#define APP_IDENTIFIER             [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]
+#define APP_IDENTIFIER             [[NSBundle mainBundle] bundleIdentifier]
 
 #define STANDARD_SIBLING_SPACING   8
 #define STANDARD_SUPERVIEW_SPACING 20

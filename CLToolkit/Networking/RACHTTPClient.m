@@ -24,7 +24,7 @@ static void LogHTTPRequest(int tag, NSURLRequest *request) {
     NSString *desc = [params description] ?: @"";
     if ([[method uppercaseString] isEqualToString:@"GET"])
         desc = [[desc replace:@"\n" with:@" "] replace:@"  " with:@""];
-    LogDebug(@"http", @"R%-2d ->   %@ %@ %@", tag, method, path, desc);
+    LogDebug(@"R%-2d ->   %@ %@ %@", tag, method, path, desc);
     LoggerFlush(NULL, NO);
 }
 static void LogHTTPResponse(int tag, NSHTTPURLResponse *response) {
@@ -32,12 +32,12 @@ static void LogHTTPResponse(int tag, NSHTTPURLResponse *response) {
     NSString *path = response.URL.path;
     id body = [response json];
     NSString *tagStr = [$str(@"<-  R%d     ", tag) sliceTill:8];
-    LogDebug(@"http", @"%@ %ld %@\n Body: %@\n Headers: %@", tagStr, (long)response.statusCode, path, body, headers);
+    LogDebug(@"%@ %ld %@\n Body: %@\n Headers: %@", tagStr, (long)response.statusCode, path, body, headers);
     LoggerFlush(NULL, NO);
 }
 static void LogHTTPError(int tag, NSError *error) {
     NSString *tagStr = [$str(@"<-  R%d     ", tag) sliceTill:8];
-    LogError(@"http", @"%@ Error %@", tagStr, error);
+    LogError(@"%@ Error %@", tagStr, error);
     LoggerFlush(NULL, NO);
 }
 
