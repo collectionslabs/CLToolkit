@@ -12,6 +12,7 @@
 
 - (BOOL)contains:(NSString *)substr;
 - (NSString *)replace:(NSString *)str with:(NSString *)newStr;
+- (NSArray *)split:(NSString *)marker;
 
 - (NSString *)captureRegex:(NSString *)pattern groupIndex:(NSUInteger)groupIndex;
 - (NSString *)captureRegex:(NSString *)pattern;
@@ -34,6 +35,7 @@
 - (BOOL)validateEmail;
 
 + (NSString *)stringWithUUID;
++ (NSString *)randomAlphanumericWithLength:(NSUInteger)length;
 
 @end
 

@@ -10,7 +10,9 @@
 
 @interface NSDictionary (Core)
 
-- (id)dictionaryByMergingFrom:(NSDictionary *)other;
+- (instancetype)dictionaryByRemovingNulls;
+
+- (instancetype)dictionaryByMergingFrom:(NSDictionary *)other;
 + (instancetype)dictionaryWithArrayOfPairs:(NSArray *)pairs;
 + (instancetype)dictionaryWithDictionaries:(NSArray *)dictionaries;
 

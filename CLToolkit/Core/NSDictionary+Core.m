@@ -10,6 +10,12 @@
 
 @implementation NSDictionary (Core)
 
+- (instancetype)dictionaryByRemovingNulls {
+    return [self reject:^BOOL(id key, id obj) {
+        return obj == [NSNull null];
+    }];
+}
+
 - (id)dictionaryByMergingFrom:(NSDictionary *)other {
     NSMutableDictionary *newDict = [self mutableCopy];
     [newDict addEntriesFromDictionary:other];

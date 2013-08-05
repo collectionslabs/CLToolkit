@@ -19,6 +19,10 @@
     return [self stringByReplacingOccurrencesOfString:str withString:newStr];
 }
 
+- (NSArray *)split:(NSString *)marker {
+    return [self componentsSeparatedByString:marker];
+}
+
 #pragma mark Regular Expression
 
 
@@ -180,6 +184,17 @@
     NSString *uuid = (__bridge_transfer NSString *)CFUUIDCreateString(nil, uuidObj);
     CFRelease(uuidObj);
     return uuid;
+}
+
++ (NSString *)randomAlphanumericWithLength:(NSUInteger)length {
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        
+    NSMutableString *randomString = [NSMutableString stringWithCapacity:length];
+    for (int i=0; i<length; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random() % letters.length]];
+    }
+    
+    return randomString;
 }
 
 @end

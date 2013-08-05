@@ -17,7 +17,7 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
     @weakify(self);
     return ^(BOOL success, NSError *error) {
         @strongify(self);
-        success ? [self sendCompleted] : [self sendError:error];
+        (success || !error) ? [self sendCompleted] : [self sendError:error];
     };
 }
 
