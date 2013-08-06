@@ -17,6 +17,8 @@
 }
 
 - (id)dictionaryByMergingFrom:(NSDictionary *)other {
+    if (!other.count)
+        return self;
     NSMutableDictionary *newDict = [self mutableCopy];
     [newDict addEntriesFromDictionary:other];
     return newDict;

@@ -22,7 +22,7 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 }
 
 + (RACSubject *)mr_subject:(void (^)(MRCompletionHandler completionBlock))block; {
-    RACSubject *subject = [RACReplaySubject subject];
+    RACSubject *subject = [RACReplaySubject subjectWithSelector:_cmd];
     block(subject.mr_completionBlock);
     return subject;
 }
@@ -61,6 +61,15 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 
 
 @implementation NSManagedObjectContext (Reactive)
+
+- (RACSignal *)performBlockAndSave:(void (^)())block {
+    RACSubject *subject = [RACSubject subjectWithSelector:_cmd];
+    [self performBlock:^{
+        block();
+        [[self saveToPersistentStore] subscribe:subject];
+    }];
+    return subject;
+}
 
 - (RACSignal *)saveToPersistentStore {
     return [RACSubject mr_subject:^(MRCompletionHandler completionBlock) {
