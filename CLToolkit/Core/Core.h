@@ -105,6 +105,9 @@ void LogImage(IMAGE_CLASS *image);
 
 #if TARGET_OS_IPHONE
 #define UIApp                      [UIApplication sharedApplication]
+#define APP_DELEGATE               (id)[UIApp delegate]
+#elif TARGET_OS_MAC
+#define APP_DELEGATE               (id)[NSApp delegate]
 #endif
 #define CONTEXT                    [NSManagedObjectContext defaultContext]
 #define NC                         [NSNotificationCenter defaultCenter]

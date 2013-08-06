@@ -7,6 +7,7 @@
 //
 
 #import <objc/runtime.h>
+#import <objc/message.h>
 #import "NSObject+Core.h"
 
 @implementation NSObject (Core)
@@ -77,5 +78,10 @@
     NSLog(@"%@", classDump);
 }
 
++ (void)performSelector:(SEL)sel withDelay:(NSTimeInterval)delay {
+    [self performBlock:^{
+        objc_msgSend(self, sel);
+    } afterDelay:delay];
+}
 
 @end
