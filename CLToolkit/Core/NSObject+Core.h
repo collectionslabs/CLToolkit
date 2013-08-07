@@ -24,3 +24,11 @@
 // which return proxy objects that one can call
 
 @end
+
+#if TARGETING_IOS
+@interface UIViewController (Core)
+
+- (void)cl_logDescendants;
+
+@end
+#endif

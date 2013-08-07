@@ -87,4 +87,5 @@ void TransformToAccessoryApplication() {
     ProcessSerialNumber psn = { 0, kCurrentProcess };
     TransformProcessType(&psn, kProcessTransformToUIElementApplication);
 }
+
 #endif

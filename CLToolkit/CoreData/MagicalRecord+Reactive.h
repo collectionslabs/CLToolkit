@@ -25,3 +25,17 @@
 
 @end
 
+#if TARGETING_IOS
+
+@interface NSFetchedResultsController (CLToolkit) <NSFetchedResultsControllerDelegate>
+
+- (RACSignal *)onWillChangeContent;
+- (RACSignal *)onDidChangeContent;
+- (RACSignal *)onChangeObject; // Sends tuple (object, indexPath, changeType, newIndexPath)
+- (RACSignal *)onChangeSection; // Sends tuple (sectionInfo, sectionIndex, changeType)
+
+- (RACDisposable *)autoUpdateTableView:(UITableView *)tableView animated:(BOOL)animated;
+
+@end
+
+#endif

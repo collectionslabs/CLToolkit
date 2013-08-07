@@ -8,6 +8,11 @@
 
 #import "Core.h"
 
+#define DISPOSE_ARRAY_THEN_NIL(arr) do { \
+    [arr makeObjectsPerformSelector:@selector(dispose)]; \
+    arr = nil; } while (NO);
+
+
 @interface RACSignal (Core)
 
 - (instancetype)mapWithError:(id(^)(id value))block;
@@ -35,5 +40,11 @@
 - (RACSignal *)rac_signalWithInitialValueForKeyPath:(NSString *)keyPath;
 
 - (RACSignal *)rac_changeSignalForKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options;
+
+@end
+
+@interface NSNotificationCenter (CLRACExtensions)
+
+- (RACSignal *)rac_addObserverForName:(NSString *)name;
 
 @end

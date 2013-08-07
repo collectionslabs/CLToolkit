@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#import <ReactiveCocoa/NSNotificationCenter+RACSupport.h>
 #import <ReactiveCocoa/RACKVOTrampoline.h>
 #import "ReactiveCocoa+Core.h"
 
@@ -103,6 +104,14 @@
             }];
         }];
     }];
+}
+
+@end
+
+@implementation NSNotificationCenter (CLRACExtensions)
+
+- (RACSignal *)rac_addObserverForName:(NSString *)name {
+    return [self rac_addObserverForName:name object:nil];
 }
 
 @end

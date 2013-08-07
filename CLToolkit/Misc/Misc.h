@@ -21,6 +21,7 @@
 
 void TransformToForegroundApplication(void);
 void TransformToAccessoryApplication(void);
+
 #endif
 
 NSString *GetMacAddress(void);

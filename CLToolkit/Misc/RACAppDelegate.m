@@ -62,10 +62,12 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    if (launchOptions[UIApplicationLaunchOptionsLocalNotificationKey])
-        [(RACSubject *)self.onLocalNotification sendNext:launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]];
-    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey])
-        [(RACSubject *)self.onRemoteNotification sendNext:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (launchOptions[UIApplicationLaunchOptionsLocalNotificationKey])
+            [(RACSubject *)self.onLocalNotification sendNext:launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]];
+        if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey])
+            [(RACSubject *)self.onRemoteNotification sendNext:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]];
+    });
     return YES;
 }
 
