@@ -33,3 +33,14 @@
 
 @end
 
+@interface NSBlockOperation (CLToolkit)
+
++ (id)operationWithBlock:(void (^)(NSBlockOperation *operation))block;
+
+@end
+
+@interface NSOperation (CLToolkit)
+
+- (void)setCompletionBlockWithOperation:(void (^)(NSOperation *operation))block;
+
+@end

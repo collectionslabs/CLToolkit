@@ -99,16 +99,19 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
     @weakify(tableView);
     return [RACCompoundDisposable compoundDisposableWithDisposables:@[
     [[self onWillChangeContent] subscribeNext:^(id x) {
+        @strongify(tableView);
         if (animated)
             [tableView beginUpdates];
     }],
     [[self onDidChangeContent] subscribeNext:^(id x) {
+        @strongify(tableView);
         if (animated)
             [tableView endUpdates];
         else
             [tableView reloadData];
     }],
     [[self onChangeObject] subscribeNext:^(RACTuple *tuple) {
+        @strongify(tableView);
         if (!animated)
             return;
         RACTupleUnpack(id obj, NSIndexPath *indexPath, NSNumber *type, NSIndexPath *newIndexPath) = tuple;
@@ -134,6 +137,7 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
         }
     }],
     [[self onChangeSection] subscribeNext:^(RACTuple *tuple) {
+        @strongify(tableView);
         if (!animated)
             return;
         RACTupleUnpack(id<NSFetchedResultsSectionInfo> sectionInfo, NSNumber *sectionIndex, NSNumber *type) = tuple;

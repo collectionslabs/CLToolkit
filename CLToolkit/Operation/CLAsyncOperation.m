@@ -70,3 +70,29 @@
 }
 
 @end
+
+@implementation NSBlockOperation (CLToolkit)
+
++ (instancetype)operationWithBlock:(void (^)(NSBlockOperation *))block {
+    __weak NSBlockOperation *weak_operation;
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        NSBlockOperation *strong_operation = weak_operation;
+        block(strong_operation);
+    }];
+    weak_operation = operation;
+    return operation;
+}
+
+@end
+
+@implementation NSOperation (CLToolkit)
+
+- (void)setCompletionBlockWithOperation:(void (^)(NSOperation *operation))block {
+    @weakify(self);
+    [self setCompletionBlock:^{
+        @strongify(self);
+        block(self);
+    }];
+}
+
+@end
