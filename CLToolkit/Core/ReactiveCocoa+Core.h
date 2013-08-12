@@ -19,7 +19,10 @@
 - (RACSignal *)deliverOnMain;
 - (RACSignal *)catchLoop;
 - (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completed:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock;
+- (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completedOrError:(void (^)(NSError *errorOrNil))block;
 - (RACDisposable *)subscribeCompleted:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock;
+- (RACDisposable *)subscribeCompletedOrError:(void (^)(NSError *errorOrNil))block;
+
 
 + (RACSignal *)delay:(NSTimeInterval)seconds;
 

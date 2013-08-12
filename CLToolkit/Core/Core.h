@@ -134,6 +134,7 @@ void LogImage(IMAGE_CLASS *image);
                                              @{NSLocalizedDescriptionKey: desc ?: @"Unknown Error"}]
 #define $constraints(format, opts, vars) [NSLayoutConstraint constraintsWithVisualFormat:format \
                                              options:opts metrics:nil views:vars]
+#define $attrStr(str)                    [[NSAttributedString alloc] initWithString:str]
 
 #define $jsonDumpsData(obj)              (obj ? [NSJSONSerialization dataWithJSONObject:obj options:JSON_WRITING_OPTIONS error:NULL] : nil)
 #define $jsonLoadsData(data)             (data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL] : nil)

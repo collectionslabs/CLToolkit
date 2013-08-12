@@ -108,3 +108,20 @@
 }
 
 @end
+
+@implementation UIView (CLToolkit)
+
+- (void)animateWithKeyboard:(NSDictionary *)keyboardInfo block:(void (^)(CGRect keyboardEndFrame))block {
+    NSTimeInterval animationDuration = [keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    UIViewAnimationCurve animationCurve = [keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    CGRect keyboardEndFrame = [keyboardInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardEndFrame = [self convertRect:keyboardEndFrame fromView:nil];
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationCurve:animationCurve];
+    [UIView setAnimationDuration:animationDuration];
+    block(keyboardEndFrame);
+    [UIView commitAnimations];
+}
+
+@end

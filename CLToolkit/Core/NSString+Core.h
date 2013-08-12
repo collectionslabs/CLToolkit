@@ -10,6 +10,7 @@
 
 @interface NSString (Core)
 
+- (BOOL)contains:(NSString *)substr options:(NSStringCompareOptions)options;
 - (BOOL)contains:(NSString *)substr;
 - (NSString *)replace:(NSString *)str with:(NSString *)newStr;
 - (NSArray *)split:(NSString *)marker;
@@ -24,6 +25,7 @@
 - (NSString *)sliceFrom:(NSInteger)start till:(NSInteger)end;
 - (NSString *)sliceFrom:(NSInteger)start;
 - (NSString *)sliceTill:(NSInteger)end;
+- (NSString *)firstLetter;
 
 - (NSString *)md5;
 - (NSString *)safeFilename;

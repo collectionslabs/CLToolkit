@@ -51,6 +51,18 @@
     return [self subscribeError:errorBlock completed:completedBlock];
 }
 
+- (RACDisposable *)subscribeCompletedOrError:(void (^)(NSError *))block {
+    return [self subscribeNext:nil completedOrError:block];
+}
+
+- (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completedOrError:(void (^)(NSError *))block {
+    return [self subscribeNext:nextBlock completed:^{
+        block(nil);
+    } error:^(NSError *error) {
+        block(error);
+    }];
+}
+
 + (RACSignal *)delay:(NSTimeInterval)seconds {
     return [[[RACSignal interval:seconds] take:1] deliverOn:[RACScheduler currentScheduler]];
 }

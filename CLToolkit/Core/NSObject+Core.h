@@ -31,4 +31,10 @@
 - (void)cl_logDescendants;
 
 @end
+@interface UIView (CLToolkit)
+
+- (void)animateWithKeyboard:(NSDictionary *)keyboardInfo block:(void (^)(CGRect keyboardEndFrame))block;
+
+@end
+
 #endif

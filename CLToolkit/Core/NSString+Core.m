@@ -11,8 +11,12 @@
 
 @implementation NSString (Core)
 
+- (BOOL)contains:(NSString *)substr options:(NSStringCompareOptions)options {
+    return [self rangeOfString:substr options:options].location != NSNotFound;
+}
+
 - (BOOL)contains:(NSString *)substr {
-    return [self rangeOfString:substr options:0].location != NSNotFound;
+    return [self contains:substr options:0];
 }
 
 - (NSString *)replace:(NSString *)str with:(NSString *)newStr {
@@ -92,6 +96,10 @@
     NSInteger count = self.length;
     end   = (end < 0)   ? MAX(count+end, 0)   : (end   >= count) ? count   : end;
     return [self substringWithRange:NSMakeRange(0, end)];
+}
+
+- (NSString *)firstLetter {
+    return [self sliceTill:1];
 }
 
 #pragma mark Derived strings

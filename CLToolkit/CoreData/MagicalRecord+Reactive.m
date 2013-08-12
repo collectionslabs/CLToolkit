@@ -96,6 +96,9 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 @implementation NSFetchedResultsController (CLToolkit)
 
 - (RACDisposable *)autoUpdateTableView:(UITableView *)tableView animated:(BOOL)animated {
+    if (!self.fetchedObjects)
+        [self performFetch:NULL];
+    [tableView reloadData];
     @weakify(tableView);
     return [RACCompoundDisposable compoundDisposableWithDisposables:@[
     [[self onWillChangeContent] subscribeNext:^(id x) {
