@@ -109,6 +109,44 @@
 
 @end
 
+@implementation UISearchBar (Core)
+
+- (UITextField *)cl_searchField {
+    return [[self.subviews select:^BOOL(UIView *view) {
+        return [view isKindOfClass:[UITextField class]];
+    }] lastObject];
+}
+
+- (UIActivityIndicatorView *)cl_spinner {
+    return [[self.cl_searchField.leftView.subviews select:^BOOL(UIView *view) {
+        return [view isKindOfClass:[UIActivityIndicatorView class]];
+    }] lastObject];
+}
+
+- (void)startActivity {
+    UIActivityIndicatorView *spinner = [self cl_spinner];
+    if (!spinner) {
+        UITextField *searchField = [self cl_searchField];
+        CGRect bounds = searchField.leftView.bounds;
+        NSParameterAssert(searchField);
+        
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        spinner.center = CGPointMake(bounds.origin.x + bounds.size.width/2,
+                                     bounds.origin.y + bounds.size.height/2);
+        spinner.hidesWhenStopped = YES;
+        spinner.backgroundColor = [UIColor whiteColor];
+        [searchField.leftView addSubview:spinner];
+    }
+    [spinner startAnimating];
+}
+
+- (void)stopActivity {
+    [[self cl_spinner] stopAnimating];
+}
+
+@end
+
+
 @implementation UIView (CLToolkit)
 
 - (void)animateWithKeyboard:(NSDictionary *)keyboardInfo block:(void (^)(CGRect keyboardEndFrame))block {

@@ -121,21 +121,21 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
         switch (type.intValue) {
             case NSFetchedResultsChangeInsert:
                 [tableView insertRowsAtIndexPaths:@[newIndexPath]
-                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+                                 withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
             case NSFetchedResultsChangeDelete:
                 [tableView deleteRowsAtIndexPaths:@[indexPath]
-                                      withRowAnimation:UITableViewRowAnimationFade];
-                break;
-            case NSFetchedResultsChangeUpdate:
-                [tableView reloadRowsAtIndexPaths:@[indexPath]
-                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+                                 withRowAnimation:UITableViewRowAnimationFade];
                 break;
             case NSFetchedResultsChangeMove:
                 [tableView deleteRowsAtIndexPaths:@[indexPath]
-                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+                                 withRowAnimation:UITableViewRowAnimationAutomatic];
                 [tableView insertRowsAtIndexPaths:@[newIndexPath]
-                                      withRowAnimation:UITableViewRowAnimationAutomatic];
+                                 withRowAnimation:UITableViewRowAnimationAutomatic];
+                break;
+            case NSFetchedResultsChangeUpdate:
+                [tableView reloadRowsAtIndexPaths:@[indexPath]
+                                 withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
         }
     }],

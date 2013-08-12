@@ -31,6 +31,14 @@
 - (void)cl_logDescendants;
 
 @end
+
+@interface UISearchBar (Core)
+
+- (void)startActivity;
+- (void)stopActivity;
+
+@end
+
 @interface UIView (CLToolkit)
 
 - (void)animateWithKeyboard:(NSDictionary *)keyboardInfo block:(void (^)(CGRect keyboardEndFrame))block;
