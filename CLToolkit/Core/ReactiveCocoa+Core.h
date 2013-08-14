@@ -18,6 +18,8 @@
 - (instancetype)mapWithError:(id(^)(id value))block;
 - (RACSignal *)deliverOnMain;
 - (RACSignal *)catchLoop;
+- (RACSignal *)doCompletedOrError:(void (^)(NSError *errorOrNil))block;
+
 - (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completed:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock;
 - (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completedOrError:(void (^)(NSError *errorOrNil))block;
 - (RACDisposable *)subscribeCompleted:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock;

@@ -162,4 +162,19 @@
     [UIView commitAnimations];
 }
 
+- (void)cl_logHierarchy:(NSInteger )indent {
+    NSString *padding = [@"" stringByPaddingToLength:indent withString:@" " startingAtIndex:0];
+    NSLog(@"%@%@", padding, self.description);
+    if (self.subviews.count) {
+        NSLog(@"%@  subviews:", padding);
+        [self.subviews each:^(UIView *view) {
+            [view cl_logHierarchy:indent + 2];
+        }];
+    }
+}
+
+- (void)cl_logHierarchy {
+    [self cl_logHierarchy:0];
+}
+
 @end

@@ -60,17 +60,6 @@
 - (void)application:(APPLICATION_CLASS *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     [_onLocalNotification sendNext:notification];
 }
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (launchOptions[UIApplicationLaunchOptionsLocalNotificationKey])
-            [(RACSubject *)self.onLocalNotification sendNext:launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]];
-        if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey])
-            [(RACSubject *)self.onRemoteNotification sendNext:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]];
-    });
-    return YES;
-}
-
 #endif
 
 

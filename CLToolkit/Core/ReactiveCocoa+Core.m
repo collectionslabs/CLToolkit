@@ -43,6 +43,21 @@
 	}] setNameWithFormat:@"[%@] -distinctUntilChanged", self.name];
 }
 
+- (RACSignal *)doCompletedOrError:(void (^)(NSError *))block {
+    NSCParameterAssert(block != NULL);
+    return [[RACSignal createSignal:^(id<RACSubscriber> subscriber) {
+        return [self subscribeNext:^(id x) {
+            [subscriber sendNext:x];
+        } error:^(NSError *error) {
+            block(error);
+            [subscriber sendError:error];
+        } completed:^{
+            block(nil);
+            [subscriber sendCompleted];
+        }];
+    }] setNameWithFormat:@"[%@] -doCompletedOrError:", self.name];
+}
+
 - (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completed:(void (^)(void))completedBlock error:(void (^)(NSError *))errorBlock {
     return [self subscribeNext:nextBlock error:errorBlock completed:completedBlock];
 }

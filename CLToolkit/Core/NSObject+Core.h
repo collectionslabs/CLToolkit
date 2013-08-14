@@ -43,6 +43,8 @@
 
 - (void)animateWithKeyboard:(NSDictionary *)keyboardInfo block:(void (^)(CGRect keyboardEndFrame))block;
 
+- (void)cl_logHierarchy;
+
 @end
 
 #endif
