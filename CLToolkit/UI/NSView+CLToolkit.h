@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#if TARGETING_OSX
-
 #import "UI.h"
+
+#if TARGETING_OSX
 
 @interface NSView (CLToolkit)
 

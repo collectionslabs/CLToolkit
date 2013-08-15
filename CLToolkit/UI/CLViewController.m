@@ -5,9 +5,10 @@
 //  Created by Tony Xiao on 6/24/12.
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
-#if TARGETING_OSX
 
 #import "CLViewController.h"
+
+#if TARGETING_OSX
 
 @implementation CLViewController {
     BOOL _awakenFromNib;

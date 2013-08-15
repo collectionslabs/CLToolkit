@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#if TARGETING_IOS
-
 #import "UIView+CLToolkit.h"
+
+#if TARGETING_IOS
 
 @implementation UISearchBar (Core)
 

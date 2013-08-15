@@ -5,9 +5,10 @@
 //  Copyright 2011 Incredible Bee Ltd. Released under the New BSD License.
 //
 
-#if TARGETING_OSX
 
 #import "NSAlert+SynchronousSheet.h"
+
+#if TARGETING_OSX
 
 
 // Private methods -- use prefixes to avoid collisions with Apple's methods
