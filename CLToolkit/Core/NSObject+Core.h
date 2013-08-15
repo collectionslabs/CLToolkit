@@ -25,26 +25,3 @@
 
 @end
 
-#if TARGETING_IOS
-@interface UIViewController (Core)
-
-- (void)cl_logDescendants;
-
-@end
-
-@interface UISearchBar (Core)
-
-- (void)startActivity;
-- (void)stopActivity;
-
-@end
-
-@interface UIView (CLToolkit)
-
-- (void)animateWithKeyboard:(NSDictionary *)keyboardInfo block:(void (^)(CGRect keyboardEndFrame))block;
-
-- (void)cl_logHierarchy;
-
-@end
-
-#endif

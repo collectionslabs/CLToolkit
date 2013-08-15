@@ -96,7 +96,7 @@ void LogImage(IMAGE_CLASS *image) {
 #elif TARGET_OS_MAC
     NSData *data = [image TIFFRepresentation];
 #endif
-    double ratio = MAX(image.size.width, image.size.height) / MAX_LOGIMAGE_DIMENSION;
+    double ratio = 1;// MAX(image.size.width, image.size.height) / MAX_LOGIMAGE_DIMENSION;
     LogImageData(NULL, 0, (int)(image.size.width/ratio) , (int)(image.size.height/ratio), data);
 
 #endif

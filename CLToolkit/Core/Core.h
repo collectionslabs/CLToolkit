@@ -119,8 +119,8 @@ void LogImage(IMAGE_CLASS *image);
 #define STANDARD_SUPERVIEW_SPACING 20
 
 // Global Shortcuts
-#define $safeNil(obj)                    (obj ?: [NSNull null])
-#define $safeNull(obj)                   ([[NSNull null] isEqual:obj] ? nil : obj)
+#define $nilify(obj)                     (obj ?: [NSNull null])
+#define $nullify(obj)                    ([[NSNull null] isEqual:obj] ? nil : obj)
 #define $ls(key)                         NSLocalizedString(key, nil)
 #define $indexset(loc, len)              [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(loc, len)]
 #define $pred(...)                       [NSPredicate predicateWithFormat:__VA_ARGS__]

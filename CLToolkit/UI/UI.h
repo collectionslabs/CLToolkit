@@ -11,8 +11,13 @@
 
 #import "Core.h"
 
-#if TARGET_OS_IPHONE
-#elif TARGET_OS_MAC
+#if TARGETING_IOS
+
+#import "UIView+CLToolkit.h"
+#import "UIViewController+CLToolkit.h"
+
+#elif TARGETING_MAC
+
 #import "NSView+CLToolkit.h"
 #import "CLViewController.h"
 #import "NSAlert+SynchronousSheet.h"

@@ -12,9 +12,6 @@
 		EA576A0217A506AF0043D6E6 /* MagicalRecord+Reactive.h in Headers */ = {isa = PBXBuildFile; fileRef = EA5769FE17A506AF0043D6E6 /* MagicalRecord+Reactive.h */; };
 		EA576A0317A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */; };
 		EA576A0417A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */; };
-		EA576A0517A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EA576A0017A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h */; };
-		EA576A0617A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */; };
-		EA576A0717A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */; };
 		EA7D321D17ACE982007CADDC /* RACAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EA7D321B17ACE982007CADDC /* RACAppDelegate.h */; };
 		EA7D321E17ACE982007CADDC /* RACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D321C17ACE982007CADDC /* RACAppDelegate.m */; };
 		EA7D321F17ACE982007CADDC /* RACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D321C17ACE982007CADDC /* RACAppDelegate.m */; };
@@ -135,6 +132,9 @@
 		EAADD17717A05603009A8FA4 /* Web.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0F817A05603009A8FA4 /* Web.m */; };
 		EAB2B15317A2EC190047CE69 /* ios-prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EAB2B15117A2EC190047CE69 /* ios-prefix.pch */; };
 		EAB2B15417A2EC190047CE69 /* mac-prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EAB2B15217A2EC190047CE69 /* mac-prefix.pch */; };
+		EAC0EBF017BCC4D500BF7E7C /* UIView+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC0EBEF17BCC4D500BF7E7C /* UIView+CLToolkit.m */; };
+		EAC0EBF317BCC4E600BF7E7C /* UIViewController+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC0EBF217BCC4E600BF7E7C /* UIViewController+CLToolkit.m */; };
+		EAC0EBF617BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC0EBF517BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -157,8 +157,6 @@
 		E4F6ED95562D42D0A20464E4 /* libPods-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA5769FE17A506AF0043D6E6 /* MagicalRecord+Reactive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Reactive.h"; sourceTree = "<group>"; };
 		EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Reactive.m"; sourceTree = "<group>"; };
-		EA576A0017A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MRExtensions.h"; sourceTree = "<group>"; };
-		EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MRExtensions.m"; sourceTree = "<group>"; };
 		EA7D321B17ACE982007CADDC /* RACAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACAppDelegate.h; sourceTree = "<group>"; };
 		EA7D321C17ACE982007CADDC /* RACAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACAppDelegate.m; sourceTree = "<group>"; };
 		EA898677179919AF00594A3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -256,6 +254,12 @@
 		EAADD0F817A05603009A8FA4 /* Web.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Web.m; sourceTree = "<group>"; };
 		EAB2B15117A2EC190047CE69 /* ios-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ios-prefix.pch"; sourceTree = "<group>"; };
 		EAB2B15217A2EC190047CE69 /* mac-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mac-prefix.pch"; sourceTree = "<group>"; };
+		EAC0EBEE17BCC4D500BF7E7C /* UIView+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CLToolkit.h"; sourceTree = "<group>"; };
+		EAC0EBEF17BCC4D500BF7E7C /* UIView+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CLToolkit.m"; sourceTree = "<group>"; };
+		EAC0EBF117BCC4E600BF7E7C /* UIViewController+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CLToolkit.h"; sourceTree = "<group>"; };
+		EAC0EBF217BCC4E600BF7E7C /* UIViewController+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CLToolkit.m"; sourceTree = "<group>"; };
+		EAC0EBF417BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchedResultsController+CLToolkit.h"; sourceTree = "<group>"; };
+		EAC0EBF517BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchedResultsController+CLToolkit.m"; sourceTree = "<group>"; };
 		F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.xcconfig"; path = "Pods/Pods-osx.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -398,12 +402,12 @@
 				EAADD0B517A05603009A8FA4 /* CoreData.h */,
 				EA5769FE17A506AF0043D6E6 /* MagicalRecord+Reactive.h */,
 				EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */,
-				EA576A0017A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h */,
-				EA576A0117A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m */,
 				EAADD0B717A05603009A8FA4 /* NSAttributeDescription+CLToolkit.h */,
 				EAADD0B817A05603009A8FA4 /* NSAttributeDescription+CLToolkit.m */,
 				EAADD0B917A05603009A8FA4 /* NSEntityDescription+CLToolkit.h */,
 				EAADD0BA17A05603009A8FA4 /* NSEntityDescription+CLToolkit.m */,
+				EAC0EBF417BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.h */,
+				EAC0EBF517BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m */,
 				EAADD0BB17A05603009A8FA4 /* RACManagedObject.h */,
 				EAADD0BC17A05603009A8FA4 /* RACManagedObject.m */,
 				EAADD0B617A05603009A8FA4 /* mogenerator_sample.sh */,
@@ -501,6 +505,10 @@
 		EAADD0EE17A05603009A8FA4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				EAC0EBF117BCC4E600BF7E7C /* UIViewController+CLToolkit.h */,
+				EAC0EBF217BCC4E600BF7E7C /* UIViewController+CLToolkit.m */,
+				EAC0EBEE17BCC4D500BF7E7C /* UIView+CLToolkit.h */,
+				EAC0EBEF17BCC4D500BF7E7C /* UIView+CLToolkit.m */,
 				EAADD0EF17A05603009A8FA4 /* CLViewController.h */,
 				EAADD0F017A05603009A8FA4 /* CLViewController.m */,
 				EAADD0F117A05603009A8FA4 /* NSAlert+SynchronousSheet.h */,
@@ -578,7 +586,6 @@
 				EAB2B15317A2EC190047CE69 /* ios-prefix.pch in Headers */,
 				EAB2B15417A2EC190047CE69 /* mac-prefix.pch in Headers */,
 				EA576A0217A506AF0043D6E6 /* MagicalRecord+Reactive.h in Headers */,
-				EA576A0517A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.h in Headers */,
 				EA7D321D17ACE982007CADDC /* RACAppDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -758,7 +765,6 @@
 				EAADD17217A05603009A8FA4 /* NSView+CLToolkit.m in Sources */,
 				EAADD17617A05603009A8FA4 /* Web.m in Sources */,
 				EA576A0317A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
-				EA576A0617A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */,
 				EA7D321E17ACE982007CADDC /* RACAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -797,8 +803,10 @@
 				EAADD16917A05603009A8FA4 /* RACSignal+Kiwi.m in Sources */,
 				EAADD17717A05603009A8FA4 /* Web.m in Sources */,
 				EA576A0417A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
-				EA576A0717A506AF0043D6E6 /* NSManagedObjectContext+MRExtensions.m in Sources */,
 				EA7D321F17ACE982007CADDC /* RACAppDelegate.m in Sources */,
+				EAC0EBF017BCC4D500BF7E7C /* UIView+CLToolkit.m in Sources */,
+				EAC0EBF317BCC4E600BF7E7C /* UIViewController+CLToolkit.m in Sources */,
+				EAC0EBF617BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
