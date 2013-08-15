@@ -16,7 +16,7 @@
 #import "UIView+CLToolkit.h"
 #import "UIViewController+CLToolkit.h"
 
-#elif TARGETING_MAC
+#elif TARGETING_OSX
 
 #import "NSView+CLToolkit.h"
 #import "CLViewController.h"

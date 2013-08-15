@@ -5,6 +5,8 @@
 //  Copyright 2011 Incredible Bee Ltd. Released under the New BSD License.
 //
 
+#if TARGETING_OSX
+
 #import "NSAlert+SynchronousSheet.h"
 
 
@@ -73,3 +75,5 @@
 }
 
 @end
+
+#endif

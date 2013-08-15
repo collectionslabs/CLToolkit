@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#if TARGETING_OSX
+
 #import "UI.h"
 
 @interface NSView (CLToolkit)
@@ -20,3 +22,5 @@
 + (NSString *)hierarchicalDescriptionOfView:(NSView *)view level:(NSUInteger)level;
 
 @end
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
+#if TARGETING_OSX
+
 #import "NSView+CLToolkit.h"
 
 @implementation NSView (CLToolkit)
@@ -69,3 +71,5 @@
 
 
 @end
+
+#endif

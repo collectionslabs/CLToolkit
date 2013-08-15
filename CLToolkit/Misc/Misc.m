@@ -76,7 +76,7 @@ NSString *UniqueDeviceID() {
 #endif
 }
 
-#if TARGETING_MAC
+#if TARGETING_OSX
 void TransformToForegroundApplication() {
     ProcessSerialNumber psn = { 0, kCurrentProcess };
     TransformProcessType(&psn, kProcessTransformToForegroundApplication);
