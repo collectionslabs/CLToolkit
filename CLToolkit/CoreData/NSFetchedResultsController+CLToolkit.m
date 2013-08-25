@@ -20,59 +20,65 @@
     @weakify(tableView);
     return [RACCompoundDisposable compoundDisposableWithDisposables:@[
             [[self onWillChangeContent] subscribeNext:^(id x) {
+        LogTrace(@"%@(%@) onWillChangeContent", self, self.fetchRequest.entityName);
         @strongify(tableView);
         if (animated)
             [tableView beginUpdates];
     }],
-            [[self onDidChangeContent] subscribeNext:^(id x) {
+    [[self onDidChangeContent] subscribeNext:^(id x) {
+        LogTrace(@"%@(%@) onDidChangeContent", self, self.fetchRequest.entityName);
         @strongify(tableView);
         if (animated)
             [tableView endUpdates];
         else
             [tableView reloadData];
     }],
-            [[self onChangeObject] subscribeNext:^(RACTuple *tuple) {
+    [[self onChangeObject] subscribeNext:^(RACTuple *tuple) {
         @strongify(tableView);
         if (!animated)
             return;
         RACTupleUnpack(id obj, NSIndexPath *indexPath, NSNumber *type, NSIndexPath *newIndexPath) = tuple;
         switch (type.intValue) {
             case NSFetchedResultsChangeInsert:
+                LogTrace(@"%@(%@) will insert %@", self, self.fetchRequest.entityName, newIndexPath);
                 [tableView insertRowsAtIndexPaths:@[newIndexPath]
                                  withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
             case NSFetchedResultsChangeDelete:
+                LogTrace(@"%@(%@) will delete %@", self, self.fetchRequest.entityName, indexPath);
                 [tableView deleteRowsAtIndexPaths:@[indexPath]
                                  withRowAnimation:UITableViewRowAnimationFade];
                 break;
             case NSFetchedResultsChangeMove:
+                LogTrace(@"%@(%@) will move from %@ to %@", self, self.fetchRequest.entityName, indexPath, newIndexPath);
                 [tableView deleteRowsAtIndexPaths:@[indexPath]
                                  withRowAnimation:UITableViewRowAnimationAutomatic];
                 [tableView insertRowsAtIndexPaths:@[newIndexPath]
                                  withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
             case NSFetchedResultsChangeUpdate:
+                LogTrace(@"%@(%@) will update %@", self, self.fetchRequest.entityName, indexPath);
                 [tableView reloadRowsAtIndexPaths:@[indexPath]
                                  withRowAnimation:UITableViewRowAnimationAutomatic];
                 break;
         }
     }],
-            [[self onChangeSection] subscribeNext:^(RACTuple *tuple) {
+    [[self onChangeSection] subscribeNext:^(RACTuple *tuple) {
         @strongify(tableView);
         if (!animated)
             return;
         RACTupleUnpack(id<NSFetchedResultsSectionInfo> sectionInfo, NSNumber *sectionIndex, NSNumber *type) = tuple;
         switch (type.intValue) {
             case NSFetchedResultsChangeInsert:
-                [tableView insertSections:[NSIndexSet indexSetWithIndex:
-                                           sectionIndex] withRowAnimation:
-                 UITableViewRowAnimationFade];
+                LogTrace(@"%@(%@) will insert section %@", self, self.fetchRequest.entityName, sectionIndex);
+                [tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                         withRowAnimation:UITableViewRowAnimationFade];
                 break;
                 
             case NSFetchedResultsChangeDelete:
-                [tableView deleteSections:[NSIndexSet indexSetWithIndex:
-                                           sectionIndex] withRowAnimation:
-                 UITableViewRowAnimationFade];
+                LogTrace(@"%@(%@) will delete section %@", self, self.fetchRequest.entityName, sectionIndex);
+                [tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                         withRowAnimation:UITableViewRowAnimationFade];
                 break;
         }
     }]]];

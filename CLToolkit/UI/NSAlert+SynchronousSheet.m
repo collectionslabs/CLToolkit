@@ -13,14 +13,14 @@
 
 // Private methods -- use prefixes to avoid collisions with Apple's methods
 @interface NSAlert (BEPrivateMethods)
--(IBAction) BE_stopSynchronousSheet:(id)sender;   // hide sheet & stop modal
--(void) BE_beginSheetModalForWindow:(NSWindow *)aWindow;
+- (IBAction)BE_stopSynchronousSheet:(id)sender;   // hide sheet & stop modal
+- (void)BE_beginSheetModalForWindow:(NSWindow *)aWindow;
 @end
 
 
 @implementation NSAlert (SynchronousSheet)
 
--(NSInteger) runModalSheetForWindow:(NSWindow *)aWindow {
+- (NSInteger)runModalSheetForWindow:(NSWindow *)aWindow {
 	// Set ourselves as the target for button clicks
 	for (NSButton *button in [self buttons]) {
 		[button setTarget:self];
@@ -71,7 +71,7 @@
 	[NSApp stopModalWithCode:modalCode];
 }
 
--(void) BE_beginSheetModalForWindow:(NSWindow *)aWindow {
+- (void)BE_beginSheetModalForWindow:(NSWindow *)aWindow {
 	[self beginSheetModalForWindow:aWindow modalDelegate:nil didEndSelector:nil contextInfo:nil];
 }
 

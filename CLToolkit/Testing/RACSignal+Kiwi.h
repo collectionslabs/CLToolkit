@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Collections Labs, Inc. All rights reserved.
 //
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
-#import <Kiwi/Kiwi.h>
+#import "Testing.h"
 
 @interface RACSignal (Kiwi)
 

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.0.4'
+  s.version      =  '0.0.5'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }
@@ -78,5 +78,12 @@ Pod::Spec.new do |s|
     ss.osx.frameworks = 'Quartz'
     ss.dependency 'CLToolkit/Core'
     ss.dependency 'NSHash'
-  end 
+  end
+
+  s.subspec 'Testing' do |ss|
+    ss.source_files   = 'CLToolkit/Testing/**/*.{h,m,mm,c}'
+
+    ss.dependency 'CLToolkit/Core'
+    ss.dependency 'Kiwi'
+  end
 end

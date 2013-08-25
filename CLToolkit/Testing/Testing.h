@@ -9,6 +9,10 @@
 #ifndef Collections_Testing_h
 #define Collections_Testing_h
 
+#import <Kiwi/Kiwi.h>
+#import "Core.h"
 #import "RACSignal+Kiwi.h"
+#import "KWBlockMatchEvaluator.h"
+#import "KWNotificationMatcher.h"
 
 #endif
