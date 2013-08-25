@@ -139,6 +139,8 @@
 		EAD415C217C9B34700EB0490 /* KWNotificationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */; };
 		EAD415C517C9B3D600EB0490 /* KWBlockMatchEvaluator.h in Headers */ = {isa = PBXBuildFile; fileRef = EAD415C317C9B3D600EB0490 /* KWBlockMatchEvaluator.h */; };
 		EAD415C617C9B3D600EB0490 /* KWBlockMatchEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */; };
+		EAD415C917C9B87800EB0490 /* KWNotificationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */; };
+		EAD415CA17C9B87800EB0490 /* KWBlockMatchEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -816,13 +818,15 @@
 				EAADD15F17A05603009A8FA4 /* CLAsyncOperation.m in Sources */,
 				EAADD16317A05603009A8FA4 /* RACSignalOperation.m in Sources */,
 				EAADD16617A05603009A8FA4 /* RACSignalQueue.m in Sources */,
-				EAADD16917A05603009A8FA4 /* RACSignal+Kiwi.m in Sources */,
 				EAADD17717A05603009A8FA4 /* Web.m in Sources */,
 				EA576A0417A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
 				EA7D321F17ACE982007CADDC /* RACAppDelegate.m in Sources */,
 				EAC0EBF017BCC4D500BF7E7C /* UIView+CLToolkit.m in Sources */,
 				EAC0EBF317BCC4E600BF7E7C /* UIViewController+CLToolkit.m in Sources */,
 				EAC0EBF617BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m in Sources */,
+				EAADD16917A05603009A8FA4 /* RACSignal+Kiwi.m in Sources */,
+				EAD415C917C9B87800EB0490 /* KWNotificationMatcher.m in Sources */,
+				EAD415CA17C9B87800EB0490 /* KWBlockMatchEvaluator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

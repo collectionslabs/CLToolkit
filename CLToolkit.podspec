@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.license      =  'MIT'
   
   # Platform setup
-  s.osx.deployment_target = '10.8'
-  s.ios.deployment_target = '6.0'
+  #s.osx.deployment_target = '10.8'
+  #s.ios.deployment_target = '6.0'
   s.requires_arc = true
 
   
@@ -85,5 +85,8 @@ Pod::Spec.new do |s|
 
     ss.dependency 'CLToolkit/Core'
     ss.dependency 'Kiwi'
+
+    ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => 
+      '$(inherited) "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
   end
 end

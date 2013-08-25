@@ -37,7 +37,7 @@
         @strongify(tableView);
         if (!animated)
             return;
-        RACTupleUnpack(id obj, NSIndexPath *indexPath, NSNumber *type, NSIndexPath *newIndexPath) = tuple;
+        RACTupleUnpack(id obj __unused, NSIndexPath *indexPath, NSNumber *type, NSIndexPath *newIndexPath) = tuple;
         switch (type.intValue) {
             case NSFetchedResultsChangeInsert:
                 LogTrace(@"%@(%@) will insert %@", self, self.fetchRequest.entityName, newIndexPath);
@@ -67,17 +67,17 @@
         @strongify(tableView);
         if (!animated)
             return;
-        RACTupleUnpack(id<NSFetchedResultsSectionInfo> sectionInfo, NSNumber *sectionIndex, NSNumber *type) = tuple;
+        RACTupleUnpack(id<NSFetchedResultsSectionInfo> sectionInfo __unused, NSNumber *sectionIndex, NSNumber *type) = tuple;
         switch (type.intValue) {
             case NSFetchedResultsChangeInsert:
                 LogTrace(@"%@(%@) will insert section %@", self, self.fetchRequest.entityName, sectionIndex);
-                [tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                [tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex.integerValue]
                          withRowAnimation:UITableViewRowAnimationFade];
                 break;
                 
             case NSFetchedResultsChangeDelete:
                 LogTrace(@"%@(%@) will delete section %@", self, self.fetchRequest.entityName, sectionIndex);
-                [tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                [tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex.integerValue]
                          withRowAnimation:UITableViewRowAnimationFade];
                 break;
         }
@@ -121,7 +121,7 @@
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-    [(RACSubject *)self.onChangeSection sendNext:RACTuplePack(sectionInfo, @(sectionIndex), @(type))];
+    [(RACSubject *)self.onChangeSection sendNext:RACTuplePack((id)sectionInfo, @(sectionIndex), @(type))];
 }
 
 @end
