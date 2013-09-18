@@ -21,6 +21,6 @@
 - (RACSignal *)enqueueOperation:(AFHTTPRequestOperation *)operation;
 
 + (instancetype)clientWithBaseURL:(NSURL *)url;
-+ (instancetype)sharedClient;
++ (instancetype)sharedInstance;
 
 @end

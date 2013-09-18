@@ -25,4 +25,10 @@
 
 @end
 
+@interface UIApplication (CLToolkit)
+
+- (void)dismissAllAlerts;
+
+@end
+
 #endif

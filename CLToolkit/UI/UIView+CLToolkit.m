@@ -50,6 +50,17 @@
 
 @implementation UIView (CLToolkit)
 
+- (void)dismissSubviewsWithClickedButtonIndex:(NSInteger)index animated:(BOOL)animated {
+    // UIAlertView and UIActionSheet will respond to the selector
+    for (UIView *view in [self.subviews arrayByAddingObject:self]) {
+        if ([view respondsToSelector:@selector(dismissWithClickedButtonIndex:animated:)]) {
+            [(id)view dismissWithClickedButtonIndex:index animated:animated];
+        } else {
+            [view dismissSubviewsWithClickedButtonIndex:index animated:animated];
+        }
+    }
+}
+
 - (void)animateWithKeyboard:(NSDictionary *)keyboardInfo block:(void (^)(CGRect keyboardEndFrame))block {
     NSTimeInterval animationDuration = [keyboardInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve animationCurve = [keyboardInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
@@ -76,6 +87,15 @@
 
 - (void)cl_logHierarchy {
     [self cl_logHierarchy:0];
+}
+
+@end
+
+@implementation UIApplication (CLToolkit)
+
+- (void)dismissAllAlerts {
+    for (UIWindow *window in self.windows)
+        [window dismissSubviewsWithClickedButtonIndex:99 animated:NO];
 }
 
 @end

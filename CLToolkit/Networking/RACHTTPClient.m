@@ -150,14 +150,14 @@ static int CurrentTag(void) { return 0; }
     return (RACHTTPClient *)[super clientWithBaseURL:url];
 }
 
-+ (instancetype)sharedClient {
++ (instancetype)sharedInstance {
     static dispatch_once_t onceQueue;
-    static RACHTTPClient *__sharedClient = nil;
+    static RACHTTPClient *__sharedInstance = nil;
     
     dispatch_once(&onceQueue, ^{
-        __sharedClient = [self clientWithBaseURL:$url(@"http://localhost/")];
+        __sharedInstance = [self clientWithBaseURL:$url(@"http://localhost/")];
     });
-    return __sharedClient;
+    return __sharedInstance;
 }
 
 @end
