@@ -141,6 +141,7 @@
 		EAD415C617C9B3D600EB0490 /* KWBlockMatchEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */; };
 		EAD415C917C9B87800EB0490 /* KWNotificationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */; };
 		EAD415CA17C9B87800EB0490 /* KWBlockMatchEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */; };
+		EAD92AED17EABF8C00CED148 /* CLArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD92AEC17EABF8C00CED148 /* CLArrayController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -270,6 +271,8 @@
 		EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWNotificationMatcher.m; sourceTree = "<group>"; };
 		EAD415C317C9B3D600EB0490 /* KWBlockMatchEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBlockMatchEvaluator.h; sourceTree = "<group>"; };
 		EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWBlockMatchEvaluator.m; sourceTree = "<group>"; };
+		EAD92AEB17EABF8C00CED148 /* CLArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLArrayController.h; sourceTree = "<group>"; };
+		EAD92AEC17EABF8C00CED148 /* CLArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLArrayController.m; sourceTree = "<group>"; };
 		F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.xcconfig"; path = "Pods/Pods-osx.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -525,6 +528,8 @@
 				EAC0EBEF17BCC4D500BF7E7C /* UIView+CLToolkit.m */,
 				EAADD0EF17A05603009A8FA4 /* CLViewController.h */,
 				EAADD0F017A05603009A8FA4 /* CLViewController.m */,
+				EAD92AEB17EABF8C00CED148 /* CLArrayController.h */,
+				EAD92AEC17EABF8C00CED148 /* CLArrayController.m */,
 				EAADD0F117A05603009A8FA4 /* NSAlert+SynchronousSheet.h */,
 				EAADD0F217A05603009A8FA4 /* NSAlert+SynchronousSheet.m */,
 				EAADD0F317A05603009A8FA4 /* NSView+CLToolkit.h */,
@@ -794,6 +799,7 @@
 				EAADD10317A05603009A8FA4 /* CLS3Client.m in Sources */,
 				EAADD10617A05603009A8FA4 /* CLS3TransferManager.m in Sources */,
 				EAADD10D17A05603009A8FA4 /* Core.m in Sources */,
+				EAD92AED17EABF8C00CED148 /* CLArrayController.m in Sources */,
 				EAADD11017A05603009A8FA4 /* NSArray+Core.m in Sources */,
 				EAADD11317A05603009A8FA4 /* NSColor+Core.m in Sources */,
 				EAADD11617A05603009A8FA4 /* NSDate+Core.m in Sources */,

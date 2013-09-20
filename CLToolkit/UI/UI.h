@@ -15,6 +15,7 @@
 
 #import "UIView+CLToolkit.h"
 #import "UIViewController+CLToolkit.h"
+#import "CLArrayController.h"
 
 #elif TARGETING_OSX
 
