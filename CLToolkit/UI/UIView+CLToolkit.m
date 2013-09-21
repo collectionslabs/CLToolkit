@@ -52,7 +52,7 @@
 
 - (void)dismissSubviewsWithClickedButtonIndex:(NSInteger)index animated:(BOOL)animated {
     // UIAlertView and UIActionSheet will respond to the selector
-    for (UIView *view in [self.subviews arrayByAddingObject:self]) {
+    for (UIView *view in self.subviews) {
         if ([view respondsToSelector:@selector(dismissWithClickedButtonIndex:animated:)]) {
             [(id)view dismissWithClickedButtonIndex:index animated:animated];
         } else {
