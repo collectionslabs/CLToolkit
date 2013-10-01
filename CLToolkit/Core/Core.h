@@ -124,8 +124,8 @@ void LogImage(IMAGE_CLASS *image);
 #define $ls(key)                         NSLocalizedString(key, nil)
 #define $indexset(loc, len)              [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(loc, len)]
 #define $pred(...)                       [NSPredicate predicateWithFormat:__VA_ARGS__]
-#define $url(str)                        [NSURL URLWithString:str]
-#define $fileurl(path)                   [NSURL fileURLWithString:path]
+#define $url(str)                        ((NSURL *)[NSURL URLWithString:str])
+#define $fileurl(path)                   ((NSURL *)[NSURL fileURLWithString:path])
 #define $urlreq(url)                     [NSURLRequest requestWithURL:url]
 #define $sort(a,b)                       [NSSortDescriptor sortDescriptorWithKey:(a) ascending:(b)]
 #define $ssort(a,b,c)                    [NSSortDescriptor sortDescriptorWithKey:(a) ascending:(b) selector:(c)]

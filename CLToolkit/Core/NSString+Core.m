@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
+#import <Base64/MF_Base64Additions.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "NSString+Core.h"
 
@@ -194,6 +195,13 @@
 
 
 #pragma mark Class Methods
+
++ (NSString *)stringWithXID {
+    uuid_t uuid;
+    [[NSUUID UUID] getUUIDBytes:uuid];
+    NSData *uuidData = [NSData dataWithBytes:uuid length:16];
+    return [[[[uuidData base64String] replace:@"+" with:@"-"] replace:@"/" with:@"_"] trim:@"="];
+}
 
 + (NSString *)stringWithUUID {
     CFUUIDRef uuidObj = CFUUIDCreate(nil);//create a new UUID

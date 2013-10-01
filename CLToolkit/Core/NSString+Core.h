@@ -36,6 +36,7 @@
 
 - (BOOL)validateEmail;
 
++ (NSString *)stringWithXID;
 + (NSString *)stringWithUUID;
 + (NSString *)randomAlphanumericWithLength:(NSUInteger)length;
 

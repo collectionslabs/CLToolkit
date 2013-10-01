@@ -67,7 +67,7 @@
 }
 
 - (RACDisposable *)subscribeCompletedOrError:(void (^)(NSError *))block {
-    return [self subscribeNext:nil completedOrError:block];
+    return [self subscribeNext:^(id x){} completedOrError:block];
 }
 
 - (RACDisposable *)subscribeNext:(void (^)(id))nextBlock completedOrError:(void (^)(NSError *))block {
