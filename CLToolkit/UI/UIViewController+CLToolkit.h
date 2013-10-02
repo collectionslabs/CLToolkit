@@ -13,6 +13,9 @@
 
 @interface UIViewController (CLToolkit)
 
+- (RACSignal *)dismissViewControllerAnimated:(BOOL)flag;
+- (RACSignal *)presentViewController:(UIViewController *)viewController animated:(BOOL)flag;
+
 - (void)cl_logDescendants;
 
 @end

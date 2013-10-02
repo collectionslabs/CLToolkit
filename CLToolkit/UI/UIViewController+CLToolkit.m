@@ -12,6 +12,22 @@
 
 @implementation UIViewController (CLToolkit)
 
+- (RACSignal *)dismissViewControllerAnimated:(BOOL)flag {
+    RACSubject *subject = [RACSubject subjectWithSelector:_cmd];
+    [self dismissViewControllerAnimated:flag completion:^{
+        [subject sendCompleted];
+    }];
+    return subject;
+}
+
+- (RACSignal *)presentViewController:(UIViewController *)viewController animated:(BOOL)flag {
+    RACSubject *subject = [RACSubject subjectWithSelector:_cmd];
+    [self presentViewController:viewController animated:flag completion:^{
+        [subject sendCompleted];
+    }];
+    return subject;
+}
+
 - (void)cl_logDescendants:(NSInteger )indent {
     NSString *padding = [@"" stringByPaddingToLength:indent withString:@" " startingAtIndex:0];
     NSLog(@"%@%@", padding, self.description);

@@ -136,10 +136,16 @@ void LogImage(IMAGE_CLASS *image);
                                              options:opts metrics:nil views:vars]
 #define $attrStr(str)                    [[NSAttributedString alloc] initWithString:str]
 
+#define $resourceURL(name)               [[NSBundle mainBundle] \
+                                            URLForResource:[name stringByDeletingPathExtension] \
+                                            withExtension:[name pathExtension]]
+
 #define $jsonDumpsData(obj)              (obj ? [NSJSONSerialization dataWithJSONObject:obj options:JSON_WRITING_OPTIONS error:NULL] : nil)
 #define $jsonLoadsData(data)             (data ? [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL] : nil)
 #define $jsonDumps(obj)                  (obj ? [[NSString alloc] initWithData:$jsonDumpsData(obj) encoding:NSUTF8StringEncoding] : nil)
 #define $jsonLoads(str)                  (str ? $jsonLoadsData([str dataUsingEncoding:NSUTF8StringEncoding]) : nil)
+#define $jsonLoadsURL(url)               (url ? $jsonLoadsData([NSData dataWithContentsOfURL:url]) : nil)
+#define $jsonLoadsResource(name)         (name ? $jsonLoadsURL($resourceURL(name)) : nil)
 
 #define $plistDumpsData(obj)             (obj ? [NSPropertyListSerialization dataWithPropertyList:obj format:NSPropertyListXMLFormat_v1_0 options:PLIST_WRITING_OPTIONS error:NULL] : nil)
 #define $plistLoadsData(data)            (data ? [NSPropertyListSerialization propertyListWithData:data options:0 format:NULL error:NULL] : nil)
