@@ -19,6 +19,12 @@
     return [self objectAtIndex:randomIndex];
 }
 
+- (NSArray *)arrayByShuffling {
+    NSMutableArray *mutableArray = [self mutableCopy];
+    [mutableArray shuffle];
+    return mutableArray;
+}
+
 - (NSArray *)arrayByRemovingNulls {
     return [self filteredArrayUsingPredicate:$pred(@"self != %@", [NSNull null])];
 }
@@ -64,7 +70,18 @@
 
 @implementation NSMutableArray (Core)
 
+- (void)shuffle {
+    NSUInteger count = [self count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        NSInteger nElements = count - i;
+        NSInteger n = (arc4random() % nElements) + i;
+        [self exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
+
 #pragma mark Stack
+
 - (id)peek {
     return self.lastObject;
 }

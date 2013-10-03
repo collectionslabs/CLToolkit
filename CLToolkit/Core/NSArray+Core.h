@@ -13,6 +13,7 @@
 - (id)firstObject;
 - (id)randomObject;
 
+- (NSArray *)arrayByShuffling;
 - (NSArray *)arrayByRemovingNulls;
 - (NSIndexSet *)indexesOfObjectsIgnoringNotFound:(id<NSFastEnumeration>)objects;
 
@@ -26,6 +27,8 @@
 @end
 
 @interface NSMutableArray (Core)
+
+- (void)shuffle;
 
 // Stack
 - (id)peek;
