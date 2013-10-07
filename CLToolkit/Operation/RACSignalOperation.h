@@ -13,7 +13,6 @@
 // If signal sends an error, operation.error will be set.
 @interface RACSignalOperation : CLAsyncOperation
 
-@property (nonatomic, strong) NSError *error;
 @property (nonatomic, strong) RACSignal *signal;
 
 // Designed to be overriden by subclass. Called when operation starts

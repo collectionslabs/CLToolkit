@@ -26,8 +26,12 @@
 // If cancelled will return immediately without executing main.
 @interface CLAsyncOperation : NSOperation
 
-// Call finish when done
-- (void)finish;
+@property (nonatomic, readonly) RACSignal *completion;
+@property (nonatomic, strong) NSError *error;
+
+- (void)main; // Subclass should override this to perform work
+- (void)finish; // Call finish when done, used by operation itself only
+- (void)finish:(NSError *)error;
 
 + (instancetype)operationWithBlock:(void(^)(CLAsyncOperation *operation))block;
 

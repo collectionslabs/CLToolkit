@@ -18,7 +18,17 @@
 
 @end
 
-@implementation CLAsyncOperation
+@implementation CLAsyncOperation {
+    RACSubject *_completion;
+}
+
+- (id)init {
+    if (self = [super init]) {
+        _completion = [RACReplaySubject subject];
+        [self setCompletionBlock:nil];
+    }
+    return self;
+}
 
 - (void)start {
     [self setIsExecuting:YES];
@@ -30,12 +40,35 @@
     }
 }
 
-- (void)finish {
+- (void)main {
+}
+
+- (void)finish:(NSError *)error {
+    if (![self.error isEqual:error])
+        self.error = error;
     [self setIsExecuting:NO];
     [self setIsFinished:YES];
 }
 
+- (void)finish {
+    [self finish:self.error];
+}
+
 #pragma mark Accessors
+
+- (void)setCompletionBlock:(void (^)(void))block {
+    @weakify(self);
+    [super setCompletionBlock:^{
+        @strongify(self);
+        if (self.error) {
+            [self->_completion sendError:self.error];
+        } else {
+            [self->_completion sendCompleted];
+        }
+        if (block)
+            block();
+    }];
+}
 
 - (BOOL)isConcurrent {
     return YES;
@@ -46,9 +79,9 @@
 }
 
 - (void)setIsExecuting:(BOOL)isExecuting {
-    [self willChangeValueForKey:@"isExecuting"];
+    [self willChangeValueForKey:@keypath(self.isExecuting)];
     _isExecuting = isExecuting;
-    [self didChangeValueForKey:@"isExecuting"];
+    [self didChangeValueForKey:@keypath(self.isExecuting)];
 }
 
 - (BOOL)isFinished {
@@ -56,9 +89,9 @@
 }
 
 - (void)setIsFinished:(BOOL)isFinished {
-    [self willChangeValueForKey:@"isFinished"];
+    [self willChangeValueForKey:@keypath(self.isFinished)];
     _isFinished = isFinished;
-    [self didChangeValueForKey:@"isFinished"];
+    [self didChangeValueForKey:@keypath(self.isFinished)];
 }
 
 #pragma mark Class Methods
