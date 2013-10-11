@@ -23,6 +23,7 @@ target :ios do
   pod 'Kiwi', :inhibit_warnings => true
   pod 'Masonry'
   pod 'NSHash'
+  pod 'AFDownloadRequestOperation', :path => '~/Code/HappyBits/AFDownloadRequestOperation'
 
   pod 'AWSRuntime/S3', '1.5.0.head', :inhibit_warnings => true # From Collections/Podspecs
   

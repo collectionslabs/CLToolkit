@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.license      =  'MIT'
   
   # Platform setup
-  #s.osx.deployment_target = '10.8'
-  #s.ios.deployment_target = '6.0'
+  s.osx.deployment_target = '10.8'
+  s.ios.deployment_target = '6.0'
   s.requires_arc = true
 
   
@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
     ss.osx.framework = 'Cocoa'
     ss.ios.framework = 'UIKit'
     
+    ss.dependency 'Base64'
     ss.dependency 'ConciseKit'
     ss.dependency 'BlocksKit'
     ss.dependency 'libextobjc', '~> 0.3'
@@ -36,7 +37,7 @@ Pod::Spec.new do |s|
     ss.source_files   = 'CLToolkit/Networking/**/*.{h,m,mm,c}'
     
     ss.dependency 'CLToolkit/Core'
-    ss.dependency 'AFNetworking', '~> 2.0.1'
+    ss.dependency 'AFNetworking', '~> 2.0'
     ss.dependency 'Base64'
   end
   
