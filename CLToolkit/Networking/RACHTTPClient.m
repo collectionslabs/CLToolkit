@@ -24,7 +24,7 @@ static void LogHTTPRequest(int tag, NSURLRequest *request) {
     NSString *desc = [params description] ?: @"";
     if ([[method uppercaseString] isEqualToString:@"GET"])
         desc = [[desc replace:@"\n" with:@" "] replace:@"  " with:@""];
-    LogDebug(@"R%-2d ->   %@ %@ %@", tag, method, path, desc);
+    LogDebug(@"R%-2d ->   %@ %@ %@\n Headers: %@", tag, method, path, desc, request.allHTTPHeaderFields);
     LoggerFlush(NULL, NO);
 }
 static void LogHTTPResponse(int tag, NSHTTPURLResponse *response) {
