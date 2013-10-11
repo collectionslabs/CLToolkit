@@ -1,61 +1,11 @@
 //
-//  RACHTTPRequestOperation.m
+//  NSHTTPURLResponse+ResponseData.m
 //
 //  Created by Tony Xiao on 07/09/13.
 //  Copyright (c) 2013 Tony Xiao. All rights reserved.
 //
 
-#import "RACHTTPRequestOperation.h"
-
-@implementation RACHTTPRequestOperation {
-    RACSubject *_onFinish;
-}
-
-- (id)responseObject {
-    return self.response;
-}
-
-- (RACSignal *)onFinish {
-    return _onFinish ?: (_onFinish = [RACReplaySubject subject]);
-}
-
-- (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *, id))success
-                              failure:(void (^)(AFHTTPRequestOperation *, NSError *))failure {
-    @weakify(self);
-    [super setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        @strongify(self);
-        [self->_onFinish sendNextAndComplete:self.response];
-        if (success)
-            success(operation, self.response);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        @strongify(self);
-        [self->_onFinish sendError:error];
-        if (failure)
-            failure(operation, error);
-    }];
-}
-
-- (id)initWithRequest:(NSURLRequest *)urlRequest {
-    NSAssert(urlRequest.URL, @"URL cannot be nil for download request");
-    return (self = [super initWithRequest:urlRequest]);
-}
-
-#pragma mark NSURLConnection Delegate Override
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSAssert([self.response respondsToSelector:@selector(setData:)], @"Cannot use RACHTTPRequestOperation without required category");
-    [self.response setData:[self.outputStream propertyForKey:NSStreamDataWrittenToMemoryStreamKey]];
-    [super connectionDidFinishLoading:connection];
-}
-
-#pragma mark Class Methods
-
-+ (BOOL)canProcessRequest:(NSURLRequest *)urlRequest {
-    return YES;
-}
-
-@end
-
+#import "NSHTTPURLResponse+ResponseData.h"
 
 #define ACCEPTABLE_JSON_EXTENSIONS              $set(@"json")
 #define ACCEPTABLE_JSON_CONTENT_TYPES           $set(@"application/json", @"text/json", @"text/javascript")

@@ -7,118 +7,48 @@
 
 #import "RACHTTPClient.h"
 
-#if DEBUG
-
-static const char kCLHTTPParams;
-
-static int CurrentTag(void) {
-    static int currentTag = 1;
-    return currentTag++;
-}
-
-static void LogHTTPRequest(int tag, NSURLRequest *request) {
-    NSString *method = [request HTTPMethod];
-    NSString *path = request.URL.path;
-    path = [path sliceTill:[path rangeOfString:@"?"].location];
-    id params = [request associatedValueForKey:&kCLHTTPParams] ?: $jsonLoadsData([request HTTPBody]);
-    NSString *desc = [params description] ?: @"";
-    if ([[method uppercaseString] isEqualToString:@"GET"])
-        desc = [[desc replace:@"\n" with:@" "] replace:@"  " with:@""];
-    LogDebug(@"R%-2d ->   %@ %@ %@\n Headers: %@", tag, method, path, desc, request.allHTTPHeaderFields);
-    LoggerFlush(NULL, NO);
-}
-static void LogHTTPResponse(int tag, NSHTTPURLResponse *response) {
-    NSDictionary *headers = response.allHeaderFields;
-    NSString *path = response.URL.path;
-    id body = [response json];
-    NSString *tagStr = [$str(@"<-  R%d     ", tag) sliceTill:8];
-    LogDebug(@"%@ %ld %@\n Body: %@\n Headers: %@", tagStr, (long)response.statusCode, path, body, headers);
-    LoggerFlush(NULL, NO);
-}
-static void LogHTTPError(int tag, NSError *error) {
-    NSString *tagStr = [$str(@"<-  R%d     ", tag) sliceTill:8];
-    LogError(@"%@ Error %@", tagStr, error);
-    LoggerFlush(NULL, NO);
-}
-
-#else
-
-static void LogHTTPRequest(int tag, NSURLRequest *request) {}
-static void LogHTTPResponse(int tag, NSHTTPURLResponse *response) {}
-static void LogHTTPError(int tag, NSError *error) {}
-static int CurrentTag(void) { return 0; }
-
-#endif
-
-@interface AFStreamingMultipartFormData : NSObject <AFMultipartFormData>
-@end
-
-@implementation AFStreamingMultipartFormData(Filename)
-
-- (BOOL)CL_appendPartWithFileURL:(NSURL *)fileURL name:(NSString *)name error:(NSError *__autoreleasing *)error {
-    if ([self CL_appendPartWithFileURL:fileURL name:name error:error]) {
-        NSMutableDictionary *bodyPartHeaders = [[[self valueForKeyPath:@"bodyStream.HTTPBodyParts"] lastObject] valueForKeyPath:@"headers"];
-        bodyPartHeaders[@"Content-Disposition"] = $str(@"form-data; name=\"%@\"; filename=\"%@\"", name, fileURL.lastPathComponent);
-        return YES;
-    }
-    return NO;
-}
-
-+ (void)load {
-    [$ swizzleMethod:@selector(CL_appendPartWithFileURL:name:error:)
-                with:@selector(appendPartWithFileURL:name:error:)
-                  in:[self class]];
-}
-
-@end
-
 @implementation RACHTTPClient
 
-- (id)initWithBaseURL:(NSURL *)url {
-    if (self = [super initWithBaseURL:url]) {
-        [self registerHTTPOperationClass:[RACHTTPRequestOperation class]];
-    }
-    return self;
+- (RACSignal *)GET:(NSString *)URLString parameters:(NSDictionary *)parameters {
+    return [self enqueueRequestWithMethod:@"GET" URLString:URLString headers:nil parameters:parameters];
 }
 
-- (NSMutableURLRequest *)requestWithMethod:(NSString *)method path:(NSString *)path parameters:(NSDictionary *)parameters {
-    NSMutableURLRequest *req = [super requestWithMethod:method path:path parameters:parameters];
-    [req setHTTPShouldHandleCookies:self.useCookie];
-#if DEBUG
-    if (parameters.count)
-        [req associateValue:parameters withKey:&kCLHTTPParams];
-#endif
-    if (!self.useCookie)
-        [req removeHTTPHeaderForKey:@"Cookie"];
-    return req;
+- (RACSignal *)HEAD:(NSString *)URLString parameters:(NSDictionary *)parameters {
+    return [self enqueueRequestWithMethod:@"HEAD" URLString:URLString headers:nil parameters:parameters];
 }
 
-#pragma mark -
-
-- (RACSignal *)getPath:(NSString *)path parameters:(NSDictionary *)parameters {
-    return [self enqueueRequestWithMethod:@"GET" path:path headers:nil parameters:parameters];
+- (RACSignal *)POST:(NSString *)URLString parameters:(NSDictionary *)parameters {
+    return [self enqueueRequestWithMethod:@"POST" URLString:URLString headers:nil parameters:parameters];
 }
 
-- (RACSignal *)postPath:(NSString *)path parameters:(NSDictionary *)parameters {
-    return [self enqueueRequestWithMethod:@"POST" path:path headers:nil parameters:parameters];
+- (RACSignal *)PUT:(NSString *)URLString parameters:(NSDictionary *)parameters {
+    return [self enqueueRequestWithMethod:@"PUT" URLString:URLString headers:nil parameters:parameters];
 }
 
-- (RACSignal *)putPath:(NSString *)path parameters:(NSDictionary *)parameters {
-    return [self enqueueRequestWithMethod:@"PUT" path:path headers:nil parameters:parameters];
+- (RACSignal *)PATCH:(NSString *)URLString parameters:(NSDictionary *)parameters {
+    return [self enqueueRequestWithMethod:@"PATCH" URLString:URLString headers:nil parameters:parameters];
 }
 
-- (RACSignal *)patchPath:(NSString *)path parameters:(NSDictionary *)parameters {
-    return [self enqueueRequestWithMethod:@"PATCH" path:path headers:nil parameters:parameters];
+- (RACSignal *)DELETE:(NSString *)URLString parameters:(NSDictionary *)parameters {
+    return [self enqueueRequestWithMethod:@"DELETE" URLString:URLString headers:nil parameters:parameters];
 }
 
-- (RACSignal *)deletePath:(NSString *)path parameters:(NSDictionary *)parameters {
-    return [self enqueueRequestWithMethod:@"DELETE" path:path headers:nil parameters:parameters];
+- (RACSignal *)POST:(NSString *)URLString parameters:(NSDictionary *)parameters constructingBodyWithBlock:(void (^)(id<AFMultipartFormData>))block {
+    NSString *absoluteURL = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
+    NSMutableURLRequest *request = [self.requestSerializer
+                                    multipartFormRequestWithMethod:@"POST"
+                                    URLString:absoluteURL
+                                    parameters:parameters
+                                    constructingBodyWithBlock:block];
+    return [self enqueueRequest:request];
 }
 
-- (RACSignal *)enqueueRequestWithMethod:(NSString *)method path:(NSString *)path headers:(NSDictionary *)headers parameters:(NSDictionary *)parameters {
-	NSMutableURLRequest *request = [self requestWithMethod:method path:path parameters:parameters];
+- (RACSignal *)enqueueRequestWithMethod:(NSString *)method URLString:(NSString *)URLString headers:(NSDictionary *)headers parameters:(NSDictionary *)parameters {
+    NSString *absoluteURL = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
+	NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
+                                                                   URLString:absoluteURL
+                                                                  parameters:parameters];
     [request setHTTPHeaders:headers];
-    request.timeoutInterval = 30; // 30 second timeout (heroku limit anyways)
     return [self enqueueRequest:request];
 }
 
@@ -128,34 +58,25 @@ static int CurrentTag(void) { return 0; }
 }
 
 - (RACSignal *)enqueueOperation:(AFHTTPRequestOperation *)operation {
-    int tag = CurrentTag();
     RACSubject *subject = [RACReplaySubject subject];
     subject.name = $str(@"HTTP %@ %@", operation.request.HTTPMethod, operation.request.URL);
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        LogHTTPResponse(tag, operation.response);
-		[subject sendNext:responseObject];
-		[subject sendCompleted];
+        [operation.response setData:operation.responseData];
+		[subject sendNextAndComplete:operation.response];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        LogHTTPError(tag, error);
 		[subject sendError:error];
     }];
-    [self enqueueHTTPRequestOperation:operation];
-    LogHTTPRequest(tag, operation.request);
+    [self.operationQueue addOperation:operation];
 	return subject;
 }
 
 #pragma mark Class Methods
 
-+ (instancetype)clientWithBaseURL:(NSURL *)url {
-    return (RACHTTPClient *)[super clientWithBaseURL:url];
-}
-
 + (instancetype)sharedInstance {
     static dispatch_once_t onceQueue;
     static RACHTTPClient *__sharedInstance = nil;
-    
     dispatch_once(&onceQueue, ^{
-        __sharedInstance = [self clientWithBaseURL:$url(@"http://localhost/")];
+        __sharedInstance = [self manager];
     });
     return __sharedInstance;
 }

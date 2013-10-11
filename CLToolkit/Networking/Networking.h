@@ -13,7 +13,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 #import "RACHTTPClient.h"
-#import "RACHTTPRequestOperation.h"
+#import "NSHTTPURLResponse+ResponseData.h"
 //#import "RACDownloadOperation.h"
 #import "NSURLRequest+CLToolkit.h"
 #endif

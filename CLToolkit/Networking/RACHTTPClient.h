@@ -7,20 +7,23 @@
 
 #import "Networking.h"
 
-@interface RACHTTPClient : AFHTTPClient
+@interface RACHTTPClient : AFHTTPRequestOperationManager
 
-@property (nonatomic, assign) BOOL useCookie;
+// Simple Requests
+- (RACSignal *)GET:(NSString *)URLString parameters:(NSDictionary *)parameters;
+- (RACSignal *)HEAD:(NSString *)URLString parameters:(NSDictionary *)parameters;
+- (RACSignal *)POST:(NSString *)URLString parameters:(NSDictionary *)parameters;
+- (RACSignal *)PUT:(NSString *)URLString parameters:(NSDictionary *)parameters;
+- (RACSignal *)PATCH:(NSString *)URLString parameters:(NSDictionary *)parameters;
+- (RACSignal *)DELETE:(NSString *)URLString parameters:(NSDictionary *)parameters;
 
-- (RACSignal *)getPath:(NSString *)path parameters:(NSDictionary *)parameters;
-- (RACSignal *)postPath:(NSString *)path parameters:(NSDictionary *)parameters;
-- (RACSignal *)putPath:(NSString *)path parameters:(NSDictionary *)parameters;
-- (RACSignal *)patchPath:(NSString *)path parameters:(NSDictionary *)parameters;
-- (RACSignal *)deletePath:(NSString *)path parameters:(NSDictionary *)parameters;
-- (RACSignal *)enqueueRequestWithMethod:(NSString *)method path:(NSString *)path headers:(NSDictionary *)headers parameters:(NSDictionary *)parameters;
+// Multipart Form Data Request
+- (RACSignal *)POST:(NSString *)URLString parameters:(NSDictionary *)parameters constructingBodyWithBlock:(void (^)(id<AFMultipartFormData>))block;
+
+- (RACSignal *)enqueueRequestWithMethod:(NSString *)method URLString:(NSString *)URLString headers:(NSDictionary *)headers parameters:(NSDictionary *)parameters;
 - (RACSignal *)enqueueRequest:(NSURLRequest *)request;
 - (RACSignal *)enqueueOperation:(AFHTTPRequestOperation *)operation;
 
-+ (instancetype)clientWithBaseURL:(NSURL *)url;
 + (instancetype)sharedInstance;
 
 @end

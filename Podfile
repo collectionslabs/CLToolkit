@@ -13,7 +13,7 @@ target :ios do
   pod 'NSLogger'
   pod 'Base64'
   pod 'BlocksKit'
-  pod 'AFNetworking', '~> 1.3.3', :inhibit_warnings => true
+  pod 'AFNetworking', '~> 2.0.1', :inhibit_warnings => true
   pod 'ConciseKit'
   pod 'MagicalRecord', :inhibit_warnings => true
   pod 'libextobjc', '~> 0.3'

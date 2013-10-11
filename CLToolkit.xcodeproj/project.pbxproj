@@ -103,9 +103,9 @@
 		EAADD15717A05603009A8FA4 /* RACHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0DE17A05603009A8FA4 /* RACHTTPClient.h */; };
 		EAADD15817A05603009A8FA4 /* RACHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0DF17A05603009A8FA4 /* RACHTTPClient.m */; };
 		EAADD15917A05603009A8FA4 /* RACHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0DF17A05603009A8FA4 /* RACHTTPClient.m */; };
-		EAADD15A17A05603009A8FA4 /* RACHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E017A05603009A8FA4 /* RACHTTPRequestOperation.h */; };
-		EAADD15B17A05603009A8FA4 /* RACHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E117A05603009A8FA4 /* RACHTTPRequestOperation.m */; };
-		EAADD15C17A05603009A8FA4 /* RACHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E117A05603009A8FA4 /* RACHTTPRequestOperation.m */; };
+		EAADD15A17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E017A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h */; };
+		EAADD15B17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */; };
+		EAADD15C17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */; };
 		EAADD15D17A05603009A8FA4 /* CLAsyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E317A05603009A8FA4 /* CLAsyncOperation.h */; };
 		EAADD15E17A05603009A8FA4 /* CLAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E417A05603009A8FA4 /* CLAsyncOperation.m */; };
 		EAADD15F17A05603009A8FA4 /* CLAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E417A05603009A8FA4 /* CLAsyncOperation.m */; };
@@ -239,8 +239,8 @@
 		EAADD0DD17A05603009A8FA4 /* RACDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACDownloadOperation.m; sourceTree = "<group>"; };
 		EAADD0DE17A05603009A8FA4 /* RACHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACHTTPClient.h; sourceTree = "<group>"; };
 		EAADD0DF17A05603009A8FA4 /* RACHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACHTTPClient.m; sourceTree = "<group>"; };
-		EAADD0E017A05603009A8FA4 /* RACHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACHTTPRequestOperation.h; sourceTree = "<group>"; };
-		EAADD0E117A05603009A8FA4 /* RACHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACHTTPRequestOperation.m; sourceTree = "<group>"; };
+		EAADD0E017A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+ResponseData.h"; sourceTree = "<group>"; };
+		EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+ResponseData.m"; sourceTree = "<group>"; };
 		EAADD0E317A05603009A8FA4 /* CLAsyncOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAsyncOperation.h; sourceTree = "<group>"; };
 		EAADD0E417A05603009A8FA4 /* CLAsyncOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLAsyncOperation.m; sourceTree = "<group>"; };
 		EAADD0E517A05603009A8FA4 /* Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
@@ -487,8 +487,8 @@
 				EAADD0DD17A05603009A8FA4 /* RACDownloadOperation.m */,
 				EAADD0DE17A05603009A8FA4 /* RACHTTPClient.h */,
 				EAADD0DF17A05603009A8FA4 /* RACHTTPClient.m */,
-				EAADD0E017A05603009A8FA4 /* RACHTTPRequestOperation.h */,
-				EAADD0E117A05603009A8FA4 /* RACHTTPRequestOperation.m */,
+				EAADD0E017A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h */,
+				EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -592,7 +592,7 @@
 				EAADD15117A05603009A8FA4 /* NSURLRequest+CLToolkit.h in Headers */,
 				EAADD15417A05603009A8FA4 /* RACDownloadOperation.h in Headers */,
 				EAADD15717A05603009A8FA4 /* RACHTTPClient.h in Headers */,
-				EAADD15A17A05603009A8FA4 /* RACHTTPRequestOperation.h in Headers */,
+				EAADD15A17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h in Headers */,
 				EAADD15D17A05603009A8FA4 /* CLAsyncOperation.h in Headers */,
 				EAADD16017A05603009A8FA4 /* Operation.h in Headers */,
 				EAADD16117A05603009A8FA4 /* RACSignalOperation.h in Headers */,
@@ -778,7 +778,7 @@
 				EAADD15217A05603009A8FA4 /* NSURLRequest+CLToolkit.m in Sources */,
 				EAADD15517A05603009A8FA4 /* RACDownloadOperation.m in Sources */,
 				EAADD15817A05603009A8FA4 /* RACHTTPClient.m in Sources */,
-				EAADD15B17A05603009A8FA4 /* RACHTTPRequestOperation.m in Sources */,
+				EAADD15B17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */,
 				EAADD15E17A05603009A8FA4 /* CLAsyncOperation.m in Sources */,
 				EAADD16217A05603009A8FA4 /* RACSignalOperation.m in Sources */,
 				EAADD16517A05603009A8FA4 /* RACSignalQueue.m in Sources */,
@@ -822,7 +822,7 @@
 				EAADD15317A05603009A8FA4 /* NSURLRequest+CLToolkit.m in Sources */,
 				EAADD15617A05603009A8FA4 /* RACDownloadOperation.m in Sources */,
 				EAADD15917A05603009A8FA4 /* RACHTTPClient.m in Sources */,
-				EAADD15C17A05603009A8FA4 /* RACHTTPRequestOperation.m in Sources */,
+				EAADD15C17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */,
 				EAADD15F17A05603009A8FA4 /* CLAsyncOperation.m in Sources */,
 				EAADD16317A05603009A8FA4 /* RACSignalOperation.m in Sources */,
 				EAADD16617A05603009A8FA4 /* RACSignalQueue.m in Sources */,

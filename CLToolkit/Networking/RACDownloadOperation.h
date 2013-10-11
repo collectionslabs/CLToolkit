@@ -9,7 +9,7 @@
 #ifdef Collections_FileSystem_h
 #import "Networking.h"
 
-@interface RACDownloadOperation : RACHTTPRequestOperation
+@interface RACDownloadOperation : AFHTTPRequestOperation
 
 @property (nonatomic, strong) NSURL *tempURL;
 @property (nonatomic, strong) NSURL *targetFolder;

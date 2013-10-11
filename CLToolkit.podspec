@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
     
     ss.dependency 'ConciseKit'
     ss.dependency 'BlocksKit'
+    ss.dependency 'libextobjc', '~> 0.3'
     ss.dependency 'ReactiveCocoa', '~> 2.1'
     ss.dependency 'NSLogger'
     ss.dependency 'ISO8601DateFormatter'
@@ -35,7 +36,7 @@ Pod::Spec.new do |s|
     ss.source_files   = 'CLToolkit/Networking/**/*.{h,m,mm,c}'
     
     ss.dependency 'CLToolkit/Core'
-    ss.dependency 'AFNetworking', '~> 2.0.0'
+    ss.dependency 'AFNetworking', '~> 2.0.1'
     ss.dependency 'Base64'
   end
   
