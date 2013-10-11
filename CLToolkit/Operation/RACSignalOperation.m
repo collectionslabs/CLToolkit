@@ -46,9 +46,9 @@
 
 - (RACSignal *)completionSignal {
     @weakify(self);
-    return [[RACAbleWithStart(isFinished) takeUntilBlock:^BOOL(NSNumber *isFinished) {
+    return [[RACObserve(self, isFinished) takeUntilBlock:^BOOL(NSNumber *isFinished) {
         return isFinished.boolValue;
-    }] sequenceNext:^RACSignal *{
+    }] then:^RACSignal *{
         @strongify(self);
         if (self.isCancelled)
             return [RACSignal error:$error(@"Operation Cancelled")];

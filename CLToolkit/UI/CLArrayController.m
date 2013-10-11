@@ -93,11 +93,11 @@
         _selectedIndexes = [[NSMutableIndexSet alloc] init];
         _rearrangeSignal = [RACSubject subject];
         @weakify(self);
-        [[RACSignal merge:@[RACAbleWithStart(content),
-                            RACAble(filterPredicate),
-                            RACAble(filterBlock),
-                            RACAble(sortDescriptors),
-                            RACAble(sectionNameKeypath)]] subscribeNext:^(id x) {
+        [[RACSignal merge:@[RACObserve(self, content),
+                            RACObserve(self, filterPredicate),
+                            RACObserve(self, filterBlock),
+                            RACObserve(self, sortDescriptors),
+                            RACObserve(self, sectionNameKeypath)]] subscribeNext:^(id x) {
             @strongify(self);
             [self rearrangeObjects];
         }];

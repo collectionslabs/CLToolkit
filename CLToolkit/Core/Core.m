@@ -48,12 +48,12 @@ NSString *SystemVersion(void) {
 NSString *AppVersion(void) {
     NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     if (!version.length)
-        version = [[NSBundle mainBundle] objectForInfoDictionaryKey:kCFBundleVersionKey];
+        version = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
     return version;
 }
 
 NSInteger AppBuildNumber(void) {
-    return [[[NSBundle mainBundle] objectForInfoDictionaryKey:kCFBundleVersionKey] integerValue];
+    return [[[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey] integerValue];
 }
 
 NSError *ErrorFromException(NSException *exc) {

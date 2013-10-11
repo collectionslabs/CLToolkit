@@ -2,7 +2,7 @@
 # target :default, :exclusive => true do
 
 platform :ios, '6.0'
-inhibit_all_warnings!
+# inhibit_all_warnings!
 link_with []
 
 # Pods from official Cocoapods/Specs repo
@@ -13,17 +13,18 @@ target :ios do
   pod 'NSLogger'
   pod 'Base64'
   pod 'BlocksKit'
-  pod 'AFNetworking'
+  pod 'AFNetworking', '~> 1.3.3', :inhibit_warnings => true
   pod 'ConciseKit'
-  pod 'MagicalRecord'
-  pod 'ReactiveCocoa'
+  pod 'MagicalRecord', :inhibit_warnings => true
+  pod 'libextobjc', '~> 0.3'
+  pod 'ReactiveCocoa', '~> 2.1'
   pod 'ISO8601DateFormatter'
   pod 'Firebase'
-  pod 'Kiwi'
+  pod 'Kiwi', :inhibit_warnings => true
   pod 'Masonry'
   pod 'NSHash'
 
-  pod 'AWSRuntime/S3', '1.5.0.head' # From Collections/Podspecs
+  pod 'AWSRuntime/S3', '1.5.0.head', :inhibit_warnings => true # From Collections/Podspecs
   
 end
 

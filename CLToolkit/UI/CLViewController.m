@@ -15,7 +15,7 @@
 }
 
 - (void)_injectResponderChain {
-    [RACAble(view.nextResponder) subscribeNext:^(id nextResponder) {
+    [RACObserve(self, view.nextResponder) subscribeNext:^(id nextResponder) {
         if (nextResponder != self) {
             self.nextResponder = nextResponder;
             self.view.nextResponder = self;

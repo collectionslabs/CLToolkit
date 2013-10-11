@@ -167,6 +167,7 @@
 		EA7D321B17ACE982007CADDC /* RACAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACAppDelegate.h; sourceTree = "<group>"; };
 		EA7D321C17ACE982007CADDC /* RACAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACAppDelegate.m; sourceTree = "<group>"; };
 		EA898677179919AF00594A3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EAA273601807865900880CC9 /* CLToolkit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = CLToolkit.podspec; sourceTree = "<group>"; };
 		EAADD07217A055A0009A8FA4 /* libCLToolkit-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libCLToolkit-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAADD07317A055A0009A8FA4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		EAADD07617A055A0009A8FA4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -306,6 +307,7 @@
 				30A78CE25E5B4BC4B9A53928 /* Pods.xcconfig */,
 				B624E07AABD447028FF9AEC9 /* Pods-ios.xcconfig */,
 				F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */,
+				EAA273601807865900880CC9 /* CLToolkit.podspec */,
 			);
 			sourceTree = "<group>";
 		};
