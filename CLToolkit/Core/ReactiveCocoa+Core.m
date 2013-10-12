@@ -84,6 +84,14 @@
 
 @end
 
+@implementation RACDisposable (Core)
+
+- (void)autoDispose:(id)linkedObject {
+    [[linkedObject rac_deallocDisposable] addDisposable:self];
+}
+
+@end
+
 @implementation RACSubject (Core)
 
 - (void)sendNextAndComplete:(id)value {

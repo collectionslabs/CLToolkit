@@ -39,6 +39,13 @@
 
 @end
 
+@interface RACDisposable (Core)
+
+// dispose self when linkedObject dealloc's
+- (void)autoDispose:(id)linkedObject;
+
+@end
+
 @interface NSObject (CLRACExtensions)
 
 - (RACSignal *)rac_signalForKeyPath:(NSString *)keyPath;

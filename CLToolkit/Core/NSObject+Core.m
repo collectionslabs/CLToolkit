@@ -37,6 +37,25 @@
     [self didChangeValuesForKeys:keys];
 }
 
+- (void)listenForNotification:(NSString *)name withBlock:(void (^)(NSNotification *))block {
+    [self listenForNotification:name object:nil withBlock:block];
+}
+
+- (void)listenForNotification:(NSString *)name object:(id)object withBlock:(void (^)(NSNotification *))block {
+    [self listenForNotification:name
+                         object:object
+             notificationCenter:[NSNotificationCenter defaultCenter]
+                      withBlock:block];
+}
+
+- (void)listenForNotification:(NSString *)name
+                       object:(id)object
+           notificationCenter:(NSNotificationCenter *)notificationCenter
+                    withBlock:(void (^)(NSNotification *))block {
+    NSParameterAssert(block);
+    [[[notificationCenter rac_addObserverForName:name object:object] subscribeNext:block] autoDispose:self];
+}
+
 - (void)CL_dumpInfo {
     Class clazz = [self class];
     u_int count;

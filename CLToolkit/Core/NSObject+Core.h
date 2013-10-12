@@ -12,9 +12,21 @@
 
 - (id)associatedValueForKey:(const char *)key setDefault:(id)defaultValue;
 
+// Notify multiple keypath at the same time, also block based syntax
 - (void)willChangeValuesForKeys:(id<NSFastEnumeration>)keys;
 - (void)didChangeValuesForKeys:(id<NSFastEnumeration>)keys;
 - (void)withChangesToKeys:(id<NSFastEnumeration>)keys do:(void (^)(void))block;
+
+// Register for notification, automatically unregister when receiver dealloc's
+- (void)listenForNotification:(NSString *)name
+                    withBlock:(void(^)(NSNotification *note))block;
+- (void)listenForNotification:(NSString *)name
+                       object:(id)object
+                    withBlock:(void(^)(NSNotification *note))block;
+- (void)listenForNotification:(NSString *)name
+                       object:(id)object
+           notificationCenter:(NSNotificationCenter *)notificationCenter
+                    withBlock:(void(^)(NSNotification *note))block;
 
 - (void)CL_dumpInfo;
 
