@@ -12,15 +12,37 @@
 
 @implementation RACSignal (Core)
 
-- (instancetype)mapWithError:(id(^)(id value))block {
-	NSParameterAssert(block != NULL);
-    return [self flattenMap:^RACStream *(id value) {
-        id ret = block(value);
-        if ([ret isKindOfClass:[NSError class]]) {
-            return [RACSignal error:ret];
-        } else {
-            return [RACSignal return:ret];
+- (RACSignal *)flattenMapValue:(RACStream *(^)(id))valueBlock error:(RACStream *(^)(NSError *))errorBlock {
+    NSParameterAssert(valueBlock && errorBlock);
+    return [[self materialize] flattenMap:^RACStream *(RACEvent *event) {
+        switch (event.eventType) {
+            case RACEventTypeNext:
+                return valueBlock(event.value);
+            case RACEventTypeError:
+                return errorBlock(event.error);
+            case RACEventTypeCompleted:
+                return [RACSignal empty];
         }
+    }];
+}
+
+- (RACSignal *)mapValue:(id (^)(id))valueBlock error:(NSError *(^)(NSError *))errorBlock {
+    return [self flattenMapValue:^RACStream *(id value) {
+        return [RACSignal return:valueBlock(value)];
+    } error:^RACStream *(NSError *error) {
+        return [RACSignal error:errorBlock(error)];
+    }];
+}
+
+- (RACSignal *)flattenMapError:(RACStream *(^)(NSError *))block {
+    return [self flattenMapValue:^RACStream *(id value) {
+        return [RACSignal return:value];
+    } error:block];
+}
+
+- (RACSignal *)mapError:(NSError *(^)(NSError *))block {
+    return [self flattenMapError:^RACStream *(NSError *error) {
+        return [RACSignal return:block(error)];
     }];
 }
 

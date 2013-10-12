@@ -15,7 +15,14 @@
 
 @interface RACSignal (Core)
 
-- (instancetype)mapWithError:(id(^)(id value))block;
+- (RACSignal *)flattenMapValue:(RACStream *(^)(id value))valueBlock
+                         error:(RACStream *(^)(NSError *error))errorBlock;
+- (RACSignal *)mapValue:(id(^)(id value))valueBlock
+                  error:(NSError *(^)(NSError *error))errorBlock;
+
+- (RACSignal *)flattenMapError:(RACStream *(^)(NSError *error))block;
+- (RACSignal *)mapError:(NSError *(^)(NSError *error))block;
+
 - (RACSignal *)deliverOnMain;
 - (RACSignal *)catchLoop;
 - (RACSignal *)doCompletedOrError:(void (^)(NSError *errorOrNil))block;
