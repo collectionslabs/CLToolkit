@@ -64,6 +64,7 @@
         [operation.response setData:operation.responseData];
 		[subject sendNextAndComplete:operation.response];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey] setData:operation.responseData];
 		[subject sendError:error];
     }];
     [self.operationQueue addOperation:operation];

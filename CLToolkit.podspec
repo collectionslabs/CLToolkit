@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.0.5'
+  s.version      =  '0.1.0'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }
@@ -85,8 +85,8 @@ Pod::Spec.new do |s|
   s.subspec 'Testing' do |ss|
     ss.source_files   = 'CLToolkit/Testing/**/*.{h,m,mm,c}'
 
-    ss.dependency 'CLToolkit/Core'
-    ss.dependency 'Kiwi'
+    # ss.dependency 'CLToolkit/Core'
+    ss.dependency 'Kiwi/XCTest'
 
     ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => 
       '$(inherited) "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
