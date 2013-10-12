@@ -77,7 +77,7 @@
     static dispatch_once_t onceQueue;
     static RACHTTPClient *__sharedInstance = nil;
     dispatch_once(&onceQueue, ^{
-        __sharedInstance = [self manager];
+        __sharedInstance = [[self alloc] initWithBaseURL:nil];
     });
     return __sharedInstance;
 }
