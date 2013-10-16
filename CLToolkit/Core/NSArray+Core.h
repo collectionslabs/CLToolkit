@@ -9,8 +9,9 @@
 #import "Core.h"
 
 @interface NSArray (Core)
-
+#if TARGETING_OSX
 - (id)firstObject;
+#endif
 - (id)randomObject;
 
 - (NSArray *)arrayByShuffling;

@@ -9,10 +9,11 @@
 #import "NSArray+Core.h"
 
 @implementation NSArray (Core)
-
+#if TARGETING_OSX
 - (id)firstObject {
     return self.count ? self[0] : nil;
 }
+#endif
 
 - (id)randomObject {
     NSUInteger randomIndex = arc4random() % [self count];
