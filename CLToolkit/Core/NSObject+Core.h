@@ -13,6 +13,8 @@
 - (id)associatedValueForKey:(const char *)key setDefault:(id)defaultValue;
 
 // Notify multiple keypath at the same time, also block based syntax
+- (void)changeValuesForKeys:(id<NSFastEnumeration>)keys;
+
 - (void)willChangeValuesForKeys:(id<NSFastEnumeration>)keys;
 - (void)didChangeValuesForKeys:(id<NSFastEnumeration>)keys;
 - (void)withChangesToKeys:(id<NSFastEnumeration>)keys do:(void (^)(void))block;

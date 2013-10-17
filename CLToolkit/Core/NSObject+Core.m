@@ -21,6 +21,11 @@
     return value;
 }
 
+- (void)changeValuesForKeys:(id<NSFastEnumeration>)keys {
+    [self willChangeValuesForKeys:keys];
+    [self didChangeValuesForKeys:keys];
+}
+
 - (void)willChangeValuesForKeys:(id<NSFastEnumeration>)keys {
     for (NSString *key in keys)
         [self willChangeValueForKey:key];

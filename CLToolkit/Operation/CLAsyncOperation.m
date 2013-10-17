@@ -133,13 +133,9 @@
 
 @interface CLOperation ()
 
-@property (assign) BOOL isExecuting;
-@property (assign) BOOL isFinished;
-
 @property (assign, readwrite) CGFloat progress;
 @property (strong, readwrite) id result;
 @property (strong, readwrite) NSError *error;
-
 
 @end
 
@@ -156,6 +152,25 @@
     return self;
 }
 
+- (BOOL)isConcurrent {
+    return YES;
+}
+
+- (BOOL)isExecuting {
+    return self.state == CLOperationStateExecuting;
+}
+
+- (BOOL)isFinished {
+    switch (self.state) {
+        case CLOperationStateCancelled:
+        case CLOperationStateFailed:
+        case CLOperationStateSucceeded:
+            return YES;
+        default:
+            return NO;
+    }
+}
+
 - (BOOL)isNewStateValid:(CLOperationState)newState {
     CLOperationState currentState = self.state;
     switch (currentState) {
@@ -169,8 +184,8 @@
             }
         case CLOperationStateExecuting:
             switch (newState) {
-                case CLOperationStateCancelled:
                 case CLOperationStatePaused:
+                case CLOperationStateCancelled:
                 case CLOperationStateSucceeded:
                 case CLOperationStateFailed:
                     return YES;
@@ -178,9 +193,12 @@
                     return NO;
             }
         case CLOperationStatePaused:
+            // Allow succeeded and failed for operations that doesn't support pause
             switch (newState) {
                 case CLOperationStateExecuting:
                 case CLOperationStateCancelled:
+                case CLOperationStateSucceeded:
+                case CLOperationStateFailed:
                     return YES;
                 default:
                     return NO;
@@ -195,25 +213,27 @@
 - (BOOL)transitionToState:(CLOperationState)state {
     @synchronized(self) {
         if ([self isNewStateValid:state]) {
-            [self willChangeValueForKey:@keypath(self, state)];
-            _state = state;
-            [self didChangeValueForKey:@keypath(self, state)];
+            NSArray *affectedKeys = nil;
             switch (state) {
                 case CLOperationStateExecuting:
-                    self.isExecuting = YES;
+                    affectedKeys = @[@keypath(self, isExecuting)];
                     break;
                 case CLOperationStatePaused:
-                    self.isExecuting = NO;
+                    affectedKeys = @[@keypath(self, isExecuting)];
                     break;
                 case CLOperationStateSucceeded:
                 case CLOperationStateFailed:
                 case CLOperationStateCancelled:
-                    self.isExecuting = NO;
-                    self.isFinished = YES;
+                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished)];
                     break;
                 default:
                     break;
             }
+            [self willChangeValueForKey:@keypath(self, state)];
+            [self willChangeValuesForKeys:affectedKeys];
+            _state = state;
+            [self didChangeValueForKey:@keypath(self, state)];
+            [self didChangeValuesForKeys:affectedKeys];
             return YES;
         }
         return NO;
@@ -229,10 +249,6 @@
     }
 }
 
-- (BOOL)isConcurrent {
-    return YES;
-}
-
 // For use by sublcass
 
 - (void)updateProgress:(CGFloat)progress {
@@ -241,26 +257,32 @@
 }
 
 - (void)succeedWithResult:(id)result {
+    NSLog(@"succeeded %@ %@", self, result);
     self.result = result;
     if ([self transitionToState:CLOperationStateSucceeded]) {
         [self operationDidSucceed];
+        [self operationDidFinish];
         [_progressSignal sendCompleted];
         [_resultSignal sendNextAndComplete:result];
     }
 }
 
 - (void)failWithError:(NSError *)error {
+    NSLog(@"failed %@ %@", self, error);
     self.error = error;
     if ([self transitionToState:CLOperationStateFailed]) {
         [self operationDidFail];
+        [self operationDidFinish];
         [_progressSignal sendError:error];
         [_resultSignal sendError:error];
     }
 }
 
 - (void)finishWithCancellation {
+    NSLog(@"cancelled %@", self);
     if ([self transitionToState:CLOperationStateCancelled]) {
         [self operationDidCancel];
+        [self operationDidFinish];
         [self setDefaultErrorWithCode:NSUserCancelledError
                           description:$str(@"Operation cancelled %@", self)];
         [_progressSignal sendError:self.error];
@@ -325,9 +347,80 @@
 
 @end
 
+@implementation CLBlockOperation
+
+- (void)operationDidStart {
+    if (self.didStartBlock)
+        self.didStartBlock(self);
+}
+
+- (void)operationDidPause {
+    if (self.didPauseBlock)
+        self.didPauseBlock(self);
+}
+
+- (void)operationDidResume {
+    if (self.didResumeBlock)
+        self.didResumeBlock(self);
+}
+
+- (void)operationDidCancel {
+    if (self.didCancelBlock)
+        self.didCancelBlock(self);
+}
+
+- (void)operationDidFail {
+    if (self.didFailBlock)
+        self.didFailBlock(self);
+}
+
+- (void)operationDidSucceed {
+    if (self.didSucceedBlock)
+        self.didSucceedBlock(self);
+}
+
+- (void)operationDidFinish {
+    if (self.didFinishBlock)
+        self.didFinishBlock(self);
+}
+
++ (instancetype)operationWithTaskSignal:(RACSignal *)taskSignal {
+    NSParameterAssert(taskSignal);
+    return [self operationWithTaskSignalBlock:^RACSignal *{
+        return taskSignal;
+    }];
+}
+
++ (instancetype)operationWithTaskSignalBlock:(RACSignal *(^)(void))taskSignalBlock {
+    NSParameterAssert(taskSignalBlock);
+    CLBlockOperation *operation = [[CLBlockOperation alloc] init];
+    __block RACDisposable *disposable;
+    [operation setDidStartBlock:^(CLBlockOperation *operation) {
+        __block id result = nil;
+        RACSignal *taskSignal = taskSignalBlock();
+        NSParameterAssert(taskSignal);
+        disposable = [taskSignal subscribeNext:^(id x) {
+            result = x;
+        } completed:^{
+            [operation succeedWithResult:result];
+        } error:^(NSError *error) {
+            [operation failWithError:error];
+        }];
+    }];
+    [operation setDidCancelBlock:^(CLBlockOperation *operation) {
+        [disposable dispose];
+        [operation finishWithCancellation];
+    }];
+    return operation;
+
+}
+
+@end
+
 @implementation NSOperation (Reactive)
 
 - (RACSignal *)completionSignal {
+    // TODO: Is it better to use the completionBlock or observe the isFinished property?
     @weakify(self);
     return [[RACObserve(self, isFinished) takeUntilBlock:^BOOL(NSNumber *isFinished) {
         return isFinished.boolValue;
