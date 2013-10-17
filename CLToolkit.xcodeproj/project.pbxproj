@@ -106,13 +106,10 @@
 		EAADD15A17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E017A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h */; };
 		EAADD15B17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */; };
 		EAADD15C17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */; };
-		EAADD15D17A05603009A8FA4 /* CLAsyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E317A05603009A8FA4 /* CLAsyncOperation.h */; };
-		EAADD15E17A05603009A8FA4 /* CLAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E417A05603009A8FA4 /* CLAsyncOperation.m */; };
-		EAADD15F17A05603009A8FA4 /* CLAsyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E417A05603009A8FA4 /* CLAsyncOperation.m */; };
+		EAADD15D17A05603009A8FA4 /* CLOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E317A05603009A8FA4 /* CLOperation.h */; };
+		EAADD15E17A05603009A8FA4 /* CLOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E417A05603009A8FA4 /* CLOperation.m */; };
+		EAADD15F17A05603009A8FA4 /* CLOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E417A05603009A8FA4 /* CLOperation.m */; };
 		EAADD16017A05603009A8FA4 /* Operation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E517A05603009A8FA4 /* Operation.h */; };
-		EAADD16117A05603009A8FA4 /* RACSignalOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E617A05603009A8FA4 /* RACSignalOperation.h */; };
-		EAADD16217A05603009A8FA4 /* RACSignalOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E717A05603009A8FA4 /* RACSignalOperation.m */; };
-		EAADD16317A05603009A8FA4 /* RACSignalOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E717A05603009A8FA4 /* RACSignalOperation.m */; };
 		EAADD16417A05603009A8FA4 /* RACSignalQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E817A05603009A8FA4 /* RACSignalQueue.h */; };
 		EAADD16517A05603009A8FA4 /* RACSignalQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E917A05603009A8FA4 /* RACSignalQueue.m */; };
 		EAADD16617A05603009A8FA4 /* RACSignalQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E917A05603009A8FA4 /* RACSignalQueue.m */; };
@@ -142,6 +139,12 @@
 		EAD415C917C9B87800EB0490 /* KWNotificationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */; };
 		EAD415CA17C9B87800EB0490 /* KWBlockMatchEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */; };
 		EAD92AED17EABF8C00CED148 /* CLArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD92AEC17EABF8C00CED148 /* CLArrayController.m */; };
+		EAFDC57D18106E13000FB740 /* CLBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAFDC57B18106E13000FB740 /* CLBlockOperation.h */; };
+		EAFDC57E18106E13000FB740 /* CLBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFDC57C18106E13000FB740 /* CLBlockOperation.m */; };
+		EAFDC57F18106E13000FB740 /* CLBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFDC57C18106E13000FB740 /* CLBlockOperation.m */; };
+		EAFDC58218106E71000FB740 /* NSOperation+Reactive.h in Headers */ = {isa = PBXBuildFile; fileRef = EAFDC58018106E71000FB740 /* NSOperation+Reactive.h */; };
+		EAFDC58318106E71000FB740 /* NSOperation+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFDC58118106E71000FB740 /* NSOperation+Reactive.m */; };
+		EAFDC58418106E71000FB740 /* NSOperation+Reactive.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFDC58118106E71000FB740 /* NSOperation+Reactive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -241,11 +244,9 @@
 		EAADD0DF17A05603009A8FA4 /* RACHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACHTTPClient.m; sourceTree = "<group>"; };
 		EAADD0E017A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSHTTPURLResponse+ResponseData.h"; sourceTree = "<group>"; };
 		EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSHTTPURLResponse+ResponseData.m"; sourceTree = "<group>"; };
-		EAADD0E317A05603009A8FA4 /* CLAsyncOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAsyncOperation.h; sourceTree = "<group>"; };
-		EAADD0E417A05603009A8FA4 /* CLAsyncOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLAsyncOperation.m; sourceTree = "<group>"; };
+		EAADD0E317A05603009A8FA4 /* CLOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLOperation.h; sourceTree = "<group>"; };
+		EAADD0E417A05603009A8FA4 /* CLOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLOperation.m; sourceTree = "<group>"; };
 		EAADD0E517A05603009A8FA4 /* Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
-		EAADD0E617A05603009A8FA4 /* RACSignalOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACSignalOperation.h; sourceTree = "<group>"; };
-		EAADD0E717A05603009A8FA4 /* RACSignalOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACSignalOperation.m; sourceTree = "<group>"; };
 		EAADD0E817A05603009A8FA4 /* RACSignalQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACSignalQueue.h; sourceTree = "<group>"; };
 		EAADD0E917A05603009A8FA4 /* RACSignalQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACSignalQueue.m; sourceTree = "<group>"; };
 		EAADD0EB17A05603009A8FA4 /* RACSignal+Kiwi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACSignal+Kiwi.h"; sourceTree = "<group>"; };
@@ -274,6 +275,10 @@
 		EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWBlockMatchEvaluator.m; sourceTree = "<group>"; };
 		EAD92AEB17EABF8C00CED148 /* CLArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLArrayController.h; sourceTree = "<group>"; };
 		EAD92AEC17EABF8C00CED148 /* CLArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLArrayController.m; sourceTree = "<group>"; };
+		EAFDC57B18106E13000FB740 /* CLBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLBlockOperation.h; sourceTree = "<group>"; };
+		EAFDC57C18106E13000FB740 /* CLBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLBlockOperation.m; sourceTree = "<group>"; };
+		EAFDC58018106E71000FB740 /* NSOperation+Reactive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+Reactive.h"; sourceTree = "<group>"; };
+		EAFDC58118106E71000FB740 /* NSOperation+Reactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+Reactive.m"; sourceTree = "<group>"; };
 		F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.xcconfig"; path = "Pods/Pods-osx.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -497,10 +502,12 @@
 			isa = PBXGroup;
 			children = (
 				EAADD0E517A05603009A8FA4 /* Operation.h */,
-				EAADD0E317A05603009A8FA4 /* CLAsyncOperation.h */,
-				EAADD0E417A05603009A8FA4 /* CLAsyncOperation.m */,
-				EAADD0E617A05603009A8FA4 /* RACSignalOperation.h */,
-				EAADD0E717A05603009A8FA4 /* RACSignalOperation.m */,
+				EAADD0E317A05603009A8FA4 /* CLOperation.h */,
+				EAADD0E417A05603009A8FA4 /* CLOperation.m */,
+				EAFDC57B18106E13000FB740 /* CLBlockOperation.h */,
+				EAFDC57C18106E13000FB740 /* CLBlockOperation.m */,
+				EAFDC58018106E71000FB740 /* NSOperation+Reactive.h */,
+				EAFDC58118106E71000FB740 /* NSOperation+Reactive.m */,
 				EAADD0E817A05603009A8FA4 /* RACSignalQueue.h */,
 				EAADD0E917A05603009A8FA4 /* RACSignalQueue.m */,
 			);
@@ -584,6 +591,7 @@
 				EAADD13B17A05603009A8FA4 /* FNode.h in Headers */,
 				EAADD13E17A05603009A8FA4 /* FObject.h in Headers */,
 				EAADD14117A05603009A8FA4 /* CLSharedFileList.h in Headers */,
+				EAFDC57D18106E13000FB740 /* CLBlockOperation.h in Headers */,
 				EAADD14417A05603009A8FA4 /* CLValueTransformers.h in Headers */,
 				EAADD14717A05603009A8FA4 /* Misc.h in Headers */,
 				EAADD14A17A05603009A8FA4 /* NSImage+IconRef.h in Headers */,
@@ -593,9 +601,8 @@
 				EAADD15417A05603009A8FA4 /* RACDownloadOperation.h in Headers */,
 				EAADD15717A05603009A8FA4 /* RACHTTPClient.h in Headers */,
 				EAADD15A17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h in Headers */,
-				EAADD15D17A05603009A8FA4 /* CLAsyncOperation.h in Headers */,
+				EAADD15D17A05603009A8FA4 /* CLOperation.h in Headers */,
 				EAADD16017A05603009A8FA4 /* Operation.h in Headers */,
-				EAADD16117A05603009A8FA4 /* RACSignalOperation.h in Headers */,
 				EAADD16417A05603009A8FA4 /* RACSignalQueue.h in Headers */,
 				EAADD16717A05603009A8FA4 /* RACSignal+Kiwi.h in Headers */,
 				EAADD16A17A05603009A8FA4 /* Testing.h in Headers */,
@@ -609,6 +616,7 @@
 				EA576A0217A506AF0043D6E6 /* MagicalRecord+Reactive.h in Headers */,
 				EA7D321D17ACE982007CADDC /* RACAppDelegate.h in Headers */,
 				EAD415C117C9B34700EB0490 /* KWNotificationMatcher.h in Headers */,
+				EAFDC58218106E71000FB740 /* NSOperation+Reactive.h in Headers */,
 				EAD415C517C9B3D600EB0490 /* KWBlockMatchEvaluator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -750,6 +758,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAADD0FB17A05603009A8FA4 /* CLUpdateHelper.m in Sources */,
+				EAFDC58318106E71000FB740 /* NSOperation+Reactive.m in Sources */,
 				EAADD0FE17A05603009A8FA4 /* CLUpdater.m in Sources */,
 				EAADD10217A05603009A8FA4 /* CLS3Client.m in Sources */,
 				EAADD10517A05603009A8FA4 /* CLS3TransferManager.m in Sources */,
@@ -779,8 +788,7 @@
 				EAADD15517A05603009A8FA4 /* RACDownloadOperation.m in Sources */,
 				EAADD15817A05603009A8FA4 /* RACHTTPClient.m in Sources */,
 				EAADD15B17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */,
-				EAADD15E17A05603009A8FA4 /* CLAsyncOperation.m in Sources */,
-				EAADD16217A05603009A8FA4 /* RACSignalOperation.m in Sources */,
+				EAADD15E17A05603009A8FA4 /* CLOperation.m in Sources */,
 				EAADD16517A05603009A8FA4 /* RACSignalQueue.m in Sources */,
 				EAADD16817A05603009A8FA4 /* RACSignal+Kiwi.m in Sources */,
 				EAADD16C17A05603009A8FA4 /* CLViewController.m in Sources */,
@@ -790,6 +798,7 @@
 				EA576A0317A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
 				EA7D321E17ACE982007CADDC /* RACAppDelegate.m in Sources */,
 				EAD415C217C9B34700EB0490 /* KWNotificationMatcher.m in Sources */,
+				EAFDC57E18106E13000FB740 /* CLBlockOperation.m in Sources */,
 				EAD415C617C9B3D600EB0490 /* KWBlockMatchEvaluator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,6 +810,7 @@
 				EAADD10317A05603009A8FA4 /* CLS3Client.m in Sources */,
 				EAADD10617A05603009A8FA4 /* CLS3TransferManager.m in Sources */,
 				EAADD10D17A05603009A8FA4 /* Core.m in Sources */,
+				EAFDC58418106E71000FB740 /* NSOperation+Reactive.m in Sources */,
 				EAD92AED17EABF8C00CED148 /* CLArrayController.m in Sources */,
 				EAADD11017A05603009A8FA4 /* NSArray+Core.m in Sources */,
 				EAADD11317A05603009A8FA4 /* NSColor+Core.m in Sources */,
@@ -817,14 +827,14 @@
 				EAADD13917A05603009A8FA4 /* Firebase+Reactive.m in Sources */,
 				EAADD13D17A05603009A8FA4 /* FNode.m in Sources */,
 				EAADD14017A05603009A8FA4 /* FObject.m in Sources */,
+				EAFDC57F18106E13000FB740 /* CLBlockOperation.m in Sources */,
 				EAADD14617A05603009A8FA4 /* CLValueTransformers.m in Sources */,
 				EAADD14917A05603009A8FA4 /* Misc.m in Sources */,
 				EAADD15317A05603009A8FA4 /* NSURLRequest+CLToolkit.m in Sources */,
 				EAADD15617A05603009A8FA4 /* RACDownloadOperation.m in Sources */,
 				EAADD15917A05603009A8FA4 /* RACHTTPClient.m in Sources */,
 				EAADD15C17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */,
-				EAADD15F17A05603009A8FA4 /* CLAsyncOperation.m in Sources */,
-				EAADD16317A05603009A8FA4 /* RACSignalOperation.m in Sources */,
+				EAADD15F17A05603009A8FA4 /* CLOperation.m in Sources */,
 				EAADD16617A05603009A8FA4 /* RACSignalQueue.m in Sources */,
 				EAADD17717A05603009A8FA4 /* Web.m in Sources */,
 				EA576A0417A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,

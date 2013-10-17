@@ -11,8 +11,9 @@
 
 #import "Core.h"
 
-#import "CLAsyncOperation.h"
-//#import "RACSignalOperation.h"
+#import "CLOperation.h"
+#import "CLBlockOperation.h"
+#import "NSOperation+Reactive.h"
 #import "RACSignalQueue.h"
 
 #endif

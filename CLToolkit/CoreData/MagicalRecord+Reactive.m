@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Tony Xiao. All rights reserved.
 //
 
-#import "RACSignalOperation.h"
+#import "Operation.h"
 #import "MagicalRecord+Reactive.h"
 
 typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
@@ -38,17 +38,19 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 }
 
 + (RACSignal *)rac_saveWithBlock:(void (^)(NSManagedObjectContext *))block onQueue:(NSOperationQueue *)queue {
-    RACSubject *subject = [RACReplaySubject subject];
     @weakify(self);
-    
-    [queue addOperation:[CLAsyncOperation operationWithBlock:^(CLAsyncOperation *operation) {
+    CLBlockOperation *operation = [[CLBlockOperation alloc] init];
+    [operation setDidStartBlock:^(CLBlockOperation *operation) {
         @strongify(self);
         [self saveWithBlock:block completion:^(BOOL success, NSError *error) {
-            [operation finish];
-            success ? [subject sendCompleted] : [subject sendError:error];
+            if (success) {
+                [operation succeedWithResult:nil];
+            } else {
+                [operation failWithError:error];
+            }
         }];
-    }]];
-    return subject;
+    }];
+    return [operation completionSignal];
 }
 
 + (RACSignal *)rac_saveUsingCurrentThreadContextWithBlock:(void (^)(NSManagedObjectContext *localContext))block {
