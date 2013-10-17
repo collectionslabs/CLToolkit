@@ -96,3 +96,9 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 - (void)operationDidFinish; // Finish = sum of cancel, fail, succeed
 
 @end
+
+@interface NSOperation (Reactive)
+
+- (RACSignal *)completionSignal;
+
+@end

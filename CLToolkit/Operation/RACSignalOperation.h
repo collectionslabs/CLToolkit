@@ -21,9 +21,3 @@
 + (instancetype)operationWithSignalBlock:(RACSignal *(^)(void))signalBlock;
 
 @end
-
-@interface NSOperation (Reactive)
-
-- (RACSignal *)completionSignal;
-
-@end

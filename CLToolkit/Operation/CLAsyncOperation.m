@@ -324,3 +324,19 @@
 - (void)operationDidFinish { }
 
 @end
+
+@implementation NSOperation (Reactive)
+
+- (RACSignal *)completionSignal {
+    @weakify(self);
+    return [[RACObserve(self, isFinished) takeUntilBlock:^BOOL(NSNumber *isFinished) {
+        return isFinished.boolValue;
+    }] then:^RACSignal *{
+        @strongify(self);
+        if (self.isCancelled)
+            return [RACSignal error:$error(@"Operation Cancelled")];
+        return [RACSignal empty];
+    }];
+}
+
+@end
