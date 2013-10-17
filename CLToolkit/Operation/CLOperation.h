@@ -31,6 +31,13 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 // Sends id (result) for next, complete when finish and error when fail
 @property (readonly) RACSignal *resultSignal;
 
+/* Cancelling and pausing
+ * Calling cancel and pause will change the state of the operation immediately
+ * It is up to the implementor of the operation to check isCancelled / implement
+ * operationDidCancel and wind itself down as soon as possible. This 
+ * may or may not be a desired behavior. We'll see.
+ */
+
 // Called by user of operation
 
 - (void)start;
@@ -44,7 +51,6 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 
 - (void)succeedWithResult:(id)result;
 - (void)failWithError:(NSError *)error;
-- (void)finishWithCancellation;
 
 // No-op implementations that should be overriden by subclasses
 

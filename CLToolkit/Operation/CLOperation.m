@@ -39,6 +39,10 @@
     return self.state == CLOperationStateExecuting;
 }
 
+- (BOOL)isCancelled {
+    return self.state == CLOperationStateCancelled;
+}
+
 - (BOOL)isFinished {
     switch (self.state) {
         case CLOperationStateCancelled:
@@ -95,15 +99,15 @@
             NSArray *affectedKeys = nil;
             switch (state) {
                 case CLOperationStateExecuting:
-                    affectedKeys = @[@keypath(self, isExecuting)];
-                    break;
                 case CLOperationStatePaused:
                     affectedKeys = @[@keypath(self, isExecuting)];
                     break;
                 case CLOperationStateSucceeded:
                 case CLOperationStateFailed:
-                case CLOperationStateCancelled:
                     affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished)];
+                    break;
+                case CLOperationStateCancelled:
+                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isCancelled)];
                     break;
                 default:
                     break;
@@ -157,18 +161,6 @@
     }
 }
 
-- (void)finishWithCancellation {
-    NSLog(@"cancelled %@", self);
-    if ([self transitionToState:CLOperationStateCancelled]) {
-        [self operationDidCancel];
-        [self operationDidFinish];
-        [self setDefaultErrorWithCode:NSUserCancelledError
-                          description:$str(@"Operation cancelled %@", self)];
-        [_progressSignal sendError:self.error];
-        [_resultSignal sendError:self.error];
-    }
-}
-
 // User Facing API
 
 - (void)start {
@@ -186,7 +178,6 @@
                         [self setDefaultErrorWithCode:NSUserCancelledError
                                           description:$str(@"Operation %@ dependency cancelled %@", self, operation)];
                         [self cancel];
-                        [self finishWithCancellation];
                         return;
                     default:
                         NSParameterAssert([(CLOperation *)operation state] == CLOperationStateSucceeded);
@@ -199,9 +190,15 @@
 }
 
 - (void)cancel {
-    [super cancel];
-    // NOTE: isCancelled will be changed immediately by super, but
-    // state doesn't get changed to CLOperationStateCancelled until finishCancellation is called
+    if ([self transitionToState:CLOperationStateCancelled]) {
+        [super cancel];
+        [self setDefaultErrorWithCode:NSUserCancelledError
+                          description:$str(@"Operation cancelled %@", self)];
+        [self operationDidCancel];
+        [self operationDidFinish];
+        [_progressSignal sendError:self.error];
+        [_resultSignal sendError:self.error];
+    }
 }
 
 - (void)pause {
@@ -210,7 +207,7 @@
 }
 
 - (void)resume {
-    if ([self transitionToState:CLOperationStatePaused])
+    if ([self transitionToState:CLOperationStateExecuting])
         [self operationDidResume];
 }
 

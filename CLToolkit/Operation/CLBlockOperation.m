@@ -71,7 +71,6 @@
     }];
     [operation setDidCancelBlock:^(CLBlockOperation *operation) {
         [disposable dispose];
-        [operation finishWithCancellation];
     }];
     return operation;
 

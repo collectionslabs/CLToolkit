@@ -7,6 +7,12 @@
 
 #import "Networking.h"
 
+@interface RACSignal (HTTPClientAddition)
+
+@property (nonatomic, readonly) AFHTTPRequestOperation *httpOperation;
+
+@end
+
 @interface RACHTTPClient : AFHTTPRequestOperationManager
 
 // Simple Requests

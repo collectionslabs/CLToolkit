@@ -7,6 +7,20 @@
 
 #import "RACHTTPClient.h"
 
+static char kHTTPOperation;
+
+@implementation RACSignal (HTTPClientAddition)
+
+- (AFHTTPRequestOperation *)httpOperation {
+    return [self associatedValueForKey:&kHTTPOperation];
+}
+
+- (void)setHttpOperation:(AFHTTPRequestOperation *)httpOperation {
+    [self associateValue:httpOperation withKey:&kHTTPOperation];
+}
+
+@end
+
 @implementation RACHTTPClient
 
 - (RACSignal *)GET:(NSString *)URLString parameters:(NSDictionary *)parameters {
@@ -60,6 +74,7 @@
 - (RACSignal *)enqueueOperation:(AFHTTPRequestOperation *)operation {
     RACSubject *subject = [RACReplaySubject subject];
     subject.name = $str(@"HTTP %@ %@", operation.request.HTTPMethod, operation.request.URL);
+    [subject setHttpOperation:operation];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         [operation.response setData:operation.responseData];
 		[subject sendNextAndComplete:operation.response];
