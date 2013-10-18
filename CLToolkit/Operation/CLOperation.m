@@ -12,6 +12,8 @@
 
 @interface CLOperation ()
 
+@property (weak, readwrite) NSOperationQueue *operationQueue;
+
 @property (assign, readwrite) CGFloat progress;
 @property (strong, readwrite) id result;
 @property (strong, readwrite) NSError *error;
@@ -27,6 +29,7 @@
     if (self = [super init]) {
         _progressSignal = [RACReplaySubject replaySubjectWithCapacity:1];
         _resultSignal = [RACReplaySubject replaySubjectWithCapacity:1];
+        [_progressSignal sendNext:@0];
     }
     return self;
 }
@@ -41,6 +44,10 @@
 
 - (BOOL)isCancelled {
     return self.state == CLOperationStateCancelled;
+}
+
+- (BOOL)isPaused {
+    return self.state == CLOperationStatePaused;
 }
 
 - (BOOL)isFinished {
@@ -100,14 +107,14 @@
             switch (state) {
                 case CLOperationStateExecuting:
                 case CLOperationStatePaused:
-                    affectedKeys = @[@keypath(self, isExecuting)];
+                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isPaused)];
                     break;
                 case CLOperationStateSucceeded:
                 case CLOperationStateFailed:
-                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished)];
+                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isPaused)];
                     break;
                 case CLOperationStateCancelled:
-                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isCancelled)];
+                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isCancelled), @keypath(self, isPaused)];
                     break;
                 default:
                     break;
@@ -165,6 +172,7 @@
 
 - (void)start {
     if ([self transitionToState:CLOperationStateExecuting]) {
+        self.operationQueue = [NSOperationQueue currentQueue];
         // Check dependencies.
         for (NSOperation *operation in self.dependencies) {
             if ([operation isKindOfClass:[CLOperation class]]) {

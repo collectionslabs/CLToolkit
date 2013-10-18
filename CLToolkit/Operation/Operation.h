@@ -13,6 +13,7 @@
 
 #import "CLOperation.h"
 #import "CLBlockOperation.h"
+#import "CLContainerOperation.h"
 #import "NSOperation+Reactive.h"
 #import "RACSignalQueue.h"
 

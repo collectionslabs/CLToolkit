@@ -21,10 +21,14 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 @class RACSignal;
 @interface CLOperation : NSOperation
 
+@property (readonly) NSOperationQueue *operationQueue;
+
 @property (assign, readonly) CLOperationState state;
 @property (assign, readonly) CGFloat progress;
 @property (strong, readonly) id result;
 @property (strong, readonly) NSError *error;
+
+@property (readonly) BOOL isPaused;
 
 // Sends NSNumber (progress) for next, complete when finish and error when fail
 @property (readonly) RACSignal *progressSignal;

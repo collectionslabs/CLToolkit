@@ -16,7 +16,7 @@ static char kHTTPOperation;
 }
 
 - (void)setHttpOperation:(AFHTTPRequestOperation *)httpOperation {
-    [self associateValue:httpOperation withKey:&kHTTPOperation];
+    [self weaklyAssociateValue:httpOperation withKey:&kHTTPOperation];
 }
 
 @end
