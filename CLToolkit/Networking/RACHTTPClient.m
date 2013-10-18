@@ -9,6 +9,25 @@
 
 static char kHTTPOperation;
 
+@implementation AFHTTPRequestOperation (BugFix)
+
+- (id)cl_responseObject {
+    id responseObject = [self cl_responseObject];
+    if (!responseObject) {
+        NSError *error = nil;
+        [self.responseSerializer validateResponse:self.response data:self.responseData error:&error];
+        if (error)
+            [self performSelector:@selector(setResponseSerializationError:) withObject:error];
+    }
+    return responseObject;
+}
+
++ (void)load {
+    [$ swizzleMethod:@selector(responseObject) with:@selector(cl_responseObject) in:self];
+}
+
+@end
+
 @implementation RACSignal (HTTPClientAddition)
 
 - (AFHTTPRequestOperation *)httpOperation {
