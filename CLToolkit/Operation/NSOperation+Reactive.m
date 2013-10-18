@@ -18,8 +18,19 @@
         return isFinished.boolValue;
     }] then:^RACSignal *{
         @strongify(self);
-        if (self.isCancelled)
-            return [RACSignal error:$error(@"Operation Cancelled")];
+        if (self.isCancelled) {
+            NSError *error = nil;
+            if ([self respondsToSelector:@selector(error)])
+                error = [self performSelector:@selector(error)];
+            if (!error) {
+                error = [NSError errorWithDomain:@"NSOperation"
+                                            code:NSUserCancelledError
+                                        userInfo:@{
+                    NSLocalizedDescriptionKey: @"Operation cancelled"
+                }];
+            }
+            return [RACSignal error:error];
+        }
         return [RACSignal empty];
     }];
 }
