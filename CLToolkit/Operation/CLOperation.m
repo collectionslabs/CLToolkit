@@ -147,7 +147,6 @@
 }
 
 - (void)succeedWithResult:(id)result {
-    NSLog(@"succeeded %@ %@", self, result);
     self.result = result;
     if ([self transitionToState:CLOperationStateSucceeded]) {
         [self operationDidSucceed];
@@ -158,7 +157,6 @@
 }
 
 - (void)failWithError:(NSError *)error {
-    NSLog(@"failed %@ %@", self, error);
     self.error = error;
     if ([self transitionToState:CLOperationStateFailed]) {
         [self operationDidFail];
