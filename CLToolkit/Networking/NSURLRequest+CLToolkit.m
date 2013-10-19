@@ -16,6 +16,10 @@
     return newRequest;
 }
 
+- (NSString *)authorizationHeader {
+    return self.allHTTPHeaderFields[@"Authorization"];
+}
+
 @end
 
 @implementation NSMutableURLRequest (CLToolkit)
@@ -35,7 +39,7 @@
     [self setAllHTTPHeaderFields:headers];
 }
 
-- (void)setAuthorization:(NSString *)auth {
+- (void)setAuthorizationHeader:(NSString *)auth {
     if (auth)
         [self setHTTPHeaders:@{@"Authorization": auth}];
     else

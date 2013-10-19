@@ -11,12 +11,14 @@
 
 - (NSMutableURLRequest *)requestByOverridingHeaders:(NSDictionary *)headers;
 
+- (NSString *)authorizationHeader;
+
 @end
 
 @interface NSMutableURLRequest (CLToolkit)
 
 - (void)removeHTTPHeaderForKey:(NSString *)key;
 - (void)setHTTPHeaders:(NSDictionary *)headers;
-- (void)setAuthorization:(NSString *)auth;
+- (void)setAuthorizationHeader:(NSString *)auth;
 
 @end
