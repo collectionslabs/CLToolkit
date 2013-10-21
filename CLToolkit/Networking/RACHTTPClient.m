@@ -118,15 +118,23 @@ static char kHTTPOperation;
 
 @end
 
+static char kStatusSignal;
 
 @implementation AFNetworkReachabilityManager (Reactive)
 
 - (RACSignal *)statusSignal {
-    RACSubject *subject = [RACReplaySubject replaySubjectWithCapacity:1];
-    [self setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        [subject sendNext:@(status)];
-    }];
-    return [subject distinctUntilChanged];
+    @synchronized(self) {
+        RACSignal *signal = [self associatedValueForKey:&kStatusSignal];
+        if (!signal) {
+            RACSubject *subject = [RACReplaySubject replaySubjectWithCapacity:1];
+            [self setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+                [subject sendNext:@(status)];
+            }];
+            signal = [subject distinctUntilChanged];
+            [self associateValue:signal withKey:&kStatusSignal];
+        }
+        return signal;
+    }
 }
 
 @end
