@@ -108,8 +108,9 @@
 
 @implementation RACDisposable (Core)
 
-- (void)autoDispose:(id)linkedObject {
+- (instancetype)autoDispose:(id)linkedObject {
     [[linkedObject rac_deallocDisposable] addDisposable:self];
+    return self;
 }
 
 @end

@@ -48,8 +48,8 @@
 
 @interface RACDisposable (Core)
 
-// dispose self when linkedObject dealloc's
-- (void)autoDispose:(id)linkedObject;
+// dispose self when linkedObject dealloc's, returns receiver for convenience
+- (instancetype)autoDispose:(id)linkedObject;
 
 @end
 

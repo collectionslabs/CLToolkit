@@ -33,3 +33,10 @@
 + (instancetype)sharedInstance;
 
 @end
+
+@interface AFNetworkReachabilityManager (Reactive)
+
+// Status signal makes use of the reachabilityChangedBlock, so don't override
+@property (nonatomic, readonly) RACSignal *statusSignal;
+
+@end

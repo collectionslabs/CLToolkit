@@ -42,6 +42,15 @@
     [self didChangeValuesForKeys:keys];
 }
 
+- (RACSignal *)listenForNotification:(NSString *)name {
+    // TODO: This is not tested yet. TEST this when possible
+    @weakify(self);
+    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        @strongify(self);
+        return [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:name] subscribe:subscriber] autoDispose:self];
+    }] replayLazily];
+}
+
 - (void)listenForNotification:(NSString *)name withBlock:(void (^)(NSNotification *))block {
     [self listenForNotification:name object:nil withBlock:block];
 }
