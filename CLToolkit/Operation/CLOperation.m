@@ -23,6 +23,7 @@
 @implementation CLOperation {
     RACSubject *_progressSignal;
     RACSubject *_resultSignal;
+    CLOperationState _previousState;
 }
 
 - (id)init {
@@ -52,10 +53,11 @@
 
 - (BOOL)isFinished {
     switch (self.state) {
-        case CLOperationStateCancelled:
         case CLOperationStateFailed:
         case CLOperationStateSucceeded:
             return YES;
+        case CLOperationStateCancelled:
+            return _previousState != CLOperationStateNotStarted;
         default:
             return NO;
     }
@@ -121,6 +123,7 @@
             }
             [self willChangeValueForKey:@keypath(self, state)];
             [self willChangeValuesForKeys:affectedKeys];
+            _previousState = _state;
             _state = state;
             [self didChangeValueForKey:@keypath(self, state)];
             [self didChangeValuesForKeys:affectedKeys];
