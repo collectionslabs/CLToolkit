@@ -191,6 +191,7 @@
                 }
             }
         }
+        [self updateProgress:0];
         [self operationDidStart];
     }
 }
