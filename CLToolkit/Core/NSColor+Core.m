@@ -22,12 +22,18 @@
     redByte = (unsigned char)(colorCode >> 16);
     greenByte = (unsigned char)(colorCode >> 8);
     blueByte = (unsigned char)(colorCode); // masks off high bits
-    
-    
-//    result = [COLOR_CLASS colorWithCalibratedRed:(CGFloat)redByte / 0xff
-//                                           green:(CGFloat)greenByte / 0xff
-//                                            blue:(CGFloat)blueByte / 0xff
-//                                           alpha:1.0];
+
+#if TARGETING_MAC
+    result = [COLOR_CLASS colorWithCalibratedRed:(CGFloat)redByte / 0xff
+                                           green:(CGFloat)greenByte / 0xff
+                                            blue:(CGFloat)blueByte / 0xff
+                                           alpha:1.0];
+#else
+    result = [COLOR_CLASS colorWithRed:(CGFloat)redByte / 0xff
+                                 green:(CGFloat)greenByte / 0xff
+                                  blue:(CGFloat)blueByte / 0xff
+                                 alpha:1.0];
+#endif
     return result;
 }
 
