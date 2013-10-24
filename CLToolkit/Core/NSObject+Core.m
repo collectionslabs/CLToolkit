@@ -43,31 +43,18 @@
 }
 
 - (RACSignal *)listenForNotification:(NSString *)name {
-    // TODO: This is not tested yet. TEST this when possible
-    @weakify(self);
-    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        @strongify(self);
-        return [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:name] subscribe:subscriber] autoDispose:self];
-    }] replayLazily];
+    return [self listenForNotification:name object:nil];
 }
 
-- (void)listenForNotification:(NSString *)name withBlock:(void (^)(NSNotification *))block {
-    [self listenForNotification:name object:nil withBlock:block];
+- (RACSignal *)listenForNotification:(NSString *)name object:(id)object {
+    return [self listenForNotification:name object:object notificationCenter:[NSNotificationCenter defaultCenter]];
 }
 
-- (void)listenForNotification:(NSString *)name object:(id)object withBlock:(void (^)(NSNotification *))block {
-    [self listenForNotification:name
-                         object:object
-             notificationCenter:[NSNotificationCenter defaultCenter]
-                      withBlock:block];
-}
-
-- (void)listenForNotification:(NSString *)name
-                       object:(id)object
-           notificationCenter:(NSNotificationCenter *)notificationCenter
-                    withBlock:(void (^)(NSNotification *))block {
-    NSParameterAssert(block);
-    [[[notificationCenter rac_addObserverForName:name object:object] subscribeNext:block] autoDispose:self];
+- (RACSignal *)listenForNotification:(NSString *)name
+                              object:(id)object
+                  notificationCenter:(NSNotificationCenter *)notificationCenter {
+    return [[notificationCenter rac_addObserverForName:name object:object]
+            takeUntil:self.rac_willDeallocSignal];
 }
 
 - (void)CL_dumpInfo {

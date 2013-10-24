@@ -20,15 +20,12 @@
 - (void)withChangesToKeys:(id<NSFastEnumeration>)keys do:(void (^)(void))block;
 
 // Register for notification, automatically unregister when receiver dealloc's
-- (void)listenForNotification:(NSString *)name
-                    withBlock:(void(^)(NSNotification *note))block;
-- (void)listenForNotification:(NSString *)name
-                       object:(id)object
-                    withBlock:(void(^)(NSNotification *note))block;
-- (void)listenForNotification:(NSString *)name
-                       object:(id)object
-           notificationCenter:(NSNotificationCenter *)notificationCenter
-                    withBlock:(void(^)(NSNotification *note))block;
+- (RACSignal *)listenForNotification:(NSString *)name;
+- (RACSignal *)listenForNotification:(NSString *)name
+                              object:(id)object;
+- (RACSignal *)listenForNotification:(NSString *)name
+                              object:(id)object
+                  notificationCenter:(NSNotificationCenter *)notificationCenter;
 
 - (void)CL_dumpInfo;
 
