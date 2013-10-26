@@ -145,6 +145,7 @@
 // For use by sublcass
 
 - (void)updateProgress:(CGFloat)progress {
+    progress = MIN(MAX(progress, 0), 1);
     self.progress = progress;
     [_progressSignal sendNext:@(progress)];
 }
