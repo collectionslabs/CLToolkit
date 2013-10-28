@@ -21,6 +21,8 @@
 @end
 
 @implementation CLOperation {
+    RACSubject *_willStartSignal;
+    RACSubject *_didStartSignal;
     RACSubject *_progressSignal;
     RACSubject *_resultSignal;
     CLOperationState _previousState;
@@ -28,6 +30,8 @@
 
 - (id)init {
     if (self = [super init]) {
+        _willStartSignal = [RACReplaySubject replaySubjectWithCapacity:0];
+        _didStartSignal = [RACReplaySubject replaySubjectWithCapacity:0];
         _progressSignal = [RACReplaySubject replaySubjectWithCapacity:1];
         _resultSignal = [RACReplaySubject replaySubjectWithCapacity:1];
         [_progressSignal sendNext:@0];
@@ -195,8 +199,10 @@
                 }
             }
         }
+        [_willStartSignal sendCompleted];
         [self updateProgress:0];
         [self operationDidStart];
+        [_didStartSignal sendCompleted];
     }
 }
 
