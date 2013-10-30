@@ -17,6 +17,7 @@
 @property (assign, readwrite) CGFloat progress;
 @property (strong, readwrite) id result;
 @property (strong, readwrite) NSError *error;
+@property (assign) UIBackgroundTaskIdentifier backgroundTaskID;
 
 @end
 
@@ -30,6 +31,7 @@
 
 - (id)init {
     if (self = [super init]) {
+        _backgroundTaskID = UIBackgroundTaskInvalid;
         _willStartSignal = [RACReplaySubject replaySubjectWithCapacity:0];
         _didStartSignal = [RACReplaySubject replaySubjectWithCapacity:0];
         _progressSignal = [RACReplaySubject replaySubjectWithCapacity:1];
@@ -161,6 +163,7 @@
         [self operationDidFinish];
         [_progressSignal sendCompleted];
         [_resultSignal sendNextAndComplete:result];
+        [self endBackgroundTask];
     }
 }
 
@@ -171,6 +174,7 @@
         [self operationDidFinish];
         [_progressSignal sendError:error];
         [_resultSignal sendError:error];
+        [self endBackgroundTask];
     }
 }
 
@@ -203,6 +207,22 @@
         [self updateProgress:0];
         [self operationDidStart];
         [_didStartSignal sendCompleted];
+        
+        if (self.backgroundTask) {
+            @weakify(self);
+            [[[self listenForNotification:UIApplicationDidEnterBackgroundNotification]
+              takeUntil:[self.resultSignal materialize]] subscribeNext:^(NSNotification *note) {
+                @strongify(self);
+                [self beginBackgroundTask];
+                [self applicationDidEnterBackground:note];
+            }];
+            [[[self listenForNotification:UIApplicationWillEnterForegroundNotification]
+             takeUntil:[self.resultSignal materialize]] subscribeNext:^(NSNotification *note) {
+                @strongify(self);
+                [self endBackgroundTask];
+                [self applicationWillEnterForeground:note];
+            }];
+        }
     }
 }
 
@@ -215,6 +235,7 @@
         [self operationDidFinish];
         [_progressSignal sendError:self.error];
         [_resultSignal sendError:self.error];
+        [self endBackgroundTask];
     }
 }
 
@@ -237,6 +258,36 @@
 - (void)operationDidFail { }
 - (void)operationDidSucceed { }
 - (void)operationDidFinish { }
+
+// Background task
+
+- (void)beginBackgroundTask {
+    @synchronized(self) {
+        @weakify(self);
+        self.backgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+            @strongify(self);
+            [self backgroundTaskWillExpire];
+            [self endBackgroundTask];
+        }];
+    }
+}
+
+- (void)endBackgroundTask {
+    @synchronized(self) {
+        if (self.backgroundTaskID != UIBackgroundTaskInvalid) {
+            [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskID];
+            self.backgroundTaskID = UIBackgroundTaskInvalid;
+        }
+    }
+}
+
+- (void)backgroundTaskWillExpire { }
+
+// Applications Lifecycle
+
+- (void)applicationDidEnterBackground:(NSNotification *)note { }
+
+- (void)applicationWillEnterForeground:(NSNotification *)note { }
 
 @end
 

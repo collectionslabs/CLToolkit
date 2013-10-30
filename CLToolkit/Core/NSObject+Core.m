@@ -42,6 +42,14 @@
     [self didChangeValuesForKeys:keys];
 }
 
+- (RACDisposable *)listenForNotification:(NSString *)name selector:(SEL)selector {
+    @weakify(self);
+    [[self listenForNotification:name] subscribeNext:^(NSNotification *note) {
+        @strongify(self);
+        [self performSelector:selector withObject:note];
+    }];
+}
+
 - (RACSignal *)listenForNotification:(NSString *)name {
     return [self listenForNotification:name object:nil];
 }

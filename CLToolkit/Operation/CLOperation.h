@@ -23,6 +23,8 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 
 @property (readonly) NSOperationQueue *operationQueue;
 
+@property (nonatomic, assign) BOOL backgroundTask; // Default = NO
+
 @property (assign, readonly) CLOperationState state;
 @property (assign, readonly) CGFloat progress;
 @property (strong, readonly) id result;
@@ -69,5 +71,13 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 - (void)operationDidFail;
 - (void)operationDidSucceed;
 - (void)operationDidFinish; // Finish = sum of cancel, fail, succeed
+
+
+// Background Task & App Life Cycle
+// Life cycle notifications will only be sent if backgroundTask = YES
+
+- (void)backgroundTaskWillExpire;
+- (void)applicationDidEnterBackground:(NSNotification *)note;
+- (void)applicationWillEnterForeground:(NSNotification *)note;
 
 @end

@@ -20,6 +20,8 @@
 - (void)withChangesToKeys:(id<NSFastEnumeration>)keys do:(void (^)(void))block;
 
 // Register for notification, automatically unregister when receiver dealloc's
+- (RACDisposable *)listenForNotification:(NSString *)name selector:(SEL)selector;
+
 - (RACSignal *)listenForNotification:(NSString *)name;
 - (RACSignal *)listenForNotification:(NSString *)name
                               object:(id)object;
