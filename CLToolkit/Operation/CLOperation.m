@@ -41,6 +41,11 @@
     return self;
 }
 
+- (void)addDependency:(NSOperation *)operation {
+    if (operation)
+        [super addDependency:operation];
+}
+
 - (BOOL)isConcurrent {
     return YES;
 }
