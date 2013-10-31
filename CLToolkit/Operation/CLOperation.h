@@ -31,6 +31,7 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 @property (strong, readonly) NSError *error;
 
 @property (readonly) BOOL isPaused;
+@property (readonly) BOOL isSuccess;
 
 // Sends complete event right before operationDidStart gets called
 @property (readonly) RACSignal *willStartSignal;

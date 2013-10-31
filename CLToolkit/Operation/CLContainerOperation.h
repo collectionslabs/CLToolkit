@@ -16,6 +16,7 @@
 
 // To be overriden by subclass
 
+- (void)childOperationDidSucceed:(CLOperation *)operation;
 - (void)childOperationsDidUpdateProgress;
 - (void)childOperationsDidSucceed;
 - (void)childOperationsDidFail:(NSError *)error;

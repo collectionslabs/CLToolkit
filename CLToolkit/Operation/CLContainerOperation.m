@@ -46,7 +46,12 @@
         if (!_childOperationsStarted) {
             @weakify(self);
             [[RACSignal merge:[self.childOperationsQueue.operations map:^id(CLOperation *operation) {
-                return operation.progressSignal;
+                @weakify(operation);
+                return [operation.progressSignal doCompleted:^{
+                    @strongify(self);
+                    @strongify(operation);
+                    [self childOperationDidSucceed:operation];
+                }];
             }]] subscribeNext:^(id x) {
                 @strongify(self);
                 [self childOperationsDidUpdateProgress];
@@ -89,6 +94,7 @@
 
 // Override by subclass
 
+- (void)childOperationDidSucceed:(CLOperation *)operation { }
 - (void)childOperationsDidUpdateProgress { }
 - (void)childOperationsDidSucceed { }
 - (void)childOperationsDidFail:(NSError *)error { }

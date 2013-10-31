@@ -57,6 +57,10 @@
     return self.operationState == CLOperationStatePaused;
 }
 
+- (BOOL)isSuccess {
+    return self.operationState == CLOperationStateSucceeded;
+}
+
 - (BOOL)isFinished {
     switch (self.operationState) {
         case CLOperationStateFailed:
@@ -119,10 +123,10 @@
                     break;
                 case CLOperationStateSucceeded:
                 case CLOperationStateFailed:
-                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isPaused)];
+                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isPaused), @keypath(self, isSuccess)];
                     break;
                 case CLOperationStateCancelled:
-                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isCancelled), @keypath(self, isPaused)];
+                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isCancelled), @keypath(self, isPaused), @keypath(self, isSuccess)];
                     break;
                 default:
                     break;
@@ -198,7 +202,7 @@
                         [self cancel];
                         return;
                     default:
-                        NSParameterAssert([(CLOperation *)operation operationState] == CLOperationStateSucceeded);
+                        NSParameterAssert([(CLOperation *)operation isSuccess]);
                         break;
                 }
             }
