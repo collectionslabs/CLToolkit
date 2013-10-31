@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 
 @property (nonatomic, assign) BOOL backgroundTask; // Default = NO
 
-@property (assign, readonly) CLOperationState state;
+@property (assign, readonly) CLOperationState operationState;
 @property (assign, readonly) CGFloat progress;
 @property (strong, readonly) id result;
 @property (strong, readonly) NSError *error;

@@ -46,19 +46,19 @@
 }
 
 - (BOOL)isExecuting {
-    return self.state == CLOperationStateExecuting;
+    return self.operationState == CLOperationStateExecuting;
 }
 
 - (BOOL)isCancelled {
-    return self.state == CLOperationStateCancelled;
+    return self.operationState == CLOperationStateCancelled;
 }
 
 - (BOOL)isPaused {
-    return self.state == CLOperationStatePaused;
+    return self.operationState == CLOperationStatePaused;
 }
 
 - (BOOL)isFinished {
-    switch (self.state) {
+    switch (self.operationState) {
         case CLOperationStateFailed:
         case CLOperationStateSucceeded:
             return YES;
@@ -70,7 +70,7 @@
 }
 
 - (BOOL)isNewStateValid:(CLOperationState)newState {
-    CLOperationState currentState = self.state;
+    CLOperationState currentState = self.operationState;
     switch (currentState) {
         case CLOperationStateNotStarted:
             switch (newState) {
@@ -108,11 +108,11 @@
     }
 }
 
-- (BOOL)transitionToState:(CLOperationState)state {
+- (BOOL)transitionToOperationState:(CLOperationState)operationState {
     @synchronized(self) {
-        if ([self isNewStateValid:state]) {
+        if ([self isNewStateValid:operationState]) {
             NSArray *affectedKeys = nil;
-            switch (state) {
+            switch (operationState) {
                 case CLOperationStateExecuting:
                 case CLOperationStatePaused:
                     affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isPaused)];
@@ -127,11 +127,11 @@
                 default:
                     break;
             }
-            [self willChangeValueForKey:@keypath(self, state)];
+            [self willChangeValueForKey:@keypath(self, operationState)];
             [self willChangeValuesForKeys:affectedKeys];
-            _previousState = _state;
-            _state = state;
-            [self didChangeValueForKey:@keypath(self, state)];
+            _previousState = _operationState;
+            _operationState = operationState;
+            [self didChangeValueForKey:@keypath(self, operationState)];
             [self didChangeValuesForKeys:affectedKeys];
             return YES;
         }
@@ -158,7 +158,7 @@
 
 - (void)succeedWithResult:(id)result {
     self.result = result;
-    if ([self transitionToState:CLOperationStateSucceeded]) {
+    if ([self transitionToOperationState:CLOperationStateSucceeded]) {
         [self operationDidSucceed];
         [self operationDidFinish];
         [_progressSignal sendCompleted];
@@ -169,7 +169,7 @@
 
 - (void)failWithError:(NSError *)error {
     self.error = error;
-    if ([self transitionToState:CLOperationStateFailed]) {
+    if ([self transitionToOperationState:CLOperationStateFailed]) {
         [self operationDidFail];
         [self operationDidFinish];
         [_progressSignal sendError:error];
@@ -181,12 +181,12 @@
 // User Facing API
 
 - (void)start {
-    if ([self transitionToState:CLOperationStateExecuting]) {
+    if ([self transitionToOperationState:CLOperationStateExecuting]) {
         self.operationQueue = [NSOperationQueue currentQueue];
         // Check dependencies.
         for (NSOperation *operation in self.dependencies) {
             if ([operation isKindOfClass:[CLOperation class]]) {
-                switch ([(CLOperation *)operation state]) {
+                switch ([(CLOperation *)operation operationState]) {
                     case CLOperationStateFailed:
                         [self setDefaultErrorWithCode:-1
                                           description:$str(@"Operation %@ dependency failed %@", self, operation)];
@@ -198,7 +198,7 @@
                         [self cancel];
                         return;
                     default:
-                        NSParameterAssert([(CLOperation *)operation state] == CLOperationStateSucceeded);
+                        NSParameterAssert([(CLOperation *)operation operationState] == CLOperationStateSucceeded);
                         break;
                 }
             }
@@ -227,7 +227,7 @@
 }
 
 - (void)cancel {
-    if ([self transitionToState:CLOperationStateCancelled]) {
+    if ([self transitionToOperationState:CLOperationStateCancelled]) {
         [super cancel];
         [self setDefaultErrorWithCode:NSUserCancelledError
                           description:$str(@"Operation cancelled %@", self)];
@@ -240,12 +240,12 @@
 }
 
 - (void)pause {
-    if ([self transitionToState:CLOperationStatePaused])
+    if ([self transitionToOperationState:CLOperationStatePaused])
         [self operationDidPause];
 }
 
 - (void)resume {
-    if ([self transitionToState:CLOperationStateExecuting])
+    if ([self transitionToOperationState:CLOperationStateExecuting])
         [self operationDidResume];
 }
 
