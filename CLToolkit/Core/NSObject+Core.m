@@ -46,7 +46,10 @@
     @weakify(self);
     [[self listenForNotification:name] subscribeNext:^(NSNotification *note) {
         @strongify(self);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         [self performSelector:selector withObject:note];
+#pragma clang diagnostic pop
     }];
 }
 
