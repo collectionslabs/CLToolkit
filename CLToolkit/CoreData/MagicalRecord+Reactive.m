@@ -64,6 +64,15 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 
 @implementation NSManagedObjectContext (Reactive)
 
+- (RACSignal *)performBlockWithCompletion:(void (^)())block {
+    RACSubject *subject = [RACSubject subjectWithSelector:_cmd];
+    [self performBlock:^{
+        block();
+        [subject sendCompleted];
+    }];
+    return subject;
+}
+
 - (RACSignal *)performBlockAndSave:(void (^)())block {
     RACSubject *subject = [RACSubject subjectWithSelector:_cmd];
     [self performBlock:^{

@@ -18,6 +18,7 @@
 
 @interface NSManagedObjectContext (Reactive)
 
+- (RACSignal *)performBlockWithCompletion:(void (^)())block;
 - (RACSignal *)performBlockAndSave:(void (^)())block;
 - (RACSignal *)saveToPersistentStore;
 - (RACSignal *)saveOnlySelf;
