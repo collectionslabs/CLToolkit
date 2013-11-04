@@ -37,6 +37,8 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
 @property (readonly) RACSignal *willStartSignal;
 // Sends complete event right after operationDidStart gets called
 @property (readonly) RACSignal *didStartSignal;
+// Sends complete event right after operationDidCancel gets called
+@property (readonly) RACSignal *didCancelSignal;
 // Sends NSNumber (progress) for next, complete when finish and error when fail
 @property (readonly) RACSignal *progressSignal;
 // Sends id (result) for next, complete when finish and error when fail

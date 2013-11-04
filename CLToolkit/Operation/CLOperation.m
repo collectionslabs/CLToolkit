@@ -24,6 +24,7 @@
 @implementation CLOperation {
     RACSubject *_willStartSignal;
     RACSubject *_didStartSignal;
+    RACSubject *_didCancelSignal;
     RACSubject *_progressSignal;
     RACSubject *_resultSignal;
     CLOperationState _previousState;
@@ -34,6 +35,7 @@
         _backgroundTaskID = UIBackgroundTaskInvalid;
         _willStartSignal = [RACReplaySubject replaySubjectWithCapacity:0];
         _didStartSignal = [RACReplaySubject replaySubjectWithCapacity:0];
+        _didCancelSignal = [RACReplaySubject replaySubjectWithCapacity:0];
         _progressSignal = [RACReplaySubject replaySubjectWithCapacity:1];
         _resultSignal = [RACReplaySubject replaySubjectWithCapacity:1];
         [_progressSignal sendNext:@0];
@@ -244,6 +246,7 @@
         [self operationDidFinish];
         [_progressSignal sendError:self.error];
         [_resultSignal sendError:self.error];
+        [_didCancelSignal sendCompleted];
         [self endBackgroundTask];
     }
 }
