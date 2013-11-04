@@ -36,10 +36,18 @@
 
 - (BOOL)validateEmail;
 
++ (NSString *)XIDFromUUID:(NSString *)uuid;
++ (NSString *)UUIDFromXID:(NSString *)xid;
 + (NSString *)stringWithXID;
 + (NSString *)stringWithUUID;
 + (NSString *)randomAlphanumericWithLength:(NSUInteger)length;
 
 @end
 
+@interface NSUUID (Core)
+
+- (id)initWithXIDString:(NSString *)string;
+- (NSString *)XIDString;
+
+@end
 

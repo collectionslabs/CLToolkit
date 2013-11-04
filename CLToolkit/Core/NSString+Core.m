@@ -196,18 +196,20 @@
 
 #pragma mark Class Methods
 
++ (NSString *)UUIDFromXID:(NSString *)xid {
+    return [[[NSUUID alloc] initWithXIDString:xid] UUIDString];
+}
+
++ (NSString *)XIDFromUUID:(NSString *)uuid {
+    return [[[NSUUID alloc] initWithUUIDString:uuid] XIDString];
+}
+
 + (NSString *)stringWithXID {
-    uuid_t uuid;
-    [[NSUUID UUID] getUUIDBytes:uuid];
-    NSData *uuidData = [NSData dataWithBytes:uuid length:16];
-    return [[[[uuidData base64String] replace:@"+" with:@"-"] replace:@"/" with:@"_"] trim:@"="];
+    return [[NSUUID UUID] XIDString];
 }
 
 + (NSString *)stringWithUUID {
-    CFUUIDRef uuidObj = CFUUIDCreate(nil);//create a new UUID
-    NSString *uuid = (__bridge_transfer NSString *)CFUUIDCreateString(nil, uuidObj);
-    CFRelease(uuidObj);
-    return uuid;
+    return [[NSUUID UUID] UUIDString];
 }
 
 + (NSString *)randomAlphanumericWithLength:(NSUInteger)length {
@@ -219,6 +221,22 @@
     }
     
     return randomString;
+}
+
+@end
+
+@implementation NSUUID (Core)
+
+- (id)initWithXIDString:(NSString *)string {
+    NSData *uuidData = [NSData dataWithBase64String:[[string replace:@"_" with:@"/"] replace:@"-" with:@"+"]];
+    return [self initWithUUIDBytes:uuidData.bytes];
+}
+
+- (NSString *)XIDString {
+    uuid_t uuidBytes;
+    [self getUUIDBytes:uuidBytes];
+    NSData *uuidData = [NSData dataWithBytes:uuidBytes length:16];
+    return [[[[uuidData base64String] replace:@"+" with:@"-"] replace:@"/" with:@"_"] trim:@"="];
 }
 
 @end
