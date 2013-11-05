@@ -10,6 +10,8 @@
 #import "Operation.h"
 #import "CLOperation.h"
 
+NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
+
 @interface CLOperation ()
 
 @property (weak, readwrite) NSOperationQueue *operationQueue;
@@ -279,6 +281,7 @@
         self.backgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
             @strongify(self);
             [self backgroundTaskWillExpire];
+            [NC postNotificationName:CLOperationWillExpireNotification object:self];
             [self endBackgroundTask];
         }];
     }

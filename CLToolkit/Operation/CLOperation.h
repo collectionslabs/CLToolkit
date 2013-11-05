@@ -18,6 +18,8 @@ typedef NS_ENUM(NSInteger, CLOperationState) {
     CLOperationStateFailed,
 };
 
+extern NSString * const CLOperationWillExpireNotification;
+
 @class RACSignal;
 @interface CLOperation : NSOperation
 
