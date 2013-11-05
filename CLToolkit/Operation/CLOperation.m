@@ -174,7 +174,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
     if ([self transitionToOperationState:CLOperationStateSucceeded]) {
         [self operationDidSucceed];
         [self operationDidFinish];
-        [_progressSignal sendCompleted];
+        [_progressSignal sendNextAndComplete:@1];
         [_resultSignal sendNextAndComplete:result];
         [self endBackgroundTask];
     }
