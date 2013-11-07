@@ -157,23 +157,84 @@ void LogImage(IMAGE_CLASS *image);
 
 /************************ Logging *************************/
 
-// Redefine to have 5 logging levels, Error, Warn, Info, Debug, and Verbose
+// Undefine everything defined by DDLog
+#undef LOG_FLAG_ERROR
+#undef LOG_FLAG_WARN
+#undef LOG_FLAG_INFO
 #undef LOG_FLAG_VERBOSE
+
+#undef LOG_LEVEL_OFF
+#undef LOG_LEVEL_ERROR
+#undef LOG_LEVEL_WARN
+#undef LOG_LEVEL_INFO
 #undef LOG_LEVEL_VERBOSE
+
+#undef LOG_ERROR
+#undef LOG_WARN
+#undef LOG_INFO
 #undef LOG_VERBOSE
+
+#undef LOG_ASYNC_ERROR
+#undef LOG_ASYNC_WARN
+#undef LOG_ASYNC_INFO
 #undef LOG_ASYNC_VERBOSE
 
-#define LOG_FLAG_DEBUG    (1 << 3)  // 0...1000
-#define LOG_FLAG_VERBOSE  (1 << 4)  // 0..10000
+#undef DDLogError
+#undef DDLogWarn
+#undef DDLogInfo
+#undef DDLogVerbose
 
-#define LOG_LEVEL_DEBUG   (LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG)  // 0...1111
-#define LOG_LEVEL_VERBOSE (LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG | LOG_FLAG_VERBOSE) // 0..11111
+#undef DDLogCError
+#undef DDLogCWarn
+#undef DDLogCInfo
+#undef DDLogCVerbose
 
-#define LOG_DEBUG   (ddLogLevel & LOG_FLAG_DEBUG)
-#define LOG_VERBOSE (ddLogLevel & LOG_FLAG_VERBOSE)
+// Define our own log levels, following log4j conventions with 6 levels: Fatal, Error, Warn, Info, Debug and Trace
+#define LOG_FLAG_FATAL    (1 << 0)  // 0......1
+#define LOG_FLAG_ERROR    (1 << 1)  // 0.....10
+#define LOG_FLAG_WARN     (1 << 2)  // 0....100
+#define LOG_FLAG_INFO     (1 << 3)  // 0...1000
+#define LOG_FLAG_DEBUG    (1 << 4)  // 0..10000
+#define LOG_FLAG_TRACE    (1 << 5)  // 0.100000
 
+#define LOG_LEVEL_OFF     0
+#define LOG_LEVEL_FATAL   (LOG_FLAG_FATAL)                                                                                   // 0......1
+#define LOG_LEVEL_ERROR   (LOG_FLAG_FATAL | LOG_FLAG_ERROR)                                                                  // 0.....11
+#define LOG_LEVEL_WARN    (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN)                                                  // 0....111
+#define LOG_LEVEL_INFO    (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO)                                  // 0...1111
+#define LOG_LEVEL_DEBUG   (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG)                 // 0..11111
+#define LOG_LEVEL_TRACE   (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG |LOG_FLAG_TRACE) // 0.111111
+
+#define LOG_FATAL   (kLogLevel & LOG_FLAG_FATAL)
+#define LOG_ERROR   (kLogLevel & LOG_FLAG_ERROR)
+#define LOG_WARN    (kLogLevel & LOG_FLAG_WARN)
+#define LOG_INFO    (kLogLevel & LOG_FLAG_INFO)
+#define LOG_DEBUG   (kLogLevel & LOG_FLAG_DEBUG)
+#define LOG_TRACE   (kLogLevel & LOG_FLAG_TRACE)
+
+#define LOG_ASYNC_FATAL   ( NO && LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_ERROR   ( NO && LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_WARN    (YES && LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_INFO    (YES && LOG_ASYNC_ENABLED)
 #define LOG_ASYNC_DEBUG   (YES && LOG_ASYNC_ENABLED)
-#define LOG_ASYNC_VERBOSE (YES && LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_TRACE   (YES && LOG_ASYNC_ENABLED)
+
+#define LogFatal(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_FATAL,   kLogLevel, LOG_FLAG_FATAL,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogError(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_ERROR,   kLogLevel, LOG_FLAG_ERROR,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogWarn(frmt, ...)     LOG_OBJC_TAG_MAYBE(LOG_ASYNC_WARN,    kLogLevel, LOG_FLAG_WARN,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogInfo(frmt, ...)     LOG_OBJC_TAG_MAYBE(LOG_ASYNC_INFO,    kLogLevel, LOG_FLAG_INFO,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogDebug(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_DEBUG,   kLogLevel, LOG_FLAG_DEBUG,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogTrace(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_TRACE,   kLogLevel, LOG_FLAG_TRACE,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+
+#define LogFatal(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_FATAL,   kLogLevel, LOG_FLAG_FATAL,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCError(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_ERROR,      kLogLevel, LOG_FLAG_ERROR,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCWarn(frmt, ...)    LOG_C_TAG_MAYBE(LOG_ASYNC_WARN,       kLogLevel, LOG_FLAG_WARN,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCInfo(frmt, ...)    LOG_C_TAG_MAYBE(LOG_ASYNC_INFO,       kLogLevel, LOG_FLAG_INFO,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCDebug(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_DEBUG,      kLogLevel, LOG_FLAG_DEBUG,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCTrace(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_TRACE,      kLogLevel, LOG_FLAG_TRACE,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+
+// Generic logging statement for ease of one time use, count as ERROR! Also has a context of -1 to allow formatters / loggers to catch problem
+#define Log(frmt, ...)         LOG_OBJC_TAG_MAYBE(LOG_ASYNC_INFO,    kLogLevel, LOG_FLAG_INFO, -1, kLogTag, frmt, ##__VA_ARGS__)
 
 // Default to DEBUG level when debugging, INFO otherwise
 #ifdef DEBUG
@@ -184,22 +245,6 @@ void LogImage(IMAGE_CLASS *image);
 // Default to nil tag and 0 context
 #define kLogTag nil
 #define kLogContext 0
-
-// Macros for actually performing the logging
-#define LogError(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_ERROR,   kLogLevel, LOG_FLAG_ERROR,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-#define LogWarn(frmt, ...)     LOG_OBJC_TAG_MAYBE(LOG_ASYNC_WARN,    kLogLevel, LOG_FLAG_WARN,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-#define LogInfo(frmt, ...)     LOG_OBJC_TAG_MAYBE(LOG_ASYNC_INFO,    kLogLevel, LOG_FLAG_INFO,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-#define LogDebug(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_DEBUG,   kLogLevel, LOG_FLAG_DEBUG,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-#define LogVerbose(frmt, ...)  LOG_OBJC_TAG_MAYBE(LOG_ASYNC_VERBOSE, kLogLevel, LOG_FLAG_VERBOSE, kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-
-#define LogCError(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_ERROR,   kLogLevel, LOG_FLAG_ERROR,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-#define LogCWarn(frmt, ...)    LOG_C_TAG_MAYBE(LOG_ASYNC_WARN,    kLogLevel, LOG_FLAG_WARN,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-#define LogCInfo(frmt, ...)    LOG_C_TAG_MAYBE(LOG_ASYNC_INFO,    kLogLevel, LOG_FLAG_INFO,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-#define LogCDebug(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_DEBUG,   kLogLevel, LOG_FLAG_DEBUG,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-#define LogCVerbose(frmt, ...) LOG_C_TAG_MAYBE(LOG_ASYNC_VERBOSE, kLogLevel, LOG_FLAG_VERBOSE, kLogContext, kLogTag, frmt, ##__VA_ARGS__)
-
-// Generic logging statement for ease of one time use, count as ERROR! Also has a context of -1 to allow formatters / loggers to catch problem
-#define Log(frmt, ...)         LOG_OBJC_TAG_MAYBE(LOG_ASYNC_ERROR, kLogLevel, LOG_FLAG_ERROR, -1, kLogTag, frmt, ##__VA_ARGS__)
 
 // Extended Image logging support from NSLogger
 #define MAX_LOGIMAGE_DIMENSION 64.0

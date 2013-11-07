@@ -49,7 +49,7 @@
 
 - (void)application:(APPLICATION_CLASS *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     [_remoteNotificationRegistration sendError:error];
-    // LogError(@"Failed to register for remote notification %@", error);
+    LogError(@"Failed to register for remote notification %@", error);
 }
 
 - (void)application:(APPLICATION_CLASS *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
