@@ -676,7 +676,7 @@
 		EA89866C179919AF00594A3E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Collections Labs, Inc.";
 			};
 			buildConfigurationList = EA89866F179919AF00594A3E /* Build configuration list for PBXProject "CLToolkit" */;
@@ -916,7 +916,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
@@ -954,7 +953,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

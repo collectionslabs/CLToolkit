@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
+#import <NSLogger/LoggerClient.h>
 #import "Core.h"
 
 NSURL *AppTempDir(void) {
@@ -80,16 +81,7 @@ NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors) {
     };
 }
 
-// Global Logging and assertion support
-
-void Log(NSString *format, ...) {
-#if DEBUG
-	va_list args;
-	va_start(args, format);
-    LogMessageTo_va(NULL, nil, 0, format, args);
-	va_end(args);
-#endif
-}
+// Logging Image Support
 
 void LogImage(IMAGE_CLASS *image) {
 #if DEBUG

@@ -36,7 +36,7 @@
 #import <BlocksKit/BlocksKit.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <libextobjc/EXTScope.h>
-#import <NSLogger/LoggerClient.h>
+#import <CocoaLumberjack/DDLog.h>
 
 #import "NSObject+Core.h"
 #import "NSString+Core.h"
@@ -72,17 +72,11 @@ void LogImage(IMAGE_CLASS *image);
 #if DEBUG
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
     #define PLIST_WRITING_OPTIONS NSPropertyListMutableContainersAndLeaves
-    #define MAX_LOGIMAGE_DIMENSION 64.0
 
     #define AssertMainThread()       NSAssert([NSThread isMainThread], @"%s must be called from the main thread", __FUNCTION__)
 #else
     #define JSON_WRITING_OPTIONS 0
     #define PLIST_WRITING_OPTIONS 0
-
-    #define LogMarker(...)
-    #define LoggerFlush(...)
-    #define LoggerSetViewerHost(...) 
-
     #define AssertMainThread()
 #endif
 
@@ -160,5 +154,56 @@ void LogImage(IMAGE_CLASS *image);
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 #define IS_PHONE    (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 #define IS_IN_BACKGROUND ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
+
+/************************ Logging *************************/
+
+// Redefine to have 5 logging levels, Error, Warn, Info, Debug, and Verbose
+#undef LOG_FLAG_VERBOSE
+#undef LOG_LEVEL_VERBOSE
+#undef LOG_VERBOSE
+#undef LOG_ASYNC_VERBOSE
+
+#define LOG_FLAG_DEBUG    (1 << 3)  // 0...1000
+#define LOG_FLAG_VERBOSE  (1 << 4)  // 0..10000
+
+#define LOG_LEVEL_DEBUG   (LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG)  // 0...1111
+#define LOG_LEVEL_VERBOSE (LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG | LOG_FLAG_VERBOSE) // 0..11111
+
+#define LOG_DEBUG   (ddLogLevel & LOG_FLAG_DEBUG)
+#define LOG_VERBOSE (ddLogLevel & LOG_FLAG_VERBOSE)
+
+#define LOG_ASYNC_DEBUG   (YES && LOG_ASYNC_ENABLED)
+#define LOG_ASYNC_VERBOSE (YES && LOG_ASYNC_ENABLED)
+
+// Default to DEBUG level when debugging, INFO otherwise
+#ifdef DEBUG
+    #define kLogLevel LOG_LEVEL_DEBUG
+#else
+    #define kLogLevel LOG_LEVEL_INFO
+#endif
+// Default to nil tag and 0 context
+#define kLogTag nil
+#define kLogContext 0
+
+// Macros for actually performing the logging
+#define LogError(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_ERROR,   kLogLevel, LOG_FLAG_ERROR,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogWarn(frmt, ...)     LOG_OBJC_TAG_MAYBE(LOG_ASYNC_WARN,    kLogLevel, LOG_FLAG_WARN,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogInfo(frmt, ...)     LOG_OBJC_TAG_MAYBE(LOG_ASYNC_INFO,    kLogLevel, LOG_FLAG_INFO,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogDebug(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_DEBUG,   kLogLevel, LOG_FLAG_DEBUG,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogVerbose(frmt, ...)  LOG_OBJC_TAG_MAYBE(LOG_ASYNC_VERBOSE, kLogLevel, LOG_FLAG_VERBOSE, kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+
+#define LogCError(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_ERROR,   kLogLevel, LOG_FLAG_ERROR,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCWarn(frmt, ...)    LOG_C_TAG_MAYBE(LOG_ASYNC_WARN,    kLogLevel, LOG_FLAG_WARN,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCInfo(frmt, ...)    LOG_C_TAG_MAYBE(LOG_ASYNC_INFO,    kLogLevel, LOG_FLAG_INFO,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCDebug(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_DEBUG,   kLogLevel, LOG_FLAG_DEBUG,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCVerbose(frmt, ...) LOG_C_TAG_MAYBE(LOG_ASYNC_VERBOSE, kLogLevel, LOG_FLAG_VERBOSE, kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+
+// Generic logging statement for ease of one time use, count as ERROR! Also has a context of -1 to allow formatters / loggers to catch problem
+#define Log(frmt, ...)         LOG_OBJC_TAG_MAYBE(LOG_ASYNC_ERROR, kLogLevel, LOG_FLAG_ERROR, -1, kLogTag, frmt, ##__VA_ARGS__)
+
+// Extended Image logging support from NSLogger
+#define MAX_LOGIMAGE_DIMENSION 64.0
+void LogImage(IMAGE_CLASS *image);
+
 
 #endif

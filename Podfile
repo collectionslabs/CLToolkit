@@ -10,19 +10,20 @@ link_with []
 target :ios do
   platform :ios, '6.0'
   link_with 'CLToolkit-ios'
-  pod 'NSLogger'
-  pod 'Base64'
-  pod 'BlocksKit'
+  pod 'CocoaLumberjack', '~> 1.6.2'
+  pod 'NSLogger', '~> 1.1'
+  pod 'Base64', '~> 1.0.1'
+  pod 'BlocksKit', '~> 1.8.3'
   pod 'AFNetworking', '~> 2.0.1', :inhibit_warnings => true
-  pod 'ConciseKit'
-  pod 'MagicalRecord', :inhibit_warnings => true
+  pod 'ConciseKit', '~> 0.1.2'
+  pod 'MagicalRecord', '~> 2.2', :inhibit_warnings => true
   pod 'libextobjc', '~> 0.3'
   pod 'ReactiveCocoa', '~> 2.1'
-  pod 'ISO8601DateFormatter'
-  pod 'Firebase'
+  pod 'ISO8601DateFormatter', '~> 0.7'
+  pod 'Firebase', '~> 1.0.7'
   pod 'Kiwi', :inhibit_warnings => true
-  pod 'Masonry'
-  pod 'NSHash'
+  pod 'Masonry', '~> 0.3.0'
+  pod 'NSHash', '~> 1.0.1'
   pod 'AFDownloadRequestOperation', :path => '~/Code/HappyBits/AFDownloadRequestOperation'
 
   pod 'AWSRuntime/S3', '1.5.0.head', :inhibit_warnings => true # From Collections/Podspecs
@@ -32,17 +33,18 @@ end
 target :osx do
   platform :osx, '10.8'
   link_with 'CLToolkit-osx'
-  pod 'NSLogger'
-  pod 'Base64'
-  pod 'BlocksKit'
-  pod 'AFNetworking'
-  pod 'ConciseKit'
-  pod 'MagicalRecord'
-  pod 'ReactiveCocoa'
-  pod 'ISO8601DateFormatter'
+  pod 'CocoaLumberjack', '~> 1.6.2'
+  pod 'NSLogger', '~> 1.1'
+  pod 'Base64', '~> 1.0.1'
+  pod 'BlocksKit', '~> 1.8.3'
+  pod 'AFNetworking', '~> 2.0.1', :inhibit_warnings => true
+  pod 'ConciseKit', '~> 0.1.2'
+  pod 'MagicalRecord', '~> 2.2', :inhibit_warnings => true
+  pod 'ReactiveCocoa', '~> 2.1'
+  pod 'ISO8601DateFormatter', '~> 0.7'
   pod 'Kiwi'
-  # pod 'Masonry' # TODO: no reason masonry is not os x compatible...
-  pod 'NSHash'
+  # pod 'Masonry', '~> 0.3.0' # TODO: no reason masonry is not os x compatible...
+  pod 'NSHash', '~> 1.0.1'
 
   pod 'AWSRuntime/S3', '1.5.0.head' # From Collections/Podspecs
   pod 'FirebaseMac', '1.0.1' # From Collections/Podspecs
