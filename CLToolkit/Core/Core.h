@@ -233,9 +233,6 @@ void LogImage(IMAGE_CLASS *image);
 #define LogCDebug(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_DEBUG,      kLogLevel, LOG_FLAG_DEBUG,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
 #define LogCTrace(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_TRACE,      kLogLevel, LOG_FLAG_TRACE,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
 
-// Generic logging statement for ease of one time use, count as ERROR! Also has a context of -1 to allow formatters / loggers to catch problem
-#define Log(frmt, ...)         LOG_OBJC_TAG_MAYBE(LOG_ASYNC_INFO,    kLogLevel, LOG_FLAG_INFO, -1, kLogTag, frmt, ##__VA_ARGS__)
-
 // Default to DEBUG level when debugging, INFO otherwise
 #ifdef DEBUG
     #define kLogLevel LOG_LEVEL_DEBUG
