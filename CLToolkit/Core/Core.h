@@ -226,7 +226,7 @@ void LogImage(IMAGE_CLASS *image);
 #define LogDebug(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_DEBUG,   kLogLevel, LOG_FLAG_DEBUG,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
 #define LogTrace(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_TRACE,   kLogLevel, LOG_FLAG_TRACE,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
 
-#define LogFatal(frmt, ...)    LOG_OBJC_TAG_MAYBE(LOG_ASYNC_FATAL,   kLogLevel, LOG_FLAG_FATAL,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
+#define LogCFatal(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_FATAL,      kLogLevel, LOG_FLAG_FATAL,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
 #define LogCError(frmt, ...)   LOG_C_TAG_MAYBE(LOG_ASYNC_ERROR,      kLogLevel, LOG_FLAG_ERROR,   kLogContext, kLogTag, frmt, ##__VA_ARGS__)
 #define LogCWarn(frmt, ...)    LOG_C_TAG_MAYBE(LOG_ASYNC_WARN,       kLogLevel, LOG_FLAG_WARN,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
 #define LogCInfo(frmt, ...)    LOG_C_TAG_MAYBE(LOG_ASYNC_INFO,       kLogLevel, LOG_FLAG_INFO,    kLogContext, kLogTag, frmt, ##__VA_ARGS__)
