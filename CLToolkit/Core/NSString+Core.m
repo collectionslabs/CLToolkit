@@ -35,7 +35,7 @@
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionDotMatchesLineSeparators error:&error];
     if(regex == nil) {
-        Log(@"-- %@", error);
+        LogTrace(@"-- %@", error);
         return nil;
     }
     
@@ -62,7 +62,7 @@
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
     if(regex == nil) {
-        Log(@"-- %@", error);
+        LogTrace(@"-- %@", error);
         return NO;
     }
     
