@@ -73,26 +73,11 @@ void LogImage(IMAGE_CLASS *image);
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
     #define PLIST_WRITING_OPTIONS NSPropertyListMutableContainersAndLeaves
     #define MAX_LOGIMAGE_DIMENSION 64.0
-    #define _BARE_FILE_NAME [[[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lastPathComponent] stringByDeletingPathExtension]
-    // TODO: make tag optional and definable via static str
-    #define LogCritical(...)    LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 0, __VA_ARGS__)
-    #define LogError(...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 1, __VA_ARGS__)
-    #define LogWarning(...)     LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 2, __VA_ARGS__)
-    #define LogInfo(...)        LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 3, __VA_ARGS__)
-    #define LogDebug(...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 4, __VA_ARGS__)
-    #define LogTrace(...)       LogMessageF(__FILE__, __LINE__, __FUNCTION__, _BARE_FILE_NAME, 5, __VA_ARGS__)
 
     #define AssertMainThread()       NSAssert([NSThread isMainThread], @"%s must be called from the main thread", __FUNCTION__)
 #else
     #define JSON_WRITING_OPTIONS 0
     #define PLIST_WRITING_OPTIONS 0
-
-    #define LogCritical(...)
-    #define LogError(...)
-    #define LogWarning(...)
-    #define LogInfo(...)
-    #define LogDebug(...)
-    #define LogTrace(...)
 
     #define LogMarker(...)
     #define LoggerFlush(...)
@@ -162,5 +147,18 @@ void LogImage(IMAGE_CLASS *image);
         _sharedObject = block(); \
     }); \
     return _sharedObject; \
+
+// credits to : https://gist.github.com/mwaterfall/953657
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+#define RUNNING_IOS7 SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")
+
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define IS_PHONE    (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IN_BACKGROUND ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
 
 #endif
