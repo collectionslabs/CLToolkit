@@ -50,7 +50,7 @@
     if (self.isFault && self.managedObjectContext) {
         [_onFaultWillFire sendNext:self];
         [super willAccessValueForKey:key];
-        NSAssert(self.isFault, @"Should not be fault at this point");
+        NSAssert(!self.isFault, @"Should not be fault at this point");
         [_onFaultDidFire sendNext:self];
     } else {
         [super willAccessValueForKey:key];
