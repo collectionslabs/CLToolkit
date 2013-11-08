@@ -33,25 +33,25 @@
 
 - (void)willSave {
     [super willSave];
-    [_onWillSave sendNext:nil];
+    [_onWillSave sendNext:self];
 }
 
 - (void)didSave {
     [super didSave];
-    [_onDidSave sendNext:nil];
+    [_onDidSave sendNext:self];
 }
 
 - (void)prepareForDeletion {
     [super prepareForDeletion];
-    [_onPrepareDelete sendNext:nil];
+    [_onPrepareDelete sendNext:self];
 }
 
 - (void)willAccessValueForKey:(NSString *)key {
     if (self.isFault && self.managedObjectContext) {
-        [_onFaultWillFire sendNext:nil];
+        [_onFaultWillFire sendNext:self];
         [super willAccessValueForKey:key];
         NSAssert(self.isFault, @"Should not be fault at this point");
-        [_onFaultDidFire sendNext:nil];
+        [_onFaultDidFire sendNext:self];
     } else {
         [super willAccessValueForKey:key];
     }
@@ -65,12 +65,12 @@
 
 - (void)willTurnIntoFault {
     [super willTurnIntoFault];
-    [_onWillTurnIntoFault sendNext:nil];
+    [_onWillTurnIntoFault sendNext:self];
 }
 
 - (void)didTurnIntoFault {
     [super didTurnIntoFault];
-    [_onDidTurnIntoFault sendNext:nil];
+    [_onDidTurnIntoFault sendNext:self];
 }
 
 - (void)awakeFromFetch {
