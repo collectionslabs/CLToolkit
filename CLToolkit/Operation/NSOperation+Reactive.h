@@ -14,3 +14,9 @@
 @property (nonatomic, readonly) RACSignal *completionSignal;
 
 @end
+
+@interface NSOperationQueue (CLToolkit)
+
+- (id)initWithConcurrency:(NSUInteger)concurrency;
+
+@end

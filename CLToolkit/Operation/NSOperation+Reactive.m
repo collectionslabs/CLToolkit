@@ -36,3 +36,13 @@
 }
 
 @end
+
+@implementation NSOperationQueue (CLToolkit)
+
+- (id)initWithConcurrency:(NSUInteger)concurrency {
+    if (self = [self init])
+        self.maxConcurrentOperationCount = concurrency;
+    return self;
+}
+
+@end

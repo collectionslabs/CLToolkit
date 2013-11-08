@@ -197,11 +197,11 @@
 #pragma mark Class Methods
 
 + (NSString *)UUIDFromXID:(NSString *)xid {
-    return [[[NSUUID alloc] initWithXIDString:xid] UUIDString];
+    return xid ? [[[NSUUID alloc] initWithXIDString:xid] UUIDString] : nil;
 }
 
 + (NSString *)XIDFromUUID:(NSString *)uuid {
-    return [[[NSUUID alloc] initWithUUIDString:uuid] XIDString];
+    return uuid ? [[[NSUUID alloc] initWithUUIDString:uuid] XIDString] : nil;
 }
 
 + (NSString *)stringWithXID {
