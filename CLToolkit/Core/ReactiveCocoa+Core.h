@@ -32,6 +32,7 @@
 - (RACDisposable *)subscribeCompleted:(void (^)(void))completedBlock error:(void (^)(NSError *error))errorBlock;
 - (RACDisposable *)subscribeCompletedOrError:(void (^)(NSError *errorOrNil))block;
 
+- (RACSignal *)retryWithBackoffSchedule:(RACSequence *)backoffSchedule;
 
 + (RACSignal *)delay:(NSTimeInterval)seconds;
 
@@ -43,6 +44,13 @@
 + (instancetype)subjectWithName:(NSString *)name;
 + (instancetype)subjectWithSelector:(SEL)selector;
 + (instancetype)subjectWithClassSelector:(SEL)selector;
+
+@end
+
+@interface RACSequence (Core)
+
+// Typically used in exponential backoff algorithms
++ (instancetype)exponentialSequenceWithStart:(NSInteger)start multiplier:(NSInteger)multiplier;
 
 @end
 

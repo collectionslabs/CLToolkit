@@ -100,6 +100,24 @@
     }];
 }
 
+- (RACSignal *)retryWithBackoffSchedule:(RACSequence *)backoffSchedule {
+    return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        __block RACSequence *intervals = backoffSchedule;
+        RACDisposable *retryDisposable = [[[self catch:^(NSError *error) {
+            if (intervals != nil) {
+                NSTimeInterval interval = [intervals.head doubleValue];
+                intervals = intervals.tail;
+                return [[[RACSignal empty] delay:interval] concat:[RACSignal error:error]];
+            } else {
+                [subscriber sendError:error];
+                [retryDisposable dispose];
+                return [RACSignal error:error];
+            }
+        }] retry] subscribe:subscriber];
+        return retryDisposable;
+    }];
+}
+
 + (RACSignal *)delay:(NSTimeInterval)seconds {
     return [[RACSignal interval:seconds onScheduler:[RACScheduler currentScheduler]] take:1];
 }
@@ -111,6 +129,18 @@
 - (instancetype)autoDispose:(id)linkedObject {
     [[linkedObject rac_deallocDisposable] addDisposable:self];
     return self;
+}
+
+@end
+
+@implementation RACSequence (Core)
+
++ (instancetype)exponentialSequenceWithStart:(NSInteger)start multiplier:(NSInteger)multiplier {
+    return [self sequenceWithHeadBlock:^id{
+        return @(start);
+    } tailBlock:^RACSequence *{
+        return [self exponentialSequenceWithStart:start*multiplier multiplier:multiplier];
+    }];
 }
 
 @end
