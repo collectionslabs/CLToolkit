@@ -46,6 +46,11 @@ NSString *SystemVersion(void) {
 }
 #endif
 
+NSString *AppName(void) {
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:kCFBundleNameKey]
+        ?: [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+}
+
 NSString *AppVersion(void) {
     NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     if (!version.length)

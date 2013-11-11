@@ -55,6 +55,7 @@ NSURL *AppDataDir(void);
 #if !TARGET_OS_IPHONE
 NSString *SystemVersion(void);
 #endif
+NSString *AppName(void);
 NSString *AppVersion(void);
 NSInteger AppBuildNumber(void);
 
