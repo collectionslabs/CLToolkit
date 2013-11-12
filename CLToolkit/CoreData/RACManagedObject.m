@@ -47,14 +47,15 @@
 }
 
 - (void)willAccessValueForKey:(NSString *)key {
-    if (self.isFault && self.managedObjectContext) {
-        [_onFaultWillFire sendNext:self];
+//    TODO: This logic doesn't work if key isn't a CoreData attribute / relationship. Need to check for key match model attrs. 
+//    if (self.isFault && self.managedObjectContext) {
+//        [_onFaultWillFire sendNext:self];
+//        [super willAccessValueForKey:key];
+//        NSAssert(!self.isFault, @"Should not be fault at this point");
+//        [_onFaultDidFire sendNext:self];
+//    } else {
         [super willAccessValueForKey:key];
-        NSAssert(!self.isFault, @"Should not be fault at this point");
-        [_onFaultDidFire sendNext:self];
-    } else {
-        [super willAccessValueForKey:key];
-    }
+//    }
     [_onWillAccessValue sendNext:key];
 }
 

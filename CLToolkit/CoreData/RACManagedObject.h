@@ -15,8 +15,8 @@
 - (RACSignal *)onWillSave;
 - (RACSignal *)onDidSave;
 - (RACSignal *)onPrepareDelete;
-- (RACSignal *)onFaultWillFire;
-- (RACSignal *)onFaultDidFire;
+//- (RACSignal *)onFaultWillFire;
+//- (RACSignal *)onFaultDidFire;
 - (RACSignal *)onWillTurnIntoFault;
 - (RACSignal *)onDidTurnIntoFault;
 
