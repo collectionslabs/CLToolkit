@@ -68,8 +68,6 @@ NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors);
 void Log(NSString *format, ...);
 void LogImage(IMAGE_CLASS *image);
 
-#define DEBUG 1
-
 #if DEBUG
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
     #define PLIST_WRITING_OPTIONS NSPropertyListMutableContainersAndLeaves
