@@ -50,6 +50,7 @@
 
 NSURL *AppTempDir(void);
 NSURL *AppCacheDir(void);
+NSURL *AppDocumentsDirectory(void);
 NSURL *AppDataDir(void);
 
 #if !TARGET_OS_IPHONE

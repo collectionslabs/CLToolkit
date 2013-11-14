@@ -9,6 +9,7 @@
 #import <NSLogger/LoggerClient.h>
 #import "Core.h"
 
+
 NSURL *AppTempDir(void) {
     return [NSURL fileURLWithPath:NSTemporaryDirectory()];
 }
@@ -19,6 +20,11 @@ NSURL *AppCacheDir(void) {
     NSURL *appCacheDir = [cacheDir URLByAppendingPathComponent:APP_IDENTIFIER];
     [fm createDirectoryAtURL:appCacheDir withIntermediateDirectories:YES attributes:nil error:NULL];
     return appCacheDir;
+}
+
+NSURL *AppDocumentsDirectory(void) {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [NSURL fileURLWithPath:paths.firstObject];
 }
 
 NSURL *AppDataDir(void) {
