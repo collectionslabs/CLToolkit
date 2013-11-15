@@ -11,6 +11,8 @@
 @interface RACSignal (Kiwi)
 
 - (KWFutureObject *)kwFuture;
-- (KWFutureObject *)kwFutureDefault:(id)defaultValue;
+- (KWFutureObject *)kwFutureWithDefault:(id)defaultValue;
+- (KWFutureObject *)kwCompletionFuture;
+- (KWFutureObject *)kwErrorFuture;
 
 @end
