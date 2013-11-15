@@ -85,4 +85,7 @@ extern NSString * const CLOperationWillExpireNotification;
 - (void)applicationDidEnterBackground:(NSNotification *)note;
 - (void)applicationWillEnterForeground:(NSNotification *)note;
 
+- (NSString *)name;
+- (instancetype)setName:(NSString *)name;
+
 @end

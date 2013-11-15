@@ -30,6 +30,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
     RACSubject *_progressSignal;
     RACSubject *_resultSignal;
     CLOperationState _previousState;
+    NSString *_name;
 }
 
 - (id)init {
@@ -303,6 +304,22 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 - (void)applicationDidEnterBackground:(NSNotification *)note { }
 
 - (void)applicationWillEnterForeground:(NSNotification *)note { }
+
+// Debugging
+- (NSString *)name {
+    return _name;
+}
+
+- (instancetype)setName:(NSString *)name {
+    _name = name;
+    return self;
+}
+
+- (NSString *)description {
+    if (!self.name)
+        return [super description];
+    return $str(@"<%@ [%@]: %p>", [self class], self.name, self);
+}
 
 @end
 
