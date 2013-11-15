@@ -8,6 +8,14 @@
 
 #import "RACSignal+Kiwi.h"
 
+@implementation NSObject (KiwiDealloc)
+
+- (KWFutureObject *)kwDeallocFuture {
+    return [self.rac_willDeallocSignal kwCompletionFuture];
+}
+
+@end
+
 @implementation RACSignal (Kiwi)
 
 - (KWFutureObject *)kwFuture {

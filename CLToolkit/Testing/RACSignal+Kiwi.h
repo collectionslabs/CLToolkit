@@ -8,6 +8,12 @@
 
 #import "Testing.h"
 
+@interface NSObject (KiwiDealloc)
+
+- (KWFutureObject *)kwDeallocFuture;
+
+@end
+
 @interface RACSignal (Kiwi)
 
 - (KWFutureObject *)kwFuture;
