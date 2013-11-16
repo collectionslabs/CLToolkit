@@ -10,6 +10,10 @@
 
 @interface CLContainerOperation : CLOperation
 
+
+@property (strong, readonly) NSOperationQueue *childOperationsQueue;
+
+
 - (void)addChildOperation:(CLOperation *)operation;
 - (void)addChildOperations:(NSArray *)operations;
 - (void)startChildOperations;

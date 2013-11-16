@@ -77,6 +77,9 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
         case CLOperationStateSucceeded:
             return YES;
         case CLOperationStateCancelled:
+            // TODO: This means a cancelled operation will never be finished
+            // until it is started. This isn't a problem when using operation together
+            // with queue, but could be a big problem otherwise
             return _previousState != CLOperationStateNotStarted;
         default:
             return NO;
@@ -148,6 +151,15 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
             [self didChangeValueForKey:@keypath(self, operationState)];
             [self didChangeValuesForKeys:affectedKeys];
             return YES;
+        }
+        // Workaround for the NSOperationQueue finish without being started by queue bug
+        // allows the operation to finish right after getting started if it was cancelled
+        if (_previousState == CLOperationStateNotStarted
+            && _operationState == CLOperationStateCancelled
+            && operationState == CLOperationStateExecuting) {
+            [self willChangeValueForKey:@keypath(self, isFinished)];
+            _previousState = CLOperationStateExecuting;
+            [self didChangeValueForKey:@keypath(self, isFinished)];
         }
         return NO;
     }

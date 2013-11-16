@@ -9,13 +9,6 @@
 #import "Operation.h"
 #import "CLContainerOperation.h"
 
-
-@interface CLContainerOperation ()
-
-@property (strong, readonly) NSOperationQueue *childOperationsQueue;
-
-@end
-
 @implementation CLContainerOperation {
     BOOL _childOperationsStarted;
 }
@@ -26,6 +19,11 @@
         [_childOperationsQueue setSuspended:YES];
     }
     return self;
+}
+
+- (void)dealloc {
+    [_childOperationsQueue cancelAllOperations];
+    [_childOperationsQueue setSuspended:NO];
 }
 
 - (void)addChildOperation:(CLOperation *)operation {
@@ -71,7 +69,7 @@
 - (void)cancel {
     [super cancel];
     if (self.isCancelled) {
-        [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(cancel)];
+        [self.childOperationsQueue cancelAllOperations];
         [self.childOperationsQueue setSuspended:NO];
     }
 }
