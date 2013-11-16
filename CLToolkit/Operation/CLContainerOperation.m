@@ -67,27 +67,24 @@
 }
 
 - (void)cancel {
+    // TODO: Check can cancel here
+    [self.childOperationsQueue cancelAllOperations];
+    [self.childOperationsQueue setSuspended:NO];
     [super cancel];
-    if (self.isCancelled) {
-        [self.childOperationsQueue cancelAllOperations];
-        [self.childOperationsQueue setSuspended:NO];
-    }
 }
 
 - (void)pause {
+    // TODO: Check can pause here
+    [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(pause)];
+    [self.childOperationsQueue setSuspended:YES];
     [super pause];
-    if (self.isPaused) {
-        [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(pause)];
-        [self.childOperationsQueue setSuspended:YES];
-    }
 }
 
 - (void)resume {
+    // TODO: Check can resume here
+    [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(resume)];
+    [self.childOperationsQueue setSuspended:NO];
     [super resume];
-    if (self.isExecuting) {
-        [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(resume)];
-        [self.childOperationsQueue setSuspended:NO];
-    }
 }
 
 // Override by subclass
