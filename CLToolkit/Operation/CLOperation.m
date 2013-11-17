@@ -329,8 +329,8 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 
 - (NSString *)description {
     if (!self.name)
-        return [super description];
-    return $str(@"<%@ [%@]: %p>", [self class], self.name, self);
+        return $str(@"<%@ [state: %d]: %p>", [self class], self.operationState, self);
+    return $str(@"<%@ [%@] [state: %d]: %p>", [self class], self.name, self.operationState, self);
 }
 
 @end

@@ -74,15 +74,15 @@
 }
 
 - (void)pause {
-    // TODO: Check can pause here
-    [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(pause)];
+    // TODO: Pause is really not that simple
+//    [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(pause)];
     [self.childOperationsQueue setSuspended:YES];
     [super pause];
 }
 
 - (void)resume {
-    // TODO: Check can resume here
-    [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(resume)];
+    // TODO: Resume is really not that simple, we accidentally start unstarted operations here
+//    [self.childOperationsQueue.operations makeObjectsPerformSelector:@selector(resume)];
     [self.childOperationsQueue setSuspended:NO];
     [super resume];
 }

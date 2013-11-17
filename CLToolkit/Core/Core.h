@@ -199,12 +199,12 @@ void LogImage(IMAGE_CLASS *image);
 #define LOG_FLAG_TRACE    (1 << 5)  // 0.100000
 
 #define LOG_LEVEL_OFF     0
-#define LOG_LEVEL_FATAL   (LOG_FLAG_FATAL)                                                                                   // 0......1
-#define LOG_LEVEL_ERROR   (LOG_FLAG_FATAL | LOG_FLAG_ERROR)                                                                  // 0.....11
-#define LOG_LEVEL_WARN    (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN)                                                  // 0....111
-#define LOG_LEVEL_INFO    (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO)                                  // 0...1111
-#define LOG_LEVEL_DEBUG   (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG)                 // 0..11111
-#define LOG_LEVEL_TRACE   (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG |LOG_FLAG_TRACE) // 0.111111
+#define LOG_LEVEL_FATAL   (LOG_FLAG_FATAL)                                                                                    // 0......1
+#define LOG_LEVEL_ERROR   (LOG_FLAG_FATAL | LOG_FLAG_ERROR)                                                                   // 0.....11
+#define LOG_LEVEL_WARN    (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN)                                                   // 0....111
+#define LOG_LEVEL_INFO    (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO)                                   // 0...1111
+#define LOG_LEVEL_DEBUG   (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG)                  // 0..11111
+#define LOG_LEVEL_TRACE   (LOG_FLAG_FATAL | LOG_FLAG_ERROR | LOG_FLAG_WARN | LOG_FLAG_INFO | LOG_FLAG_DEBUG | LOG_FLAG_TRACE) // 0.111111
 
 #define LOG_FATAL   (kLogLevel & LOG_FLAG_FATAL)
 #define LOG_ERROR   (kLogLevel & LOG_FLAG_ERROR)
