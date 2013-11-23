@@ -53,6 +53,8 @@ extern NSString * const CLOperationWillExpireNotification;
  * may or may not be a desired behavior. We'll see.
  */
 
+- (BOOL)canTransitionToOperationState:(CLOperationState)newState;
+
 // Called by user of operation
 
 - (void)start;

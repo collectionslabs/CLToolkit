@@ -86,7 +86,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
     }
 }
 
-- (BOOL)isNewStateValid:(CLOperationState)newState {
+- (BOOL)canTransitionToOperationState:(CLOperationState)newState {
     CLOperationState currentState = self.operationState;
     switch (currentState) {
         case CLOperationStateNotStarted:
@@ -127,7 +127,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 
 - (BOOL)transitionToOperationState:(CLOperationState)operationState {
     @synchronized(self) {
-        if ([self isNewStateValid:operationState]) {
+        if ([self canTransitionToOperationState:operationState]) {
             NSArray *affectedKeys = nil;
             switch (operationState) {
                 case CLOperationStateExecuting:

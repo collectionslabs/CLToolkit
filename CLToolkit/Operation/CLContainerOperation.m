@@ -45,21 +45,39 @@
             @weakify(self);
             [[RACSignal merge:[self.childOperationsQueue.operations map:^id(CLOperation *operation) {
                 @weakify(operation);
-                return [operation.progressSignal doCompleted:^{
+                // Watch State
+                [RACObserve(operation, operationState) subscribeNext:^(NSNumber *state) {
                     @strongify(self);
                     @strongify(operation);
-                    [self childOperationDidSucceed:operation];
+                    CLOperationState operationState = state.longValue;
+                    switch (operationState) {
+                        case CLOperationStateExecuting:
+                            [self childOperationDidStart:operation];
+                            break;
+                        case CLOperationStateSucceeded:
+                            [self childOperationDidSucceed:operation];
+                            break;
+                        case CLOperationStateCancelled:
+                            [self childOperationDidCancel:operation];
+                            break;
+                        case CLOperationStateFailed:
+                            [self childOperation:operation didFailWithError:operation.error];
+                        default:
+                            break;
+                    }
                 }];
-            }]] subscribeNext:^(id x) {
+                // Watch Progress
+                return [operation.progressSignal doNext:^(NSNumber *progress) {
+                    @strongify(self);
+                    @strongify(operation);
+                    [self childOperation:operation didUpdateProgress:progress.doubleValue];
+                }];
+            }]] subscribeCompleted:^{
+                // Watch for all completion
                 @strongify(self);
-                [self childOperationsDidUpdateProgress];
-            } completed:^{
-                @strongify(self);
-                [self childOperationsDidSucceed];
-            } error:^(NSError *error) {
-                @strongify(self);
-                [self childOperationsDidFail:error];
+                [self allChildOperationsSucceeded];
             }];
+            
             [self.childOperationsQueue setSuspended:NO];
             _childOperationsStarted = YES;
         }
@@ -89,9 +107,12 @@
 
 // Override by subclass
 
+- (void)childOperationDidStart:(CLOperation *)operation { }
 - (void)childOperationDidSucceed:(CLOperation *)operation { }
-- (void)childOperationsDidUpdateProgress { }
-- (void)childOperationsDidSucceed { }
-- (void)childOperationsDidFail:(NSError *)error { }
+- (void)childOperationDidCancel:(CLOperation *)operation { }
+- (void)childOperation:(CLOperation *)operation didUpdateProgress:(CGFloat)progress { }
+- (void)childOperation:(CLOperation *)operation didFailWithError:(NSError *)error { }
+
+- (void)allChildOperationsSucceeded { }
 
 @end
