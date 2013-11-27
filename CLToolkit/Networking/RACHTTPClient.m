@@ -81,7 +81,7 @@ static char kHTTPOperation;
 	NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
                                                                    URLString:absoluteURL
                                                                   parameters:parameters];
-    [request setHTTPHeaders:headers];
+    [request overrideHTTPHeaders:headers];
     return [self enqueueRequest:request];
 }
 

@@ -17,8 +17,7 @@
 
 @interface NSMutableURLRequest (CLToolkit)
 
-- (void)removeHTTPHeaderForKey:(NSString *)key;
-- (void)setHTTPHeaders:(NSDictionary *)headers;
+- (void)overrideHTTPHeaders:(NSDictionary *)headers;
 - (void)setAuthorizationHeader:(NSString *)auth;
 
 @end

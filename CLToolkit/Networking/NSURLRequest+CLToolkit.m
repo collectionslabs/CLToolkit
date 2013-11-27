@@ -12,7 +12,7 @@
 
 - (NSMutableURLRequest *)requestByOverridingHeaders:(NSDictionary *)headers {
     NSMutableURLRequest * newRequest = [self mutableCopy];
-    [newRequest setHTTPHeaders:headers];
+    [newRequest overrideHTTPHeaders:headers];
     return newRequest;
 }
 
@@ -24,26 +24,14 @@
 
 @implementation NSMutableURLRequest (CLToolkit)
 
-- (void)removeHTTPHeaderForKey:(NSString *)key {
-    NSMutableDictionary *headers = [[self allHTTPHeaderFields] mutableCopy];
-    if ([headers objectForKey:key]) {
-        [headers removeObjectForKey:key];
-        [self setAllHTTPHeaderFields:headers];
-    }
-}
-
-- (void)setHTTPHeaders:(NSDictionary *)newHeaders {
-    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
-    [headers addEntriesFromDictionary:[self allHTTPHeaderFields]];
-    [headers addEntriesFromDictionary:newHeaders];
-    [self setAllHTTPHeaderFields:headers];
+- (void)overrideHTTPHeaders:(NSDictionary *)newHeaders {
+    [newHeaders enumerateKeysAndObjectsUsingBlock:^(NSString *header, NSString *value, BOOL *stop) {
+        [self setValue:value forHTTPHeaderField:header];
+    }];
 }
 
 - (void)setAuthorizationHeader:(NSString *)auth {
-    if (auth)
-        [self setHTTPHeaders:@{@"Authorization": auth}];
-    else
-        [self removeHTTPHeaderForKey:@"Authorization"];
+    [self setValue:auth forHTTPHeaderField:@"Authorization"];
 }
 
 @end
