@@ -39,18 +39,17 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 
 + (RACSignal *)rac_saveWithBlock:(void (^)(NSManagedObjectContext *))block onQueue:(NSOperationQueue *)queue {
     @weakify(self);
-    CLBlockOperation *operation = [[CLBlockOperation alloc] init];
-    [operation setDidStartBlock:^(CLBlockOperation *operation) {
+    RACSubject *subject = [RACSubject subject];
+    [queue addOperation:[NSBlockOperation blockOperationWithBlock:^{
         @strongify(self);
         [self saveWithBlock:block completion:^(BOOL success, NSError *error) {
-            if (success) {
-                [operation succeedWithResult:nil];
-            } else {
-                [operation failWithError:error];
-            }
+            if (success)
+                [subject sendCompleted];
+            else
+                [subject sendError:error];
         }];
-    }];
-    return [operation completionSignal];
+    }]];
+    return subject;
 }
 
 + (RACSignal *)rac_saveUsingCurrentThreadContextWithBlock:(void (^)(NSManagedObjectContext *localContext))block {

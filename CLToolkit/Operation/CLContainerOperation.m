@@ -54,14 +54,12 @@
                         case CLOperationStateExecuting:
                             [self childOperationDidStart:operation];
                             break;
-                        case CLOperationStateSucceeded:
-                            [self childOperationDidSucceed:operation];
+                        case CLOperationStateFinished:
+                            if (operation.isSuccess)
+                                [self childOperationDidSucceed:operation];
+                            else
+                                [self childOperation:operation didFailWithError:operation.error];
                             break;
-                        case CLOperationStateCancelled:
-                            [self childOperationDidCancel:operation];
-                            break;
-                        case CLOperationStateFailed:
-                            [self childOperation:operation didFailWithError:operation.error];
                         default:
                             break;
                     }
@@ -109,7 +107,6 @@
 
 - (void)childOperationDidStart:(CLOperation *)operation { }
 - (void)childOperationDidSucceed:(CLOperation *)operation { }
-- (void)childOperationDidCancel:(CLOperation *)operation { }
 - (void)childOperation:(CLOperation *)operation didUpdateProgress:(CGFloat)progress { }
 - (void)childOperation:(CLOperation *)operation didFailWithError:(NSError *)error { }
 

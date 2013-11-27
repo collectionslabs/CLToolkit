@@ -9,41 +9,38 @@
 #import "Operation.h"
 #import "CLBlockOperation.h"
 
+@interface CLBlockOperation ()
+
+@property (copy) RACSignal *(^taskSignalBlock)(void);
+
+@end
+
 @implementation CLBlockOperation
 
 - (void)operationDidStart {
-    if (self.didStartBlock)
-        self.didStartBlock(self);
+    NSParameterAssert(self.taskSignalBlock);
+    RACSignal *taskSignal = self.taskSignalBlock();
+    NSParameterAssert(taskSignal);
+    @weakify(self);
+    [[taskSignal subscribeNext:^(id x) {
+        @strongify(self);
+        self.result = x;
+    } completed:^{
+        @strongify(self);
+        [self finishWithSuccess];
+    } error:^(NSError *error) {
+        @strongify(self);
+        [self finishWithError:error];
+    }] autoDispose:self];
 }
 
-- (void)operationDidPause {
-    if (self.didPauseBlock)
-        self.didPauseBlock(self);
-}
-
-- (void)operationDidResume {
-    if (self.didResumeBlock)
-        self.didResumeBlock(self);
-}
-
-- (void)operationDidCancel {
-    if (self.didCancelBlock)
-        self.didCancelBlock(self);
-}
-
-- (void)operationDidFail {
-    if (self.didFailBlock)
-        self.didFailBlock(self);
-}
-
-- (void)operationDidSucceed {
-    if (self.didSucceedBlock)
-        self.didSucceedBlock(self);
-}
-
-- (void)operationDidFinish {
-    if (self.didFinishBlock)
-        self.didFinishBlock(self);
++ (instancetype)operationWithTaskBlock:(id (^)(NSError *__autoreleasing *))taskBlock {
+    NSParameterAssert(taskBlock);
+    return [self operationWithTaskSignalBlock:^RACSignal *{
+        NSError *error = nil;
+        id result = taskBlock(&error);
+        return error ? [RACSignal error:error] : [RACSignal return:result];
+    }];
 }
 
 + (instancetype)operationWithTaskSignal:(RACSignal *)taskSignal {
@@ -55,25 +52,9 @@
 
 + (instancetype)operationWithTaskSignalBlock:(RACSignal *(^)(void))taskSignalBlock {
     NSParameterAssert(taskSignalBlock);
-    CLBlockOperation *operation = [[CLBlockOperation alloc] init];
-    __block RACDisposable *disposable;
-    [operation setDidStartBlock:^(CLBlockOperation *operation) {
-        __block id result = nil;
-        RACSignal *taskSignal = taskSignalBlock();
-        NSParameterAssert(taskSignal);
-        disposable = [taskSignal subscribeNext:^(id x) {
-            result = x;
-        } completed:^{
-            [operation succeedWithResult:result];
-        } error:^(NSError *error) {
-            [operation failWithError:error];
-        }];
-    }];
-    [operation setDidCancelBlock:^(CLBlockOperation *operation) {
-        [disposable dispose];
-    }];
+    CLBlockOperation *operation = [[self alloc] init];
+    operation.taskSignalBlock = taskSignalBlock;
     return operation;
-
 }
 
 @end

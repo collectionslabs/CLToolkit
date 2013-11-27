@@ -22,7 +22,6 @@
 
 - (void)childOperationDidStart:(CLOperation *)operation;
 - (void)childOperationDidSucceed:(CLOperation *)operation;
-- (void)childOperationDidCancel:(CLOperation *)operation;
 - (void)childOperation:(CLOperation *)operation didUpdateProgress:(CGFloat)progress;
 - (void)childOperation:(CLOperation *)operation didFailWithError:(NSError *)error;
 

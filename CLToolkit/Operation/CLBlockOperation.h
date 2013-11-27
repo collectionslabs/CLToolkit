@@ -8,20 +8,12 @@
 
 #import "CLOperation.h"
 
-@class CLBlockOperation, RACSignal;
-typedef void (^CLBlockOperationBlock)(CLBlockOperation *operation);
-
+@class RACSignal;
 @interface CLBlockOperation : CLOperation
 
-// Block implementation instead of subclass implmentation of operation lifetime
-@property (copy) CLBlockOperationBlock didStartBlock;
-@property (copy) CLBlockOperationBlock didPauseBlock;
-@property (copy) CLBlockOperationBlock didResumeBlock;
-@property (copy) CLBlockOperationBlock didCancelBlock;
-@property (copy) CLBlockOperationBlock didFailBlock;
-@property (copy) CLBlockOperationBlock didSucceedBlock;
-@property (copy) CLBlockOperationBlock didFinishBlock;
+@property (nonatomic, strong) id result;
 
++ (instancetype)operationWithTaskBlock:(id(^)(NSError **error))taskBlock;
 + (instancetype)operationWithTaskSignal:(RACSignal *)taskSignal;
 + (instancetype)operationWithTaskSignalBlock:(RACSignal *(^)(void))taskSignalBlock;
 

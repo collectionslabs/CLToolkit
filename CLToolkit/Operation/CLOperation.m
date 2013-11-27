@@ -19,29 +19,23 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 @property (assign, readwrite) CGFloat progress;
 @property (strong, readwrite) id result;
 @property (strong, readwrite) NSError *error;
+
+@property (assign, readwrite) BOOL isPaused;
+@property (assign, readwrite) BOOL isSuccess;
+
 @property (assign) UIBackgroundTaskIdentifier backgroundTaskID;
 
 @end
 
 @implementation CLOperation {
-    RACSubject *_willStartSignal;
-    RACSubject *_didStartSignal;
-    RACSubject *_didCancelSignal;
     RACSubject *_progressSignal;
-    RACSubject *_resultSignal;
-    CLOperationState _previousState;
     NSString *_name;
 }
 
 - (id)init {
     if (self = [super init]) {
         _backgroundTaskID = UIBackgroundTaskInvalid;
-        _willStartSignal = [RACReplaySubject replaySubjectWithCapacity:0];
-        _didStartSignal = [RACReplaySubject replaySubjectWithCapacity:0];
-        _didCancelSignal = [RACReplaySubject replaySubjectWithCapacity:0];
         _progressSignal = [RACReplaySubject replaySubjectWithCapacity:1];
-        _resultSignal = [RACReplaySubject replaySubjectWithCapacity:1];
-        [_progressSignal sendNext:@0];
     }
     return self;
 }
@@ -59,31 +53,8 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
     return self.operationState == CLOperationStateExecuting;
 }
 
-- (BOOL)isCancelled {
-    return self.operationState == CLOperationStateCancelled;
-}
-
-- (BOOL)isPaused {
-    return self.operationState == CLOperationStatePaused;
-}
-
-- (BOOL)isSuccess {
-    return self.operationState == CLOperationStateSucceeded;
-}
-
 - (BOOL)isFinished {
-    switch (self.operationState) {
-        case CLOperationStateFailed:
-        case CLOperationStateSucceeded:
-            return YES;
-        case CLOperationStateCancelled:
-            // TODO: This means a cancelled operation will never be finished
-            // until it is started. This isn't a problem when using operation together
-            // with queue, but could be a big problem otherwise
-            return _previousState != CLOperationStateNotStarted;
-        default:
-            return NO;
-    }
+    return self.operationState == CLOperationStateFinished;
 }
 
 - (BOOL)canTransitionToOperationState:(CLOperationState)newState {
@@ -92,85 +63,41 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
         case CLOperationStateNotStarted:
             switch (newState) {
                 case CLOperationStateExecuting:
-                case CLOperationStateCancelled:
+                case CLOperationStateFinished:
                     return YES;
                 default:
                     return NO;
             }
         case CLOperationStateExecuting:
-            switch (newState) {
-                case CLOperationStatePaused:
-                case CLOperationStateCancelled:
-                case CLOperationStateSucceeded:
-                case CLOperationStateFailed:
-                    return YES;
-                default:
-                    return NO;
-            }
-        case CLOperationStatePaused:
-            // Allow succeeded and failed for operations that doesn't support pause
-            switch (newState) {
-                case CLOperationStateExecuting:
-                case CLOperationStateCancelled:
-                case CLOperationStateSucceeded:
-                case CLOperationStateFailed:
-                    return YES;
-                default:
-                    return NO;
-            }
-        case CLOperationStateSucceeded:
-        case CLOperationStateFailed:
-        case CLOperationStateCancelled:
+            return newState == CLOperationStateFinished;
+        default:
             return NO;
     }
 }
 
-- (BOOL)transitionToOperationState:(CLOperationState)operationState {
+- (BOOL)transitionToOperationState:(CLOperationState)operationState withBlock:(void(^)(void))block {
     @synchronized(self) {
         if ([self canTransitionToOperationState:operationState]) {
             NSArray *affectedKeys = nil;
             switch (operationState) {
                 case CLOperationStateExecuting:
-                case CLOperationStatePaused:
-                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isPaused)];
+                case CLOperationStateNotStarted:
+                    affectedKeys = @[@keypath(self, isExecuting)];
                     break;
-                case CLOperationStateSucceeded:
-                case CLOperationStateFailed:
-                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isPaused), @keypath(self, isSuccess)];
-                    break;
-                case CLOperationStateCancelled:
-                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished), @keypath(self, isCancelled), @keypath(self, isPaused), @keypath(self, isSuccess)];
-                    break;
-                default:
+                case CLOperationStateFinished:
+                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished)];
                     break;
             }
             [self willChangeValueForKey:@keypath(self, operationState)];
             [self willChangeValuesForKeys:affectedKeys];
-            _previousState = _operationState;
             _operationState = operationState;
+            if (block)
+                block();
             [self didChangeValueForKey:@keypath(self, operationState)];
             [self didChangeValuesForKeys:affectedKeys];
             return YES;
         }
-        // Workaround for the NSOperationQueue finish without being started by queue bug
-        // allows the operation to finish right after getting started if it was cancelled
-        if (_previousState == CLOperationStateNotStarted
-            && _operationState == CLOperationStateCancelled
-            && operationState == CLOperationStateExecuting) {
-            [self willChangeValueForKey:@keypath(self, isFinished)];
-            _previousState = CLOperationStateExecuting;
-            [self didChangeValueForKey:@keypath(self, isFinished)];
-        }
         return NO;
-    }
-}
-
-- (void)setDefaultErrorWithCode:(NSInteger)code description:(NSString *)description {
-    @synchronized(self) {
-        if (!self.error)
-            self.error = [NSError errorWithDomain:@"CLOperation"
-                                             code:code
-                                         userInfo:@{NSLocalizedDescriptionKey: description}];
     }
 }
 
@@ -182,94 +109,89 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
     [_progressSignal sendNext:@(progress)];
 }
 
-- (void)succeedWithResult:(id)result {
-    self.result = result;
-    if ([self transitionToOperationState:CLOperationStateSucceeded]) {
-        [self operationDidSucceed];
+- (void)finishWithSuccess:(BOOL)success error:(NSError *)error {
+    NSParameterAssert(!(success && error));
+    [self transitionToOperationState:CLOperationStateFinished withBlock:^{
+        self.isSuccess = success;
+        self.error = error;
+        if (success) {
+            [self operationDidSucceed];
+            [self updateProgress:1];
+            [_progressSignal sendCompleted];
+        } else {
+            [self operationDidFail];
+            [_progressSignal sendError:error];
+        }
         [self operationDidFinish];
-        [_progressSignal sendNextAndComplete:@1];
-        [_resultSignal sendNextAndComplete:result];
         [self endBackgroundTask];
-    }
+    }];
 }
 
-- (void)failWithError:(NSError *)error {
-    self.error = error;
-    if ([self transitionToOperationState:CLOperationStateFailed]) {
-        [self operationDidFail];
-        [self operationDidFinish];
-        [_progressSignal sendError:error];
-        [_resultSignal sendError:error];
-        [self endBackgroundTask];
-    }
+- (void)finishWithSuccess {
+    [self finishWithSuccess:YES error:nil];
+}
+
+- (void)finishWithError:(NSError *)error {
+    [self finishWithSuccess:NO error:error];
 }
 
 // User Facing API
 
 - (void)start {
-    if ([self transitionToOperationState:CLOperationStateExecuting]) {
+    [self transitionToOperationState:CLOperationStateExecuting withBlock:^{
         self.operationQueue = [NSOperationQueue currentQueue];
         // Check dependencies.
         for (NSOperation *operation in self.dependencies) {
-            if ([operation isKindOfClass:[CLOperation class]]) {
-                switch ([(CLOperation *)operation operationState]) {
-                    case CLOperationStateFailed:
-                    case CLOperationStateCancelled:
-                        [self setDefaultErrorWithCode:NSUserCancelledError
-                                          description:$str(@"Operation %@ dependency did not succeed %@", self, operation)];
-                        [self cancel];
-                        return;
-                    default:
-                        NSParameterAssert([(CLOperation *)operation isSuccess]);
-                        break;
-                }
+            if ([operation isKindOfClass:[CLOperation class]] && ![(CLOperation *)operation isSuccess]) {
+                NSError *error = [NSError errorWithDomain:@"CLOperation"
+                                                     code:NSUserCancelledError
+                                                 userInfo:@{
+                    NSLocalizedDescriptionKey: $str(@"Operation %@ dependency did not succeed %@", self, operation)}];
+                [self finishWithError:error];
+                return;
             }
         }
-        [_willStartSignal sendCompleted];
         [self updateProgress:0];
         [self operationDidStart];
-        [_didStartSignal sendCompleted];
         
         if (self.backgroundTask) {
             @weakify(self);
             [[[self listenForNotification:UIApplicationDidEnterBackgroundNotification]
-              takeUntil:[self.resultSignal materialize]] subscribeNext:^(NSNotification *note) {
+              takeUntil:[[self.progressSignal ignoreValues] materialize]] subscribeNext:^(NSNotification *note) {
                 @strongify(self);
                 [self beginBackgroundTask];
                 [self applicationDidEnterBackground:note];
             }];
             [[[self listenForNotification:UIApplicationWillEnterForegroundNotification]
-             takeUntil:[self.resultSignal materialize]] subscribeNext:^(NSNotification *note) {
+              takeUntil:[[self.progressSignal ignoreValues] materialize]] subscribeNext:^(NSNotification *note) {
                 @strongify(self);
                 [self endBackgroundTask];
                 [self applicationWillEnterForeground:note];
             }];
         }
-    }
+    }];
 }
 
 - (void)cancel {
-    if ([self transitionToOperationState:CLOperationStateCancelled]) {
+    if (!self.isCancelled) {
         [super cancel];
-        [self setDefaultErrorWithCode:NSUserCancelledError
-                          description:$str(@"Operation cancelled %@", self)];
         [self operationDidCancel];
-        [self operationDidFinish];
-        [_progressSignal sendError:self.error];
-        [_resultSignal sendError:self.error];
-        [_didCancelSignal sendCompleted];
         [self endBackgroundTask];
     }
 }
 
 - (void)pause {
-    if ([self transitionToOperationState:CLOperationStatePaused])
+    if (!self.isPaused) {
+        self.isPaused = YES;
         [self operationDidPause];
+    }
 }
 
 - (void)resume {
-    if ([self transitionToOperationState:CLOperationStateExecuting])
+    if (self.isPaused) {
+        self.isPaused = NO;
         [self operationDidResume];
+    }
 }
 
 // Subclass Stubs

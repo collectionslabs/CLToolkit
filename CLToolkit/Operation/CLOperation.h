@@ -10,12 +10,9 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, CLOperationState) {
-    CLOperationStateNotStarted = 0,
+    CLOperationStateNotStarted, // All operations start off not started
     CLOperationStateExecuting,
-    CLOperationStatePaused,
-    CLOperationStateCancelled,
-    CLOperationStateSucceeded,
-    CLOperationStateFailed,
+    CLOperationStateFinished // Finish does not imply success, check isSuccess flag
 };
 
 extern NSString * const CLOperationWillExpireNotification;
@@ -28,33 +25,25 @@ extern NSString * const CLOperationWillExpireNotification;
 @property (nonatomic, assign) BOOL backgroundTask; // Default = NO
 
 @property (assign, readonly) CLOperationState operationState;
+@property (assign, readonly) BOOL isPaused;
+
 @property (assign, readonly) CGFloat progress;
-@property (strong, readonly) id result;
+@property (assign, readonly) BOOL isSuccess;
 @property (strong, readonly) NSError *error;
 
-@property (readonly) BOOL isPaused;
-@property (readonly) BOOL isSuccess;
-
-// Sends complete event right before operationDidStart gets called
-@property (readonly) RACSignal *willStartSignal;
-// Sends complete event right after operationDidStart gets called
-@property (readonly) RACSignal *didStartSignal;
-// Sends complete event right after operationDidCancel gets called
-@property (readonly) RACSignal *didCancelSignal;
-// Sends NSNumber (progress) for next, complete when finish and error when fail
+// Progress signal is very versatile
+// Sends @0 right before operationDidStart
+// Sends @1 followed by complete when operation succeeds
+// Sends error when operation fails
 @property (readonly) RACSignal *progressSignal;
-// Sends id (result) for next, complete when finish and error when fail
-@property (readonly) RACSignal *resultSignal;
 
-/* Cancelling and pausing
- * Calling cancel and pause will change the state of the operation immediately
- * It is up to the implementor of the operation to check isCancelled / implement
- * operationDidCancel and wind itself down as soon as possible. This 
- * may or may not be a desired behavior. We'll see.
- */
+// Cancel, pause and resume are optioncally supported by subclasses
 
-- (BOOL)canTransitionToOperationState:(CLOperationState)newState;
+// To handle cancel, either check the isCancelled flag at a regular interval
+// or override operationDidCancel method. Must call finishWithSuccess:error: to
+// mark cancellation is complete and thus remove operation from queue
 
+// To handle pause, either override operationDidPause or check isPaused flag
 // Called by user of operation
 
 - (void)start;
@@ -65,9 +54,9 @@ extern NSString * const CLOperationWillExpireNotification;
 // Called by sublcass / implementors of operation only
 
 - (void)updateProgress:(CGFloat)progress;
-
-- (void)succeedWithResult:(id)result;
-- (void)failWithError:(NSError *)error;
+- (void)finishWithSuccess;
+- (void)finishWithError:(NSError *)error;
+- (void)finishWithSuccess:(BOOL)success error:(NSError *)error;
 
 // No-op implementations that should be overriden by subclasses
 
@@ -77,8 +66,7 @@ extern NSString * const CLOperationWillExpireNotification;
 - (void)operationDidCancel;
 - (void)operationDidFail;
 - (void)operationDidSucceed;
-- (void)operationDidFinish; // Finish = sum of cancel, fail, succeed
-
+- (void)operationDidFinish; // Finish = sum of fail + succeed
 
 // Background Task & App Life Cycle
 // Life cycle notifications will only be sent if backgroundTask = YES
