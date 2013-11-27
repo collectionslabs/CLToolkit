@@ -214,13 +214,9 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
             if ([operation isKindOfClass:[CLOperation class]]) {
                 switch ([(CLOperation *)operation operationState]) {
                     case CLOperationStateFailed:
-                        [self setDefaultErrorWithCode:-1
-                                          description:$str(@"Operation %@ dependency failed %@", self, operation)];
-                        [self failWithError:self.error];
-                        return;
                     case CLOperationStateCancelled:
                         [self setDefaultErrorWithCode:NSUserCancelledError
-                                          description:$str(@"Operation %@ dependency cancelled %@", self, operation)];
+                                          description:$str(@"Operation %@ dependency did not succeed %@", self, operation)];
                         [self cancel];
                         return;
                     default:
