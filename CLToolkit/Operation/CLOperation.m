@@ -29,7 +29,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 
 @implementation CLOperation {
     RACSubject *_progressSignal;
-    NSRecursiveLock *_lock;
+    NSRecursiveLock *_privateLock;
     NSString *_name;
 }
 
@@ -37,7 +37,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
     if (self = [super init]) {
         _backgroundTaskID = UIBackgroundTaskInvalid;
         _progressSignal = [RACReplaySubject replaySubjectWithCapacity:1];
-        _lock = [[NSRecursiveLock alloc] init];
+        _privateLock = [[NSRecursiveLock alloc] init];
     }
     return self;
 }
@@ -78,7 +78,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 }
 
 - (BOOL)transitionToOperationState:(CLOperationState)operationState withBlock:(void(^)(void))block {
-    [_lock lock];
+    [_privateLock lock];
     if ([self canTransitionToOperationState:operationState]) {
         NSArray *affectedKeys = nil;
         switch (operationState) {
@@ -97,10 +97,10 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
             block();
         [self didChangeValueForKey:@keypath(self, operationState)];
         [self didChangeValuesForKeys:affectedKeys];
-        [_lock unlock];
+        [_privateLock unlock];
         return YES;
     }
-    [_lock unlock];
+    [_privateLock unlock];
     return NO;
 }
 
@@ -210,7 +210,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 // Background task
 
 - (void)beginBackgroundTask {
-    [_lock lock];
+    [_privateLock lock];
     @weakify(self);
     self.backgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         @strongify(self);
@@ -218,16 +218,16 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
         [NC postNotificationName:CLOperationWillExpireNotification object:self];
         [self endBackgroundTask];
     }];
-    [_lock unlock];
+    [_privateLock unlock];
 }
 
 - (void)endBackgroundTask {
-    [_lock lock];
+    [_privateLock lock];
     if (self.backgroundTaskID != UIBackgroundTaskInvalid) {
         [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskID];
         self.backgroundTaskID = UIBackgroundTaskInvalid;
     }
-    [_lock unlock];
+    [_privateLock unlock];
 }
 
 - (void)backgroundTaskWillExpire { }
