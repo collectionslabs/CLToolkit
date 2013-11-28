@@ -29,6 +29,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 
 @implementation CLOperation {
     RACSubject *_progressSignal;
+    NSRecursiveLock *_lock;
     NSString *_name;
 }
 
@@ -36,6 +37,7 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
     if (self = [super init]) {
         _backgroundTaskID = UIBackgroundTaskInvalid;
         _progressSignal = [RACReplaySubject replaySubjectWithCapacity:1];
+        _lock = [[NSRecursiveLock alloc] init];
     }
     return self;
 }
@@ -76,29 +78,30 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 }
 
 - (BOOL)transitionToOperationState:(CLOperationState)operationState withBlock:(void(^)(void))block {
-    @synchronized(self) {
-        if ([self canTransitionToOperationState:operationState]) {
-            NSArray *affectedKeys = nil;
-            switch (operationState) {
-                case CLOperationStateExecuting:
-                case CLOperationStateNotStarted:
-                    affectedKeys = @[@keypath(self, isExecuting)];
-                    break;
-                case CLOperationStateFinished:
-                    affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished)];
-                    break;
-            }
-            [self willChangeValueForKey:@keypath(self, operationState)];
-            [self willChangeValuesForKeys:affectedKeys];
-            _operationState = operationState;
-            if (block)
-                block();
-            [self didChangeValueForKey:@keypath(self, operationState)];
-            [self didChangeValuesForKeys:affectedKeys];
-            return YES;
+    [_lock lock];
+    if ([self canTransitionToOperationState:operationState]) {
+        NSArray *affectedKeys = nil;
+        switch (operationState) {
+            case CLOperationStateExecuting:
+            case CLOperationStateNotStarted:
+                affectedKeys = @[@keypath(self, isExecuting)];
+                break;
+            case CLOperationStateFinished:
+                affectedKeys = @[@keypath(self, isExecuting), @keypath(self, isFinished)];
+                break;
         }
-        return NO;
+        [self willChangeValueForKey:@keypath(self, operationState)];
+        [self willChangeValuesForKeys:affectedKeys];
+        _operationState = operationState;
+        if (block)
+            block();
+        [self didChangeValueForKey:@keypath(self, operationState)];
+        [self didChangeValuesForKeys:affectedKeys];
+        [_lock unlock];
+        return YES;
     }
+    [_lock unlock];
+    return NO;
 }
 
 // For use by sublcass
@@ -207,24 +210,24 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 // Background task
 
 - (void)beginBackgroundTask {
-    @synchronized(self) {
-        @weakify(self);
-        self.backgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-            @strongify(self);
-            [self backgroundTaskWillExpire];
-            [NC postNotificationName:CLOperationWillExpireNotification object:self];
-            [self endBackgroundTask];
-        }];
-    }
+    [_lock lock];
+    @weakify(self);
+    self.backgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        @strongify(self);
+        [self backgroundTaskWillExpire];
+        [NC postNotificationName:CLOperationWillExpireNotification object:self];
+        [self endBackgroundTask];
+    }];
+    [_lock unlock];
 }
 
 - (void)endBackgroundTask {
-    @synchronized(self) {
-        if (self.backgroundTaskID != UIBackgroundTaskInvalid) {
-            [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskID];
-            self.backgroundTaskID = UIBackgroundTaskInvalid;
-        }
+    [_lock lock];
+    if (self.backgroundTaskID != UIBackgroundTaskInvalid) {
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTaskID];
+        self.backgroundTaskID = UIBackgroundTaskInvalid;
     }
+    [_lock unlock];
 }
 
 - (void)backgroundTaskWillExpire { }
