@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.1.0'
+  s.version      =  '0.1.1'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }
@@ -23,13 +23,13 @@ Pod::Spec.new do |s|
     ss.osx.framework = 'Cocoa'
     ss.ios.framework = 'UIKit'
     
-    ss.dependency 'Base64'
-    ss.dependency 'ConciseKit'
-    ss.dependency 'BlocksKit'
+    ss.dependency 'Base64', '~> 1.0.1'
+    ss.dependency 'ConciseKit', '~> 0.1.2'
+    ss.dependency 'BlocksKit', '~> 1.8.3'
     ss.dependency 'libextobjc', '~> 0.3'
     ss.dependency 'ReactiveCocoa', '~> 2.1'
-    ss.dependency 'NSLogger'
-    ss.dependency 'ISO8601DateFormatter'
+    ss.dependency 'NSLogger', '~> 1.1'
+    ss.dependency 'ISO8601DateFormatter', '~> 0.7'
 
   end
   
@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
     
     ss.dependency 'CLToolkit/Core'
     ss.dependency 'AFNetworking', '~> 2.0'
-    ss.dependency 'Base64'
+    ss.dependency 'Base64', '~> 1.0.1'
   end
   
   s.subspec 'Operation' do |ss|
@@ -53,8 +53,8 @@ Pod::Spec.new do |s|
     
     ss.dependency 'CLToolkit/Core'
     ss.dependency 'CLToolkit/Operation'
-    ss.dependency 'MagicalRecord'
-    ss.dependency 'Base64'
+    ss.dependency 'MagicalRecord', '~> 2.2'
+    ss.dependency 'Base64', '~> 1.0.1'
   end
   
   s.subspec 'Firebase' do |ss|
@@ -62,8 +62,8 @@ Pod::Spec.new do |s|
 
     ss.dependency     'CLToolkit/Core'
     ss.dependency     'CLToolkit/CoreData'
-    ss.osx.dependency 'FirebaseMac'
-    ss.ios.dependency 'Firebase'
+    ss.osx.dependency 'FirebaseMac', '~> 1.0.1'
+    ss.ios.dependency 'Firebase', '~> 1.0.7'
 
     ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Firebase"' }
   end
@@ -79,14 +79,14 @@ Pod::Spec.new do |s|
 
     ss.osx.frameworks = 'Quartz'
     ss.dependency 'CLToolkit/Core'
-    ss.dependency 'NSHash'
+    ss.dependency 'NSHash', '~> 1.0.1'
   end
 
   s.subspec 'Testing' do |ss|
     ss.source_files   = 'CLToolkit/Testing/**/*.{h,m,mm,c}'
 
     # ss.dependency 'CLToolkit/Core'
-    ss.dependency 'Kiwi/XCTest'
+    ss.dependency 'Kiwi/XCTest', '~> 2.2'
 
     ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => 
       '$(inherited) "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"' }
