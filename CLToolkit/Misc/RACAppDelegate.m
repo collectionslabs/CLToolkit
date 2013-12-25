@@ -34,9 +34,9 @@
 
 - (RACSignal *)registerForAllRemoteNotifications {
 #if TARGETING_IOS
-    UIRemoteNotificationType types = UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound|UIRemoteNotificationTypeNewsstandContentAvailability;
+    UIRemoteNotificationType types = UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound;
 #elif TARGETING_OSX
-    NSRemoteNotificationType types = NSRemoteNotificationTypeAlert|NSRemoteNotificationTypeBadge|NSRemoteNotificationTypeSound|NSRemoteNotificationTypeNewsstandContentAvailability;
+    NSRemoteNotificationType types = NSRemoteNotificationTypeAlert|NSRemoteNotificationTypeBadge|NSRemoteNotificationTypeSound;
 #endif
     return [self registerForRemoteNotificationTypes:types];
 }

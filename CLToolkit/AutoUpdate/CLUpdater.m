@@ -6,12 +6,14 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 #import <WebKit/WebKit.h>
-#import <ReactiveCocoa/NSTask+RACSupport.h>
 #import "NSFileManager+CLToolkit.h"
 #import "NSView+CLToolkit.h"
 #import "RACDownloadOperation.h"
 #import "RACHTTPClient.h"
 #import "CLUpdater.h"
+
+#undef kLogTag
+#define kLogTag @"updater"
 
 #define kCLUpdatePath @"CLUpdatePath"
 #define CLUpdateCheckInterval 60 * 60 * 1 // Every hour
@@ -78,7 +80,7 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
             @"1",                                                         // Should Relaunch
         ];
         
-        LogInfo(@"updater", @"Updating app. Launching helper %@ args %@", helperURL.path, args);
+        LogInfo(@"Updating app. Launching helper %@ args %@", helperURL.path, args);
         [NSTask launchedTaskWithLaunchPath:helperURL.path arguments:args];
         return YES;
     } else {
@@ -92,7 +94,7 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
     [UD setObject:updateURL.path forKey:kCLUpdatePath];
     [UD synchronize];
     self.updateReady = YES;
-    LogInfo(@"updater", @"Update at %@ is ready to be installed", updateURL.path);
+    LogInfo(@"Update at %@ is ready to be installed", updateURL.path);
     return [RACSignal return:updateURL.path];
 }
 
@@ -102,8 +104,12 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
     [self.unzipTask setLaunchPath:@"/usr/bin/unzip"]; //this is where the unzip application is on the system.
     [self.unzipTask setCurrentDirectoryPath:archiveURL.URLByDeletingLastPathComponent.path];
     [self.unzipTask setArguments:@[@"-oq", archiveURL.path]];
-    return [[self.unzipTask rac_run] sequenceNext:^RACSignal *{
-        if ([self.unzipTask terminationStatus] == 0) {
+
+    RACSubject *subject = [RACReplaySubject subject];
+    @weakify(self);
+    [self.unzipTask setTerminationHandler:^(NSTask *task) {
+        @strongify(self);
+        if (task.terminationStatus == 0) {
             NSFileManager *fm = [[NSFileManager alloc] init];
             NSDirectoryEnumerator *dirEnum = [fm enumeratorAtURL:[archiveURL URLByDeletingLastPathComponent]
                                       includingPropertiesForKeys:nil
@@ -113,11 +119,12 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
             
             for (NSURL *url in dirEnum)
                 if ([url.pathExtension.lowercaseString isEqualToString:@"app"])
-                    return [self _prepareUpdateForURL:url];
+                    [[self _prepareUpdateForURL:url] subscribe:subject];
         }
-        return [RACSignal error:$error(@"Cannot find updateURL")];
+        [subject sendError:$error(@"Cannot find updateURL")];
     }];
-    LogInfo(@"updater", @"Unzipping archive %@", archiveURL.path);
+    return subject;
+    LogInfo(@"Unzipping archive %@", archiveURL.path);
 }
 
 - (RACSignal *)_downloadUpdate:(NSDictionary *)update {
@@ -125,21 +132,21 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
     // if for whatever reason updates already dir exists, let's do some cleanup first
     NSError *error = nil;
     if ([UpdatesFolder(NO) checkResourceIsReachableAndReturnError:NULL]) {
-        LogInfo(@"updater", @"Cleaning updates folder %@", UpdatesFolder(NO));
+        LogInfo(@"Cleaning updates folder %@", UpdatesFolder(NO));
         [FM removeItemAtURL:UpdatesFolder(NO) error:&error];
     }
     
     if (!update[@"download_url"] || error)
         return [RACSignal error:error];
 
-    NSURLRequest *req = [[RACHTTPClient sharedClient] requestWithMethod:@"GET" path:update[@"download_url"] parameters:nil];
+    NSURLRequest *req = [[[RACHTTPClient sharedInstance] requestSerializer] requestWithMethod:@"GET" URLString:update[@"download_url"] parameters:nil];
     RACDownloadOperation *op = [[RACDownloadOperation alloc] initWithRequest:req
                                                               targetFolder:UpdatesFolder(YES)];
     [op setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
-        LogDebug(@"updater", @"Update download is %f%% complete", 100.0 * totalBytesRead / totalBytesExpectedToRead);
+        LogDebug(@"Update download is %f%% complete", 100.0 * totalBytesRead / totalBytesExpectedToRead);
     }];
-    return [[[RACHTTPClient sharedClient] enqueueOperation:op] sequenceNext:^RACSignal *{
-        LogDebug(@"updater", @"Successfully downloaded update to %@", op.finalURL);
+    return [[[RACHTTPClient sharedInstance] enqueueOperation:op] then:^RACSignal *{
+        LogDebug(@"Successfully downloaded update to %@", op.finalURL);
         return [self _unarchiveUpdateAtURL:op.finalURL];
     }];
 }
@@ -152,7 +159,7 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
             @"os_version": SystemVersion(),
             @"platform":   @"mac",
         };
-        _checkingSignal = [[[[RACHTTPClient sharedClient] getPath:@"/meta/updates" parameters:params] map:^(NSHTTPURLResponse *response) {
+        _checkingSignal = [[[[RACHTTPClient sharedInstance] GET:@"/meta/updates" parameters:params] map:^(NSHTTPURLResponse *response) {
             return response.json[@"update"];
         }] replayLazily];
     }
@@ -167,7 +174,7 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
     }] subscribeNext:^(id x) {
         [self installUpdateWithAlert:nil];
     } error:^(NSError *error) {
-        LogError(@"updater", @"Error while checking updates in background %@", error);
+        LogError(@"Error while checking updates in background %@", error);
     }];
 }
 
@@ -175,7 +182,9 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
     NSAssert(!_timerDisposable, @"Cannot start autoUpdater twice");
     
     [self installUpdateIfReady:self];
-    _timerDisposable = [[[RACSignal interval:CLUpdateCheckInterval withLeeway:60] startWith:[NSDate date]] subscribeNext:^(id x) {
+    _timerDisposable = [[[RACSignal interval:CLUpdateCheckInterval
+                                 onScheduler:[RACScheduler mainThreadScheduler]
+                                  withLeeway:60] startWith:[NSDate date]] subscribeNext:^(id x) {
         [self checkForUpdatesInBackground];
     }];
 }
@@ -198,7 +207,7 @@ static NSURL *UpdatesFolder(BOOL shouldCreate) {
         NSAlert *alert = [NSAlert alertWithMessageText:@"Update Ready" defaultButton:@"Relaunch Now"
                                        alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
         NSDate *start = [NSDate date];
-        [[[RACSignal interval:1] startWith:start] subscribeNext:^(id x) {
+        [[[RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]] startWith:start] subscribeNext:^(id x) {
             NSInteger left = 10 + start.timeIntervalSinceNow;
             alert.informativeText = $str(@"Auto relaunching in %ld seconds", left);
             if (left <= 0)

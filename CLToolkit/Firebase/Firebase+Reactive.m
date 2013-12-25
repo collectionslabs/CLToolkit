@@ -76,8 +76,13 @@ NSString *FUnescapeName(NSString *escapedName) {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         FirebaseHandle handle = [self observeEventType:eventType andPreviousSiblingNameWithBlock:^(FDataSnapshot *snapshot, NSString *prevName) {
             [subscriber sendNext:RACTuplePack(snapshot, prevName)];
+#ifdef TARGETING_IOS
         } withCancelBlock:^(NSError *error){
             [subscriber sendError:error ?: Error($str(@"Permission Denied onEvent %@ for %@", FEventName(eventType), self))];
+#else
+        } withCancelBlock:^{
+            [subscriber sendError:Error($str(@"Permission Denied onEvent %@ for %@", FEventName(eventType), self))];
+#endif
         }];
         return [RACDisposable disposableWithBlock:^{
             [self removeObserverWithHandle:handle];

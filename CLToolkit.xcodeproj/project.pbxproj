@@ -15,6 +15,7 @@
 		EA7D321D17ACE982007CADDC /* RACAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = EA7D321B17ACE982007CADDC /* RACAppDelegate.h */; };
 		EA7D321E17ACE982007CADDC /* RACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D321C17ACE982007CADDC /* RACAppDelegate.m */; };
 		EA7D321F17ACE982007CADDC /* RACAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA7D321C17ACE982007CADDC /* RACAppDelegate.m */; };
+		EAA96FD1186B6FDE001A8192 /* CLOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E317A05603009A8FA4 /* CLOperation.h */; };
 		EAADD08717A055AD009A8FA4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA898677179919AF00594A3E /* Foundation.framework */; };
 		EAADD0F917A05603009A8FA4 /* AutoUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09417A05603009A8FA4 /* AutoUpdate.h */; };
 		EAADD0FA17A05603009A8FA4 /* CLUpdateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09517A05603009A8FA4 /* CLUpdateHelper.h */; };
@@ -106,7 +107,6 @@
 		EAADD15A17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E017A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h */; };
 		EAADD15B17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */; };
 		EAADD15C17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E117A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.m */; };
-		EAADD15D17A05603009A8FA4 /* CLOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E317A05603009A8FA4 /* CLOperation.h */; };
 		EAADD15E17A05603009A8FA4 /* CLOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E417A05603009A8FA4 /* CLOperation.m */; };
 		EAADD15F17A05603009A8FA4 /* CLOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0E417A05603009A8FA4 /* CLOperation.m */; };
 		EAADD16017A05603009A8FA4 /* Operation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0E517A05603009A8FA4 /* Operation.h */; };
@@ -583,6 +583,7 @@
 				EAADD11417A05603009A8FA4 /* NSDate+Core.h in Headers */,
 				EAADD11717A05603009A8FA4 /* NSDictionary+Core.h in Headers */,
 				EAADD11A17A05603009A8FA4 /* NSObject+Core.h in Headers */,
+				EAA96FD1186B6FDE001A8192 /* CLOperation.h in Headers */,
 				EAADD11D17A05603009A8FA4 /* NSString+Core.h in Headers */,
 				EAADD12017A05603009A8FA4 /* ReactiveCocoa+Core.h in Headers */,
 				EAADD12317A05603009A8FA4 /* CoreData.h in Headers */,
@@ -609,7 +610,6 @@
 				EAADD15417A05603009A8FA4 /* RACDownloadOperation.h in Headers */,
 				EAADD15717A05603009A8FA4 /* RACHTTPClient.h in Headers */,
 				EAADD15A17A05603009A8FA4 /* NSHTTPURLResponse+ResponseData.h in Headers */,
-				EAADD15D17A05603009A8FA4 /* CLOperation.h in Headers */,
 				EAADD16017A05603009A8FA4 /* Operation.h in Headers */,
 				EAADD16417A05603009A8FA4 /* RACSignalQueue.h in Headers */,
 				EAADD16717A05603009A8FA4 /* RACSignal+Kiwi.h in Headers */,
