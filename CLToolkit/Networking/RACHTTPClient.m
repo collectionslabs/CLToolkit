@@ -31,11 +31,11 @@ static char kHTTPOperation;
 @implementation RACSignal (HTTPClientAddition)
 
 - (AFHTTPRequestOperation *)httpOperation {
-    return [self associatedValueForKey:&kHTTPOperation];
+    return [self bk_associatedValueForKey:&kHTTPOperation];
 }
 
 - (void)setHttpOperation:(AFHTTPRequestOperation *)httpOperation {
-    [self weaklyAssociateValue:httpOperation withKey:&kHTTPOperation];
+    [self bk_weaklyAssociateValue:httpOperation withKey:&kHTTPOperation];
 }
 
 @end
@@ -124,14 +124,14 @@ static char kStatusSignal;
 
 - (RACSignal *)statusSignal {
     @synchronized(self) {
-        RACSignal *signal = [self associatedValueForKey:&kStatusSignal];
+        RACSignal *signal = [self bk_associatedValueForKey:&kStatusSignal];
         if (!signal) {
             RACSubject *subject = [RACReplaySubject replaySubjectWithCapacity:1];
             [self setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
                 [subject sendNext:@(status)];
             }];
             signal = [subject distinctUntilChanged];
-            [self associateValue:signal withKey:&kStatusSignal];
+            [self bk_associateValue:signal withKey:&kStatusSignal];
         }
         return signal;
     }

@@ -11,25 +11,25 @@
 @implementation NSEntityDescription (CLToolkit)
 
 - (NSDictionary *)toOneRelationshipsByName {
-    return [self.relationshipsByName select:^BOOL(id key, NSRelationshipDescription *relDesc) {
+    return [self.relationshipsByName bk_select:^BOOL(id key, NSRelationshipDescription *relDesc) {
         return relDesc.isToMany == NO;
     }];
 }
 
 - (NSDictionary *)toManyRelationshipsByName {
-    return [self.relationshipsByName select:^BOOL(id key, NSRelationshipDescription *relDesc) {
+    return [self.relationshipsByName bk_select:^BOOL(id key, NSRelationshipDescription *relDesc) {
         return relDesc.isToMany == YES;
     }];
 }
 
 - (NSDictionary *)toManyOrderedRelationshipsByName {
-    return [self.relationshipsByName select:^BOOL(id key, NSRelationshipDescription *relDesc) {
+    return [self.relationshipsByName bk_select:^BOOL(id key, NSRelationshipDescription *relDesc) {
         return relDesc.isToMany == YES && relDesc.isOrdered == YES;
     }];
 }
 
 - (NSDictionary *)toManyUnorderedRelationshipsByName {
-    return [self.relationshipsByName select:^BOOL(id key, NSRelationshipDescription *relDesc) {
+    return [self.relationshipsByName bk_select:^BOOL(id key, NSRelationshipDescription *relDesc) {
         return relDesc.isToMany == YES && relDesc.isOrdered == NO;
     }];    
 }

@@ -11,7 +11,7 @@
 @implementation NSDictionary (Core)
 
 - (instancetype)dictionaryByRemovingNulls {
-    return [self reject:^BOOL(id key, id obj) {
+    return [self bk_reject:^BOOL(id key, id obj) {
         return obj == [NSNull null];
     }];
 }

@@ -13,13 +13,13 @@
 @implementation UISearchBar (Core)
 
 - (UITextField *)cl_searchField {
-    return [[self.subviews select:^BOOL(UIView *view) {
+    return [[self.subviews bk_select:^BOOL(UIView *view) {
         return [view isKindOfClass:[UITextField class]];
     }] lastObject];
 }
 
 - (UIActivityIndicatorView *)cl_spinner {
-    return [[self.cl_searchField.leftView.subviews select:^BOOL(UIView *view) {
+    return [[self.cl_searchField.leftView.subviews bk_select:^BOOL(UIView *view) {
         return [view isKindOfClass:[UIActivityIndicatorView class]];
     }] lastObject];
 }
@@ -79,7 +79,7 @@
     NSLog(@"%@%@", padding, self.description);
     if (self.subviews.count) {
         NSLog(@"%@  subviews:", padding);
-        [self.subviews each:^(UIView *view) {
+        [self.subviews bk_each:^(UIView *view) {
             [view cl_logHierarchy:indent + 2];
         }];
     }

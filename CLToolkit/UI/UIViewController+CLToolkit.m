@@ -33,7 +33,7 @@
     NSLog(@"%@%@", padding, self.description);
     if (self.childViewControllers.count) {
         NSLog(@"%@  children:", padding);
-        [self.childViewControllers each:^(UIViewController *viewController) {
+        [self.childViewControllers bk_each:^(UIViewController *viewController) {
             [viewController cl_logDescendants:indent + 2];
         }];
     }

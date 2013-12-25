@@ -65,7 +65,7 @@ NSString *FUnescapeName(NSString *escapedName) {
 }
 
 - (RACSignal *)onEvents:(NSArray *)eventTypes {
-    return [RACSignal merge:[eventTypes map:^id(NSNumber *eventType) {
+    return [RACSignal merge:[eventTypes bk_map:^id(NSNumber *eventType) {
         return [[self onEventWithPreviousSiblingName:eventType.intValue] map:^id(RACTuple *values) {
             return RACTuplePack(values.first, values.second, eventType);
         }];
@@ -76,8 +76,8 @@ NSString *FUnescapeName(NSString *escapedName) {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         FirebaseHandle handle = [self observeEventType:eventType andPreviousSiblingNameWithBlock:^(FDataSnapshot *snapshot, NSString *prevName) {
             [subscriber sendNext:RACTuplePack(snapshot, prevName)];
-        } withCancelBlock:^{
-            [subscriber sendError:Error($str(@"Permission Denied onEvent %@ for %@", FEventName(eventType), self))];
+        } withCancelBlock:^(NSError *error){
+            [subscriber sendError:error ?: Error($str(@"Permission Denied onEvent %@ for %@", FEventName(eventType), self))];
         }];
         return [RACDisposable disposableWithBlock:^{
             [self removeObserverWithHandle:handle];

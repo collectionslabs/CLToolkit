@@ -53,7 +53,7 @@ NSString *SystemVersion(void) {
 #endif
 
 NSString *AppName(void) {
-    return [[NSBundle mainBundle] objectForInfoDictionaryKey:kCFBundleNameKey]
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleNameKey]
         ?: [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
 }
 

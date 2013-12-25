@@ -103,7 +103,8 @@
 - (RACSignal *)retryWithBackoffSchedule:(RACSequence *)backoffSchedule {
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         __block RACSequence *intervals = backoffSchedule;
-        RACDisposable *retryDisposable = [[[self catch:^(NSError *error) {
+        RACDisposable *retryDisposable = nil;
+        retryDisposable = [[[self catch:^(NSError *error) {
             if (intervals != nil) {
                 NSTimeInterval interval = [intervals.head doubleValue];
                 intervals = intervals.tail;

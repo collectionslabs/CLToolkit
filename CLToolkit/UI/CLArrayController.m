@@ -6,6 +6,7 @@
 //
 //
 
+#import <BlocksKit/A2DynamicDelegate.h>
 #import "UI.h"
 #import "CLArrayController.h"
 
@@ -110,13 +111,13 @@
     if (self.filterPredicate)
         [objects filterUsingPredicate:self.filterPredicate];
     if (self.filterBlock)
-        [objects performSelect:self.filterBlock];
+        [objects bk_performSelect:self.filterBlock];
     
     self.arrangedObjects = objects;
     if (self.sectionNameKeypath.length) {
         __block NSString *currentName = nil;
         __block NSUInteger currentIndex = 0;
-        self.sections = [self.arrangedObjects reduce:@[] withBlock:^id(NSArray *sections, id obj) {
+        self.sections = [self.arrangedObjects bk_reduce:@[] withBlock:^id(NSArray *sections, id obj) {
             NSString *name = [obj valueForKeyPath:self.sectionNameKeypath];
             if (![name isEqualToString:currentName]) {
                 CLSectionInfo *lastSection = sections.lastObject;
@@ -208,15 +209,15 @@
 #pragma mark Bindings
 
 - (void)bindToTableView:(UITableView *)tableView reloadData:(BOOL)reload {
-    [tableView.dynamicDelegate setArrayController:self];
-    [tableView.dynamicDataSource setArrayController:self];
+    [tableView.bk_dynamicDelegate setArrayController:self];
+    [tableView.bk_dynamicDataSource setArrayController:self];
     if (reload)
         [tableView reloadData];
 }
 
 - (void)unbindFromTableView:(UITableView *)tableView reloadData:(BOOL)reload {
-    [tableView.dynamicDelegate setArrayController:nil];
-    [tableView.dynamicDataSource setArrayController:nil];
+    [tableView.bk_dynamicDelegate setArrayController:nil];
+    [tableView.bk_dynamicDataSource setArrayController:nil];
     if (reload)
         [tableView reloadData];
 }

@@ -16,6 +16,8 @@
 
 @end
 
+typedef BOOL (^CLFilterBlock)(id obj);
+
 #pragma mark -
 
 @interface CLArrayController : NSObject
@@ -30,7 +32,7 @@
 @property (nonatomic, strong) NSString *sectionNameKeypath;
 // Filter
 @property (nonatomic, strong) NSPredicate *filterPredicate;
-@property (nonatomic, copy) BKValidationBlock filterBlock;
+@property (nonatomic, copy) CLFilterBlock filterBlock;
 // Sort
 @property (nonatomic, strong) NSArray *sortDescriptors;
 

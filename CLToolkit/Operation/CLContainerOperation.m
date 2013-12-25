@@ -43,7 +43,7 @@
     @synchronized(self) {
         if (!_childOperationsStarted) {
             @weakify(self);
-            [[RACSignal merge:[self.childOperationsQueue.operations map:^id(CLOperation *operation) {
+            [[RACSignal merge:[self.childOperationsQueue.operations bk_map:^id(CLOperation *operation) {
                 @weakify(operation);
                 // Watch State
                 [RACObserve(operation, operationState) subscribeNext:^(NSNumber *state) {

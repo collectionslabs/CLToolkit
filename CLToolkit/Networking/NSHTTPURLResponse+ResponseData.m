@@ -22,73 +22,73 @@
 
 @implementation NSHTTPURLResponse (ResponseData)
 
-- (void)setData:(NSData *)data { [self associateValue:data withKey:"data"]; }
-- (NSData *)data { return [self associatedValueForKey:"data"]; }
+- (void)setData:(NSData *)data { [self bk_associateValue:data withKey:"data"]; }
+- (NSData *)data { return [self bk_associatedValueForKey:"data"]; }
 
-- (void)setError:(NSError *)error { [self associateValue:error withKey:"error"]; }
-- (NSError *)error { return [self associatedValueForKey:"error"]; }
+- (void)setError:(NSError *)error { [self bk_associateValue:error withKey:"error"]; }
+- (NSError *)error { return [self bk_associatedValueForKey:"error"]; }
 
 - (NSString *)text {
-    if (![self associatedValueForKey:"text"]) {
+    if (![self bk_associatedValueForKey:"text"]) {
         NSStringEncoding textEncoding = NSUTF8StringEncoding;
         if (self.textEncodingName) {
             textEncoding = CFStringConvertEncodingToNSStringEncoding(
                             CFStringConvertIANACharSetNameToEncoding(
                               (__bridge CFStringRef)self.textEncodingName));
         }
-        [self associateValue:[[NSString alloc] initWithData:self.data encoding:textEncoding] withKey:"text"];
+        [self bk_associateValue:[[NSString alloc] initWithData:self.data encoding:textEncoding] withKey:"text"];
     }
-    return [self associatedValueForKey:"text"];
+    return [self bk_associatedValueForKey:"text"];
 }
 
 - (id)json {
-    if (![self associatedValueForKey:"json"] && [self.data length]) {
+    if (![self bk_associatedValueForKey:"json"] && [self.data length]) {
         NSError *error = nil;
-        [self associateValue:[NSJSONSerialization JSONObjectWithData:self.data
+        [self bk_associateValue:[NSJSONSerialization JSONObjectWithData:self.data
                                                              options:NSJSONReadingMutableContainers
                                                                error:&error]
                      withKey:"json"];
         self.error = error;
     }
-    return [self associatedValueForKey:"json"];
+    return [self bk_associatedValueForKey:"json"];
 }
 
 - (NSXMLParser *)xml {
-    if (![self associatedValueForKey:"xml"] && [self.data length]) {
-        [self associateValue:[[NSXMLParser alloc] initWithData:self.data] withKey:"xml"];
+    if (![self bk_associatedValueForKey:"xml"] && [self.data length]) {
+        [self bk_associateValue:[[NSXMLParser alloc] initWithData:self.data] withKey:"xml"];
     }
-    return [self associatedValueForKey:"xml"];
+    return [self bk_associatedValueForKey:"xml"];
 }
 
 - (id)propertyList {
-    if (![self associatedValueForKey:"propertyList"] && [self.data length]) {
+    if (![self bk_associatedValueForKey:"propertyList"] && [self.data length]) {
         NSError *error = nil;
-        [self associateValue:[NSPropertyListSerialization propertyListWithData:self.data
+        [self bk_associateValue:[NSPropertyListSerialization propertyListWithData:self.data
                                                                        options:NSPropertyListMutableContainersAndLeaves
                                                                         format:NULL
                                                                          error:&error]
                      withKey:"propertyList"];
         self.error = error;
     }
-    return [self associatedValueForKey:"propertyList"];
+    return [self bk_associatedValueForKey:"propertyList"];
 }
 
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 - (UIImage *)image {
-    if (![self associatedValueForKey:"image"] && [self.data length]) {
-        [self associateValue:[UIImage imageWithData:self.data] withKey:"image"];
+    if (![self bk_associatedValueForKey:"image"] && [self.data length]) {
+        [self bk_associateValue:[UIImage imageWithData:self.data] withKey:"image"];
     }
-    return [self associatedValueForKey:"image"];
+    return [self bk_associatedValueForKey:"image"];
 }
 #else
 - (NSImage *)image {
-    if (![self associatedValueForKey:"image"] && [self.data length]) {
+    if (![self bk_associatedValueForKey:"image"] && [self.data length]) {
         NSBitmapImageRep *bitimage = [[NSBitmapImageRep alloc] initWithData:self.data];
         NSImage *image = [[NSImage alloc] initWithSize:NSMakeSize([bitimage pixelsWide], [bitimage pixelsHigh])];
         [image addRepresentation:bitimage];
-        [self associateValue:image withKey:"image"];
+        [self bk_associateValue:image withKey:"image"];
     }
-    return [self associatedValueForKey:"image"];
+    return [self bk_associatedValueForKey:"image"];
 }
 #endif
 

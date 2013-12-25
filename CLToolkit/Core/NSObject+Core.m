@@ -13,10 +13,10 @@
 @implementation NSObject (Core)
 
 - (id)associatedValueForKey:(const char *)key setDefault:(id)defaultValue {
-    id value = [self associatedValueForKey:key];
+    id value = [self bk_associatedValueForKey:key];
     if (!value) {
         value = defaultValue;
-        [self associateValue:value withKey:key];
+        [self bk_associateValue:value withKey:key];
     }
     return value;
 }
@@ -110,7 +110,7 @@
 }
 
 + (void)performSelector:(SEL)sel withDelay:(NSTimeInterval)delay {
-    [self performBlock:^{
+    [self bk_performBlock:^{
         objc_msgSend(self, sel);
     } afterDelay:delay];
 }
