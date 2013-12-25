@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.1.1'
+  s.version      =  '0.1.2'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     
     ss.dependency 'Base64', '~> 1.0.1'
     ss.dependency 'ConciseKit', '~> 0.1.2'
-    ss.dependency 'BlocksKit', '~> 1.8.3'
+    ss.dependency 'BlocksKit', '~> 2.0'
     ss.dependency 'libextobjc', '~> 0.3'
     ss.dependency 'ReactiveCocoa', '~> 2.1'
     ss.dependency 'NSLogger', '~> 1.1'
