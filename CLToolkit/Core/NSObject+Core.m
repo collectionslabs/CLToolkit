@@ -44,7 +44,7 @@
 
 - (RACDisposable *)listenForNotification:(NSString *)name selector:(SEL)selector {
     @weakify(self);
-    [[self listenForNotification:name] subscribeNext:^(NSNotification *note) {
+    return [[self listenForNotification:name] subscribeNext:^(NSNotification *note) {
         @strongify(self);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
