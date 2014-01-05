@@ -14,9 +14,18 @@ Pod::Spec.new do |s|
 
   
   # Include only the core by default
-  s.default_subspec = 'Core'
+  s.default_subspec = 'Default'
 
   ### Subspecs
+  
+  s.subspec 'Default' do |ss|
+    ss.dependency 'CLToolkit/Core'
+    ss.dependency 'CLToolkit/Networking'
+    ss.dependency 'CLToolkit/CoreData'
+    ss.dependency 'CLToolkit/Operation'
+    ss.dependency 'CLToolkit/UI'
+    ss.dependency 'CLToolkit/Misc'
+  end
   
   s.subspec 'Core' do |ss|
     ss.source_files =  'CLToolkit/Core/**/*.{h,m,mm,c}'
