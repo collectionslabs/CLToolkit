@@ -1,6 +1,6 @@
 //
 //  CLArrayController.m
-//  Pods
+//  CLToolkit
 //
 //  Created by Tony Xiao on 9/18/13.
 //
@@ -48,25 +48,21 @@
 
 @interface CLSectionInfo ()
 
-@property (nonatomic, weak) CLArrayController *arrayController;
-@property (nonatomic, strong, readwrite) NSString *name;
-@property (nonatomic, assign, readwrite) NSRange range;
+@property (nonatomic, strong) id<NSCopying> key;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSMutableArray *objects;
+@property (nonatomic, assign) NSRange range;
 
 @end
 
 @implementation CLSectionInfo
 
-- (id)initWithName:(NSString *)name arrayController:(CLArrayController *)arrayController {
+- (id)init {
     if (self = [super init]) {
-        _name = name;
-        _arrayController = arrayController;
-        _range = NSMakeRange(0, arrayController.arrangedObjects.count);
+        _objects = [[NSMutableArray alloc] init];
+        _range = NSMakeRange(0, 0);
     }
     return self;
-}
-
-- (NSArray *)objects {
-    return [self.arrayController.arrangedObjects subarrayWithRange:self.range];
 }
 
 @end
@@ -94,56 +90,88 @@
         _selectedIndexes = [[NSMutableIndexSet alloc] init];
         _rearrangeSignal = [RACSubject subject];
         @weakify(self);
-        [[RACSignal merge:@[RACObserve(self, content),
-                            RACObserve(self, filterPredicate),
-                            RACObserve(self, filterBlock),
-                            RACObserve(self, sortDescriptors),
-                            RACObserve(self, sectionNameKeypath)]] subscribeNext:^(id x) {
+        [[RACSignal merge:@[[RACObserve(self, content) skip:1],
+                            [RACObserve(self, sectionKeyBlock) skip:1],
+                            [RACObserve(self, sectionNameBlock) skip:1], // Rather inefficient, oh well
+                            [RACObserve(self, sectionSortDescriptors) skip:1],
+                            [RACObserve(self, filterBlock) skip:1],
+                            [RACObserve(self, sortDescriptors) skip:1]]] subscribeNext:^(id x) {
             @strongify(self);
             [self rearrangeObjects];
         }];
+        [self rearrangeObjects];
     }
     return self;
 }
 
-- (void)rearrangeObjects {
-    NSMutableArray *objects = [[self.content sortedArrayUsingDescriptors:self.sortDescriptors] mutableCopy];
-    if (self.filterPredicate)
-        [objects filterUsingPredicate:self.filterPredicate];
-    if (self.filterBlock)
-        [objects bk_performSelect:self.filterBlock];
+#pragma mark -
+
+- (void)rearrangeWithSectionKey {
+    NSParameterAssert(self.sectionKeyBlock);
+    NSMutableArray *sortedObjects = [[NSMutableArray alloc] init];
+    NSMutableArray *sortedSections = [[NSMutableArray alloc] init];
+    NSMutableDictionary *sections = [[NSMutableDictionary alloc] init];
     
-    self.arrangedObjects = objects;
-    if (self.sectionNameKeypath.length) {
-        __block NSString *currentName = nil;
-        __block NSUInteger currentIndex = 0;
-        self.sections = [self.arrangedObjects bk_reduce:@[] withBlock:^id(NSArray *sections, id obj) {
-            NSString *name = [obj valueForKeyPath:self.sectionNameKeypath];
-            if (![name isEqualToString:currentName]) {
-                CLSectionInfo *lastSection = sections.lastObject;
-                if (lastSection) {
-                    lastSection.range = NSMakeRange(lastSection.range.location,
-                                                    currentIndex - lastSection.range.location);
-                }
-                CLSectionInfo *section = [[CLSectionInfo alloc] initWithName:name arrayController:self];
-                section.range = NSMakeRange(currentIndex, self.arrangedObjects.count - currentIndex);
-                sections = [sections arrayByAddingObject:section];
-            }
-            currentName = name;
-            currentIndex++;
-            return sections;
-        }];
-    } else {
-        self.sections = @[[[CLSectionInfo alloc] initWithName:nil arrayController:self]];
+    // Obtain section information for all objects
+    for (id object in [self.content copy]) {
+        if (self.filterBlock && !self.filterBlock(object))
+            continue;
+        
+        id sectionKey = self.sectionKeyBlock(object);
+        CLSectionInfo *section = sections[sectionKey];
+        if (!section) {
+            section = [[CLSectionInfo alloc] init];
+            section.key = sectionKey;
+            section.name = self.sectionNameBlock ? self.sectionNameBlock(sectionKey) : [sectionKey description];
+            sections[sectionKey] = section;
+            [sortedSections addObject:section];
+        }
+        [(NSMutableArray *)section.objects addObject:object];
     }
-    [_rearrangeSignal sendNext:self.sections];
+    
+    // Sort sections if needed
+    if (self.sectionSortDescriptors.count)
+        [sortedSections sortUsingDescriptors:self.sectionSortDescriptors];
+    
+    // Sort objects if needed then concatenate all objects into a single array
+    for (CLSectionInfo *section in sortedSections) {
+        // Sort objects if needed
+        if (self.sortDescriptors.count)
+            [(NSMutableArray *)section.objects sortUsingDescriptors:self.sortDescriptors];
+        
+        section.range = NSMakeRange(sortedObjects.count, section.objects.count);
+        [sortedObjects addObjectsFromArray:section.objects];
+    }
+    
+    self.sections = sortedSections;
+    self.arrangedObjects = sortedObjects;
 }
 
-#pragma mark Accessors
-
-- (NSArray *)selectedObjects {
-    return [self.arrangedObjects objectsAtIndexes:self.selectedIndexes];
+- (void)rearrangeWithoutSectionKey {
+    NSParameterAssert(!self.sectionKeyBlock);
+    
+    NSMutableArray *sortedObjects = [[self.content sortedArrayUsingDescriptors:self.sortDescriptors] mutableCopy];
+    if (self.filterBlock)
+        [sortedObjects bk_performSelect:self.filterBlock];
+    
+    CLSectionInfo *section = [[CLSectionInfo alloc] init];
+    section.range = NSMakeRange(0, sortedObjects.count);
+    section.objects = sortedObjects;
+    
+    self.sections = @[section];
+    self.arrangedObjects = sortedObjects;
 }
+
+- (void)rearrangeObjects {
+    if (self.sectionKeyBlock) {
+        [self rearrangeWithSectionKey];
+    } else {
+        [self rearrangeWithoutSectionKey];
+    }
+    [_rearrangeSignal sendNext:nil];
+}
+
+#pragma mark -
 
 - (id)objectAtIndexPath:(NSIndexPath *)indexPath {
     NSParameterAssert(!indexPath || indexPath.length == 2);
@@ -171,6 +199,12 @@
             return [NSIndexPath indexPathForRow:index - section.range.location inSection:i];
     }
     return nil;
+}
+
+#pragma mark Accessors
+
+- (NSArray *)selectedObjects {
+    return [self.arrangedObjects objectsAtIndexes:self.selectedIndexes];
 }
 
 #pragma mark Selections
