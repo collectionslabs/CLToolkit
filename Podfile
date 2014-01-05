@@ -45,7 +45,6 @@ target :osx do
   pod 'Kiwi', '2.2'
   # pod 'Masonry', '~> 0.3.0' # TODO: no reason masonry is not os x compatible...
   pod 'NSHash', '~> 1.0.1'
-p
   pod 'AWSRuntime/S3', '1.5.0.head' # From Collections/Podspecs
   pod 'FirebaseMac', '1.0.1' # From Collections/Podspecs
 end

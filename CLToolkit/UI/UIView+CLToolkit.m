@@ -13,7 +13,8 @@
 @implementation UISearchBar (Core)
 
 - (UITextField *)cl_searchField {
-    return [[self.subviews bk_select:^BOOL(UIView *view) {
+    UIView *wrapper = RUNNING_IOS7 ? self.subviews.firstObject : self;
+    return [[wrapper.subviews bk_select:^BOOL(UIView *view) {
         return [view isKindOfClass:[UITextField class]];
     }] lastObject];
 }
