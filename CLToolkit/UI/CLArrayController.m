@@ -71,13 +71,14 @@
 
 @interface CLArrayController()
 
-@property (nonatomic, strong, readwrite) NSArray *sections;
-@property (nonatomic, strong, readwrite) NSArray *arrangedObjects;
+@property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, strong) NSArray *arrangedObjects;
+@property (nonatomic, assign) BOOL isRearranging;
 
 @end
 
 @implementation CLArrayController {
-    RACSubject *_rearrangeSignal;
+    dispatch_queue_t _queue;
 }
 
 - (id)init {
@@ -88,7 +89,7 @@
     if (self = [super init]) {
         _content = content;
         _selectedIndexes = [[NSMutableIndexSet alloc] init];
-        _rearrangeSignal = [RACSubject subject];
+        _queue = dispatch_queue_create("com.cl.clarraycontroller.queue", DISPATCH_QUEUE_SERIAL);
         @weakify(self);
         [[RACSignal merge:@[[RACObserve(self, content) skip:1],
                             [RACObserve(self, sectionKeyBlock) skip:1],
@@ -106,11 +107,11 @@
 
 #pragma mark -
 
-- (void)rearrangeWithSectionKey {
+- (void)rearrangeWithKeySections:(NSArray **)sections objects:(NSArray **)objects {
     NSParameterAssert(self.sectionKeyBlock);
     NSMutableArray *sortedObjects = [[NSMutableArray alloc] init];
     NSMutableArray *sortedSections = [[NSMutableArray alloc] init];
-    NSMutableDictionary *sections = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *sectionsMap = [[NSMutableDictionary alloc] init];
     
     // Obtain section information for all objects
     for (id object in [self.content copy]) {
@@ -118,12 +119,12 @@
             continue;
         
         id sectionKey = self.sectionKeyBlock(object);
-        CLSectionInfo *section = sections[sectionKey];
+        CLSectionInfo *section = sectionsMap[sectionKey];
         if (!section) {
             section = [[CLSectionInfo alloc] init];
             section.key = sectionKey;
             section.name = self.sectionNameBlock ? self.sectionNameBlock(sectionKey) : [sectionKey description];
-            sections[sectionKey] = section;
+            sectionsMap[sectionKey] = section;
             [sortedSections addObject:section];
         }
         [(NSMutableArray *)section.objects addObject:object];
@@ -143,11 +144,11 @@
         [sortedObjects addObjectsFromArray:section.objects];
     }
     
-    self.sections = sortedSections;
-    self.arrangedObjects = sortedObjects;
+    *sections = sortedSections;
+    *objects = sortedObjects;
 }
 
-- (void)rearrangeWithoutSectionKey {
+- (void)rearrangeWithoutKeySections:(NSArray **)sections objects:(NSArray **)objects {
     NSParameterAssert(!self.sectionKeyBlock);
     
     NSMutableArray *sortedObjects = [[self.content sortedArrayUsingDescriptors:self.sortDescriptors] mutableCopy];
@@ -158,17 +159,28 @@
     section.range = NSMakeRange(0, sortedObjects.count);
     section.objects = sortedObjects;
     
-    self.sections = @[section];
-    self.arrangedObjects = sortedObjects;
+    *sections = @[section];
+    *objects = sortedObjects;
 }
 
 - (void)rearrangeObjects {
-    if (self.sectionKeyBlock) {
-        [self rearrangeWithSectionKey];
-    } else {
-        [self rearrangeWithoutSectionKey];
-    }
-    [_rearrangeSignal sendNext:nil];
+    dispatch_async(_queue, ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            self.isRearranging = YES;
+        });
+        NSArray *sections = nil;
+        NSArray *objects = nil;
+        if (self.sectionKeyBlock) {
+            [self rearrangeWithKeySections:&sections objects:&objects];
+        } else {
+            [self rearrangeWithoutKeySections:&sections objects:&objects];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.sections = sections;
+            self.arrangedObjects = objects;
+            self.isRearranging = NO;
+        });
+    });
 }
 
 #pragma mark -

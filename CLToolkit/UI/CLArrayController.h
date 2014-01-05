@@ -45,7 +45,7 @@ typedef NSString *(^CLSectionNameBlock)(id<NSCopying> sectionKey);
 // Content
 @property (nonatomic, strong) id content;
 @property (nonatomic, readonly) NSArray *arrangedObjects;
-@property (nonatomic, readonly) RACSignal *rearrangeSignal;
+@property (nonatomic, readonly) BOOL isRearranging;
 
 // Sectioning
 @property (nonatomic, readonly) NSArray *sections;
