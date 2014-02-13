@@ -9,11 +9,13 @@
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import "NSDate+Core.h"
 
+static dispatch_queue_t __privateQueue;
 static ISO8601DateFormatter *ISO8601Formatter() {
     static dispatch_once_t __iso8601OnceToken;
     static ISO8601DateFormatter *__iso8601Formatter;
     dispatch_once(&__iso8601OnceToken, ^{
         __iso8601Formatter = [[ISO8601DateFormatter alloc] init];
+        __privateQueue = dispatch_queue_create("com.cl.date.iso8601.queue", 0);
     });
     return __iso8601Formatter;
 }
@@ -31,16 +33,36 @@ static NSDateFormatter *RFC2822Formatter() {
 
 @implementation NSDate (Core)
 
-- (NSString *)ISO8601 { return [self description]; }
-- (NSString *)RFC2822 { return [RFC2822Formatter() stringFromDate:self]; }
-
-+ (NSDate *)dateFromISO8601:(NSString *)dateString {
-    AssertMainThread(); // Method not yet thread safe...
-    return dateString.length ? [ISO8601Formatter() dateFromString:dateString] : nil;
+- (NSString *)ISO8601 {
+    __block NSString *string;
+    dispatch_sync(__privateQueue, ^{
+        string = [ISO8601Formatter() stringFromDate:self];
+    });
+    return string;
 }
 
-+ (NSDate*)dateFromRFC2822:(NSString *)dateString {
-    return dateString.length ? [RFC2822Formatter() dateFromString:dateString] : nil;
+- (NSString *)RFC2822 {
+    __block NSString *string;
+    dispatch_sync(__privateQueue, ^{
+        string = [RFC2822Formatter() stringFromDate:self];
+    });
+    return string;
+}
+
++ (NSDate *)dateFromISO8601:(NSString *)dateString {
+    __block NSDate *date;
+    dispatch_sync(__privateQueue, ^{
+        date = dateString.length ? [ISO8601Formatter() dateFromString:dateString] : nil;
+    });
+    return date;
+}
+
++ (NSDate *)dateFromRFC2822:(NSString *)dateString {
+    __block NSDate *date;
+    dispatch_sync(__privateQueue, ^{
+        date = dateString.length ? [RFC2822Formatter() dateFromString:dateString] : nil;
+    });
+    return date;
 }
 
 @end
