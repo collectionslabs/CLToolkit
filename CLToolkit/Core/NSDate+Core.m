@@ -9,13 +9,11 @@
 #import <ISO8601DateFormatter/ISO8601DateFormatter.h>
 #import "NSDate+Core.h"
 
-static dispatch_queue_t __privateQueue;
 static ISO8601DateFormatter *ISO8601Formatter() {
     static dispatch_once_t __iso8601OnceToken;
     static ISO8601DateFormatter *__iso8601Formatter;
     dispatch_once(&__iso8601OnceToken, ^{
         __iso8601Formatter = [[ISO8601DateFormatter alloc] init];
-        __privateQueue = dispatch_queue_create("com.cl.date.iso8601.queue", 0);
     });
     return __iso8601Formatter;
 }
@@ -32,6 +30,8 @@ static NSDateFormatter *RFC2822Formatter() {
 }
 
 @implementation NSDate (Core)
+
+static dispatch_queue_t __privateQueue;
 
 - (NSString *)ISO8601 {
     __block NSString *string;
@@ -63,6 +63,10 @@ static NSDateFormatter *RFC2822Formatter() {
         date = dateString.length ? [RFC2822Formatter() dateFromString:dateString] : nil;
     });
     return date;
+}
+
++ (void)load {
+    __privateQueue = dispatch_queue_create("com.cl.date.iso8601.queue", 0);
 }
 
 @end
