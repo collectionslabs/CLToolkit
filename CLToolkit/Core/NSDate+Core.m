@@ -14,6 +14,7 @@ static ISO8601DateFormatter *ISO8601Formatter() {
     static ISO8601DateFormatter *__iso8601Formatter;
     dispatch_once(&__iso8601OnceToken, ^{
         __iso8601Formatter = [[ISO8601DateFormatter alloc] init];
+        __iso8601Formatter.includeTime = YES;
     });
     return __iso8601Formatter;
 }
