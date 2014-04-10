@@ -141,6 +141,11 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 // User Facing API
 
 - (void)start {
+    if (self.isCancelled) {
+        [self finishWithError:[NSError errorWithDomain:NSCocoaErrorDomain code:NSUserCancelledError userInfo:nil]];
+        return;
+    }
+    
     [self transitionToOperationState:CLOperationStateExecuting withBlock:^{
         self.operationQueue = [NSOperationQueue currentQueue];
         // Check dependencies.
@@ -178,7 +183,9 @@ NSString * const CLOperationWillExpireNotification = @"CLOperationWillExpire";
 - (void)cancel {
     if (!self.isCancelled) {
         [super cancel];
-        [self operationDidCancel];
+        if (self.isExecuting) {
+            [self operationDidCancel];
+        }
         [self endBackgroundTask];
     }
 }
