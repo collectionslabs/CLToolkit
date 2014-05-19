@@ -20,7 +20,7 @@ extern NSString * const CLOperationWillExpireNotification;
 @class RACSignal;
 @interface CLOperation : NSOperation
 
-@property (readonly) NSOperationQueue *operationQueue;
+@property (weak, readonly) NSOperationQueue *operationQueue;
 
 @property (nonatomic, assign) BOOL backgroundTask; // Default = NO
 

@@ -9,25 +9,6 @@
 
 static char kHTTPOperation;
 
-@implementation AFHTTPRequestOperation (BugFix)
-
-- (id)cl_responseObject {
-    id responseObject = [self cl_responseObject];
-    if (!responseObject) {
-        NSError *error = nil;
-        [self.responseSerializer validateResponse:self.response data:self.responseData error:&error];
-        if (error)
-            [self performSelector:@selector(setResponseSerializationError:) withObject:error];
-    }
-    return responseObject;
-}
-
-+ (void)load {
-    [$ swizzleMethod:@selector(responseObject) with:@selector(cl_responseObject) in:self];
-}
-
-@end
-
 @implementation RACSignal (HTTPClientAddition)
 
 - (AFHTTPRequestOperation *)httpOperation {
@@ -72,7 +53,8 @@ static char kHTTPOperation;
                                     multipartFormRequestWithMethod:@"POST"
                                     URLString:absoluteURL
                                     parameters:parameters
-                                    constructingBodyWithBlock:block];
+                                    constructingBodyWithBlock:block
+                                    error:NULL];
     return [self enqueueRequest:request];
 }
 
@@ -80,7 +62,8 @@ static char kHTTPOperation;
     NSString *absoluteURL = [[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString];
 	NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method
                                                                    URLString:absoluteURL
-                                                                  parameters:parameters];
+                                                                  parameters:parameters
+                                                                       error:NULL];
     [request overrideHTTPHeaders:headers];
     return [self enqueueRequest:request];
 }

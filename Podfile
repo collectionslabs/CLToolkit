@@ -14,7 +14,7 @@ target :ios do
   pod 'NSLogger', '~> 1.1'
   pod 'Base64', '~> 1.0.1'
   pod 'BlocksKit', '~> 2.0.0'
-  pod 'AFNetworking', '~> 2.0'
+  pod 'AFNetworking', '~> 2.2.4'
   pod 'ConciseKit', '~> 0.1.2'
   pod 'MagicalRecord', '~> 2.2'
   pod 'libextobjc', '~> 0.3'
@@ -24,8 +24,6 @@ target :ios do
   pod 'Kiwi', '2.2'
   pod 'Masonry', '~> 0.3.0'
   pod 'NSHash', '~> 1.0.1'
-  pod 'AFDownloadRequestOperation', :head
-
   pod 'AWSRuntime/S3', '1.5.0.head' # From Collections/Podspecs
   
 end
@@ -37,7 +35,7 @@ target :osx do
   pod 'NSLogger', '~> 1.1'
   pod 'Base64', '~> 1.0.1'
   pod 'BlocksKit', '~> 2.0.0po'
-  pod 'AFNetworking', '~> 2.0'
+  pod 'AFNetworking', '~> 2.2.4'
   pod 'ConciseKit', '~> 0.1.2'
   pod 'MagicalRecord', '~> 2.2'
   pod 'ReactiveCocoa', '~> 2.1'
