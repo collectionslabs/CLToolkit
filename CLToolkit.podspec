@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.2.3'
+  s.version      =  '0.2.4'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }
@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
     ss.dependency 'BlocksKit', '~> 2.0'
     ss.dependency 'libextobjc', '~> 0.3'
     ss.dependency 'ReactiveCocoa', '~> 2.1'
-    ss.dependency 'NSLogger', '~> 1.1'
+    ss.dependency 'NSLogger', '~> 1.2'
     ss.dependency 'ISO8601DateFormatter', '~> 0.7'
 
   end
@@ -46,7 +46,7 @@ Pod::Spec.new do |s|
     ss.source_files   = 'CLToolkit/Networking/**/*.{h,m,mm,c}'
     
     ss.dependency 'CLToolkit/Core'
-    ss.dependency 'AFNetworking', '~> 2.0'
+    ss.dependency 'AFNetworking', '~> 2.2.4'
     ss.dependency 'Base64', '~> 1.0.1'
   end
   
