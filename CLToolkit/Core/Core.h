@@ -64,6 +64,13 @@ NSError *ErrorFromException(NSException *exception);
 
 NSComparator ComparatorFromSortDescriptors(NSArray *sortDescriptors);
 
+// Async Utils
+dispatch_queue_t dispatch_queue_create_specific(const char *label, dispatch_queue_attr_t attr);
+BOOL dispatch_is_on_specific_queue(dispatch_queue_t queue);
+void dispatch_specific(dispatch_queue_t queue, dispatch_block_t block, BOOL waitForCompletion);
+void dispatch_specific_async(dispatch_queue_t queue, dispatch_block_t block);
+void dispatch_specific_sync(dispatch_queue_t queue, dispatch_block_t block);
+
 // Global Logging and Assertion Support
 
 void Log(NSString *format, ...);
@@ -73,12 +80,13 @@ void LogImage(IMAGE_CLASS *image);
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
     #define PLIST_WRITING_OPTIONS NSPropertyListMutableContainersAndLeaves
 
-    #define AssertMainThread()       NSAssert([NSThread isMainThread], @"%s must be called from the main thread", __FUNCTION__)
 #else
     #define JSON_WRITING_OPTIONS 0
     #define PLIST_WRITING_OPTIONS 0
-    #define AssertMainThread()
 #endif
+
+#define AssertMainThread()    NSAssert([NSThread isMainThread], @"%s must be called from the main thread", __FUNCTION__)
+#define AssertNotMainThread() NSAssert(![NSThread isMainThread], @"%s must NOT be called from the main thread", __FUNCTION__)
 
 // Global Constants & Singletons
 
