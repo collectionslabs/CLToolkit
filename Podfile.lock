@@ -39,11 +39,14 @@ PODS:
   - BlocksKit/UIKit (2.2.3):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - CocoaLumberjack (1.6.5.1):
+  - CocoaLumberjack (2.0.0-beta):
+    - CocoaLumberjack/CLI
     - CocoaLumberjack/Core
     - CocoaLumberjack/Extensions
-  - CocoaLumberjack/Core (1.6.5.1)
-  - CocoaLumberjack/Extensions (1.6.5.1):
+  - CocoaLumberjack/CLI (2.0.0-beta):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Core (2.0.0-beta)
+  - CocoaLumberjack/Extensions (2.0.0-beta):
     - CocoaLumberjack/Core
   - ConciseKit (0.1.2)
   - Firebase (1.1.11)
@@ -110,7 +113,7 @@ DEPENDENCIES:
   - Base64 (~> 1.0.1)
   - BlocksKit (~> 2.2.3)
   - BlocksKit (~> 2.2.3po)
-  - CocoaLumberjack (~> 1.6.2)
+  - CocoaLumberjack (~> 2.0.0-beta)
   - ConciseKit (~> 0.1.2)
   - Firebase (~> 1.1.11)
   - FirebaseMac (= 1.0.1)
@@ -127,7 +130,7 @@ SPEC CHECKSUMS:
   AWSRuntime: 7282b146fee2bf0e8bffe62fa2f23c466915bde0
   Base64: c6d74f31f150543b246a07e180ba813c88e59311
   BlocksKit: 07c8a80f04275efac6a5f8b973782489c083a182
-  CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
+  CocoaLumberjack: aadc76d7bd6c839ca84b38ed50cbf89d7cf8c693
   ConciseKit: abaee9f102396b59cccdb812b78527c7a24cda61
   Firebase: 05357817d13cec124e8090df21dee3130046e59a
   FirebaseMac: f7b9113d5c80114df05cc8c4c87b32ddd08e795c

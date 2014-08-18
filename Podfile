@@ -10,7 +10,7 @@ link_with []
 target :ios do
   platform :ios, '6.0'
   link_with 'CLToolkit-ios'
-  pod 'CocoaLumberjack', '~> 1.6.2'
+  pod 'CocoaLumberjack', '~> 2.0.0-beta'
   pod 'Base64', '~> 1.0.1'
   pod 'BlocksKit', '~> 2.2.3'
   pod 'AFNetworking', '~> 2.3.1'
@@ -30,7 +30,7 @@ end
 target :osx do
   platform :osx, '10.8'
   link_with 'CLToolkit-osx'
-  pod 'CocoaLumberjack', '~> 1.6.2'
+  pod 'CocoaLumberjack', '~> 2.0.0-beta'
   pod 'Base64', '~> 1.0.1'
   pod 'BlocksKit', '~> 2.2.3po'
   pod 'AFNetworking', '~> 2.3.1'
