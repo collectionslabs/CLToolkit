@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.2.6'
+  s.version      =  '0.2.7'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }

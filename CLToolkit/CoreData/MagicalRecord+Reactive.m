@@ -14,12 +14,13 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 @implementation RACSubject (Completion)
 
 - (MRCompletionHandler)mr_completionBlock {
-    @weakify(self);
     return ^(BOOL success, NSError *error) {
-        @strongify(self);
+        // Subject must be retained by the block here otherwise there will be hard to debug issues
+        // introduced by neither completion or error block being called
         (success || !error) ? [self sendCompleted] : [self sendError:error];
     };
 }
+
 
 + (RACSubject *)mr_subject:(void (^)(MRCompletionHandler completionBlock))block; {
     RACSubject *subject = [RACReplaySubject subjectWithSelector:_cmd];
