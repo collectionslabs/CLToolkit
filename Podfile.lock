@@ -1,40 +1,43 @@
 PODS:
-  - AFNetworking (2.2.4):
+  - AFNetworking (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.4):
+  - AFNetworking/NSURLConnection (2.3.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.4):
-    - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.4)
-  - AFNetworking/Security (2.2.4)
-  - AFNetworking/Serialization (2.2.4)
-  - AFNetworking/UIKit (2.2.4):
+  - AFNetworking/NSURLSession (2.3.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.3.1)
+  - AFNetworking/Security (2.3.1)
+  - AFNetworking/Serialization (2.3.1)
+  - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AWSRuntime/Runtime (1.5.0.head)
   - AWSRuntime/S3 (1.5.0.head):
     - AWSRuntime/Runtime
   - Base64 (1.0.1)
-  - BlocksKit (2.0.0):
+  - BlocksKit (2.2.3):
     - BlocksKit/All
-  - BlocksKit/All (2.0.0):
+  - BlocksKit/All (2.2.3):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
     - BlocksKit/MessageUI
     - BlocksKit/UIKit
-  - BlocksKit/Core (2.0.0)
-  - BlocksKit/DynamicDelegate (2.0.0):
-    - libffi
-  - BlocksKit/MessageUI (2.0.0):
+  - BlocksKit/Core (2.2.3)
+  - BlocksKit/DynamicDelegate (2.2.3)
+  - BlocksKit/MessageUI (2.2.3):
+    - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.0.0):
+  - BlocksKit/UIKit (2.2.3):
+    - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - CocoaLumberjack (1.6.5.1):
     - CocoaLumberjack/Core
@@ -43,144 +46,97 @@ PODS:
   - CocoaLumberjack/Extensions (1.6.5.1):
     - CocoaLumberjack/Core
   - ConciseKit (0.1.2)
-  - Firebase (1.0.9)
+  - Firebase (1.1.11)
   - FirebaseMac (1.0.1)
   - ISO8601DateFormatter (0.7)
-  - Kiwi (2.2)
-  - libextobjc (0.3):
+  - Kiwi (2.2.3):
+    - Kiwi/SenTestingKit
+  - Kiwi/ARC (2.2.3)
+  - Kiwi/NonARC (2.2.3)
+  - Kiwi/SenTestingKit (2.2.3):
+    - Kiwi/ARC
+    - Kiwi/NonARC
+  - libextobjc (0.4):
     - libextobjc/EXTADT
-    - libextobjc/EXTAnnotation
-    - libextobjc/EXTAspect
-    - libextobjc/EXTBlockMethod
-    - libextobjc/EXTBlockTarget
     - libextobjc/EXTConcreteProtocol
-    - libextobjc/EXTDispatchObject
-    - libextobjc/EXTFinalMethod
     - libextobjc/EXTKeyPathCoding
-    - libextobjc/EXTMaybe
-    - libextobjc/EXTMixin
-    - libextobjc/EXTMultimethod
-    - libextobjc/EXTMultiObject
     - libextobjc/EXTNil
-    - libextobjc/EXTPassthrough
-    - libextobjc/EXTPrivateMethod
-    - libextobjc/EXTProtocolCategory
     - libextobjc/EXTSafeCategory
     - libextobjc/EXTScope
     - libextobjc/EXTSelectorChecking
-    - libextobjc/EXTSwizzle
     - libextobjc/EXTSynthesize
-    - libextobjc/EXTTuple
-    - libextobjc/EXTVarargs
     - libextobjc/NSInvocation+EXT
     - libextobjc/NSMethodSignature+EXT
     - libextobjc/RuntimeExtensions
     - libextobjc/UmbrellaHeader
-  - libextobjc/EXTADT (0.3):
+  - libextobjc/EXTADT (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTAnnotation (0.3):
+  - libextobjc/EXTConcreteProtocol (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTAspect (0.3):
+  - libextobjc/EXTKeyPathCoding (0.4):
     - libextobjc/RuntimeExtensions
-    - libffi
-  - libextobjc/EXTBlockMethod (0.3):
+  - libextobjc/EXTNil (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTBlockTarget (0.3):
+  - libextobjc/EXTSafeCategory (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTConcreteProtocol (0.3):
+  - libextobjc/EXTScope (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTDispatchObject (0.3):
+  - libextobjc/EXTSelectorChecking (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTFinalMethod (0.3):
+  - libextobjc/EXTSynthesize (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTKeyPathCoding (0.3):
+  - libextobjc/NSInvocation+EXT (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTMaybe (0.3):
+  - libextobjc/NSMethodSignature+EXT (0.4):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTMixin (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTMultimethod (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTMultiObject (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTNil (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTPassthrough (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTPrivateMethod (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTProtocolCategory (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSafeCategory (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTScope (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSelectorChecking (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSwizzle (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSynthesize (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTTuple (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/EXTVarargs (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/NSInvocation+EXT (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/NSMethodSignature+EXT (0.3):
-    - libextobjc/RuntimeExtensions
-  - libextobjc/RuntimeExtensions (0.3)
-  - libextobjc/UmbrellaHeader (0.3)
-  - libffi (3.0.13)
+  - libextobjc/RuntimeExtensions (0.4)
+  - libextobjc/UmbrellaHeader (0.4)
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
-  - Masonry (0.3.1)
+  - Masonry (0.5.3)
   - NSHash (1.0.1)
-  - NSLogger (1.2)
-  - ReactiveCocoa (2.1.8):
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
     - ReactiveCocoa/Core
-    - ReactiveCocoa/no-arc
-  - ReactiveCocoa/Core (2.1.8):
-    - ReactiveCocoa/no-arc
-  - ReactiveCocoa/no-arc (2.1.8)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.2.4)
+  - AFNetworking (~> 2.3.1)
   - AWSRuntime/S3 (= 1.5.0.head)
   - Base64 (~> 1.0.1)
-  - BlocksKit (~> 2.0.0)
-  - BlocksKit (~> 2.0.0po)
+  - BlocksKit (~> 2.2.3)
+  - BlocksKit (~> 2.2.3po)
   - CocoaLumberjack (~> 1.6.2)
   - ConciseKit (~> 0.1.2)
-  - Firebase (~> 1.0.7)
+  - Firebase (~> 1.1.11)
   - FirebaseMac (= 1.0.1)
   - ISO8601DateFormatter (~> 0.7)
-  - Kiwi (= 2.2)
-  - libextobjc (~> 0.3)
+  - Kiwi (= 2.2.3)
+  - libextobjc (~> 0.4)
   - MagicalRecord (~> 2.2)
-  - Masonry (~> 0.3.0)
+  - Masonry (~> 0.5.3)
   - NSHash (~> 1.0.1)
-  - NSLogger (~> 1.2)
-  - ReactiveCocoa (~> 2.1)
+  - ReactiveCocoa (~> 2.3.1)
 
 SPEC CHECKSUMS:
-  AFNetworking: 01aa7c3aa9a200b94943e54072a4373f14b3d219
+  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   AWSRuntime: 7282b146fee2bf0e8bffe62fa2f23c466915bde0
-  Base64: eaac9f2088ba659c5db1db960576eb0f2969ebaf
-  BlocksKit: c719258499c89fb43619abb434506a67b9e5332d
-  CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
-  ConciseKit: 7cd812f1302007bb64620dfa73012cf665ec2dab
-  Firebase: f88860bb05fde375a236bab7182ecc4e02fe5c93
+  Base64: c6d74f31f150543b246a07e180ba813c88e59311
+  BlocksKit: 07c8a80f04275efac6a5f8b973782489c083a182
+  CocoaLumberjack: baf4a09a3bcbdfea3363556a90104e026d3504e2
+  ConciseKit: abaee9f102396b59cccdb812b78527c7a24cda61
+  Firebase: 05357817d13cec124e8090df21dee3130046e59a
   FirebaseMac: f7b9113d5c80114df05cc8c4c87b32ddd08e795c
-  ISO8601DateFormatter: 00944e437ea647f4244454ce8809d313861d08de
-  Kiwi: db174bba4ee8068b15d7122f1b22fb64b7c1d378
-  libextobjc: 820a79dbbbc498611e04fffd07d2d52a5588e7ac
-  libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
-  MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
-  Masonry: 9d43e954fbe6e903002acd063e11aa648800a310
-  NSHash: 7e728a3e7fdff6828f3fce387049b1e0ca7fe8a0
-  NSLogger: 9607fdeafd0b09922c69615f99f127de45971b8f
-  ReactiveCocoa: 0db710a0afa1c627a64470e5c912a3870d4854ae
+  ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
+  Kiwi: 7b9bc7294de746357213067a1df49cc0a59384e8
+  libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
+  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
+  Masonry: 35368c2ca9577ca87722c12fc52c4bad9b1c1516
+  NSHash: 757e3ba784954b730eae472f3f4e12eb79a18d82
+  ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1

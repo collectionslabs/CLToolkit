@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Collections Labs, Inc. All rights reserved.
 //
 
-#import <NSLogger/LoggerClient.h>
 #import "Core.h"
 
 
@@ -119,20 +118,4 @@ void dispatch_specific_async(dispatch_queue_t queue, dispatch_block_t block) {
 
 void dispatch_specific_sync(dispatch_queue_t queue, dispatch_block_t block) {
     dispatch_specific(queue, block, YES);
-}
-
-// Logging Image Support
-
-void LogImage(IMAGE_CLASS *image) {
-#if DEBUG
-    
-#if TARGET_OS_IPHONE
-    NSData *data = UIImagePNGRepresentation(image);
-#elif TARGET_OS_MAC
-    NSData *data = [image TIFFRepresentation];
-#endif
-    double ratio = 1;// MAX(image.size.width, image.size.height) / MAX_LOGIMAGE_DIMENSION;
-    LogImageData(NULL, 0, (int)(image.size.width/ratio) , (int)(image.size.height/ratio), data);
-
-#endif
 }

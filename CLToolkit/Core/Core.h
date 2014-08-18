@@ -74,7 +74,6 @@ void dispatch_specific_sync(dispatch_queue_t queue, dispatch_block_t block);
 // Global Logging and Assertion Support
 
 void Log(NSString *format, ...);
-void LogImage(IMAGE_CLASS *image);
 
 #if DEBUG
     #define JSON_WRITING_OPTIONS NSJSONWritingPrettyPrinted
@@ -254,10 +253,5 @@ void LogImage(IMAGE_CLASS *image);
 // Default to nil tag and 0 context
 #define kLogTag nil
 #define kLogContext 0
-
-// Extended Image logging support from NSLogger
-#define MAX_LOGIMAGE_DIMENSION 64.0
-void LogImage(IMAGE_CLASS *image);
-
 
 #endif

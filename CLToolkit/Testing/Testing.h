@@ -13,6 +13,5 @@
 #import "Core.h"
 #import "RACSignal+Kiwi.h"
 #import "KWBlockMatchEvaluator.h"
-#import "KWNotificationMatcher.h"
 
 #endif

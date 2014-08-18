@@ -132,11 +132,8 @@
 		EAC0EBF017BCC4D500BF7E7C /* UIView+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC0EBEF17BCC4D500BF7E7C /* UIView+CLToolkit.m */; };
 		EAC0EBF317BCC4E600BF7E7C /* UIViewController+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC0EBF217BCC4E600BF7E7C /* UIViewController+CLToolkit.m */; };
 		EAC0EBF617BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC0EBF517BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m */; };
-		EAD415C117C9B34700EB0490 /* KWNotificationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EAD415BF17C9B34600EB0490 /* KWNotificationMatcher.h */; };
-		EAD415C217C9B34700EB0490 /* KWNotificationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */; };
 		EAD415C517C9B3D600EB0490 /* KWBlockMatchEvaluator.h in Headers */ = {isa = PBXBuildFile; fileRef = EAD415C317C9B3D600EB0490 /* KWBlockMatchEvaluator.h */; };
 		EAD415C617C9B3D600EB0490 /* KWBlockMatchEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */; };
-		EAD415C917C9B87800EB0490 /* KWNotificationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */; };
 		EAD415CA17C9B87800EB0490 /* KWBlockMatchEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */; };
 		EAD92AED17EABF8C00CED148 /* CLArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD92AEC17EABF8C00CED148 /* CLArrayController.m */; };
 		EAFDC57D18106E13000FB740 /* CLBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAFDC57B18106E13000FB740 /* CLBlockOperation.h */; };
@@ -272,8 +269,6 @@
 		EAC0EBF217BCC4E600BF7E7C /* UIViewController+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CLToolkit.m"; sourceTree = "<group>"; };
 		EAC0EBF417BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchedResultsController+CLToolkit.h"; sourceTree = "<group>"; };
 		EAC0EBF517BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchedResultsController+CLToolkit.m"; sourceTree = "<group>"; };
-		EAD415BF17C9B34600EB0490 /* KWNotificationMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWNotificationMatcher.h; sourceTree = "<group>"; };
-		EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWNotificationMatcher.m; sourceTree = "<group>"; };
 		EAD415C317C9B3D600EB0490 /* KWBlockMatchEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KWBlockMatchEvaluator.h; sourceTree = "<group>"; };
 		EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KWBlockMatchEvaluator.m; sourceTree = "<group>"; };
 		EAD92AEB17EABF8C00CED148 /* CLArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLArrayController.h; sourceTree = "<group>"; };
@@ -526,8 +521,6 @@
 			children = (
 				EAADD0EB17A05603009A8FA4 /* RACSignal+Kiwi.h */,
 				EAADD0EC17A05603009A8FA4 /* RACSignal+Kiwi.m */,
-				EAD415BF17C9B34600EB0490 /* KWNotificationMatcher.h */,
-				EAD415C017C9B34600EB0490 /* KWNotificationMatcher.m */,
 				EAD415C317C9B3D600EB0490 /* KWBlockMatchEvaluator.h */,
 				EAD415C417C9B3D600EB0490 /* KWBlockMatchEvaluator.m */,
 				EAADD0ED17A05603009A8FA4 /* Testing.h */,
@@ -623,7 +616,6 @@
 				EAB2B15417A2EC190047CE69 /* mac-prefix.pch in Headers */,
 				EA576A0217A506AF0043D6E6 /* MagicalRecord+Reactive.h in Headers */,
 				EA7D321D17ACE982007CADDC /* RACAppDelegate.h in Headers */,
-				EAD415C117C9B34700EB0490 /* KWNotificationMatcher.h in Headers */,
 				EAFDC58218106E71000FB740 /* NSOperation+Reactive.h in Headers */,
 				EAD415C517C9B3D600EB0490 /* KWBlockMatchEvaluator.h in Headers */,
 			);
@@ -806,7 +798,6 @@
 				EAADD17617A05603009A8FA4 /* Web.m in Sources */,
 				EA576A0317A506AF0043D6E6 /* MagicalRecord+Reactive.m in Sources */,
 				EA7D321E17ACE982007CADDC /* RACAppDelegate.m in Sources */,
-				EAD415C217C9B34700EB0490 /* KWNotificationMatcher.m in Sources */,
 				EAFDC57E18106E13000FB740 /* CLBlockOperation.m in Sources */,
 				EAD415C617C9B3D600EB0490 /* KWBlockMatchEvaluator.m in Sources */,
 			);
@@ -853,7 +844,6 @@
 				EAC0EBF317BCC4E600BF7E7C /* UIViewController+CLToolkit.m in Sources */,
 				EAC0EBF617BCC5B500BF7E7C /* NSFetchedResultsController+CLToolkit.m in Sources */,
 				EAADD16917A05603009A8FA4 /* RACSignal+Kiwi.m in Sources */,
-				EAD415C917C9B87800EB0490 /* KWNotificationMatcher.m in Sources */,
 				EAD415CA17C9B87800EB0490 /* KWBlockMatchEvaluator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
