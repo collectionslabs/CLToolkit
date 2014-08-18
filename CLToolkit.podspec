@@ -32,12 +32,11 @@ Pod::Spec.new do |s|
     ss.osx.framework = 'Cocoa'
     ss.ios.framework = 'UIKit'
     
-    ss.dependency 'Base64', '~> 1.0.1'
-    ss.dependency 'ConciseKit', '~> 0.1.2'
-    ss.dependency 'BlocksKit', '~> 2.0'
-    ss.dependency 'libextobjc', '~> 0.3'
-    ss.dependency 'ReactiveCocoa', '~> 2.1'
-    ss.dependency 'NSLogger', '~> 1.2'
+    ss.dependency 'Base64', '~> 1.0'
+    ss.dependency 'ConciseKit', '~> 0.1'
+    ss.dependency 'BlocksKit', '~> 2'
+    ss.dependency 'libextobjc', '~> 0.4'
+    ss.dependency 'ReactiveCocoa', '~> 2.3'
     ss.dependency 'ISO8601DateFormatter', '~> 0.7'
 
   end
@@ -46,8 +45,8 @@ Pod::Spec.new do |s|
     ss.source_files   = 'CLToolkit/Networking/**/*.{h,m,mm,c}'
     
     ss.dependency 'CLToolkit/Core'
-    ss.dependency 'AFNetworking', '~> 2.2.4'
-    ss.dependency 'Base64', '~> 1.0.1'
+    ss.dependency 'AFNetworking', '~> 2.3'
+    ss.dependency 'Base64', '~> 1.0'
   end
   
   s.subspec 'Operation' do |ss|
@@ -63,7 +62,7 @@ Pod::Spec.new do |s|
     ss.dependency 'CLToolkit/Core'
     ss.dependency 'CLToolkit/Operation'
     ss.dependency 'MagicalRecord/Shorthand', '~> 2.2'
-    ss.dependency 'Base64', '~> 1.0.1'
+    ss.dependency 'Base64', '~> 1.0'
   end
   
   s.subspec 'Firebase' do |ss|
@@ -72,7 +71,7 @@ Pod::Spec.new do |s|
     ss.dependency     'CLToolkit/Core'
     ss.dependency     'CLToolkit/CoreData'
     ss.osx.dependency 'FirebaseMac', '~> 1.0.1'
-    ss.ios.dependency 'Firebase', '~> 1.0.7'
+    ss.ios.dependency 'Firebase', '~> 1.0'
 
     ss.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Firebase"' }
   end
@@ -88,7 +87,7 @@ Pod::Spec.new do |s|
 
     ss.osx.frameworks = 'Quartz'
     ss.dependency 'CLToolkit/Core'
-    ss.dependency 'NSHash', '~> 1.0.1'
+    ss.dependency 'NSHash', '~> 1.0'
   end
 
   s.subspec 'Testing' do |ss|

@@ -108,22 +108,21 @@ PODS:
     - ReactiveCocoa/Core
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.3.1)
+  - AFNetworking (~> 2.3)
   - AWSRuntime/S3 (= 1.5.0.head)
-  - Base64 (~> 1.0.1)
-  - BlocksKit (~> 2.2.3)
-  - BlocksKit (~> 2.2.3po)
+  - Base64 (~> 1.0)
+  - BlocksKit (~> 2.2)
   - CocoaLumberjack (~> 2.0.0-beta)
-  - ConciseKit (~> 0.1.2)
-  - Firebase (~> 1.1.11)
+  - ConciseKit (~> 0.1)
+  - Firebase (~> 1.1)
   - FirebaseMac (= 1.0.1)
   - ISO8601DateFormatter (~> 0.7)
-  - Kiwi (= 2.2.3)
+  - Kiwi (~> 2.2)
   - libextobjc (~> 0.4)
   - MagicalRecord (~> 2.2)
-  - Masonry (~> 0.5.3)
-  - NSHash (~> 1.0.1)
-  - ReactiveCocoa (~> 2.3.1)
+  - Masonry (~> 0.5)
+  - NSHash (~> 1.0)
+  - ReactiveCocoa (~> 2.3)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
