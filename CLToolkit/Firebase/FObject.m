@@ -168,7 +168,7 @@
         if (!self->_disposable) return; // Firebase remove observer bug
                 
         if (snap.value == [NSNull null])
-            [self deleteEntity];
+            [self MR_deleteEntity];
     }]];
     [disposables addObject:[[self onPrepareDelete] subscribeNext:^(id x) {
         [self.ref removeValue];
@@ -245,7 +245,7 @@
 #pragma mark Class Methods
 
 + (instancetype)findByFPath:(NSString *)fPath {
-    return [self findByFPath:fPath inContext:[NSManagedObjectContext defaultContext]];
+    return [self findByFPath:fPath inContext:[NSManagedObjectContext MR_defaultContext]];
 }
 
 + (instancetype)findByFPath:(NSString *)fPath inContext:(NSManagedObjectContext *)context {
@@ -271,7 +271,7 @@
 }
 
 + (NSEntityDescription *)entityForFPath:(NSString *)fPath {
-    for (NSEntityDescription *entity in [[NSManagedObjectModel defaultManagedObjectModel] entities]) {
+    for (NSEntityDescription *entity in [[NSManagedObjectModel MR_defaultManagedObjectModel] entities]) {
         NSString *entityName = [[entity.name.lowercaseString $append:@"s"] sliceFrom:1];
         if ([[fPath sliceFrom:1] hasPrefix:entityName])
             return entity;

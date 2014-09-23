@@ -84,19 +84,19 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
 
 - (RACSignal *)saveToPersistentStore {
     return [RACSubject mr_subject:^(MRCompletionHandler completionBlock) {
-        [self saveToPersistentStoreWithCompletion:completionBlock];
+        [self MR_saveToPersistentStoreWithCompletion:completionBlock];
     }];
 }
 
 - (RACSignal *)saveOnlySelf {
     return [RACSubject mr_subject:^(MRCompletionHandler completionBlock) {
-        [self saveOnlySelfWithCompletion:completionBlock];
+        [self MR_saveOnlySelfWithCompletion:completionBlock];
     }];
 }
 
 - (RACSignal *)saveWithOptions:(MRSaveContextOptions)mask {
     return [RACSubject mr_subject:^(MRCompletionHandler completionBlock) {
-        return [self saveWithOptions:mask completion:completionBlock];
+        return [self MR_saveWithOptions:mask completion:completionBlock];
     }];
 }
 
