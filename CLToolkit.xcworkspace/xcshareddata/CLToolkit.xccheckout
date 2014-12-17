@@ -10,26 +10,26 @@
 	<string>CLToolkit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>9FC5FBE2E4FA55B3B67A6904DD3C56B5BE293D2E</key>
+		<string>ssh://github.com/collections/CLToolkit.git</string>
 		<key>BE5E0156-1240-4566-B863-2FA74537160B</key>
 		<string>ssh://github.com/happybits/AFDownloadRequestOperation.git</string>
-		<key>E07C2FF8-76B9-43AC-8BEA-7BAB8A3C312B</key>
-		<string>ssh://github.com/collections/CLToolkit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CLToolkit.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BE5E0156-1240-4566-B863-2FA74537160B</key>
-		<string>../../../HappyBits/AFDownloadRequestOperation</string>
-		<key>E07C2FF8-76B9-43AC-8BEA-7BAB8A3C312B</key>
+		<key>9FC5FBE2E4FA55B3B67A6904DD3C56B5BE293D2E</key>
 		<string>..</string>
+		<key>BE5E0156-1240-4566-B863-2FA74537160B</key>
+		<string>../../HappyBits/AFDownloadRequestOperation</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/collections/CLToolkit.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E07C2FF8-76B9-43AC-8BEA-7BAB8A3C312B</string>
+	<string>9FC5FBE2E4FA55B3B67A6904DD3C56B5BE293D2E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -44,7 +44,7 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E07C2FF8-76B9-43AC-8BEA-7BAB8A3C312B</string>
+			<string>9FC5FBE2E4FA55B3B67A6904DD3C56B5BE293D2E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CLToolkit</string>
 		</dict>

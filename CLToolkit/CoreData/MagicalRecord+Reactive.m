@@ -94,7 +94,7 @@ typedef void (^MRCompletionHandler)(BOOL success, NSError *error);
     }];
 }
 
-- (RACSignal *)saveWithOptions:(MRSaveContextOptions)mask {
+- (RACSignal *)saveWithOptions:(MRSaveOptions)mask {
     return [RACSubject mr_subject:^(MRCompletionHandler completionBlock) {
         return [self MR_saveWithOptions:mask completion:completionBlock];
     }];

@@ -15,7 +15,7 @@ target :ios do
   pod 'BlocksKit', '~> 2.2'
   pod 'AFNetworking', '~> 2.3'
   pod 'ConciseKit', '~> 0.1'
-  pod 'MagicalRecord', '~> 2.2'
+  pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord.git', :tag => 'v2.3.0-beta.5'
   pod 'libextobjc', '~> 0.4'
   pod 'ReactiveCocoa', '~> 2.3'
   pod 'ISO8601DateFormatter', '~> 0.7'
@@ -23,7 +23,6 @@ target :ios do
   pod 'Kiwi', '~> 2.2'
   pod 'Masonry', '~> 0.5'
   pod 'NSHash', '~> 1.0'
-  pod 'AWSRuntime/S3', '1.5.0.head' # From Collections/Podspecs
   
 end
 
@@ -35,13 +34,12 @@ target :osx do
   pod 'BlocksKit', '~> 2.2'
   pod 'AFNetworking', '~> 2.3'
   pod 'ConciseKit', '~> 0.1'
-  pod 'MagicalRecord', '~> 2.2'
+  pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord.git', :tag => 'v2.3.0-beta.5'
   pod 'ReactiveCocoa', '~> 2.3'
   pod 'ISO8601DateFormatter', '~> 0.7'
   pod 'Kiwi', '~> 2.2'
   # pod 'Masonry', '~> 0.3.0' # TODO: no reason masonry is not os x compatible...
   pod 'NSHash', '~> 1.0'
-  pod 'AWSRuntime/S3', '1.5.0.head' # From Collections/Podspecs
   pod 'FirebaseMac', '1.0.1' # From Collections/Podspecs
 end
 

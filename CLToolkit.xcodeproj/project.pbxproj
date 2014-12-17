@@ -22,13 +22,6 @@
 		EAADD0FB17A05603009A8FA4 /* CLUpdateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD09617A05603009A8FA4 /* CLUpdateHelper.m */; };
 		EAADD0FD17A05603009A8FA4 /* CLUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09717A05603009A8FA4 /* CLUpdater.h */; };
 		EAADD0FE17A05603009A8FA4 /* CLUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD09817A05603009A8FA4 /* CLUpdater.m */; };
-		EAADD10017A05603009A8FA4 /* AWS.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09A17A05603009A8FA4 /* AWS.h */; };
-		EAADD10117A05603009A8FA4 /* CLS3Client.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09B17A05603009A8FA4 /* CLS3Client.h */; };
-		EAADD10217A05603009A8FA4 /* CLS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD09C17A05603009A8FA4 /* CLS3Client.m */; };
-		EAADD10317A05603009A8FA4 /* CLS3Client.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD09C17A05603009A8FA4 /* CLS3Client.m */; };
-		EAADD10417A05603009A8FA4 /* CLS3TransferManager.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD09D17A05603009A8FA4 /* CLS3TransferManager.h */; };
-		EAADD10517A05603009A8FA4 /* CLS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD09E17A05603009A8FA4 /* CLS3TransferManager.m */; };
-		EAADD10617A05603009A8FA4 /* CLS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD09E17A05603009A8FA4 /* CLS3TransferManager.m */; };
 		EAADD10B17A05603009A8FA4 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = EAADD0A417A05603009A8FA4 /* Core.h */; };
 		EAADD10C17A05603009A8FA4 /* Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0A517A05603009A8FA4 /* Core.m */; };
 		EAADD10D17A05603009A8FA4 /* Core.m in Sources */ = {isa = PBXBuildFile; fileRef = EAADD0A517A05603009A8FA4 /* Core.m */; };
@@ -160,10 +153,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		30A78CE25E5B4BC4B9A53928 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		50A7CAA373B64F5E8A1C69B9 /* libPods-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C60457A2556AE4F1211F57A /* Pods-osx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-osx/Pods-osx.debug.xcconfig"; sourceTree = "<group>"; };
+		8FE5F62EF342D765D878C723 /* Pods-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.release.xcconfig"; sourceTree = "<group>"; };
 		9F44A1AFDB0344D99FA4113C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B624E07AABD447028FF9AEC9 /* Pods-ios.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.xcconfig"; path = "Pods/Pods-ios.xcconfig"; sourceTree = SOURCE_ROOT; };
+		B08B687FB176A2713987CA94 /* Pods-osx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.release.xcconfig"; path = "Pods/Target Support Files/Pods-osx/Pods-osx.release.xcconfig"; sourceTree = "<group>"; };
+		D4454BBFBB88E9132C55CBA6 /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		E4F6ED95562D42D0A20464E4 /* libPods-osx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-osx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA5769FE17A506AF0043D6E6 /* MagicalRecord+Reactive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MagicalRecord+Reactive.h"; sourceTree = "<group>"; };
 		EA5769FF17A506AF0043D6E6 /* MagicalRecord+Reactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MagicalRecord+Reactive.m"; sourceTree = "<group>"; };
@@ -182,11 +177,6 @@
 		EAADD09617A05603009A8FA4 /* CLUpdateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLUpdateHelper.m; sourceTree = "<group>"; };
 		EAADD09717A05603009A8FA4 /* CLUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLUpdater.h; sourceTree = "<group>"; };
 		EAADD09817A05603009A8FA4 /* CLUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLUpdater.m; sourceTree = "<group>"; };
-		EAADD09A17A05603009A8FA4 /* AWS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWS.h; sourceTree = "<group>"; };
-		EAADD09B17A05603009A8FA4 /* CLS3Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLS3Client.h; sourceTree = "<group>"; };
-		EAADD09C17A05603009A8FA4 /* CLS3Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLS3Client.m; sourceTree = "<group>"; };
-		EAADD09D17A05603009A8FA4 /* CLS3TransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLS3TransferManager.h; sourceTree = "<group>"; };
-		EAADD09E17A05603009A8FA4 /* CLS3TransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLS3TransferManager.m; sourceTree = "<group>"; };
 		EAADD0A417A05603009A8FA4 /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		EAADD0A517A05603009A8FA4 /* Core.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Core.m; sourceTree = "<group>"; };
 		EAADD0A617A05603009A8FA4 /* NSArray+Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Core.h"; sourceTree = "<group>"; };
@@ -279,7 +269,6 @@
 		EAFDC58118106E71000FB740 /* NSOperation+Reactive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+Reactive.m"; sourceTree = "<group>"; };
 		EAFDC58518109442000FB740 /* CLContainerOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLContainerOperation.h; sourceTree = "<group>"; };
 		EAFDC58618109442000FB740 /* CLContainerOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLContainerOperation.m; sourceTree = "<group>"; };
-		F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osx.xcconfig"; path = "Pods/Pods-osx.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,10 +298,8 @@
 				EAADD09217A05603009A8FA4 /* CLToolkit */,
 				EA898676179919AF00594A3E /* Frameworks */,
 				EA898675179919AF00594A3E /* Products */,
-				30A78CE25E5B4BC4B9A53928 /* Pods.xcconfig */,
-				B624E07AABD447028FF9AEC9 /* Pods-ios.xcconfig */,
-				F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */,
 				EAA273601807865900880CC9 /* CLToolkit.podspec */,
+				F156CAD3ABAB6B6E1CC40888 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -354,7 +341,6 @@
 				EAB2B15117A2EC190047CE69 /* ios-prefix.pch */,
 				EAB2B15217A2EC190047CE69 /* mac-prefix.pch */,
 				EAADD09317A05603009A8FA4 /* AutoUpdate */,
-				EAADD09917A05603009A8FA4 /* AWS */,
 				EAADD0A317A05603009A8FA4 /* Core */,
 				EAADD0B417A05603009A8FA4 /* CoreData */,
 				EAADD0BD17A05603009A8FA4 /* FileSystem */,
@@ -379,18 +365,6 @@
 				EAADD09817A05603009A8FA4 /* CLUpdater.m */,
 			);
 			path = AutoUpdate;
-			sourceTree = "<group>";
-		};
-		EAADD09917A05603009A8FA4 /* AWS */ = {
-			isa = PBXGroup;
-			children = (
-				EAADD09A17A05603009A8FA4 /* AWS.h */,
-				EAADD09B17A05603009A8FA4 /* CLS3Client.h */,
-				EAADD09C17A05603009A8FA4 /* CLS3Client.m */,
-				EAADD09D17A05603009A8FA4 /* CLS3TransferManager.h */,
-				EAADD09E17A05603009A8FA4 /* CLS3TransferManager.m */,
-			);
-			path = AWS;
 			sourceTree = "<group>";
 		};
 		EAADD0A317A05603009A8FA4 /* Core */ = {
@@ -557,6 +531,17 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
+		F156CAD3ABAB6B6E1CC40888 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D4454BBFBB88E9132C55CBA6 /* Pods-ios.debug.xcconfig */,
+				8FE5F62EF342D765D878C723 /* Pods-ios.release.xcconfig */,
+				5C60457A2556AE4F1211F57A /* Pods-osx.debug.xcconfig */,
+				B08B687FB176A2713987CA94 /* Pods-osx.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -567,9 +552,6 @@
 				EAADD0F917A05603009A8FA4 /* AutoUpdate.h in Headers */,
 				EAADD0FA17A05603009A8FA4 /* CLUpdateHelper.h in Headers */,
 				EAADD0FD17A05603009A8FA4 /* CLUpdater.h in Headers */,
-				EAADD10017A05603009A8FA4 /* AWS.h in Headers */,
-				EAADD10117A05603009A8FA4 /* CLS3Client.h in Headers */,
-				EAADD10417A05603009A8FA4 /* CLS3TransferManager.h in Headers */,
 				EAADD10B17A05603009A8FA4 /* Core.h in Headers */,
 				EAADD10E17A05603009A8FA4 /* NSArray+Core.h in Headers */,
 				EAADD11117A05603009A8FA4 /* NSColor+Core.h in Headers */,
@@ -702,7 +684,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-ios-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ios/Pods-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B8DEC8C908EA44CD98C339DD /* Copy Pods Resources */ = {
@@ -717,7 +699,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-osx-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-osx/Pods-osx-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C42D391DEE14487C9A638646 /* Check Pods Manifest.lock */ = {
@@ -761,8 +743,6 @@
 				EAADD0FB17A05603009A8FA4 /* CLUpdateHelper.m in Sources */,
 				EAFDC58318106E71000FB740 /* NSOperation+Reactive.m in Sources */,
 				EAADD0FE17A05603009A8FA4 /* CLUpdater.m in Sources */,
-				EAADD10217A05603009A8FA4 /* CLS3Client.m in Sources */,
-				EAADD10517A05603009A8FA4 /* CLS3TransferManager.m in Sources */,
 				EAADD10C17A05603009A8FA4 /* Core.m in Sources */,
 				EAADD10F17A05603009A8FA4 /* NSArray+Core.m in Sources */,
 				EAADD11217A05603009A8FA4 /* NSColor+Core.m in Sources */,
@@ -807,8 +787,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAADD10317A05603009A8FA4 /* CLS3Client.m in Sources */,
-				EAADD10617A05603009A8FA4 /* CLS3TransferManager.m in Sources */,
 				EAADD10D17A05603009A8FA4 /* Core.m in Sources */,
 				EAFDC58418106E71000FB740 /* NSOperation+Reactive.m in Sources */,
 				EAD92AED17EABF8C00CED148 /* CLArrayController.m in Sources */,
@@ -904,7 +882,7 @@
 		};
 		EAADD07F17A055A0009A8FA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */;
+			baseConfigurationReference = 5C60457A2556AE4F1211F57A /* Pods-osx.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -941,7 +919,7 @@
 		};
 		EAADD08017A055A0009A8FA4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F545D7B25DA249BEB19E0C52 /* Pods-osx.xcconfig */;
+			baseConfigurationReference = B08B687FB176A2713987CA94 /* Pods-osx.release.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -979,7 +957,7 @@
 		};
 		EAADD09017A055AD009A8FA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B624E07AABD447028FF9AEC9 /* Pods-ios.xcconfig */;
+			baseConfigurationReference = D4454BBFBB88E9132C55CBA6 /* Pods-ios.debug.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/CLToolkit_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1015,7 +993,7 @@
 		};
 		EAADD09117A055AD009A8FA4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B624E07AABD447028FF9AEC9 /* Pods-ios.xcconfig */;
+			baseConfigurationReference = 8FE5F62EF342D765D878C723 /* Pods-ios.release.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/CLToolkit_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'CLToolkit'
-  s.version      =  '0.2.8'
+  s.version      =  '0.2.9'
   s.summary      =  'CLToolkit is a collections of common macros, classes and utilities for Mac / iOS.'
   s.homepage     =  'https://github.com/collections/CLToolkit'
   s.author       =  { 'Tony Xiao' => 'tony@collections.me' }
@@ -61,7 +61,7 @@ Pod::Spec.new do |s|
     
     ss.dependency 'CLToolkit/Core'
     ss.dependency 'CLToolkit/Operation'
-    ss.dependency 'MagicalRecord', '~> 2.2'
+    ss.dependency 'MagicalRecord', '~> 2.3.0-beta.5'
     ss.dependency 'Base64', '~> 1.0'
   end
   

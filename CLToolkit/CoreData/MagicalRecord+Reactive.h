@@ -22,7 +22,7 @@
 - (RACSignal *)performBlockAndSave:(void (^)())block;
 - (RACSignal *)saveToPersistentStore;
 - (RACSignal *)saveOnlySelf;
-- (RACSignal *)saveWithOptions:(MRSaveContextOptions)mask;
+- (RACSignal *)saveWithOptions:(MRSaveOptions)mask;
 
 + (void)MR_setContextForCurrentThread:(NSManagedObjectContext *)context;
 
