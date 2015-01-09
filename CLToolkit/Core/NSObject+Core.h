@@ -31,8 +31,6 @@
 
 - (void)CL_dumpInfo;
 
-+ (void)performSelector:(SEL)sel withDelay:(NSTimeInterval)delay;
-
 // TODO: Add - (instancetype)cl_delay and + (Class)cl_delay
 // which return proxy objects that one can call
 

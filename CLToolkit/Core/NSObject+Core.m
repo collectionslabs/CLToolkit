@@ -109,12 +109,6 @@
     NSLog(@"%@", classDump);
 }
 
-+ (void)performSelector:(SEL)sel withDelay:(NSTimeInterval)delay {
-    [self bk_performBlock:^{
-        objc_msgSend(self, sel);
-    } afterDelay:delay];
-}
-
 @end
 
 
